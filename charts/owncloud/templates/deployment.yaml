@@ -1,0 +1,142 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "owncloud.fullname" . }}
+  labels:
+    {{- include "owncloud.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "owncloud.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "owncloud.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "owncloud.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          env:
+          - name: OWNCLOUD_DB_HOST
+            value: {{ .Release.Name }}-mariadb
+          - name: OWNCLOUD_DB_NAME
+            value: {{ .Values.mariadb.auth.database }}
+          - name: OWNCLOUD_DB_USERNAME
+            value: {{ .Values.mariadb.auth.username }}
+          - name: OWNCLOUD_DB_TYPE
+            value: mysql
+          - name: OWNCLOUD_ADMIN_USERNAME
+            value: {{ .Values.ownCloud.adminUsername }}
+          - name: WNCLOUD_MAIL_DOMAIN
+            value: {{ .Values.ownCloud.mail.domain }}
+          - name: OWNCLOUD_MAIL_FROM_ADDRESS
+            value: {{ .Values.ownCloud.mail.fromAddress }}
+          {{- if .Values.ownCloud.mail.smtp.auth }}
+          - name: OWNCLOUD_MAIL_SMTP_AUTH
+            value: {{ .Values.ownCloud.mail.smtp.auth }}
+          {{- end }}
+          {{- if .Values.ownCloud.mail.smtp.host }}
+          - name: OWNCLOUD_MAIL_SMTP_HOST
+            value: {{ .Values.ownCloud.mail.smtp.host }}
+          {{- end }}
+          {{- if .Values.ownCloud.mail.mode }}
+          - name: OWNCLOUD_MAIL_SMTP_MODE
+            value: {{ .Values.ownCloud.mail.mode }}
+          {{- end }}
+          {{- if .Values.ownCloud.mail.smtp.username }}
+          - name: OWNCLOUD_MAIL_SMTP_NAME
+            value: {{ .Values.ownCloud.mail.smtp.username }}
+          {{- end }}
+          {{- if .Values.ownCloud.mail.smtp.port }}
+          - name: OWNCLOUD_MAIL_SMTP_PORT
+            value: {{ .Values.ownCloud.mail.smtp.port | quote }}
+          {{- end }}  
+          {{- if .Values.ownCloud.mail.smtp.secure }}
+          - name: OWNCLOUD_MAIL_SMTP_SECURE
+            value: {{ .Values.ownCloud.mail.smtp.secure }}
+          {{- end }}
+        {{- with (index .Values.ingress.hosts 0) }}
+          {{- if .host }}
+          - name: OWNCLOUD_DOMAIN
+            value: {{ .host }}
+          {{- end }}
+        {{- end }}
+          - name: OWNCLOUD_MYSQL_UTF8MB4
+            value: "true"
+          - name: OWNCLOUD_REDIS_ENABLED
+            value: "true"
+          - name: OWNCLOUD_REDIS_HOST
+            value: {{ .Release.Name }}-redis-master
+          - name: OWNCLOUD_ACCESSLOG_LOCATION
+            value: "/dev/null"
+          - name: OWNCLOUD_DB_TIMEOUT
+            value: "30"
+          - name: OWNCLOUD_DAV_ENABLE_ASYNC
+            value: "1"
+          envFrom:
+          - secretRef:
+              name: {{ .Release.Name }}-secret
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+          - mountPath: /mnt/data
+            name: data
+          livenessProbe:
+            exec:
+              command:
+              - /usr/bin/healthcheck
+            failureThreshold: 6
+            periodSeconds: 10
+            timeoutSeconds: 10
+          readinessProbe:
+            exec:
+              command:
+              - /usr/bin/healthcheck
+            failureThreshold: 2
+            periodSeconds: 10
+            timeoutSeconds: 10
+          startupProbe:
+            exec:
+              command:
+              - /usr/bin/healthcheck
+            failureThreshold: 30
+            periodSeconds: 20
+            timeoutSeconds: 10
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.priorityClassName }}
+      priorityClassName: {{ .Values.priorityClassName }}
+      {{- end }}
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-data
