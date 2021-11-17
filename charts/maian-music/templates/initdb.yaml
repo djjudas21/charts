@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: initdb
+data:
+  schema.sql: |-
+    {{ .Files.Get "schema/schema.sql" | nindent 4}}
