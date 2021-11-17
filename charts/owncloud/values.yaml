@@ -1,0 +1,146 @@
+# Default values for owncloud.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  imageRegistry: ""
+  imagePullSecrets: []
+  storageClass: ""
+
+ownCloud:
+  adminUsername: "admin"
+  adminPassword: "admin"
+  mail:
+    domain: "cluster.local"
+    fromAddress: owncloud
+    mode: smtp
+    smtp:
+      host:
+      port:
+      secure:
+      auth: false
+      username: ""
+      password: ""
+
+replicaCount: 1
+
+image:
+  repository: owncloud/server
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+persistence:
+  enabled: true
+  storageClass: ""
+  accessModes:
+    - ReadWriteMany
+  size: 8Gi
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+priorityClassName: ""
+
+affinity: {}
+
+# Bitnami MariaDB
+# https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
+mariadb:
+  architecture: standalone
+  auth:
+    rootPassword: ""
+    database: owncloud
+    username: "owncloud"
+    password: "owncloud"
+    replicationUser: replicator
+    replicationPassword: "replication"
+  primary:
+    resources: {}
+    priorityClassName: ""
+    persistence:
+      enabled: true
+      storageClass: ""
+      accessModes:
+        - ReadWriteOnce
+      size: 8Gi
+  metrics:
+    enabled: false
+    resources: {}
+    serviceMonitor:
+      enabled: false
+
+# Bitnami Redis
+# https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml
+redis:
+  architecture: standalone
+  auth:
+    enabled: false
+    sentinel: true
+    password: "redis"
+    existingSecret: ""
+    existingSecretPasswordKey: ""
+    usePasswordFiles: false
+  master:
+    resources: {}
+    priorityClassName: ""
+    persistence:
+      enabled: true
+      storageClass: ""
+      accessModes:
+        - ReadWriteOnce
+      size: 8Gi
+  metrics:
+    enabled: false
+    serviceMonitor:
+      enabled: false
+    prometheusRule:
+      enabled: false
