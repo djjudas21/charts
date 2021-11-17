@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+data:
+  MM_DB_HOST: {{ .Release.Name }}-mysql
+  MM_DB_USER: {{ .Values.mysql.auth.username }}
+  MM_DB_NAME: {{ .Values.mysql.auth.database }}
+  MM_ADMIN_USER: {{ .Values.adminUser }}
