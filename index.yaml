@@ -58,4 +58,17 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/owncloud-0.1.11/owncloud-0.1.11.tgz
     version: 0.1.11
-generated: "2021-11-17T12:57:33.261266597Z"
+  tx-smtp-relay:
+  - apiVersion: v2
+    appVersion: 0.4.1
+    created: "2021-11-17T13:03:17.685674575Z"
+    description: A Helm chart for Kubernetes
+    digest: acb9047f8b6f86e712f3d6d72c21799959924d38fb5bcd54b03cb6c763f2e974
+    maintainers:
+    - name: djjudas21
+    name: tx-smtp-relay
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/tx-smtp-relay-0.2.5/tx-smtp-relay-0.2.5.tgz
+    version: 0.2.5
+generated: "2021-11-17T13:03:17.685680375Z"
