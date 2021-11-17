@@ -1,0 +1,37 @@
+apiVersion: v1
+entries:
+  owncloud:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: "10.8"
+    created: "2021-11-17T12:52:20.979673872Z"
+    dependencies:
+    - name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.x.x
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.x.x
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: 3f88278fe2fdeefd2274400a1d7c09db8c6a740397d6c0fd867fe28c11e3d0ab
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    maintainers:
+    - name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.1.11/owncloud-0.1.11.tgz
+    version: 0.1.11
+generated: "2021-11-17T12:52:20.979681272Z"
