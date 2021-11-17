@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "tx-smtp-relay.fullname" . }}
+  labels:
+    {{- include "tx-smtp-relay.labels" . | nindent 4 }}
+data:
+  smtp-relay-host: {{ .Values.smtp.host | quote }}
+  smtp-relay-myhostname: {{ .Values.smtp.myhostname | default (include "tx-smtp-relay.fullname" .) | quote }}
+  smtp-relay-username: {{ .Values.smtp.username | quote }}
+  smtp-relay-mynetworks: {{ join "," .Values.smtp.mynetworks }}
+  smtp-relay-tls-wrappermode: {{ .Values.smtp.tls_wrappermode | quote }}
+  smtp-relay-tls-security-level: {{ .Values.smtp.tls_security_level | quote }}

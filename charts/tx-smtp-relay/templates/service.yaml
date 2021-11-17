@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "tx-smtp-relay.name" . }}
+  labels:
+    {{- include "tx-smtp-relay.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  {{- if .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP }}
+  {{- end }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 25
+      protocol: TCP
+      name: smtp
+  selector:
+    {{- include "tx-smtp-relay.selectorLabels" . | nindent 4 }}
