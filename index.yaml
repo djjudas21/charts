@@ -29,6 +29,39 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: "10.8"
+    created: "2021-11-23T21:50:21.816934221Z"
+    dependencies:
+    - name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.x.x
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.x.x
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: a679cd48fd19684e1532aeec55e3ba988099103f5bd97193ad88a095491ed6a1
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    maintainers:
+    - name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.1.13/owncloud-0.1.13.tgz
+    version: 0.1.13
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: "10.8"
     created: "2021-11-17T12:52:20.979673872Z"
     dependencies:
     - name: mariadb
@@ -71,4 +104,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/tx-smtp-relay-0.2.5/tx-smtp-relay-0.2.5.tgz
     version: 0.2.5
-generated: "2021-11-17T13:03:17.685680375Z"
+generated: "2021-11-23T21:50:21.926915792Z"
