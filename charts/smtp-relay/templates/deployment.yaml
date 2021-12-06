@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "tx-smtp-relay.fullname" . }}
+  name: {{ include "smtp-relay.fullname" . }}
   labels:
-    {{- include "tx-smtp-relay.labels" . | nindent 4 }}
+    {{- include "smtp-relay.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "tx-smtp-relay.selectorLabels" . | nindent 6 }}
+      {{- include "smtp-relay.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -16,13 +16,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "tx-smtp-relay.selectorLabels" . | nindent 8 }}
+        {{- include "smtp-relay.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "tx-smtp-relay.serviceAccountName" . }}
+      serviceAccountName: {{ include "smtp-relay.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -32,40 +32,40 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: TX_SMTP_RELAY_HOST
+            - name: SMTP_RELAY_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "tx-smtp-relay.fullname" . }}
+                  name: {{ include "smtp-relay.fullname" . }}
                   key: smtp-relay-host
-            - name: TX_SMTP_RELAY_MYHOSTNAME
+            - name: SMTP_RELAY_MYHOSTNAME
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "tx-smtp-relay.fullname" . }}
+                  name: {{ include "smtp-relay.fullname" . }}
                   key: smtp-relay-myhostname
-            - name: TX_SMTP_RELAY_USERNAME
+            - name: SMTP_RELAY_USERNAME
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "tx-smtp-relay.fullname" . }}
+                  name: {{ include "smtp-relay.fullname" . }}
                   key: smtp-relay-username
-            - name: TX_SMTP_RELAY_MYNETWORKS
+            - name: SMTP_RELAY_MYNETWORKS
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "tx-smtp-relay.fullname" . }}
+                  name: {{ include "smtp-relay.fullname" . }}
                   key: smtp-relay-mynetworks
-            - name: TX_SMTP_RELAY_WRAPPERMODE
+            - name: SMTP_RELAY_WRAPPERMODE
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "tx-smtp-relay.fullname" . }}
+                  name: {{ include "smtp-relay.fullname" . }}
                   key: smtp-relay-tls-wrappermode
-            - name: TX_SMTP_TLS_SECURITY_LEVEL
+            - name: SMTP_TLS_SECURITY_LEVEL
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "tx-smtp-relay.fullname" . }}
+                  name: {{ include "smtp-relay.fullname" . }}
                   key: smtp-relay-tls-security-level
-            - name: TX_SMTP_RELAY_PASSWORD
+            - name: SMTP_RELAY_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "tx-smtp-relay.fullname" . }}
+                  name: {{ include "smtp-relay.fullname" . }}
                   key: smtp-relay-password
           ports:
             - name: smtp

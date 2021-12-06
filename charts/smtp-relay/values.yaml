@@ -1,4 +1,4 @@
-# Default values for tx-smtp-relay.
+# Default values for smtp-relay.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -21,7 +21,7 @@ smtp:
   tls_security_level: ""
 
 image:
-  repository: djjudas21/tx-smtp-relay
+  repository: djjudas21/smtp-relay
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
