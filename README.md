@@ -18,6 +18,6 @@ Maian Music is a PHP application for selling digital and physical music
 
 File-sharing server
 
-### tx-smtp-relay
+### smtp-relay
 
 SMTP relay host for emails from within a Kubernetes cluster.
