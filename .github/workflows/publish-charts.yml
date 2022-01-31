@@ -27,6 +27,7 @@ jobs:
       - name: Add dependency chart repos
         run: |
           helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add library-chart https://library-charts.k8s-at-home.com
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.2.1
