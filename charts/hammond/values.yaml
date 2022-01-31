@@ -44,4 +44,4 @@ persistence:
     mountPath: /config
   assets:
     enabled: false
-    mountPath: /config
+    mountPath: /assets
