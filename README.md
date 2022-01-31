@@ -10,6 +10,10 @@ helm repo update
 
 ## Charts in this repo
 
+### hammond
+
+A self-hosted vehicle expense tracking system with support for multiple users
+
 ### maian-music
 
 Maian Music is a PHP application for selling digital and physical music
