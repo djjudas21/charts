@@ -48,12 +48,11 @@ spec:
             value: "1000"
           - name: PGID
             value: "1000"
-            #- PUBLIC_KEY=yourpublickey #optional
-            #- PUBLIC_KEY_FILE=/path/to/file #optional
-            #- PUBLIC_KEY_DIR=/path/to/directory/containing/_only_/pubkeys #optional
             #- SUDO_ACCESS=false #optional
+          - name: PUBLIC_KEY
+            value: {{ .Values.auth.publicKey }}
           - name: PASSWORD_ACCESS
-            value: "true"
+            value: {{ .Values.auth.passwordAccess }}
           - name: USER_PASSWORD
             valueFrom:
               secretKeyRef:
@@ -61,10 +60,7 @@ spec:
                 key: password
             #- USER_PASSWORD_FILE=/path/to/file #optional
           - name: USER_NAME
-            valueFrom:
-              secretKeyRef:
-                name: credentials
-                key: username
+            value: {{ .Values.auth.username }}
           volumeMounts:
           {{- if .Values.persistence.enabled }}
           - name: home

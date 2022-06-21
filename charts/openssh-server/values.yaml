@@ -15,8 +15,10 @@ nameOverride: ""
 fullnameOverride: ""
 
 auth:
+  passwordAccess: false
   username: admin
   password: admin
+  publicKey: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
