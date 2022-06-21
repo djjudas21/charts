@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: custom-scripts
+  namespace: ssh
+data:
+  install.bash: |
+    #!/bin/bash
+
+    echo "**** enabling edge-testing repo ****"
+    echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+
+    echo "**** installing packages ****"
+    apk add --no-cache git vim
+    apk add --no-cache git-secret@edge
+    apk add --no-cache kubectl@edge
+    apk add --no-cache helm@edge
+    apk add --no-cache kubectx@edge

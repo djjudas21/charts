@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "ssh.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "ssh.selectorLabels" . | nindent 6 }}
@@ -34,19 +32,44 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: 80
+            - name: ssh
+              containerPort: 2222
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            tcpSocket:
+              port: ssh
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            tcpSocket:
+              port: ssh
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+            #- PUBLIC_KEY=yourpublickey #optional
+            #- PUBLIC_KEY_FILE=/path/to/file #optional
+            #- PUBLIC_KEY_DIR=/path/to/directory/containing/_only_/pubkeys #optional
+            #- SUDO_ACCESS=false #optional
+          - name: PASSWORD_ACCESS
+            value: "true"
+          - name: USER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: credentials
+                key: password
+            #- USER_PASSWORD_FILE=/path/to/file #optional
+          - name: USER_NAME
+            valueFrom:
+              secretKeyRef:
+                name: credentials
+                key: username
+          volumeMounts:
+          - name: home
+            mountPath: /config
+          - name: custom-scripts
+            mountPath: /config/custom-cont-init.d
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -59,3 +82,10 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+        - name: home
+          persistentVolumeClaim:
+            claimName: home
+        - name: custom-scripts
+          configMap:
+            name: custom-scripts
