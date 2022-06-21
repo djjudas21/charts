@@ -1,6 +1,6 @@
 apiVersion: v2
 name: openssh-server
-description: A Helm chart for Kubernetes
+description: OpenSSH server deployment
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -22,3 +22,15 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "1.16.0"
+
+keywords:
+  - ssh
+  - openssh
+  - terminal
+  - shell
+home: https://github.com/djjudas21/charts
+sources:
+- https://github.com/djjudas21/charts
+maintainers:
+- name: djjudas21
+  email: djjudas21@users.noreply.github.com
