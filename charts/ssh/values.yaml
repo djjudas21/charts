@@ -57,6 +57,13 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+persistence:
+  enabled: true
+  storageClass: ""
+  accessModes:
+    - ReadWriteOnce
+  size: 2Gi
+
 nodeSelector: {}
 
 tolerations: []

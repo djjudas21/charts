@@ -66,8 +66,10 @@ spec:
                 name: credentials
                 key: username
           volumeMounts:
+          {{- if .Values.persistence.enabled }}
           - name: home
             mountPath: /config
+          {{- end }}
           - name: custom-scripts
             mountPath: /config/custom-cont-init.d
       {{- with .Values.nodeSelector }}
@@ -83,9 +85,11 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
+        {{- if .Values.persistence.enabled }}
         - name: home
           persistentVolumeClaim:
-            claimName: home
+            claimName: {{ .Release.Name }}-home
+        {{- end }}
         - name: custom-scripts
           configMap:
             name: custom-scripts
