@@ -43,6 +43,7 @@ service:
   graphite:
     type: ClusterIP
     port: 9109
+    loadBalancerIP: ""
     annotations: {}
     # metallb.universe.tf/allow-shared-ip: graphite-exporter
 
