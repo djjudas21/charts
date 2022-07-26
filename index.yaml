@@ -1,5 +1,27 @@
 apiVersion: v1
 entries:
+  graphite-exporter:
+  - apiVersion: v2
+    appVersion: v0.12.2
+    created: "2022-07-26T12:44:44.207422532Z"
+    description: A Prometheus exporter for metrics exported in the Graphite plaintext
+      protocol
+    digest: 4ce2b2886d68bea6327ba9eab07ac5b4643bc53a168e891b5c7b4cb0758092b1
+    home: https://github.com/djjudas21/charts
+    icon: https://graphiteapp.org/img/apple-touch-icon-144x144.png
+    keywords:
+    - graphite
+    - prometheus
+    - monitoring
+    maintainers:
+    - name: djjudas21
+    name: graphite-exporter
+    sources:
+    - https://github.com/prometheus/graphite_exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/graphite-exporter-0.1.0/graphite-exporter-0.1.0.tgz
+    version: 0.1.0
   hammond:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -301,4 +323,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/tx-smtp-relay-0.2.5/tx-smtp-relay-0.2.5.tgz
     version: 0.2.5
-generated: "2022-06-24T13:13:10.907586689Z"
+generated: "2022-07-26T12:44:44.207440033Z"
