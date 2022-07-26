@@ -10,3 +10,6 @@
 # NOT apply to ownership claim operations, which are processed immediately.
 #
 repositoryID: 33f88f64-ab30-4cd2-a9aa-6af98e10bba2
+owners:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
