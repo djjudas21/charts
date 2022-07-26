@@ -4,6 +4,7 @@ metadata:
   name: {{ include "graphite-exporter.fullname" . }}-prometheus
   labels:
     {{- include "graphite-exporter.labels" . | nindent 4 }}
+    protocol: prometheus
 spec:
   type: {{ .Values.service.prometheus.type }}
   ports:

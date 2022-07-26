@@ -4,6 +4,7 @@ metadata:
   name: {{ include "graphite-exporter.fullname" . }}-graphite-tcp
   labels:
     {{- include "graphite-exporter.labels" . | nindent 4 }}
+    protocol: graphite
   {{- with .Values.service.graphite.annotations }}
   annotations:
     {{- toYaml . | nindent 8 }}
