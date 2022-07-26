@@ -25,3 +25,7 @@ File-sharing server
 ### smtp-relay
 
 SMTP relay host for emails from within a Kubernetes cluster.
+
+### graphite-exporter
+
+A Prometheus exporter for metrics exported in the Graphite plaintext protocol

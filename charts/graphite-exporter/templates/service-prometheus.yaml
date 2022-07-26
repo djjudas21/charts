@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "graphite-exporter.fullname" . }}-prometheus
+  labels:
+    {{- include "graphite-exporter.labels" . | nindent 4 }}
+    protocol: prometheus
+spec:
+  type: {{ .Values.service.prometheus.type }}
+  ports:
+    - port: {{ .Values.service.prometheus.port }}
+      protocol: TCP
+      name: prometheus
+  selector:
+    {{- include "graphite-exporter.selectorLabels" . | nindent 4 }}
