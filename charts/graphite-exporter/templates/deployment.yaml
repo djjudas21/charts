@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "graphite-exporter.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "graphite-exporter.selectorLabels" . | nindent 6 }}
