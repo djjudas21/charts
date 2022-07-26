@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "graphite-exporter.fullname" . }}-graphite-tcp
+  labels:
+    {{- include "graphite-exporter.labels" . | nindent 4 }}
+  {{- with .Values.service.graphite.annotations }}
+  annotations:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.graphite.type }}
+  {{- if .Values.service.graphite.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.service.graphite.loadBalancerIP }}
+  {{- end }}
+  ports:
+    - port: {{ .Values.service.graphite.port }}
+      protocol: TCP
+      name: graphite
+  selector:
+    {{- include "graphite-exporter.selectorLabels" . | nindent 4 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "graphite-exporter.fullname" . }}-graphite-udp
+  labels:
+    {{- include "graphite-exporter.labels" . | nindent 4 }}
+  {{- with .Values.service.graphite.annotations }}
+  annotations:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.graphite.type }}
+  {{- if .Values.service.graphite.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.service.graphite.loadBalancerIP }}
+  {{- end }}
+  ports:
+    - port: {{ .Values.service.graphite.port }}
+      protocol: UDP
+      name: graphite
+  selector:
+    {{- include "graphite-exporter.selectorLabels" . | nindent 4 }}

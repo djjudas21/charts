@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: prom/graphite-exporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -37,8 +37,14 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 80
+  prometheus:
+    type: ClusterIP
+    port: 9108
+  graphite:
+    type: ClusterIP
+    port: 9109
+    annotations: {}
+    # metallb.universe.tf/allow-shared-ip: graphite-exporter
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

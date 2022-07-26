@@ -34,17 +34,20 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: 80
+          ports:
+            - name: prometheus
+              containerPort: {{ .Values.service.prometheus.port }}
               protocol: TCP
+            - name: graphite
+              containerPort: {{ .Values.service.graphite.port }}
           livenessProbe:
             httpGet:
               path: /
-              port: http
+              port: prometheus
           readinessProbe:
             httpGet:
               path: /
-              port: http
+              port: prometheus
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
