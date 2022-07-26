@@ -25,6 +25,34 @@ entries:
   hammond:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-07-26T13:35:30.744510696Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.3.0
+    description: Hammond is a self-hosted vehicle expense tracking system with support
+      for multiple users
+    digest: 062811ec96cde82f9734601d189b46601046f11ef1e5723226bf0e34009e02e6
+    home: https://github.com/akhilrex/hammond
+    icon: https://github.com/akhilrex/hammond/raw/master/ui/src/assets/images/logo.png
+    keywords:
+    - hammond
+    - car
+    - expense
+    - fuel
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: hammond
+    sources:
+    - https://github.com/akhilrex/hammond
+    - https://hub.docker.com/r/akhilrex/hammond
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/hammond-0.1.3/hammond-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-01-31T16:15:18.563406304Z"
     dependencies:
     - name: common
@@ -323,4 +351,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/tx-smtp-relay-0.2.5/tx-smtp-relay-0.2.5.tgz
     version: 0.2.5
-generated: "2022-07-26T12:44:44.207440033Z"
+generated: "2022-07-26T13:35:30.744538497Z"
