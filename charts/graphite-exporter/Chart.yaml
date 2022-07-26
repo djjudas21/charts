@@ -22,3 +22,14 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "v0.12.2"
+
+home: https://github.com/djjudas21/charts
+icon: https://graphiteapp.org/img/apple-touch-icon-144x144.png
+keywords:
+  - graphite
+  - prometheus
+  - monitoring
+maintainers:
+  - name: djjudas21
+sources:
+  - https://github.com/prometheus/graphite_exporter
