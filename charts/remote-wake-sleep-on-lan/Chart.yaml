@@ -22,3 +22,14 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "latest"
+
+home: https://github.com/djjudas21/charts
+keywords:
+  - wakeonlan
+  - wake
+  - magicpacket
+maintainers:
+  - name: djjudas21
+sources:
+  - https://github.com/sciguy14/Remote-Wake-Sleep-On-LAN-Server
+  - https://hub.docker.com/r/ex0nuss/remote-wake-sleep-on-lan-docker

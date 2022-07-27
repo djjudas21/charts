@@ -29,3 +29,8 @@ SMTP relay host for emails from within a Kubernetes cluster.
 ### graphite-exporter
 
 A Prometheus exporter for metrics exported in the Graphite plaintext protocol
+
+### remote-wake-sleep-on-lan
+
+Send Wake-on-LAN magic packets
+
