@@ -269,6 +269,27 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/owncloud-0.1.11/owncloud-0.1.11.tgz
     version: 0.1.11
+  remote-wake-sleep-on-lan:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-07-27T14:49:58.346813617Z"
+    description: A Helm chart for Kubernetes
+    digest: 4771636462a4ef4a01f8c1a771204e6db8206bbd63b39509ce585bcf6ea2e7eb
+    home: https://github.com/djjudas21/charts
+    keywords:
+    - wakeonlan
+    - wake
+    - magicpacket
+    maintainers:
+    - name: djjudas21
+    name: remote-wake-sleep-on-lan
+    sources:
+    - https://github.com/sciguy14/Remote-Wake-Sleep-On-LAN-Server
+    - https://hub.docker.com/r/ex0nuss/remote-wake-sleep-on-lan-docker
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/remote-wake-sleep-on-lan-0.1.0/remote-wake-sleep-on-lan-0.1.0.tgz
+    version: 0.1.0
   smtp-relay:
   - apiVersion: v2
     appVersion: 0.5.0
@@ -295,4 +316,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/tx-smtp-relay-0.2.5/tx-smtp-relay-0.2.5.tgz
     version: 0.2.5
-generated: "2022-07-26T13:35:30.744538497Z"
+generated: "2022-07-27T14:49:58.346839517Z"
