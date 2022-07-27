@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "remote-wake-sleep-on-lan.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "remote-wake-sleep-on-lan.selectorLabels" . | nindent 6 }}
