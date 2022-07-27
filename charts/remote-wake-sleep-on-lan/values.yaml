@@ -16,6 +16,35 @@ fullnameOverride: ""
 
 hostNetwork: true
 
+# Let's say we want to wake 2 computers with the following configurations:
+
+# PC1
+# Displayname: PC of Mark
+# MAC address: 24:00:dd:5a:21:04
+# IP address: 192.168.1.146
+# PC2
+# Displayname: PC of John
+# MAC address: 59:3c:45:3c:30:f6
+# IP address: 192.168.1.177
+
+# To configure the env vars it's easier to arrange them in a vertical table:
+
+# RWSOLS_COMPUTER_NAME	PC of Mark	    PC of John
+# RWSOLS_COMPUTER_MAC	24:00:dd:5a:21:04   59:3c:45:3c:30:f6
+# RWSOLS_COMPUTER_IP	192.168.1.146	    192.168.1.177
+
+# Now you just format the table in an array:
+#     - RWSOLS_COMPUTER_NAME="PC of Mark","PC of John"
+#     - RWSOLS_COMPUTER_MAC="24:00:dd:5a:21:04","59:3c:45:3c:30:f6"
+#     - RWSOLS_COMPUTER_IP="192.168.1.146","192.168.1.177"
+
+# It's important to use the format as shown: Env_var="XXX","XXX"
+
+computers: {}
+# RWSOLS_COMPUTER_NAME:
+# RWSOLS_COMPUTER_MAC:
+# RWSOLS_COMPUTER_IP:
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
