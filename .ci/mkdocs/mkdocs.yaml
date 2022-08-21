@@ -1,0 +1,84 @@
+---
+
+# Project information
+site_name: djjudas21 | Helm charts | Docs
+site_description: Docs for the djjudas21 Helm charts repository
+site_author: djjudas21
+site_url: https://djjudas21.github.io/charts/docs
+
+# Repository
+repo_name: djjudas21/charts
+repo_url: https://github.com/djjudas21/charts
+edit_uri: ""
+
+# Configuration
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github-alt
+  language: en
+  features:
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tracking
+    # - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+docs_dir: ../../docs
+site_dir: ../../_site
+
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/djjudas21
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+# Page tree
+nav:
+  - Home: index.md
+  - Common Library:
+      - Introduction: common-library/introduction.md
+      - Common Storage: common-library/common-library-storage.md
+      - Common Add-ons: common-library/common-library-add-ons.md
+  - App Template:
+      - Introduction: app-template/introduction.md
