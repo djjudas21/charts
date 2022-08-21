@@ -73,7 +73,7 @@ jobs:
         shell: bash
         working-directory: dest
         run: |
-          helm repo index . --url https://bjw-s.github.io/helm-charts/
+          helm repo index . --url https://djjudas21.github.io/charts/
 
       - name: Commit changes
         shell: bash

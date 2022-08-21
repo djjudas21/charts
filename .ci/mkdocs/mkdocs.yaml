@@ -1,14 +1,14 @@
 ---
 
 # Project information
-site_name: bjw-s | Helm charts | Docs
-site_description: Docs for the bjw-s Helm charts repository
-site_author: bjw-s
-site_url: https://bjw-s.github.io/helm-charts/docs
+site_name: djjudas21 | Helm charts | Docs
+site_description: Docs for the djjudas21 Helm charts repository
+site_author: djjudas21
+site_url: https://djjudas21.github.io/charts/docs
 
 # Repository
-repo_name: bjw-s/helm-charts
-repo_url: https://github.com/bjw-s/helm-charts
+repo_name: djjudas21/charts
+repo_url: https://github.com/djjudas21/charts
 edit_uri: ""
 
 # Configuration
@@ -55,9 +55,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/bjw-s
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/sTMX7Vh
+      link: https://github.com/djjudas21
 
 # Extensions
 markdown_extensions:
