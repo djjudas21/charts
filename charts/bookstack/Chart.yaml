@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: v21.12
 description: A simple, self-hosted, easy-to-use platform for organising and storing information.
 name: bookstack
-version: 5.1.2
+version: 5.2.0
 kubeVersion: ">=1.16.0-0"
 keywords:
   - bookstack
@@ -22,8 +22,8 @@ maintainers:
     email: ncwilde43@gmail.com
 dependencies:
   - name: common
-    repository: https://library-charts.k8s-at-home.com
-    version: 4.5.2
+    repository: http://bjw-s.github.io/helm-charts/
+    version: 0.1.0
   - name: mariadb
     version: 11.0.14
     repository: https://charts.bitnami.com/bitnami
