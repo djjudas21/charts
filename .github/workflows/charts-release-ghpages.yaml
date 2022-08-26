@@ -11,9 +11,9 @@ on:
         required: false
         type: string
     secrets:
-      BJWS_APP_ID:
+      BOT_APP_ID:
         required: true
-      BJWS_APP_PRIVATE_KEY:
+      BOT_APP_PRIVATE_KEY:
         required: true
 
 env:
@@ -24,12 +24,12 @@ jobs:
     name: Release charts
     runs-on: ubuntu-22.04
     steps:
-      #- name: Get GitHub API token
-      #  id: get-app-token
-      #  uses: getsentry/action-github-app-token@v1
-      #  with:
-      #    app_id: ${{ secrets.BJWS_APP_ID }}
-      #    private_key: ${{ secrets.BJWS_APP_PRIVATE_KEY }}
+      - name: Get GitHub API token
+        id: get-app-token
+        uses: getsentry/action-github-app-token@v1
+        with:
+          app_id: ${{ secrets.BOT_APP_ID }}
+          private_key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
 
       - name: Checkout charts branch
         uses: actions/checkout@v3
