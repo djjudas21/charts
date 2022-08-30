@@ -12,7 +12,7 @@ A self-hosted vehicle expense tracking system with support for multiple users
 
 | Repository | Name | Version |
 |------------|------|---------|
-| http://bjw-s.github.io/helm-charts/ | common | 4.3.0 |
+| `http://bjw-s.github.io/helm-charts/` | common | 4.3.0 |
 
 ## TL;DR
 

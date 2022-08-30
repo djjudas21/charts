@@ -39,7 +39,7 @@ env:
   PHOTOPRISM_DATABASE_SERVER: photoprism-mariadb:3306
   # -- Database schema name
   PHOTOPRISM_DATABASE_NAME: photoprism
-  # -- Database user name
+  # -- Database username
   PHOTOPRISM_DATABASE_USER: photoprism
   # -- Database user password
   PHOTOPRISM_DATABASE_PASSWORD: photoprism
