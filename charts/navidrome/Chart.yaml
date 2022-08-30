@@ -15,8 +15,8 @@ sources:
   - https://github.com/deluan/navidrome
   - https://hub.docker.com/r/deluan/navidrome
 maintainers:
-  - name: auricom
-    email: k8s-at-home@xpander.eml.cc
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
     repository: http://bjw-s.github.io/helm-charts/

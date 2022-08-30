@@ -14,8 +14,8 @@ sources:
   - https://github.com/fisharebest/webtrees
   - https://github.com/NathanVaughn/webtrees-docker
 maintainers:
-  - name: rogerrum
-    email: rogerrum@gmail.com
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
     version: 0.1.0

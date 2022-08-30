@@ -30,6 +30,7 @@ keywords:
   - magicpacket
 maintainers:
   - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 sources:
   - https://github.com/sciguy14/Remote-Wake-Sleep-On-LAN-Server
   - https://hub.docker.com/r/ex0nuss/remote-wake-sleep-on-lan-docker

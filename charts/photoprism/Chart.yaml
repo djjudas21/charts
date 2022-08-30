@@ -16,8 +16,8 @@ sources:
   - https://github.com/photoprism/photoprism
   - https://hub.docker.com/r/photoprism/photoprism
 maintainers:
-  - name: billimek
-    email: jeff@billimek.com
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
     repository: http://bjw-s.github.io/helm-charts/

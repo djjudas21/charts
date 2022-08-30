@@ -10,8 +10,8 @@ kubeVersion: ">=1.16.0-0"
 sources:
   - https://github.com/bastienwirtz/homer
 maintainers:
-  - name: billimek
-    email: jeff@billimek.com
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
     repository: http://bjw-s.github.io/helm-charts/

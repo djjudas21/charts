@@ -13,8 +13,8 @@ sources:
   - https://github.com/techno-tim/littlelink-server
   - https://github.com/sethcottle/littlelink
 maintainers:
-  - name: rwaltr
-    email: rwaltr@pm.me
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
     repository: http://bjw-s.github.io/helm-charts/

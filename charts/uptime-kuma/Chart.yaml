@@ -15,8 +15,8 @@ icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
 sources:
   - https://github.com/louislam/uptime-kuma
 maintainers:
-  - name: pysen
-    email: pysen@svartavillan.se
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
     repository: http://bjw-s.github.io/helm-charts/

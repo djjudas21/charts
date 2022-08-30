@@ -14,8 +14,8 @@ sources:
   - https://github.com/laurent22/joplin
   - https://hub.docker.com/r/joplin/server
 maintainers:
-  - name: auricom
-    email: k8s-at-home@xpander.eml.cc
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
     repository: http://bjw-s.github.io/helm-charts/
