@@ -7,6 +7,10 @@ chart-repos:
   - bitnami=https://charts.bitnami.com/bitnami
   - library-charts=https://library-charts.k8s-at-home.com
 helm-extra-args: --timeout 600s
-excluded-charts: []
+excluded-charts:
+  - graphite-exporter
+  - maian-music
+  - owncloud
+  - smtp-relay
 additional-commands:
   - helm unittest --helm3 --strict --file unittests/*.yaml --file 'unittests/**/*.yaml' {{ .Path }}
