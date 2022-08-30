@@ -1,3 +1,49 @@
 apiVersion: v1
-entries: {}
-generated: "2022-08-29T19:26:42.913289388Z"
+entries:
+  graphite-exporter:
+  - apiVersion: v2
+    appVersion: v0.12.3
+    created: "2022-08-30T19:52:55.420228128Z"
+    description: A Prometheus exporter for metrics exported in the Graphite plaintext
+      protocol
+    digest: b2e5edaad401224bedb5a5a4d77f8b081f3732a501829d82b1f7731f6eb133f6
+    home: https://github.com/djjudas21/charts
+    icon: https://graphiteapp.org/img/apple-touch-icon-144x144.png
+    keywords:
+    - graphite
+    - prometheus
+    - monitoring
+    maintainers:
+    - name: djjudas21
+    name: graphite-exporter
+    sources:
+    - https://github.com/prometheus/graphite_exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/graphite-exporter-0.1.2/graphite-exporter-0.1.2.tgz
+    version: 0.1.2
+  maian-music:
+  - apiVersion: v2
+    appVersion: "2.9"
+    created: "2022-08-30T19:52:55.744576382Z"
+    dependencies:
+    - name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.x.x
+    description: Maian Music is a PHP application for selling digital and physical
+      music
+    digest: 3a9618856da1d66e6941a7b63da72ba8a564b46ce209a548fb8553a47e14d47c
+    home: https://www.maianmusic.com/
+    keywords:
+    - maian
+    - music
+    maintainers:
+    - name: djjudas21
+    name: maian-music
+    sources:
+    - https://github.com/djjudas21/maian-music-helm
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.2/maian-music-0.2.2.tgz
+    version: 0.2.2
+generated: "2022-08-30T19:52:55.744591282Z"
