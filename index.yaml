@@ -3,6 +3,27 @@ entries:
   graphite-exporter:
   - apiVersion: v2
     appVersion: v0.12.3
+    created: "2022-08-30T20:38:14.93583728Z"
+    description: A Prometheus exporter for metrics exported in the Graphite plaintext
+      protocol
+    digest: 54e40ad300a1dbea4b3b118711c1fd4f17c088367ebbaa64b09bdee6feddf215
+    home: https://github.com/djjudas21/charts
+    icon: https://graphiteapp.org/img/apple-touch-icon-144x144.png
+    keywords:
+    - graphite
+    - prometheus
+    - monitoring
+    maintainers:
+    - name: djjudas21
+    name: graphite-exporter
+    sources:
+    - https://github.com/prometheus/graphite_exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/graphite-exporter-0.1.3/graphite-exporter-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: v0.12.3
     created: "2022-08-30T19:52:55.420228128Z"
     description: A Prometheus exporter for metrics exported in the Graphite plaintext
       protocol
@@ -22,7 +43,59 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/graphite-exporter-0.1.2/graphite-exporter-0.1.2.tgz
     version: 0.1.2
+  hammond:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-08-30T20:38:15.088010704Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.3.0
+    description: Hammond is a self-hosted vehicle expense tracking system with support
+      for multiple users
+    digest: e3bc7e9dfc35a5625f7fa058c58bda68e18b2bcb5ce5cc37b6454c6f852830f6
+    home: https://github.com/akhilrex/hammond
+    icon: https://github.com/akhilrex/hammond/raw/master/ui/src/assets/images/logo.png
+    keywords:
+    - hammond
+    - car
+    - expense
+    - fuel
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: hammond
+    sources:
+    - https://github.com/akhilrex/hammond
+    - https://hub.docker.com/r/akhilrex/hammond
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/hammond-0.1.4/hammond-0.1.4.tgz
+    version: 0.1.4
   maian-music:
+  - apiVersion: v2
+    appVersion: "2.9"
+    created: "2022-08-30T20:38:15.222019091Z"
+    dependencies:
+    - name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.x.x
+    description: Maian Music is a PHP application for selling digital and physical
+      music
+    digest: effc1416cc89778bdb7a122f401fa9c40ab11a302b1561c861604b36a994229d
+    home: https://www.maianmusic.com/
+    keywords:
+    - maian
+    - music
+    maintainers:
+    - name: djjudas21
+    name: maian-music
+    sources:
+    - https://github.com/djjudas21/maian-music-helm
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.3/maian-music-0.2.3.tgz
+    version: 0.2.3
   - apiVersion: v2
     appVersion: "2.9"
     created: "2022-08-30T19:52:55.744576382Z"
@@ -46,4 +119,72 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.2/maian-music-0.2.2.tgz
     version: 0.2.2
-generated: "2022-08-30T19:52:55.744591282Z"
+  owncloud:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: "10.10"
+    created: "2022-08-30T20:38:15.361776485Z"
+    dependencies:
+    - name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.x.x
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.x.x
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: 3fff0a64b82b7caa062273efa1cbec4a854b20d9efc63cc30bb3774150f0479d
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    maintainers:
+    - name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.2.3/owncloud-0.2.3.tgz
+    version: 0.2.3
+  remote-wake-sleep-on-lan:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-08-30T20:38:15.482774231Z"
+    description: A Helm chart for Kubernetes
+    digest: 3d8d1a327ae94b1a7ffd5926e4c1d5cf25b0cb00f4102f86fd3f08bca1a30fc1
+    home: https://github.com/djjudas21/charts
+    keywords:
+    - wakeonlan
+    - wake
+    - magicpacket
+    maintainers:
+    - name: djjudas21
+    name: remote-wake-sleep-on-lan
+    sources:
+    - https://github.com/sciguy14/Remote-Wake-Sleep-On-LAN-Server
+    - https://hub.docker.com/r/ex0nuss/remote-wake-sleep-on-lan-docker
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/remote-wake-sleep-on-lan-0.1.1/remote-wake-sleep-on-lan-0.1.1.tgz
+    version: 0.1.1
+  smtp-relay:
+  - apiVersion: v2
+    appVersion: 0.5.0
+    created: "2022-08-30T20:38:15.61367466Z"
+    description: A Helm chart for Kubernetes
+    digest: 23be5cfff5d87db29f61363aa0b351212e23d2c88e28e6be55ef559270916b4a
+    maintainers:
+    - name: djjudas21
+    name: smtp-relay
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/smtp-relay-0.3.1/smtp-relay-0.3.1.tgz
+    version: 0.3.1
+generated: "2022-08-30T20:38:15.61368776Z"
