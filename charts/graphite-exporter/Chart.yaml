@@ -31,5 +31,6 @@ keywords:
   - monitoring
 maintainers:
   - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 sources:
   - https://github.com/prometheus/graphite_exporter

@@ -1,0 +1,32 @@
+---
+apiVersion: v2
+appVersion: "220629-jammy"
+description: PhotoPrism® is a server-based application for browsing, organizing and sharing your personal photo collection
+name: photoprism
+version: 7.2.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - photos
+  - photoprism
+  - pictures
+  - sharing
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/photoprism
+icon: https://demo.photoprism.org/static/img/logo-avatar.svg
+sources:
+  - https://github.com/photoprism/photoprism
+  - https://hub.docker.com/r/photoprism/photoprism
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+dependencies:
+  - name: common
+    repository: http://bjw-s.github.io/helm-charts/
+    version: 0.1.0
+  - name: mariadb
+    version: 11.0.14
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled
+annotations:
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

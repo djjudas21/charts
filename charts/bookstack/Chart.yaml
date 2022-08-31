@@ -1,0 +1,34 @@
+---
+apiVersion: v2
+appVersion: v21.12
+description: A simple, self-hosted, easy-to-use platform for organising and storing information.
+name: bookstack
+version: 5.2.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - bookstack
+  - book
+  - stack
+  - organizer
+  - server
+  - hosted
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/bookstack
+icon: https://avatars3.githubusercontent.com/u/20912696?s=400&v=4?sanitize=true
+sources:
+  - https://www.bookstackapp.com/
+  - https://hub.docker.com/r/linuxserver/bookstack
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+dependencies:
+  - name: common
+    repository: http://bjw-s.github.io/helm-charts/
+    version: 0.1.0
+  - name: mariadb
+    version: 11.0.14
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled
+annotations:
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2
