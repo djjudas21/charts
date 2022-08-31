@@ -9,7 +9,7 @@ image:
   # -- image repository
   repository: deluan/navidrome
   # -- image tag
-  tag: 0.43.0
+  tag:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
