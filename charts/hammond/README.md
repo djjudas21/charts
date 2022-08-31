@@ -66,7 +66,7 @@ helm install hammond djjudas21/hammond -f values.yaml
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below (only deviations from the default settings are specified) | environment variables. See [image docs](https://docs.kanboard.org/en/latest/admin_guide/docker.html#environment-variables) and [application docs](# https://docs.kanboard.org/en/latest/admin_guide/config_file.html) for more details. |
+| env | object | See below (only deviations from the default settings are specified) | environment variables. See [image docs](https://docs.kanboard.org/en/latest/admin_guide/docker.html#environment-variables) and [application docs](https://docs.kanboard.org/en/latest/admin_guide/config_file.html) for more details. |
 | env.TZ | string | `"UTC"` | Application Timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"akhilrex/hammond"` | image repository |

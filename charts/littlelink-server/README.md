@@ -77,7 +77,7 @@ N/A
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See more environment variables in the [littlelink-server documentation](https://github.com/techno-tim/littlelink-server). |
-| env.FOOTER | string | `"Thanks for stopping by!"` |  INSTAGRAM: <https://www.instagram.com/techno.tim> YOUTUBE: <https://www.youtube.com/channel/UCOk-gHyjcWZNj3Br4oxwh0A> TWITCH: <https://www.twitch.tv/technotim/> DISCORD: <https://discord.gg/DJKexrJ> TIKTOK: <https://www.tiktok.com/@technotim> KIT: <https://kit.co/TechnoTim> FACEBOOK: <https://facebook.com> FACEBOOK_MESSENGER: <https://facebook.com> LINKED_IN: <https://linkedin.com> PRODUCT_HUNT: <https://www.producthunt.com/> SNAPCHAT: <https://www.snapchat.com/> SPOTIFY: <https://www.spotify.com/> REDDIT: <https://www.reddit.com/> MEDIUM: <https://medium.com> PINTEREST: <https://www.pinterest.com/> EMAIL: you@example.com EMAIL_ALT: you@example.com SOUND_CLOUD: <https://souncloud.com> FIGMA: <https://figma.com> TELEGRAM: <https://telegram.org/> TUMBLR: <https://www.tumblr.com/> STEAM: <https://steamcommunity.com/> VIMEO: <https://vimeo.com/> WORDPRESS: <https://wordpress.com/> GOODREADS: <https://www.goodreads.com/> SKOOB: <https://www.skoob.com.br/> |
+| env.FOOTER | string | `"Thanks for stopping by!"` |  INSTAGRAM: <https://www.instagram.com/techno.tim> |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/techno-tim/littlelink-server"` | image repository |
