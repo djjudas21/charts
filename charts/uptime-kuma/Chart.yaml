@@ -10,7 +10,7 @@ keywords:
   - status
   - status-page
   - monitoring
-home: https://github.com/k8s-at-home/charts/tree/master/charts/incubator/uptime-kuma
+home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma
 icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
 sources:
   - https://github.com/louislam/uptime-kuma

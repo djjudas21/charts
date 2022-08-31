@@ -10,7 +10,7 @@ keywords:
   - photoprism
   - pictures
   - sharing
-home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/photoprism
+home: https://github.com/djjudas21/charts/tree/master/charts/stable/photoprism
 icon: https://demo.photoprism.org/static/img/logo-avatar.svg
 sources:
   - https://github.com/photoprism/photoprism
