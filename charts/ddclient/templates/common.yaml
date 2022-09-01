@@ -1,5 +1,3 @@
-{{ include "common.all" . }}
-
 {{/* Make sure all variables are set properly */}}
 {{- include "common.values.setup" . }}
 
