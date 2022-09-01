@@ -30,7 +30,7 @@ probes:
 persistence:
   config:
     enabled: true
-    readOnly: true
+    type: configMap
     mountPath: /defaults/ddclient.conf
     subPath: ddclient.conf
 

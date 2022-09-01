@@ -1,21 +1,5 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "common.values.setup" . }}
 
-{{/* Append the hardcoded settings */}}
-{{- define "ddclient.harcodedValues" -}}
-
-  {{- if .Values.configmap.config.enabled }}
-  {{/* Append the configMap volume to the volumes */}}
-  persistence:
-    config:
-      enabled: true
-      type: "configMap"
-      name: "{{ include "common.names.fullname" . }}-config"
-      mountPath: /defaults/ddclient.conf
-      subPath: ddclient.conf
-  {{- end }}
-{{- end -}}
-{{- $_ := mergeOverwrite .Values (include "ddclient.harcodedValues" . | fromYaml) -}}
-
 {{/* Render the templates */}}
 {{ include "common.all" . }}
