@@ -1,7 +1,7 @@
 image:
   repository: linuxserver/ddclient
   pullPolicy: IfNotPresent
-  tag: version-v3.9.1
+  tag:
 
 strategy:
   type: Recreate
