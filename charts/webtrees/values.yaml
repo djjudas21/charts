@@ -23,7 +23,7 @@ env:
   # -- webtrees localization setting
   LANG: "en-US"
   # -- Base URL of the installation, with protocol. This needs to be in the form of http://webtrees.example.com
-  BASE_URL: https://webtrees.k8s-at-home.com
+  BASE_URL: https://webtrees.example.com
   # -- Database server type
   DB_TYPE: "mysql"
   # -- Database hostname

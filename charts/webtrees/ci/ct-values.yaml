@@ -1,5 +1,5 @@
 env:
-  BASE_URL: https://webtrees.k8s-at-home.com
+  BASE_URL: https://webtrees.example.com
   DB_HOST: webtrees-mariadb
   DB_NAME: webtrees
   DB_USER: webtrees
@@ -7,7 +7,7 @@ env:
   WT_USER: admin
   WT_NAME: Admin
   WT_PASS: adminpass
-  WT_EMAIL: admin@k8s-at-home.com
+  WT_EMAIL: admin@example.com
 
 
 ingress:

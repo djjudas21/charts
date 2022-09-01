@@ -78,7 +78,7 @@ N/A
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [webtrees-docker documentation](https://github.com/NathanVaughn/webtrees-docker#environment-variables) for more details. |
-| env.BASE_URL | string | `"https://webtrees.k8s-at-home.com"` | Base URL of the installation, with protocol. This needs to be in the form of <http://webtrees.example.com> |
+| env.BASE_URL | string | `"https://webtrees.example.com"` | Base URL of the installation, with protocol. This needs to be in the form of <http://webtrees.example.com> |
 | env.DB_HOST | string | `nil` | Database hostname |
 | env.DB_NAME | string | `nil` | Database to connect to |
 | env.DB_PASS | string | `nil` | Database password |
