@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ template "common.names.fullname" . }}-settings
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "ddclient.labels" . | nindent 4 }}
 data:
   ddclient.conf: |
 {{ .Values.config | indent 4 }}
