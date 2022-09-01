@@ -25,17 +25,31 @@ probes:
   startup:
     enabled: false
 
-config: |
-  # This is the configuration for ddclient
-  # Inorder for it to function you need to set it up
-  # e.g. this is the config for Cloudflare
-  daemon=600
-  use=web
-  web=dynamicdns.park-your-domain.com/getip
-  protocol=cloudflare
-  ssl=yes
-  ttl=1
-  login=${CF_EMAIL}
-  password=${CF_GLOBAL_APIKEY}
-  zone=${DOMAIN}.${TLD}
-  ${DOMAIN}.${TLD}
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    readOnly: true
+    mountPath: /defaults/ddclient.conf
+    subPath: ddclient.conf
+
+configmap:
+  config:
+    # -- Store ddclient configuration as a ConfigMap
+    enabled: true
+    data:
+      ddclient.conf: |
+        # This is the configuration for ddclient
+        # Inorder for it to function you need to set it up
+        # e.g. this is the config for Cloudflare
+        daemon=600
+        use=web
+        web=dynamicdns.park-your-domain.com/getip
+        protocol=cloudflare
+        ssl=yes
+        ttl=1
+        login=${CF_EMAIL}
+        password=${CF_GLOBAL_APIKEY}
+        zone=${DOMAIN}.${TLD}
+        ${DOMAIN}.${TLD}
