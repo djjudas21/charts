@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: 3.9.1
+dependencies:
+  - name: common
+    repository: http://bjw-s.github.io/helm-charts/
+    version: 0.1.0
+description:
+  Perl client used to update dynamic DNS entries for accounts on Dynamic
+  DNS Network Service Providers
+home: https://github.com/djjudas21/charts/tree/master/charts/stable/ddclient
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ddclient-logo.png
+keywords:
+  - ddclient
+  - dns
+kubeVersion: ">=1.16.0-0"
+name: ddclient
+sources:
+  - https://github.com/ddclient/ddclient
+  - https://hub.docker.com/r/linuxserver/ddclient
+version: 4.1.0
