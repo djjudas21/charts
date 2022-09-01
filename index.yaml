@@ -6,6 +6,44 @@ entries:
         - kind: changed
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
+    appVersion: 22.07.3
+    created: "2022-09-01T15:24:58.507938879Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    description: A simple, self-hosted, easy-to-use platform for organising and storing
+      information.
+    digest: 48014f4b19f099c5a9e60754cd9e77cc0caab46daa6f03be4ba821ae7baaaf65
+    home: https://github.com/djjudas21/charts/tree/master/charts/stable/bookstack
+    icon: https://avatars3.githubusercontent.com/u/20912696?s=400&v=4?sanitize=true
+    keywords:
+    - bookstack
+    - book
+    - stack
+    - organizer
+    - server
+    - hosted
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: bookstack
+    sources:
+    - https://www.bookstackapp.com/
+    - https://hub.docker.com/r/linuxserver/bookstack
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/bookstack-5.2.1/bookstack-5.2.1.tgz
+    version: 5.2.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
     appVersion: v21.12
     created: "2022-08-31T10:56:15.812959575Z"
     dependencies:
@@ -145,6 +183,32 @@ entries:
         - kind: changed
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
+    appVersion: v22.08.1
+    created: "2022-09-01T15:24:58.668983687Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    description: A dead simple static HOMepage for your servER to keep your services
+      on hand, from a simple yaml configuration file.
+    digest: ab2c5914531d058f9e9bf940500fba0f162439ac8ad8b6ee5cf23642c1b056ca
+    home: https://github.com/djjudas21/charts/tree/master/charts/stable/homer
+    icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/homer-8.1.1/homer-8.1.1.tgz
+    version: 8.1.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
     appVersion: v22.07.2
     created: "2022-08-31T10:56:16.687933783Z"
     dependencies:
@@ -167,6 +231,39 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/homer-8.1.0/homer-8.1.0.tgz
     version: 8.1.0
   joplin-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
+    appVersion: 2.7.4-beta
+    created: "2022-09-01T15:24:58.859250446Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.12
+    description: This server allows you to sync any Joplin client
+    digest: 7e02e6a1a95964a13cdcb2792452f10f8794be3067efc109c10b15c51f384025
+    home: https://github.com/djjudas21/charts/tree/master/charts/stable/jopplin-server
+    icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
+    keywords:
+    - joplin
+    - notes
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: joplin-server
+    sources:
+    - https://github.com/laurent22/joplin/tree/dev/packages/server
+    - https://github.com/laurent22/joplin
+    - https://hub.docker.com/r/joplin/server
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/joplin-server-5.4.1/joplin-server-5.4.1.tgz
+    version: 5.4.1
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -201,6 +298,34 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/joplin-server-5.4.0/joplin-server-5.4.0.tgz
     version: 5.4.0
   littlelink-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-09-01T15:24:59.030011503Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    description: A lightweight open source alternative to linktree
+    digest: cd2c79e8a4c4087231ce16af0453e409654e546b73a3eb36da860bde111fdff2
+    home: https://github.com/djjudas21/charts/tree/master/charts/stable/littlelink-server
+    icon: https://camo.githubusercontent.com/edebb9bce46a8d4a75fa8c4f50f20996c3fe55ace28ecfbfdc5da3794cc90e9a/68747470733a2f2f63646e2e636f74746c652e636c6f75642f6c6974746c656c696e6b2f736f6369616c2d636972636c652e706e67
+    keywords:
+    - littlelink-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: littlelink-server
+    sources:
+    - https://github.com/techno-tim/littlelink-server
+    - https://github.com/sethcottle/littlelink
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/littlelink-server-1.5.1/littlelink-server-1.5.1.tgz
+    version: 1.5.1
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -282,6 +407,37 @@ entries:
         - kind: changed
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
+    appVersion: 0.47.5
+    created: "2022-09-01T15:24:59.37236718Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 2df2bd51e6f3dd12f83b90ad1a9d6b3842b58aa9483cd43a6b2172d324ab37ca
+    home: https://github.com/djjudas21/charts/tree/master/charts/stable/navidrome
+    icon: https://github.com/deluan/navidrome/blob/master/ui/src/icons/android-icon-72x72.png?raw=true
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.5.1/navidrome-6.5.1.tgz
+    version: 6.5.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
     appVersion: 0.43.0
     created: "2022-08-31T10:56:17.997216083Z"
     dependencies:
@@ -349,6 +505,41 @@ entries:
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
     appVersion: 1.8.0
+    created: "2022-09-01T15:24:59.56316508Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.12
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.13.1
+    description: Paperless - Index and archive all of your scanned paper documents
+    digest: d34b2a6a5f6333e231a5b1cb9ed6034d53fb2edba4dcbf6c1c695edc40dc0ef9
+    home: https://github.com/djjudas21/charts/tree/master/charts/stable/paperless
+    icon: https://avatars.githubusercontent.com/u/47271576?s=200&v=4
+    keywords:
+    - paperless
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: paperless
+    sources:
+    - https://github.com/paperless-ngx/paperless-ngx
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/paperless-9.2.1/paperless-9.2.1.tgz
+    version: 9.2.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
+    appVersion: 1.8.0
     created: "2022-08-31T10:56:18.585467039Z"
     dependencies:
     - name: common
@@ -379,6 +570,42 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/paperless-9.2.0/paperless-9.2.0.tgz
     version: 9.2.0
   photoprism:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
+    appVersion: 220629-jammy
+    created: "2022-09-01T15:24:59.721820303Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    description: PhotoPrism® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: c491a262c2d7d263cde57778816631ac97b546c2efba97e2d6d4534856eba5c9
+    home: https://github.com/djjudas21/charts/tree/master/charts/stable/photoprism
+    icon: https://demo.photoprism.org/static/img/logo-avatar.svg
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/photoprism-7.2.1/photoprism-7.2.1.tgz
+    version: 7.2.1
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -477,6 +704,36 @@ entries:
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
     appVersion: 1.17.1
+    created: "2022-09-01T15:24:59.870449254Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    description: A fancy self-hosted monitoring tool for your websites and applications
+    digest: 62e44a92640dbab4c98ae77e04c9b445c33e72e9d9795b77072f20bbc13d35b5
+    home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma
+    icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
+    keywords:
+    - uptime-kuma
+    - status
+    - status-page
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/uptime-kuma-1.5.1/uptime-kuma-1.5.1.tgz
+    version: 1.5.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
+    appVersion: 1.17.1
     created: "2022-08-31T10:56:19.75643753Z"
     dependencies:
     - name: common
@@ -502,6 +759,39 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/uptime-kuma-1.5.0/uptime-kuma-1.5.0.tgz
     version: 1.5.0
   webtrees:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
+    appVersion: 2.1.7
+    created: "2022-09-01T15:25:00.031017025Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    description: Open-source online collaborative genealogy application
+    digest: f0e7ab45b8740750ed498d3581d00633e9989d4899bb39a165d7cfbe7ba07e72
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.1/webtrees-2.2.1.tgz
+    version: 2.2.1
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -535,4 +825,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-08-31T10:56:20.078042608Z"
+generated: "2022-09-01T15:25:00.031063329Z"
