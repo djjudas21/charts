@@ -14,6 +14,9 @@ keywords:
   - dns
 kubeVersion: ">=1.16.0-0"
 name: ddclient
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 sources:
   - https://github.com/ddclient/ddclient
   - https://hub.docker.com/r/linuxserver/ddclient
