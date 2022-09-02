@@ -3,9 +3,9 @@ apiVersion: v2
 appVersion: v22.08.1
 description: A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.
 icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
-home: https://github.com/djjudas21/charts/tree/master/charts/stable/homer
+home: https://github.com/djjudas21/charts/tree/master/charts/homer
 name: homer
-version: 8.1.1
+version: 8.1.2
 kubeVersion: ">=1.16.0-0"
 sources:
   - https://github.com/bastienwirtz/homer
@@ -19,4 +19,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Upgraded `common` chart dependency to version 4.5.2
+      description: Fix chart URL

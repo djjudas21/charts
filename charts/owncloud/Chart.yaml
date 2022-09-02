@@ -2,18 +2,8 @@ apiVersion: v2
 name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
-annotations:
-  category: Infrastructure
-
-# This is the chart version. This version number should be incremented each time you make changes
-# to the chart and its templates, including the app version.
-# Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.2.3
-
-# This is the version number of the application being deployed. This version number should be
-# incremented each time you make changes to the application. Versions are not expected to
-# follow Semantic Versioning. They should reflect the version the application is using.
-# It is recommended to use it with quotes.
+  
+version: 0.2.4
 appVersion: "10.10"
 
 dependencies:
@@ -32,9 +22,15 @@ keywords:
   - http
   - web
   - php
+  - dav
 maintainers:
   - name: djjudas21
     email: djjudas21@users.noreply.github.com
 sources:
   - https://hub.docker.com/r/owncloud/server
   - https://owncloud.org/
+annotations:
+  category: Infrastructure
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Update annotations

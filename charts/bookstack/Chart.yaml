@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 22.07.3
 description: A simple, self-hosted, easy-to-use platform for organising and storing information.
 name: bookstack
-version: 5.2.1
+version: 5.2.2
 kubeVersion: ">=1.16.0-0"
 keywords:
   - bookstack
@@ -12,7 +12,7 @@ keywords:
   - organizer
   - server
   - hosted
-home: https://github.com/djjudas21/charts/tree/master/charts/stable/bookstack
+home: https://github.com/djjudas21/charts/tree/master/charts/bookstack
 icon: https://avatars3.githubusercontent.com/u/20912696?s=400&v=4?sanitize=true
 sources:
   - https://www.bookstackapp.com/
@@ -31,4 +31,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Upgraded `common` chart dependency to version 4.5.2
+      description: Fix chart URL

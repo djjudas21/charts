@@ -3,11 +3,11 @@ apiVersion: v2
 appVersion: 1.8.0
 description: Paperless - Index and archive all of your scanned paper documents
 name: paperless
-version: 9.2.1
+version: 9.2.2
 kubeVersion: ">=1.16.0-0"
 keywords:
   - paperless
-home: https://github.com/djjudas21/charts/tree/master/charts/stable/paperless
+home: https://github.com/djjudas21/charts/tree/master/charts/paperless
 icon: https://avatars.githubusercontent.com/u/47271576?s=200&v=4
 sources:
   - https://github.com/paperless-ngx/paperless-ngx
@@ -29,4 +29,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Upgraded `common` chart dependency to version 4.5.2
+      description: Fix chart URL

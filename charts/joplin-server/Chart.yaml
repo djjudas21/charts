@@ -3,11 +3,11 @@ apiVersion: v2
 appVersion: 2.7.4-beta
 description: This server allows you to sync any Joplin client
 name: joplin-server
-version: 5.4.1
+version: 5.4.2
 keywords:
   - joplin
   - notes
-home: https://github.com/djjudas21/charts/tree/master/charts/stable/jopplin-server
+home: https://github.com/djjudas21/charts/tree/master/charts/joplin-server
 icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
 sources:
   - https://github.com/laurent22/joplin/tree/dev/packages/server
@@ -27,4 +27,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Upgraded `common` chart dependency to version 4.5.2
+      description: Fix chart URL

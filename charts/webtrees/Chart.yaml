@@ -3,12 +3,13 @@ apiVersion: v2
 appVersion: 2.1.7
 description: Open-source online collaborative genealogy application
 name: webtrees
-version: 2.2.1
+version: 2.2.2
 kubeVersion: ">=1.16.0-0"
 keywords:
   - webtrees
   - genealogy
   - family-tree
+home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
 icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
 sources:
   - https://github.com/fisharebest/webtrees
@@ -27,4 +28,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Upgraded `common` chart dependency to version 4.5.2
+      description: Fix chart URL

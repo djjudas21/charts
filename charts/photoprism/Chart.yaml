@@ -3,14 +3,14 @@ apiVersion: v2
 appVersion: "220901-bullseye"
 description: PhotoPrism® is a server-based application for browsing, organizing and sharing your personal photo collection
 name: photoprism
-version: 7.2.3
+version: 7.2.4
 kubeVersion: ">=1.16.0-0"
 keywords:
   - photos
   - photoprism
   - pictures
   - sharing
-home: https://github.com/djjudas21/charts/tree/master/charts/stable/photoprism
+home: https://github.com/djjudas21/charts/tree/master/charts/photoprism
 icon: https://raw.githubusercontent.com/photoprism/photoprism/develop/assets/static/icons/app.svg
 sources:
   - https://github.com/photoprism/photoprism
@@ -29,4 +29,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Fix icon URL
+      description: Fix chart URL
