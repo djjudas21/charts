@@ -279,6 +279,34 @@ entries:
         - kind: changed
           description: Convert to djjudas21
     apiVersion: v2
+    appVersion: 2.4.13
+    created: "2022-09-06T14:54:49.144242675Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    description: An Application dashboard and launcher
+    digest: 952c40149679b658827db7c60d1cb0f5fce519048e992959d2967363ec163168
+    home: https://github.com/djjudas21/charts/tree/master/charts/heimdall
+    icon: https://i.imgur.com/mM4tcO5.png
+    keywords:
+    - heimdall
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: heimdall
+    sources:
+    - https://hub.docker.com/r/linuxserver/heimdall/
+    - https://github.com/linuxserver/heimdall
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/heimdall-8.5.1/heimdall-8.5.1.tgz
+    version: 8.5.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Convert to djjudas21
+    apiVersion: v2
     appVersion: 2.2.2
     created: "2022-09-06T14:37:46.539714786Z"
     dependencies:
@@ -1392,4 +1420,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-09-06T14:37:46.539783486Z"
+generated: "2022-09-06T14:54:49.144332376Z"
