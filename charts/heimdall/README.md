@@ -77,8 +77,8 @@ N/A
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See more environment variables in the [heimdall documentation](https://github.com/linuxserver/docker-heimdall#parameters). |
-| env.PGID | string | `"1000"` | Set the container group id |
-| env.PUID | string | `"1000"` | Set the container user id |
+| env.PGID | string | `"1000"` | Set the container group ID |
+| env.PUID | string | `"1000"` | Set the container user ID |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"linuxserver/heimdall"` | image repository |
@@ -109,4 +109,4 @@ A historical overview of changes can be found on [ArtifactHUB](https://artifacth
 
 ## Support
 
-- Open an [issue](https://github.com/djjudas21/charts/issues/new/choose)
+* Open an [issue](https://github.com/djjudas21/charts/issues/new/choose)
