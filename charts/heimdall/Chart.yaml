@@ -1,9 +1,9 @@
 ---
 apiVersion: v2
-appVersion: 2.2.2
+appVersion: 2.4.13
 description: An Application dashboard and launcher
 name: heimdall
-version: 8.5.0
+version: 8.5.1
 kubeVersion: ">=1.16.0-0"
 keywords:
   - heimdall
