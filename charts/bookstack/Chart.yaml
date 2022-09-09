@@ -1,9 +1,9 @@
 ---
 apiVersion: v2
-appVersion: 22.07.3
+appVersion: version-v22.09
 description: A simple, self-hosted, easy-to-use platform for organising and storing information.
 name: bookstack
-version: 5.2.2
+version: 5.2.3
 kubeVersion: ">=1.16.0-0"
 keywords:
   - bookstack
@@ -31,4 +31,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Fix chart URL
+      description: Update to BookStack v22.09
