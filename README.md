@@ -5,8 +5,10 @@ Welcome to the documentation for the [djjudas21 Helm charts](https://github.com/
 Some of these charts are my own creation, while others were adopted after the
 [k8s-at-home charts project was deprecated](https://github.com/k8s-at-home/charts/issues/1761).
 
-I use these charts in my own cluster so I do update the images when the upstream apps make releases.
-Contributions are always welcome.
+I use these charts in my own cluster. I subscribe to notifications for when the upstream apps 
+are updated, and I update the charts when there are upstream releases.
+
+Contributions are always welcome, either for new features, bug fixes, or if I've missed a update.
 
 ## Getting started
 
@@ -18,7 +20,7 @@ Refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 
 ```console
 helm repo add djjudas21 https://djjudas21.github.io/charts/
-helm repo update
+helm repo update djjudas21
 ```
 
 You can then run `helm search repo djjudas21` to search the charts.
@@ -27,7 +29,7 @@ You can then run `helm search repo djjudas21` to search the charts.
 
 I recommend you subscribe to release notifications so you know when there are chart updates.
 
-1. Click the arrow next to the **Watch** button in the top-right corner of Github
+1. Click the arrow next to the **Watch** button in the top-right corner of the Github project
 2. Click **Custom**
 3. Tick **Releases**
 4. Click **Apply**
@@ -38,6 +40,12 @@ can check your installed charts for available updates.
 ```console
 nova find --format table --show-old
 ```
+
+## Contributing
+
+To contribute code, fork this repo, submit a PR, and make sure the CI tests are passing.
+
+I get through a lot of caffeine writing code. If my work is useful to you, please [buy me a coffee](https://www.buymeacoffee.com/jgazeley).
 
 ## License
 
