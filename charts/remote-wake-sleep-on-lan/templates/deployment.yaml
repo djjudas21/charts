@@ -42,7 +42,7 @@ spec:
               value: {{ join "," .Values.computers.RWSOLS_COMPUTER_IP }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8080
               protocol: TCP
           livenessProbe:
             httpGet:
