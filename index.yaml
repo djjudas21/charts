@@ -1198,6 +1198,31 @@ entries:
           description: Fix array handling
     apiVersion: v2
     appVersion: latest
+    created: "2022-09-14T14:25:34.285394861Z"
+    description: Web app to send Magic Packets to wake machines on your LAN
+    digest: 2592e7f2625a69ef37585cdc931d6335de7f73cbeb49b5c1302d4a7e40d44433
+    home: https://github.com/djjudas21/charts/tree/main/charts/remote-wake-sleep-on-lan
+    keywords:
+    - wakeonlan
+    - wake
+    - magicpacket
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: remote-wake-sleep-on-lan
+    sources:
+    - https://github.com/sciguy14/Remote-Wake-Sleep-On-LAN-Server
+    - https://hub.docker.com/r/ex0nuss/remote-wake-sleep-on-lan-docker
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/remote-wake-sleep-on-lan-0.1.5/remote-wake-sleep-on-lan-0.1.5.tgz
+    version: 0.1.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fix array handling
+    apiVersion: v2
+    appVersion: latest
     created: "2022-09-14T14:15:06.509133346Z"
     description: Web app to send Magic Packets to wake machines on your LAN
     digest: a83760309099de748f6c2f8d71741b3d3653dff30243a22916ea33c9291a5c89
@@ -1513,4 +1538,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-09-14T14:15:06.509370049Z"
+generated: "2022-09-14T14:25:34.285735666Z"
