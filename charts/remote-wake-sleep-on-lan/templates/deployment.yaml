@@ -33,10 +33,10 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- with .Values.computers }}
           env:
-            {{ toYaml . | nindent 12 }}
-          {{- end }}
+              RWSOLS_COMPUTER_NAME: {{ join "," .Values.computers.RWSOLS_COMPUTER_NAME }}
+              RWSOLS_COMPUTER_MAC: {{ join "," .Values.computers.RWSOLS_COMPUTER_MAC }}
+              RWSOLS_COMPUTER_IP: {{ join "," .Values.computers.RWSOLS_COMPUTER_IP }}
           ports:
             - name: http
               containerPort: 80

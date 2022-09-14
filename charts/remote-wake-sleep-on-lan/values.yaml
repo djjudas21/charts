@@ -40,10 +40,10 @@ hostNetwork: true
 
 # It's important to use the format as shown: Env_var="XXX","XXX"
 
-computers: {}
-# RWSOLS_COMPUTER_NAME:
-# RWSOLS_COMPUTER_MAC:
-# RWSOLS_COMPUTER_IP:
+computers:
+  RWSOLS_COMPUTER_NAME: []
+  RWSOLS_COMPUTER_MAC: []
+  RWSOLS_COMPUTER_IP: []
 
 serviceAccount:
   # Specifies whether a service account should be created
