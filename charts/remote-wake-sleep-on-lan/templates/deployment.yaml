@@ -34,9 +34,12 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-              RWSOLS_COMPUTER_NAME: {{ join "," .Values.computers.RWSOLS_COMPUTER_NAME }}
-              RWSOLS_COMPUTER_MAC: {{ join "," .Values.computers.RWSOLS_COMPUTER_MAC }}
-              RWSOLS_COMPUTER_IP: {{ join "," .Values.computers.RWSOLS_COMPUTER_IP }}
+            - name: RWSOLS_COMPUTER_NAME
+              value: {{ join "," .Values.computers.RWSOLS_COMPUTER_NAME }}
+            - name: RWSOLS_COMPUTER_MAC
+              value: {{ join "," .Values.computers.RWSOLS_COMPUTER_MAC }}
+            - name: RWSOLS_COMPUTER_IP
+              value: {{ join "," .Values.computers.RWSOLS_COMPUTER_IP }}
           ports:
             - name: http
               containerPort: 80

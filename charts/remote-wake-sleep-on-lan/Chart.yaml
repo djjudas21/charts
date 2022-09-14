@@ -2,7 +2,7 @@ apiVersion: v2
 name: remote-wake-sleep-on-lan
 description: Web app to send Magic Packets to wake machines on your LAN
 type: application
-version: 0.1.5
+version: 0.1.6
 appVersion: "latest"
 
 home: https://github.com/djjudas21/charts/tree/main/charts/remote-wake-sleep-on-lan
