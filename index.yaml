@@ -6,6 +6,44 @@ entries:
         - kind: changed
           description: Update to BookStack v22.09
     apiVersion: v2
+    appVersion: 22.09.1
+    created: "2022-09-20T14:37:28.426872675Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    description: A simple, self-hosted, easy-to-use platform for organising and storing
+      information.
+    digest: 87efb4d6b9e8e17952d58e625e3213c1b585c92c6b04af735937bb0e45eac132
+    home: https://github.com/djjudas21/charts/tree/master/charts/bookstack
+    icon: https://avatars3.githubusercontent.com/u/20912696?s=400&v=4?sanitize=true
+    keywords:
+    - bookstack
+    - book
+    - stack
+    - organizer
+    - server
+    - hosted
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: bookstack
+    sources:
+    - https://www.bookstackapp.com/
+    - https://hub.docker.com/r/linuxserver/bookstack
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/bookstack-5.2.4/bookstack-5.2.4.tgz
+    version: 5.2.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to BookStack v22.09
+    apiVersion: v2
     appVersion: version-v22.09
     created: "2022-09-09T13:57:36.723076989Z"
     dependencies:
@@ -1588,4 +1626,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-09-14T14:36:23.697542588Z"
+generated: "2022-09-20T14:37:28.427003877Z"
