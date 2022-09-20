@@ -1,9 +1,9 @@
 ---
 apiVersion: v2
-appVersion: version-v22.09
+appVersion: 22.09.1
 description: A simple, self-hosted, easy-to-use platform for organising and storing information.
 name: bookstack
-version: 5.2.3
+version: 5.2.4
 kubeVersion: ">=1.16.0-0"
 keywords:
   - bookstack
