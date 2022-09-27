@@ -3,12 +3,12 @@ name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
   
-version: 0.2.4
+version: 0.2.5
 appVersion: "10.10"
 
 dependencies:
 - name: mariadb
-  version: "10.x.x"
+  version: "11.0.14"
   repository: "https://charts.bitnami.com/bitnami"
 - name: redis
   version: "16.x.x"
