@@ -1476,6 +1476,36 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Updated uptime-kuma to 1.18.2
+    apiVersion: v2
+    appVersion: 1.18.2
+    created: "2022-10-04T12:20:01.000608344Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.1.0
+    description: A fancy self-hosted monitoring tool for your websites and applications
+    digest: cb0e75a4ad935f75612a87c7c91ad450f5421eadbf1cf4ba553ce4a950d84911
+    home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma
+    icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
+    keywords:
+    - uptime-kuma
+    - status
+    - status-page
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/uptime-kuma-1.5.3/uptime-kuma-1.5.3.tgz
+    version: 1.5.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Updated uptime-kuma to 1.18.0
     apiVersion: v2
     appVersion: 1.18.0
@@ -1664,4 +1694,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-09-27T15:02:00.875977183Z"
+generated: "2022-10-04T12:20:01.001032352Z"
