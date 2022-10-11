@@ -1274,6 +1274,31 @@ entries:
           description: Container runs on port 80
     apiVersion: v2
     appVersion: latest
+    created: "2022-10-11T14:53:20.88295206Z"
+    description: Web app to send Magic Packets to wake machines on your LAN
+    digest: 48598ec9821dbbd17dc3ee0f2e67b94b2b61e76ee122c7b763889d3ce4caeaa5
+    home: https://github.com/djjudas21/charts/tree/main/charts/remote-wake-sleep-on-lan
+    keywords:
+    - wakeonlan
+    - wake
+    - magicpacket
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: remote-wake-sleep-on-lan
+    sources:
+    - https://github.com/sciguy14/Remote-Wake-Sleep-On-LAN-Server
+    - https://hub.docker.com/r/ex0nuss/remote-wake-sleep-on-lan-docker
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/remote-wake-sleep-on-lan-0.1.10/remote-wake-sleep-on-lan-0.1.10.tgz
+    version: 0.1.10
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Container runs on port 80
+    apiVersion: v2
+    appVersion: latest
     created: "2022-10-11T14:49:21.525705751Z"
     description: Web app to send Magic Packets to wake machines on your LAN
     digest: 12a5de068dc4b37048e93dcb0abaca98c022e71987cdfc33141ea2d73d650de5
@@ -1774,4 +1799,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-10-11T14:49:21.526262884Z"
+generated: "2022-10-11T14:53:20.88319896Z"
