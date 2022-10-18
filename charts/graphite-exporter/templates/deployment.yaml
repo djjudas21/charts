@@ -32,7 +32,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["/bin/graphite_exporter"]
-          {{- if .Values.graphite.mapping -}}
+          {{- if .Values.graphite.mapping }}
           args: ["--graphite.listen-address", ":{{ .Values.service.graphite.port }}", "--graphite.mapping-config", "/tmp/graphite_mapping.conf"]
           {{- else }}
           args: ["--graphite.listen-address", ":{{ .Values.service.graphite.port }}"]
