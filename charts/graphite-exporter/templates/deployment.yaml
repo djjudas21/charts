@@ -50,6 +50,13 @@ spec:
               port: prometheus
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.graphite.mapping }}
+          volumeMounts:
+          - mountPath: /tmp/graphite_mapping.conf
+            name: mapping
+            subPath: graphite_mapping.conf
+            readOnly: true
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -61,4 +68,10 @@ spec:
       {{- with .Values.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.graphite.mapping }}
+      volumes:
+      - name: mapping
+        configMap:
+          name: {{ include "graphite-exporter.fullname" . }}-mapping
       {{- end }}
