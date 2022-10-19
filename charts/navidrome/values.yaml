@@ -40,6 +40,12 @@ ingress:
   # @default -- See values.yaml
   main:
     enabled: false
+    annotations:
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        location /metrics {
+          deny all;
+          return 403;
+        }
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
