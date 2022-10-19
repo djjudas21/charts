@@ -1,0 +1,11 @@
+{{- if .Values.graphite.mapping -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "graphite-exporter.fullname" . }}-mapping
+  labels:
+    {{- include "graphite-exporter.labels" . | nindent 4 }}
+data:
+  graphite_mapping.conf: {{ toYaml .Values.graphite.mapping | indent 2 }}
+
+{{- end }}

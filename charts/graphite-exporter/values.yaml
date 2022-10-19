@@ -47,6 +47,10 @@ service:
     annotations: {}
     # metallb.universe.tf/allow-shared-ip: graphite-exporter
 
+graphite: {}
+  #mapping: |-
+    # Add custom graphite mappings here: https://github.com/prometheus/graphite_exporter#metric-mapping-and-configuration
+
 # Enable this if you have the Prometheus Operator, to create a ServiceMonitor
 # resource so Prometheus will scrape this endpoint
 serviceMonitor:

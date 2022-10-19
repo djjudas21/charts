@@ -31,6 +31,12 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["/bin/graphite_exporter"]
+          {{- if .Values.graphite.mapping }}
+          args: ["--graphite.listen-address", ":{{ .Values.service.graphite.port }}", "--graphite.mapping-config", "/tmp/graphite_mapping.conf"]
+          {{- else }}
+          args: ["--graphite.listen-address", ":{{ .Values.service.graphite.port }}"]
+          {{- end }}
           ports:
           ports:
             - name: prometheus
@@ -48,6 +54,13 @@ spec:
               port: prometheus
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.graphite.mapping }}
+          volumeMounts:
+          - mountPath: /tmp/graphite_mapping.conf
+            name: mapping
+            subPath: graphite_mapping.conf
+            readOnly: true
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -59,4 +72,10 @@ spec:
       {{- with .Values.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.graphite.mapping }}
+      volumes:
+      - name: mapping
+        configMap:
+          name: {{ include "graphite-exporter.fullname" . }}-mapping
       {{- end }}
