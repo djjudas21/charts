@@ -26,6 +26,8 @@ env:
   ND_ENABLETRANSCODINGCONFIG: "true"
   # -- Folder where your music library is stored.
   ND_MUSICFOLDER: /music
+  # -- Enable extra endpoint with Prometheus metrics.
+  ND_PROMETHEUS_ENABLED: "false"
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -34,12 +36,29 @@ service:
     ports:
       http:
         port: 4533
+    monitor:
+      # -- Enables or disables the serviceMonitor.
+      enabled: false
+      # -- Configures the endpoints for the serviceMonitor.
+      # @default -- See values.yaml
+      endpoints:
+        - port: http
+          scheme: http
+          path: /metrics
+          interval: 1m
+          scrapeTimeout: 10s
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
   # @default -- See values.yaml
   main:
     enabled: false
+    annotations:
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        location /metrics {
+          deny all;
+          return 403;
+        }
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
