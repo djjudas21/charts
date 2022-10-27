@@ -28,12 +28,21 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           env:
+          {{- if .Values.mariadb.enabled }}
           - name: OWNCLOUD_DB_HOST
             value: {{ .Release.Name }}-mariadb
           - name: OWNCLOUD_DB_NAME
             value: {{ .Values.mariadb.auth.database }}
           - name: OWNCLOUD_DB_USERNAME
             value: {{ .Values.mariadb.auth.username }}
+          {{- else }}
+          - name: OWNCLOUD_DB_HOST
+            value: {{ .Values.ownCloud.externalDatabase.host }}
+          - name: OWNCLOUD_DB_NAME
+            value: {{ .Values.ownCloud.externalDatabase.database }}
+          - name: OWNCLOUD_DB_USERNAME
+            value: {{ .Values.ownCloud.externalDatabase.username }}
+          {{- end }}
           - name: OWNCLOUD_DB_TYPE
             value: mysql
           - name: OWNCLOUD_ADMIN_USERNAME

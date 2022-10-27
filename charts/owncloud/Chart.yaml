@@ -3,11 +3,12 @@ name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
   
-version: 0.2.6
+version: 0.3.0
 appVersion: "10.11.0"
 
 dependencies:
 - name: mariadb
+  condition: mariadb.enabled
   version: "11.0.14"
   repository: "https://charts.bitnami.com/bitnami"
 - name: redis
@@ -33,4 +34,4 @@ annotations:
   category: Infrastructure
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to ownCloud 10.11.0
+      description: Allow external database config

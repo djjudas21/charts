@@ -21,6 +21,11 @@ ownCloud:
       auth: false
       username: ""
       password: ""
+  externalDatabase:
+    host: ""
+    database: owncloud
+    username: owncloud
+    password: owncloudsecretpassword
 
 replicaCount: 1
 
@@ -95,6 +100,7 @@ affinity: {}
 # Bitnami MariaDB
 # https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
 mariadb:
+  enabled: true
   architecture: standalone
   auth:
     rootPassword: "owncloud"
