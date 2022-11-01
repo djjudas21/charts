@@ -94,3 +94,5 @@ metrics:
   port: 9154
   serviceMonitor:
     enabled: false
+  prometheusRules:
+    enabled: false
