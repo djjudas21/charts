@@ -88,3 +88,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+metrics:
+  enabled: false
+  port: 9154
+  serviceMonitor:
+    enabled: false

@@ -25,12 +25,22 @@ spec:
       serviceAccountName: {{ include "smtp-relay.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      - name: sockets
+        emptyDir: {}
+      - name: log
+        emptyDir: {}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: sockets
+            mountPath: /var/spool/postfix/public
+          - name: log
+            mountPath: /var/log
           env:
             - name: SMTP_RELAY_HOST
               valueFrom:
@@ -91,6 +101,25 @@ spec:
           {{-  end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        {{- if .Values.metrics.enabled }}
+        - name: metrics
+          image: chatwork/kumina-postfix-exporter:edge
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args: ["--postfix.showq_path", "/var/spool/postfix/public/showq"]
+          ports:
+            - name: metrics
+              containerPort: 9154
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: 9154
+          volumeMounts:
+          - name: sockets
+            mountPath: /var/spool/postfix/public
+          - name: log
+            mountPath: /var/log
+        {{-  end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
