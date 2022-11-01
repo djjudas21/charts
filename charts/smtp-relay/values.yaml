@@ -39,6 +39,20 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+probes:
+  liveness:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 1
+  readiness:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 1
+
 podAnnotations: {}
 
 podSecurityContext: {}
@@ -74,3 +88,11 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+metrics:
+  enabled: false
+  port: 9154
+  serviceMonitor:
+    enabled: false
+  prometheusRules:
+    enabled: false

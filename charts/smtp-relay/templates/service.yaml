@@ -14,5 +14,9 @@ spec:
       targetPort: 25
       protocol: TCP
       name: smtp
+    - port: {{ .Values.metrics.port }}
+      targetPort: 9154
+      protocol: TCP
+      name: metrics
   selector:
     {{- include "smtp-relay.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,8 @@
+    - alert: PostfixRelayDown
+      expr: postfix_up != 1
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: Postfix SMTP relay is down (instance {{ $labels.instance }})
+        description: "A Postfix SMTP relay is down.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
