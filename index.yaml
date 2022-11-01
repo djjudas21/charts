@@ -1673,6 +1673,32 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Add support for metrics
+    apiVersion: v2
+    appVersion: 0.6.1
+    created: "2022-11-01T12:57:31.627810115Z"
+    description: An SMTP smarthost relay for Kubernetes
+    digest: 49d5bd5ef26b4e4204ec79c573e4446e0642abfdaf072e2c590f8f886b9a341d
+    home: https://github.com/djjudas21/charts/tree/main/charts/smtp-relay
+    keywords:
+    - smtp
+    - relay
+    - smarthost
+    - postfix
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: smtp-relay
+    sources:
+    - https://github.com/djjudas21/smtp-relay
+    - https://hub.docker.com/r/djjudas21/smtp-relay
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/smtp-relay-0.4.0/smtp-relay-0.4.0.tgz
+    version: 0.4.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Fix chart URL
     apiVersion: v2
     appVersion: 0.5.0
@@ -1959,4 +1985,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-10-31T10:15:36.925934427Z"
+generated: "2022-11-01T12:57:31.627922216Z"
