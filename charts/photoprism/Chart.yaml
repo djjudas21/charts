@@ -21,7 +21,7 @@ maintainers:
 dependencies:
   - name: common
     repository: http://bjw-s.github.io/helm-charts/
-    version: 0.1.0
+    version: 1.0.0
   - name: mariadb
     version: 11.0.14
     repository: https://charts.bitnami.com/bitnami
@@ -29,4 +29,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to PhotoPrism 221118
+      description: Update to bjw-s/common 1.0.0

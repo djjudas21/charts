@@ -20,8 +20,8 @@ maintainers:
 dependencies:
 - name: common
   repository: http://bjw-s.github.io/helm-charts/
-  version: 0.1.0
+  version: 1.0.0
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Fix chart URL
+      description: Update to bjw-s/common 1.0.0
