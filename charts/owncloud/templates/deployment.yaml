@@ -79,6 +79,8 @@ spec:
           {{- if .host }}
           - name: OWNCLOUD_DOMAIN
             value: {{ .host }}
+          - name:  OWNCLOUD_TRUSTED_DOMAINS
+            value: {{ .host }}
           {{- end }}
         {{- end }}
           - name: OWNCLOUD_MYSQL_UTF8MB4
