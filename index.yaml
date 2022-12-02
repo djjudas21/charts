@@ -2133,6 +2133,40 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to webtrees 2.1.9
+    apiVersion: v2
+    appVersion: 2.1.9
+    created: "2022-12-02T09:38:57.257505716Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 1.0.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    description: Open-source online collaborative genealogy application
+    digest: 74fa55e3e7229602a8652cbf53f3d6a84481f806083df810f6ec800d732f3a01
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.4/webtrees-2.2.4.tgz
+    version: 2.2.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to webtrees 2.1.8
     apiVersion: v2
     appVersion: 2.1.8
@@ -2264,4 +2298,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-11-30T09:48:19.509153411Z"
+generated: "2022-12-02T09:38:57.257659916Z"
