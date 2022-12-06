@@ -2162,6 +2162,45 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/uptime-kuma-1.5.0/uptime-kuma-1.5.0.tgz
     version: 1.5.0
+  vikunja:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version 4.5.2
+    apiVersion: v2
+    appVersion: 0.17.0
+    created: "2022-12-06T10:34:16.907167897Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.12
+    description: The to-do app to organize your life
+    digest: a2ae8c233116729f8f005d58fd21c9d669bf20a6c7248ec4a4bd4bcdf8964722
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/vikunja
+    icon: https://s7.gifyu.com/images/GifCroppedTran.gif
+    keywords:
+    - vikunja
+    - to-do
+    - tasks
+    - calendar
+    - kanban
+    maintainers:
+    - email: k8s-at-home@xpander.eml.cc
+      name: auricom
+    name: vikunja
+    sources:
+    - https://kolaente.dev/vikunja/api
+    - https://kolaente.dev/vikunja/frontend
+    - https://hub.docker.com/r/vikunja/api
+    - https://hub.docker.com/r/vikunja/frontend
+    - https://vikunja.io/docs/
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/vikunja-6.1.2/vikunja-6.1.2.tgz
+    version: 6.1.2
   webtrees:
   - annotations:
       artifacthub.io/changes: |-
@@ -2331,4 +2370,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-12-06T09:30:41.57320653Z"
+generated: "2022-12-06T10:34:16.907370298Z"
