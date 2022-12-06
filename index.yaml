@@ -4,6 +4,44 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 22.09.1
+    created: "2022-12-06T16:41:30.385476958Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    description: A simple, self-hosted, easy-to-use platform for organising and storing
+      information.
+    digest: 32d54994e3f010d4b27627c47eaba9063cd50f5d5115600e560120030c7b2a0b
+    home: https://github.com/djjudas21/charts/tree/master/charts/bookstack
+    icon: https://avatars3.githubusercontent.com/u/20912696?s=400&v=4?sanitize=true
+    keywords:
+    - bookstack
+    - book
+    - stack
+    - organizer
+    - server
+    - hosted
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: bookstack
+    sources:
+    - https://www.bookstackapp.com/
+    - https://hub.docker.com/r/linuxserver/bookstack
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/bookstack-5.2.5/bookstack-5.2.5.tgz
+    version: 5.2.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to BookStack v22.09
     apiVersion: v2
     appVersion: 22.09.1
@@ -323,6 +361,38 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-12-06T16:41:30.548178205Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Self-hosted vehicle expense tracking system with support for multiple
+      users
+    digest: bd6937685909c9f44db996a1f41cd5d9a8a9c7d0ceb94cb83c5aec3d5c7ee434
+    home: https://github.com/akhilrex/hammond
+    icon: https://github.com/akhilrex/hammond/raw/master/ui/src/assets/images/logo.png
+    keywords:
+    - hammond
+    - car
+    - expense
+    - fuel
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: hammond
+    sources:
+    - https://github.com/akhilrex/hammond
+    - https://hub.docker.com/r/akhilrex/hammond
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/hammond-0.2.2/hammond-0.2.2.tgz
+    version: 0.2.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Fix chart URL
     apiVersion: v2
     appVersion: 1.0.0
@@ -412,6 +482,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 2.4.13
+    created: "2022-12-06T16:41:30.720598083Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: An Application dashboard and launcher
+    digest: 09a14065cf53f4dd630da5433214d424d626979faf48afd6e805d35ab3c05083
+    home: https://github.com/djjudas21/charts/tree/master/charts/heimdall
+    icon: https://i.imgur.com/mM4tcO5.png
+    keywords:
+    - heimdall
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: heimdall
+    sources:
+    - https://hub.docker.com/r/linuxserver/heimdall/
+    - https://github.com/linuxserver/heimdall
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/heimdall-8.5.2/heimdall-8.5.2.tgz
+    version: 8.5.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Convert to djjudas21
     apiVersion: v2
     appVersion: 2.4.13
@@ -466,6 +564,32 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/heimdall-8.5.0/heimdall-8.5.0.tgz
     version: 8.5.0
   homer:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: v22.11.2
+    created: "2022-12-06T16:41:30.885915493Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: A dead simple static HOMepage for your servER to keep your services
+      on hand, from a simple yaml configuration file.
+    digest: 8c13a592cabda949e34a3ea74ead31dcb77a4c7e4d451e298b20615f125bd71d
+    home: https://github.com/djjudas21/charts/tree/master/charts/homer
+    icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/homer-8.1.5/homer-8.1.5.tgz
+    version: 8.1.5
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -600,6 +724,39 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 2.7.4-beta
+    created: "2022-12-06T16:41:31.058004262Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.12
+    description: This server allows you to sync any Joplin client
+    digest: 5a0795a746b17f59f503c6d6937ceccd6090e7bc8a3b35ab0fab96190056cc2c
+    home: https://github.com/djjudas21/charts/tree/master/charts/joplin-server
+    icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
+    keywords:
+    - joplin
+    - notes
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: joplin-server
+    sources:
+    - https://github.com/laurent22/joplin/tree/dev/packages/server
+    - https://github.com/laurent22/joplin
+    - https://hub.docker.com/r/joplin/server
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/joplin-server-5.4.3/joplin-server-5.4.3.tgz
+    version: 5.4.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Fix chart URL
     apiVersion: v2
     appVersion: 2.7.4-beta
@@ -697,6 +854,34 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/joplin-server-5.4.0/joplin-server-5.4.0.tgz
     version: 5.4.0
   littlelink-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-12-06T16:41:31.216196103Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: A lightweight open source alternative to linktree
+    digest: 4d5f79a29a6180334520c6a782e2f022f34615b3c32dc466e1fcccb94d8b08fb
+    home: https://github.com/djjudas21/charts/tree/master/charts/littlelink-server
+    icon: https://camo.githubusercontent.com/edebb9bce46a8d4a75fa8c4f50f20996c3fe55ace28ecfbfdc5da3794cc90e9a/68747470733a2f2f63646e2e636f74746c652e636c6f75642f6c6974746c656c696e6b2f736f6369616c2d636972636c652e706e67
+    keywords:
+    - littlelink-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: littlelink-server
+    sources:
+    - https://github.com/techno-tim/littlelink-server
+    - https://github.com/sethcottle/littlelink
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/littlelink-server-1.5.3/littlelink-server-1.5.3.tgz
+    version: 1.5.3
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -857,6 +1042,37 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.2/maian-music-0.2.2.tgz
     version: 0.2.2
   navidrome:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 0.48.0
+    created: "2022-12-06T16:41:31.377404816Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 433dc5169b306b661f76c8c2c97ae31171ce2c543bd8255f9df2f31b862cf96e
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.6.1/navidrome-6.6.1.tgz
+    version: 6.6.1
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -1242,6 +1458,41 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 1.8.0
+    created: "2022-12-06T16:41:31.551946644Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.12
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.13.1
+    description: Paperless - Index and archive all of your scanned paper documents
+    digest: b2b005a229795fecc12456b72e0a7fd5a5436571d93521810d391f9a061e7c6a
+    home: https://github.com/djjudas21/charts/tree/master/charts/paperless
+    icon: https://avatars.githubusercontent.com/u/47271576?s=200&v=4
+    keywords:
+    - paperless
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: paperless
+    sources:
+    - https://github.com/paperless-ngx/paperless-ngx
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/paperless-9.2.3/paperless-9.2.3.tgz
+    version: 9.2.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Fix chart URL
     apiVersion: v2
     appVersion: 1.8.0
@@ -1345,6 +1596,42 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/paperless-9.2.0/paperless-9.2.0.tgz
     version: 9.2.0
   photoprism:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 221118-jammy
+    created: "2022-12-06T16:41:31.723921511Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    description: PhotoPrism® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: 2f32c69ed252a7792e01e38263d802cf50c661df79d6544d2bb5a49fd2a3ef9f
+    home: https://github.com/djjudas21/charts/tree/master/charts/photoprism
+    icon: https://raw.githubusercontent.com/photoprism/photoprism/develop/assets/static/icons/app.svg
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/photoprism-7.2.10/photoprism-7.2.10.tgz
+    version: 7.2.10
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -2205,6 +2492,40 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 2.1.9
+    created: "2022-12-06T16:41:31.909735605Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    description: Open-source online collaborative genealogy application
+    digest: 2ecb6f5b76acad1e8f6602c72000c76744991c89db5d1294024a620a6800d781
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.5/webtrees-2.2.5.tgz
+    version: 2.2.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to webtrees 2.1.9
     apiVersion: v2
     appVersion: 2.1.9
@@ -2370,4 +2691,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-12-06T10:34:16.907370298Z"
+generated: "2022-12-06T16:41:31.909972911Z"
