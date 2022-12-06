@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 1.0.0
 description: "A lightweight open source alternative to linktree"
 name: littlelink-server
-version: 1.5.2
+version: 1.5.3
 kubeVersion: ">=1.16.0-0"
 keywords:
   - littlelink-server
@@ -18,8 +18,8 @@ maintainers:
 dependencies:
   - name: common
     repository: http://bjw-s.github.io/helm-charts/
-    version: 1.0.0
+    version: 0.2.0
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to bjw-s/common 1.0.0
+      description: Downgrade to bjw-s/common 0.2.0
