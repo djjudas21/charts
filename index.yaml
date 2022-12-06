@@ -191,6 +191,39 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/bookstack-5.2.0/bookstack-5.2.0.tgz
     version: 5.2.0
+  focalboard:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Adopt chart from k8s@home
+    apiVersion: v2
+    appVersion: 0.9.0
+    created: "2022-12-06T09:30:41.573090128Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Focalboard is an open source, self-hosted alternative to Trello,
+      Notion, and Asana.
+    digest: 7e0ce7bef1f405e214fc3b495ad735dfcb2e7a9d15aff768a3946ec46affeab9
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/focalboard
+    icon: https://github.com/mattermost/focalboard/raw/main/webapp/static/favicon.svg
+    keywords:
+    - focalboard
+    - kanban
+    - project management
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: focalboard
+    sources:
+    - https://www.focalboard.com/
+    - https://github.com/mattermost/focalboard
+    - https://github.com/djjudas21/charts
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/focalboard-4.4.2/focalboard-4.4.2.tgz
+    version: 4.4.2
   graphite-exporter:
   - annotations:
       artifacthub.io/changes: |-
@@ -2298,4 +2331,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2022-12-02T09:38:57.257659916Z"
+generated: "2022-12-06T09:30:41.57320653Z"
