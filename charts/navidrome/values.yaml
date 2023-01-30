@@ -28,6 +28,8 @@ env:
   ND_MUSICFOLDER: /music
   # -- Enable extra endpoint with Prometheus metrics.
   ND_PROMETHEUS_ENABLED: "false"
+  # -- Enable sharing
+  ND_ENABLESHARING: "false"
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
