@@ -4,8 +4,8 @@ A self-hosted vehicle expense tracking system with support for multiple users
 
 ## Source Code
 
-* <https://github.com/akhilrex/hammond>
-* <https://hub.docker.com/r/akhilrex/hammond>
+* <https://github.com/alfhou/hammond>
+* <https://hub.docker.com/r/alfhou/hammond>
 * <https://github.com/djjudas21/charts>
 
 ## Dependencies
@@ -69,7 +69,7 @@ helm install hammond djjudas21/hammond -f values.yaml
 | env | object | See below (only deviations from the default settings are specified) | environment variables. See [image docs](https://docs.kanboard.org/en/latest/admin_guide/docker.html#environment-variables) and [application docs](https://docs.kanboard.org/en/latest/admin_guide/config_file.html) for more details. |
 | env.TZ | string | `"UTC"` | Application Timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"akhilrex/hammond"` | image repository |
+| image.repository | string | `"alfhou/hammond"` | image repository |
 | image.tag | string | `"1.0.0"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
@@ -80,3 +80,7 @@ helm install hammond djjudas21/hammond -f values.yaml
 ### Version 0.1.0
 
 * Initial chart version
+
+### Version 0.3.0
+
+* Switch to alfhou/hammond fork as akhilrex/hammond is unmaintained
