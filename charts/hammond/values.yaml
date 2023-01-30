@@ -6,7 +6,7 @@
 
 image:
   # -- image repository
-  repository: akhilrex/hammond
+  repository: alfhou/hammond
   # -- image tag
   tag: ""
   # -- image pull policy

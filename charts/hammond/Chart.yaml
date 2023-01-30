@@ -1,19 +1,19 @@
 apiVersion: v2
-appVersion: 1.0.0
+appVersion: v0.0.2
 description: Self-hosted vehicle expense tracking system with support for multiple users
 type: application
 name: hammond
-version: 0.2.2
+version: 0.3.0
 keywords:
 - hammond
 - car
 - expense
 - fuel
-home: https://github.com/akhilrex/hammond
-icon: https://github.com/akhilrex/hammond/raw/master/ui/src/assets/images/logo.png
+home: https://github.com/alfhou/hammond
+icon: https://github.com/alfhou/hammond/raw/master/ui/src/assets/images/logo.png
 sources:
-- https://github.com/akhilrex/hammond
-- https://hub.docker.com/r/akhilrex/hammond
+- https://github.com/alfhou/hammond
+- https://hub.docker.com/r/alfhou/hammond
 maintainers:
 - name: djjudas21
   email: djjudas21@users.noreply.github.com
@@ -24,4 +24,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Downgrade to bjw-s/common 0.2.0
+      description: Switch to alfhou/hammond fork
