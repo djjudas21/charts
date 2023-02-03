@@ -8,7 +8,7 @@ spec:
   replicas: {{ .Values.client.replicaCount }}
   selector:
     matchLabels:
-      {{- include "reactive-resume.selectorLabels" . | nindent 6 }}
+      {{- include "reactive-resume.selectorLabelsClient" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.client.podAnnotations }}
@@ -16,7 +16,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "reactive-resume.selectorLabels" . | nindent 8 }}
+        {{- include "reactive-resume.selectorLabelsClient" . | nindent 8 }}
     spec:
       {{- with .Values.client.imagePullSecrets }}
       imagePullSecrets:
