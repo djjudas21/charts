@@ -1,29 +1,24 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
 apiVersion: v2
-appVersion: "1"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
-description: A one-of-a-kind resume builder that keeps your privacy in mind.
-home: https://truecharts.org/charts/incubator/reactive-resume
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/reactive-resume.png
-keywords:
-  - reactive-resume
-  - Productivity
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
 name: reactive-resume
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/reactive-resume
-  - https://hub.docker.com/r/amruthpillai/reactive-resume
-  - https://rxresu.me/
+description: A Helm chart for Kubernetes
+
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
 type: application
-version: 2.0.8
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.1.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+# It is recommended to use it with quotes.
+appVersion: "1.16.0"
