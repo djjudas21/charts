@@ -85,15 +85,22 @@ spec:
               value: {{ .Values.config.google.clientSecret }}
             {{- end }}
             {{- if .Values.ingress.enabled }}
+            {{- if .Values.ingress.tls }}
             - name: PUBLIC_SERVER_URL
-              value: {{ .Values.config.publicServerUrl }}
+              value: https://{{ (index .Values.ingress.hosts 0).host }}/api
             - name: PUBLIC_URL
-              value: {{ .Values.config.publicUrl }}
+              value: https://{{ (index .Values.ingress.hosts 0).host }}
             {{- else }}
             - name: PUBLIC_SERVER_URL
-              value: {{ .Values.config.publicServerUrl }}
+              value: http://{{ (index .Values.ingress.hosts 0).host }}/api
             - name: PUBLIC_URL
-              value: {{ .Values.config.publicUrl }}
+              value: http://{{ (index .Values.ingress.hosts 0).host }}
+            {{- end }}
+            {{- else }}
+            - name: PUBLIC_SERVER_URL
+              value: http://{{ include "reactive-resume.nameServer" . }}:3100
+            - name: PUBLIC_URL
+              value: http://{{ include "reactive-resume.nameClient" . }}:3000
             {{- end }}
             - name: SECRET_KEY
               value: {{ .Values.config.secretKey }}
