@@ -11,7 +11,7 @@ spec:
       {{- include "reactive-resume.selectorLabelsServer" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.server. podAnnotations }}
+      {{- with .Values.server.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -68,7 +68,7 @@ spec:
             - name: STORAGE_SECRET_KEY
             - name: STORAGE_URL_PREFIX
           securityContext:
-            {{- toYaml .Values.server. securityContext | nindent 12 }}
+            {{- toYaml .Values.server.securityContext | nindent 12 }}
           image: "{{ .Values.server.image.repository }}:{{ .Values.server.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.server.image.pullPolicy }}
           ports:
