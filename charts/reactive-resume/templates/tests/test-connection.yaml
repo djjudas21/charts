@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "reactive-resume.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "reactive-resume.nameClient" . }}:{{ .Values.client.service.port }}']
   restartPolicy: Never
