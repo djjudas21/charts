@@ -46,11 +46,11 @@ spec:
             backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
-                name: {{ include "reactive-resume.nameClient" . }}
+                name: {{ include "reactive-resume.nameClient" $ }}
                 port:
                   number: 3000
               {{- else }}
-              serviceName: {{ include "reactive-resume.nameClient" . }}
+              serviceName: {{ include "reactive-resume.nameClient" $ }}
               servicePort: 3000
               {{- end }}
           - path: /api
@@ -60,11 +60,11 @@ spec:
             backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
-                name: {{ include "reactive-resume.nameServer" . }}
+                name: {{ include "reactive-resume.nameServer" $ }}
                 port:
                   number: 3000
               {{- else }}
-              serviceName: {{ include "reactive-resume.nameServer" . }}
+              serviceName: {{ include "reactive-resume.nameServer" $ }}
               servicePort: 3100
               {{- end }}
     {{- end }}
