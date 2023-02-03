@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "reactive-resume.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.client.autoscaling.enabled }}
   replicas: {{ .Values.client.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "reactive-resume.selectorLabels" . | nindent 6 }}
