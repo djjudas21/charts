@@ -1,6 +1,4 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "reactive-resume.nameClient"  . -}}
-{{- $svcPort := .Values.client.service.port -}}
 {{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
   {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
   {{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className}}
@@ -15,7 +13,7 @@ apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ include "reactive-resume.name" . }}
   labels:
     {{- include "reactive-resume.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
@@ -41,21 +39,33 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          {{- range .paths }}
-          - path: {{ .path }}
+          - path: /
             {{- if and .pathType (semverCompare ">=1.18-0" $.Capabilities.KubeVersion.GitVersion) }}
             pathType: {{ .pathType }}
             {{- end }}
             backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
-                name: {{ $fullName }}
+                name: {{ include "reactive-resume.nameClient" . }}
                 port:
-                  number: {{ $svcPort }}
+                  number: 3000
               {{- else }}
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPort }}
+              serviceName: {{ include "reactive-resume.nameClient" . }}
+              servicePort: 3000
               {{- end }}
-          {{- end }}
+          - path: /api
+            {{- if and .pathType (semverCompare ">=1.18-0" $.Capabilities.KubeVersion.GitVersion) }}
+            pathType: {{ .pathType }}
+            {{- end }}
+            backend:
+              {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
+              service:
+                name: {{ include "reactive-resume.nameServer" . }}
+                port:
+                  number: 3000
+              {{- else }}
+              serviceName: {{ include "reactive-resume.nameServer" . }}
+              servicePort: 3100
+              {{- end }}
     {{- end }}
 {{- end }}

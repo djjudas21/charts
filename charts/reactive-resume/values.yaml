@@ -11,9 +11,6 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -50,7 +47,6 @@ client:
 
   service:
     type: ClusterIP
-    port: 3000
 
   resources: {}
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -101,7 +97,6 @@ server:
 
   service:
     type: ClusterIP
-    port: 3100
 
   resources: {}
     # We usually recommend not to specify default resources and to leave this as a conscious

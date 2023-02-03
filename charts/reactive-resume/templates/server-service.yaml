@@ -7,9 +7,9 @@ metadata:
 spec:
   type: {{ .Values.server.service.type }}
   ports:
-    - port: {{ .Values.server.service.port }}
-      targetPort: {{ .Values.server.service.port }}
+    - port: 3100
+      targetPort: 3100
       protocol: TCP
-      #name: http
+      name: http
   selector:
     {{- include "reactive-resume.selectorLabelsServer" . | nindent 4 }}
