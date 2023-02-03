@@ -98,3 +98,26 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+
+{{/*
+Create the name of the Server image tag
+*/}}
+{{- define "reactive-resume.serverImageTag" -}}
+{{- if .Values.server.image.tag }}
+{{- .Values.server.image.tag -}}
+{{- else }}
+{{- printf "server-%s" .Chart.AppVersion | default "latest" -}}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the name of the Client image tag
+*/}}
+{{- define "reactive-resume.clientImageTag" -}}
+{{- if .Values.client.image.tag }}
+{{- .Values.client.image.tag -}}
+{{- else }}
+{{- printf "client-%s" .Chart.AppVersion | default "latest" -}}
+{{- end }}
+{{- end }}

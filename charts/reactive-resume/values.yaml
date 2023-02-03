@@ -26,7 +26,7 @@ client:
   replicaCount: 1
 
   image:
-    repository: amruthpillai/reactive-resume:client-latest
+    repository: amruthpillai/reactive-resume
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
@@ -76,7 +76,7 @@ server:
   replicaCount: 1
 
   image:
-    repository: amruthpillai/reactive-resume:server-latest
+    repository: amruthpillai/reactive-resume
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""

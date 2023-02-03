@@ -35,7 +35,7 @@ spec:
               value: http://localhost:3000
           securityContext:
             {{- toYaml .Values.client.securityContext | nindent 12 }}
-          image: "{{ .Values.client.image.repository }}:{{ .Values.client.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.client.image.repository }}:{{ include "reactive-resume.clientImageTag" . }}"
           imagePullPolicy: {{ .Values.client.image.pullPolicy }}
           ports:
             - name: client
