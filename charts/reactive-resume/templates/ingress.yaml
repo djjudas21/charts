@@ -62,7 +62,7 @@ spec:
               service:
                 name: {{ include "reactive-resume.nameServer" $ }}
                 port:
-                  number: 3000
+                  number: 3100
               {{- else }}
               serviceName: {{ include "reactive-resume.nameServer" $ }}
               servicePort: 3100
