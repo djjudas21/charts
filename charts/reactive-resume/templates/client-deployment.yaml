@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: name: {{ include "reactive-resume.nameClient" . }}
+  name: {{ include "reactive-resume.nameClient" . }}
   labels:
     {{- include "reactive-resume.labels" . | nindent 4 }}
 spec:
