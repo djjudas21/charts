@@ -1,0 +1,101 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "reactive-resume.nameServer" . }}
+  labels:
+    {{- include "reactive-resume.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.server.autoscaling.enabled }}
+  replicas: {{ .Values.server.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "reactive-resume.selectorLabelsServer" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.server. podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "reactive-resume.selectorLabelsServer" . | nindent 8 }}
+    spec:
+      {{- with .Values.server.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "reactive-resume.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.server.podSecurityContext | nindent 8 }}
+      containers:
+        - name: server
+          env:
+            - name: GOOGLE_API_KEY
+            - name: GOOGLE_CLIENT_SECRET
+            - name: JWT_EXPIRY_TIME
+              value: "604800"
+            - name: JWT_SECRET
+              value: change-me-to-something-secure
+            - name: MAIL_FROM_EMAIL
+              value: noreply@rxresu.me
+            - name: MAIL_FROM_NAME
+              value: Reactive Resume
+            - name: MAIL_HOST
+            - name: MAIL_PASSWORD
+            - name: MAIL_PORT
+            - name: MAIL_USERNAME
+            - name: PDF_DELETION_TIME
+            - name: POSTGRES_DB
+              value: postgres
+            - name: POSTGRES_HOST
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_SSL_CERT
+            - name: POSTGRES_USER
+              value: postgres
+            - name: PUBLIC_GOOGLE_CLIENT_ID
+            - name: PUBLIC_SERVER_URL
+              value: http://localhost:3100
+            - name: PUBLIC_URL
+              value: http://localhost:3000
+            - name: SECRET_KEY
+              value: change-me-to-something-secure
+            - name: STORAGE_ACCESS_KEY
+            - name: STORAGE_BUCKET
+            - name: STORAGE_ENDPOINT
+            - name: STORAGE_REGION
+            - name: STORAGE_SECRET_KEY
+            - name: STORAGE_URL_PREFIX
+          securityContext:
+            {{- toYaml .Values.server. securityContext | nindent 12 }}
+          image: "{{ .Values.server.image.repository }}:{{ .Values.server.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.server.image.pullPolicy }}
+          ports:
+            - name: server
+              containerPort: {{ .Values.server.service.port }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: server
+          readinessProbe:
+            httpGet:
+              path: /
+              port: server
+          resources:
+            {{- toYaml .Values.server.resources | nindent 12 }}
+      {{- with .Values.server.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.server.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.server.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

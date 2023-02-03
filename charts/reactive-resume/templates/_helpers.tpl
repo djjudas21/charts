@@ -5,6 +5,24 @@ Expand the name of the chart.
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
+
+{{/*
+Expand the name of the chart for the Server component
+*/}}
+{{- define "reactive-resume.nameServer" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}-server
+{{- end }}
+
+
+{{/*
+Expand the name of the chart for the Client component
+*/}}
+{{- define "reactive-resume.nameClient" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}-client
+{{- end }}
+
+
+
 {{/*
 Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
@@ -49,6 +67,26 @@ Selector labels
 app.kubernetes.io/name: {{ include "reactive-resume.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+
+{{/*
+Selector labels for the Server
+*/}}
+{{- define "reactive-resume.selectorLabelsServer" -}}
+app.kubernetes.io/name: {{ include "reactive-resume.nameServer" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/component: server
+{{- end }}
+
+{{/*
+Selector labels for the Client
+*/}}
+{{- define "reactive-resume.selectorLabelsClient" -}}
+app.kubernetes.io/name: {{ include "reactive-resume.nameClient" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/component: client
+{{- end }}
+
 
 {{/*
 Create the name of the service account to use
