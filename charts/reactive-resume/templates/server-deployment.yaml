@@ -33,18 +33,30 @@ spec:
             - name: JWT_SECRET
               value: {{ .Values.config.jwtSecret }}
             {{- if .Values.config.mail.enabled }}
+            {{- if .Values.config.mail.fromEmail }}
             - name: MAIL_FROM_EMAIL
               value: {{ .Values.config.mail.fromEmail }}
+            {{- end }}
+            {{- if .Values.config.mail.fromName }}
             - name: MAIL_FROM_NAME
               value: {{ .Values.config.mail.fromName }}
+            {{- end }}
+            {{- if .Values.config.mail.host }}
             - name: MAIL_HOST
               value: {{ .Values.config.mail.host }}
+            {{- end }}
+            {{- if .Values.config.mail.password }}
             - name: MAIL_PASSWORD
               value: {{ .Values.config.mail.password }}
+            {{- end }}
+            {{- if .Values.config.mail.port }}
             - name: MAIL_PORT
               value: {{ .Values.config.mail.port }}
+            {{- end }}
+            {{- if .Values.config.mail.username }}
             - name: MAIL_USERNAME
               value: {{ .Values.config.mail.username }}
+            {{- end }}
             {{- end }}
             - name: POSTGRES_DB
               value: {{ .Values.config.postgres.db }}
@@ -54,16 +66,24 @@ spec:
               value: {{ .Values.config.postgres.password }}
             - name: POSTGRES_PORT
               value: {{ .Values.config.postgres.port }}
+            {{- if .Values.config.postgres.cert }}
             - name: POSTGRES_SSL_CERT
               value: {{ .Values.config.postgres.cert }}
+            {{- end }}
             - name: POSTGRES_USER
               value: {{ .Values.config.postgres.user }}
+            {{- if .Values.config.google.clientId }}
             - name: PUBLIC_GOOGLE_CLIENT_ID
               value: {{ .Values.config.google.clientId }}
+            {{- end }}
+            {{- if .Values.config.google.apiKey }}
             - name: GOOGLE_API_KEY
               value: {{ .Values.config.google.apiKey }}
+            {{- end }}
+            {{- if .Values.config.google.clientSecret }}
             - name: GOOGLE_CLIENT_SECRET
               value: {{ .Values.config.google.clientSecret }}
+            {{- end }}
             {{- if .Values.ingress.enabled }}
             - name: PUBLIC_SERVER_URL
               value: {{ .Values.config.publicServerUrl }}
