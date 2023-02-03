@@ -29,10 +29,18 @@ spec:
         - name: client
           env:
             - name: PUBLIC_GOOGLE_CLIENT_ID
+              value: {{ .Values.config.google.clientId }}
+            {{- if .Values.ingress.enabled }}
             - name: PUBLIC_SERVER_URL
-              value: http://localhost:3100
+              value: {{ .Values.config.publicServerUrl }}
             - name: PUBLIC_URL
-              value: http://localhost:3000
+              value: {{ .Values.config.publicUrl }}
+            {{- else }}
+            - name: PUBLIC_SERVER_URL
+              value: {{ .Values.config.publicServerUrl }}
+            - name: PUBLIC_URL
+              value: {{ .Values.config.publicUrl }}
+            {{- end }}
           securityContext:
             {{- toYaml .Values.client.securityContext | nindent 12 }}
           image: "{{ .Values.client.image.repository }}:{{ include "reactive-resume.clientImageTag" . }}"

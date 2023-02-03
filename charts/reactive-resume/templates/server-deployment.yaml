@@ -28,45 +28,67 @@ spec:
       containers:
         - name: server
           env:
-            - name: GOOGLE_API_KEY
-            - name: GOOGLE_CLIENT_SECRET
             - name: JWT_EXPIRY_TIME
               value: "604800"
             - name: JWT_SECRET
-              value: change-me-to-something-secure
+              value: {{ .Values.config.jwtSecret }}
+            {{- if .Values.config.mail.enabled }}
             - name: MAIL_FROM_EMAIL
-              value: noreply@rxresu.me
+              value: {{ .Values.config.mail.fromEmail }}
             - name: MAIL_FROM_NAME
-              value: Reactive Resume
+              value: {{ .Values.config.mail.fromName }}
             - name: MAIL_HOST
+              value: {{ .Values.config.mail.host }}
             - name: MAIL_PASSWORD
+              value: {{ .Values.config.mail.password }}
             - name: MAIL_PORT
+              value: {{ .Values.config.mail.port }}
             - name: MAIL_USERNAME
-            - name: PDF_DELETION_TIME
+              value: {{ .Values.config.mail.username }}
+            {{- end }}
             - name: POSTGRES_DB
-              value: postgres
+              value: {{ .Values.config.postgres.db }}
             - name: POSTGRES_HOST
-              value: postgres
+              value: {{ .Values.config.postgres.host }}
             - name: POSTGRES_PASSWORD
-              value: postgres
+              value: {{ .Values.config.postgres.password }}
             - name: POSTGRES_PORT
-              value: "5432"
+              value: {{ .Values.config.postgres.port }}
             - name: POSTGRES_SSL_CERT
+              value: {{ .Values.config.postgres.cert }}
             - name: POSTGRES_USER
-              value: postgres
+              value: {{ .Values.config.postgres.user }}
             - name: PUBLIC_GOOGLE_CLIENT_ID
+              value: {{ .Values.config.google.clientId }}
+            - name: GOOGLE_API_KEY
+              value: {{ .Values.config.google.apiKey }}
+            - name: GOOGLE_CLIENT_SECRET
+              value: {{ .Values.config.google.clientSecret }}
+            {{- if .Values.ingress.enabled }}
             - name: PUBLIC_SERVER_URL
-              value: http://localhost:3100
+              value: {{ .Values.config.publicServerUrl }}
             - name: PUBLIC_URL
-              value: http://localhost:3000
+              value: {{ .Values.config.publicUrl }}
+            {{- else }}
+            - name: PUBLIC_SERVER_URL
+              value: {{ .Values.config.publicServerUrl }}
+            - name: PUBLIC_URL
+              value: {{ .Values.config.publicUrl }}
+            {{- end }}
             - name: SECRET_KEY
-              value: change-me-to-something-secure
+              value: {{ .Values.config.secretKey }}
             - name: STORAGE_ACCESS_KEY
+              value: {{ .Values.config.storage.accessKey }}
             - name: STORAGE_BUCKET
+              value: {{ .Values.config.storage.bucket }}
             - name: STORAGE_ENDPOINT
+              value: {{ .Values.config.storage.endpoint }}
             - name: STORAGE_REGION
+              value: {{ .Values.config.storage.region }}
             - name: STORAGE_SECRET_KEY
+              value: {{ .Values.config.storage.secretKey }}
             - name: STORAGE_URL_PREFIX
+              value: {{ .Values.config.storage.urlPrefix }}
           securityContext:
             {{- toYaml .Values.server.securityContext | nindent 12 }}
           image: "{{ .Values.client.image.repository }}:{{- include "reactive-resume.serverImageTag" . }}"

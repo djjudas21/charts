@@ -18,6 +18,37 @@ ingress:
 
 
 
+config:
+  postgres:
+    db: postgres
+    host: postgres
+    password: postgres
+    port: "5432"
+    cert: ""
+    user: "postgres"
+  mail:
+    enabled: false
+    host: ""
+    password: ""
+    port: ""
+    username: ""
+    fromEmail: noreply@rxresu.me
+    fromName: Reactive Resume
+  storage:
+    accessKey: ""            
+    bucket: ""
+    endpoint: ""
+    region: ""
+    secretKey: ""
+    urlPrefix: ""
+  secretKey: "change-me-to-something-secure"
+  jwtSecret: "change-me-to-something-secure"
+  google:
+    apiKey: ""
+    clientSecret: ""
+    clientId: ""
+  publicServerUrl: http://localhost:3100
+  publicUrl: http://localhost:3000
 
 client:
   replicaCount: 1
