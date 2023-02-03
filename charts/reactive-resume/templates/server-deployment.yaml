@@ -59,19 +59,15 @@ spec:
             {{- end }}
             {{- end }}
             - name: POSTGRES_DB
-              value: {{ .Values.config.postgres.db }}
+              value: {{ .Values.postgres.auth.database }}
             - name: POSTGRES_HOST
-              value: {{ .Values.config.postgres.host }}
+              value: {{ .Release.Name }}-postgresql
             - name: POSTGRES_PASSWORD
-              value: {{ .Values.config.postgres.password }}
+              value: {{ .Values.postgres.auth.password }}
             - name: POSTGRES_PORT
-              value: {{ .Values.config.postgres.port }}
-            {{- if .Values.config.postgres.cert }}
-            - name: POSTGRES_SSL_CERT
-              value: {{ .Values.config.postgres.cert }}
-            {{- end }}
+              value: "5432"
             - name: POSTGRES_USER
-              value: {{ .Values.config.postgres.user }}
+              value: {{ .Values.postgres.auth.username }}
             {{- if .Values.config.google.clientId }}
             - name: PUBLIC_GOOGLE_CLIENT_ID
               value: {{ .Values.config.google.clientId }}

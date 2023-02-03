@@ -18,14 +18,26 @@ ingress:
 
 
 
+postgresql:
+  enabled: false
+  auth:
+    postgresPassword: reactiveAdminPass
+    username: reactive
+    password: reactive
+    database: reactive
+  primary:
+    persistence:
+      enabled: true
+      retain: true
+      storageClass: ""
+      size: 2Gi
+    resources:
+      limits: {}
+      requests: {}
+  priorityClassName: ""
+
+
 config:
-  postgres:
-    db: postgres
-    host: postgres
-    password: postgres
-    port: "5432"
-    cert: ""
-    user: "postgres"
   mail:
     enabled: false
     host: ""
