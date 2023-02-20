@@ -669,6 +669,32 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to homer v23.02.1
+    apiVersion: v2
+    appVersion: v23.02.1
+    created: "2023-02-20T14:36:58.789309605Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: A dead simple static HOMepage for your servER to keep your services
+      on hand, from a simple yaml configuration file.
+    digest: eb02dee034ec4d505221a115b8818128f6c24d55427dff4777ab1afe421decf2
+    home: https://github.com/djjudas21/charts/tree/master/charts/homer
+    icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/homer-8.1.6/homer-8.1.6.tgz
+    version: 8.1.6
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Downgrade to bjw-s/common 0.2.0
     apiVersion: v2
     appVersion: v22.11.2
@@ -3012,4 +3038,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-02-14T14:40:32.1408823Z"
+generated: "2023-02-20T14:36:58.789481905Z"
