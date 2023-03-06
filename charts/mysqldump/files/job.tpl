@@ -43,12 +43,39 @@ spec:
             key: "openstack-backup-password"
             {{- end }}
 {{- end }}
-    envFrom:
-    - configMapRef:
-        name: "{{ template "mysqldump.fullname" . }}"
-{{- if not .Values.mysql.existingSecret }}
-    - secretRef:
-        name: "{{ template "mysqldump.fullname" . }}"
+    env:
+    {{- if .Values.mysql.password }}
+    - name: MYSQL_PWD
+      value: {{ .Values.mysql.password | b64enc | quote }}
+    {{- else }}
+    - name: MYSQL_PWD
+      value: {{ randAlphaNum 40 | b64enc | quote }}
+    {{- end }}
+    {{- if and (.Values.upload.openstack.enabled) (not .Values.upload.openstack.existingSecret) }}
+    - name: OS_PASSWORD
+      value: {{ .Values.upload.openstack.password | b64enc | quote }}
+    {{- end }}
+    - name: MYSQL_HOST
+      value: {{ .Values.mysql.host | quote }}
+    - name: MYSQL_USERNAME
+      value: {{ .Values.mysql.username | quote }}
+    - name: MYSQL_PORT
+      value: {{ .Values.mysql.port | quote }}
+    - name: MYSQL_OPTS
+      value: {{ .Values.options | quote }}
+    - name: KEEP_DAYS
+      value: {{ .Values.housekeeping.keepDays | quote }}
+{{- if .Values.upload.openstack.enabled }}
+    - name: OS_AUTH_URL
+      value: {{ .Values.upload.openstack.authUrl }}
+    - name: OS_PROJECT_NAME
+      value: {{ .Values.upload.openstack.project }}
+    - name: OS_PROJECT_DOMAIN_NAME
+      value: {{ .Values.upload.openstack.projectDomain }}
+    - name: OS_USERNAME
+      value: {{ .Values.upload.openstack.user }}
+    - name: OS_USER_DOMAIN_NAME
+      value: {{ .Values.upload.openstack.userDomain }}
 {{- end }}
     volumeMounts:
     - name: backups
