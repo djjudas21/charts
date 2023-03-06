@@ -1,0 +1,23 @@
+apiVersion: v2
+version: 6.0.0
+appVersion: v3.0.16
+description: A Helm chart to help backup MySQL databases using mysqldump
+name: mysqldump
+keywords:
+- mysql
+- mysqldump
+- backup
+home: https://www.mysql.com/
+icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
+sources:
+- https://github.com/kokuwaio/helm-charts
+- https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html
+maintainers:
+- name: monotek
+  email: monotek23@gmail.com
+type: application
+dependencies:
+  - name: mariadb
+    version: 11.0.14
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: mariadb.enabled
