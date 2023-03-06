@@ -307,6 +307,32 @@ entries:
           description: Fix chart URL
     apiVersion: v2
     appVersion: v0.12.3
+    created: "2023-03-06T13:33:49.581366895Z"
+    description: A Prometheus exporter for metrics exported in the Graphite plaintext
+      protocol
+    digest: bfb34ee79b1517db7699c5b4b00b65d964eb5a13ab110ac1557364ecce6c89b7
+    home: https://github.com/djjudas21/charts/tree/master/charts/graphite-exporter
+    icon: https://graphiteapp.org/img/apple-touch-icon-144x144.png
+    keywords:
+    - graphite
+    - prometheus
+    - monitoring
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: graphite-exporter
+    sources:
+    - https://github.com/prometheus/graphite_exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/graphite-exporter-0.1.6/graphite-exporter-0.1.6.tgz
+    version: 0.1.6
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fix chart URL
+    apiVersion: v2
+    appVersion: v0.12.3
     created: "2022-10-19T11:36:28.790371008Z"
     description: A Prometheus exporter for metrics exported in the Graphite plaintext
       protocol
@@ -3038,4 +3064,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-02-20T14:36:58.789481905Z"
+generated: "2023-03-06T13:33:49.581687894Z"
