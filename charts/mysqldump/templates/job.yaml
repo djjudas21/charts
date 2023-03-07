@@ -1,8 +1,10 @@
+{{- range .Values.mysql }}
 {{- if .Values.runDirectlyAfterInstall -}}
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ template "mysqldump.fullname" . }}
+  name: {{{ .host }}
   labels:
     {{- include "mysqldump.labels" . | nindent 4 }}
 spec:
@@ -11,3 +13,4 @@ spec:
 {{- $file := .Files.Get "files/job.tpl" }}
 {{ tpl $file . | indent 4 }}
 {{ end }}
+{{- end }}  

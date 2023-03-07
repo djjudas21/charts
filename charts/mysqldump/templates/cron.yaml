@@ -1,8 +1,20 @@
+{{- range .Values.mysql }}
+
+#mysql:
+#  host: ""
+#  username: "root"
+#  password: ""
+#  port: 3306
+#  db: ""
+#  existingSecret: ""
+#  existingSecretKey: ""
+
 {{- if ne .Values.schedule "now" -}}
+---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ template "mysqldump.fullname" . }}
+  name: {{ .host }}
   labels:
     {{- include "mysqldump.labels" . | nindent 4 }}
 spec:
@@ -14,10 +26,11 @@ spec:
     metadata:
       labels:
         {{- include "mysqldump.labels" . | nindent 8 }}
-        cronjob-name: {{ template "mysqldump.fullname" . }}
+        cronjob-name: {{ .host }}
     spec:
       backoffLimit: 1
       template:
 {{- $file := .Files.Get "files/job.tpl" }}
 {{ tpl $file . | indent 8 }}
 {{ end }}
+{{- end }}
