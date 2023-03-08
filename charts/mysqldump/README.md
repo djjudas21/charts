@@ -76,29 +76,6 @@ The following tables lists the configurable parameters of the mysqldump chart an
 | housekeeping.enabled                          | delete olf backups in pvc                                                       | true                         |
 | housekeeping.keepDays                         | keep last x days of backups in PVC                                              | 10                           |
 | saveToDirectory                               | saves the sql backup to a directory named like the database or alldatabases     | false                        |
-| upload.googlestoragebucket.enabled            | upload backups to google storage                                                | false                        |
-| upload.googlestoragebucket.bucketname         | google storage address                                                          | gs://mybucket/test           |
-| upload.googlestoragebucket.jsonKeyfile        | json keyfile for serviceaccount                                                 | ""                           |
-| upload.googlestoragebucket.existingSecret     | specify a secretname to use                                                     | nil                          |
-| upload.googlestoragebucket.usingGCPController | enable the use of the GCP Service Account Controller                            | false                        |
-| upload.googlestoragebucket.serviceAccountName | specify a service account name to use                                           | nil                          |
-| upload.ssh.enabled                            | upload backups via ssh                                                          | false                        |
-| upload.ssh.existingSecret                     | specify a secretname to use                                                     | nil                          |
-| upload.ssh.user                               | ssh user                                                                        | backup                       |
-| upload.ssh.host                               | ssh server URL                                                                  | yourdomain.com               |
-| upload.ssh.dir                                | directory on server                                                             | /backup                      |
-| upload.ssh.privatekey                         | ssh user private key                                                            | ""                           |
-| upload.openstack.enabled                      | upload backups via swift to openstack                                           | false                        |
-| upload.openstack.user                         | username                                                                        | backup@mydomain              |
-| upload.openstack.userDomain                   | user-domain                                                                     | default                      |
-| upload.openstack.password                     | password, overridden by `existingSecret`/`existingSecretKey` if set             |                              |
-| upload.openstack.authUrl                      | openstack auth URL (v3)                                                         | <https://mydomain:5000/v3>   |
-| upload.openstack.project                      | project name                                                                    | my_project                   |
-| upload.openstack.projectDomain                | project domain                                                                  | default                      |
-| upload.openstack.destination                  | destination path, starting witch container                                      | backup/mysql                 |
-| upload.openstack.existingSecret               | optional, specify a secret name to use for password                             |                              |
-| upload.openstack.existingSecretKey            | optional, specify a secret key to use for password                              | openstack-backup-password    |
-| upload.openstack.ttlDays                      | days to set time-to-live on uploaded objects (0 to disable)                     | 30                           |
 | resources                                     | resource definitions                                                            | {}                           |
 | nodeSelector                                  | k8s-node selector                                                               | {}                           |
 | tolerations                                   | tolerations                                                                     | \[]                          |
@@ -106,10 +83,6 @@ The following tables lists the configurable parameters of the mysqldump chart an
 | securityContext.enabled                       | set true to change default security context of job/cronjob                      | false                        |
 | securityContext.fsGroup                       | group ID to use                                                                 | 999                          |
 | securityContext.runAsUser                     | user ID to use                                                                  | 999                          |
-
-### Auto generating the gcp service account
-
-By enabling the flag `upload.googlestoragebucket.usingGCPController` and having a GCP Service Account Controller deployed in your cluster, it is possible to autogenerate and inject the service account used for the storage bucket access. For more information see <https://github.com/kiwigrid/helm-charts/tree/master/charts/gcp-serviceaccount-controller>
 
 ```console
 helm install kokuwa/mysqldump --name my-release --set persistentVolumeClaim=name-of-existing-pvc

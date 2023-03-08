@@ -56,12 +56,3 @@ Create the name of the service account to use
 {{- define "mysqldump.serviceAccountName" -}}
 {{ include "mysqldump.fullname" . }}
 {{- end }}
-
-{{/*
-Create the name of the gcp secret to use
-*/}}
-{{- define "mysqldump.gcpsecretName" -}}
-{{- if .Values.upload.googlestoragebucket.enabled -}}
-{{ .Release.Name }}-gcloud-keyfile
-{{- end }}
-{{- end }}
