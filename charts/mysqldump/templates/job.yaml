@@ -4,7 +4,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{{ .host }}
+  name: {{ .host }}
   labels:
     {{- include "mysqldump.labels" . | nindent 4 }}
 spec:
