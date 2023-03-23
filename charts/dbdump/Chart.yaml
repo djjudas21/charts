@@ -1,11 +1,13 @@
 apiVersion: v2
 version: 6.0.0
 appVersion: v3.0.16
-description: A Helm chart to help backup MySQL databases using mysqldump
-name: mysqldump
+description: A Helm chart to help backup SQL databases using mysqldump and pgdump
+name: dbdump
 keywords:
 - mysql
+- postgresql
 - mysqldump
+- pgdump
 - backup
 home: https://www.mysql.com/
 icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png

@@ -79,11 +79,11 @@ spec:
 {{- else -}}
 {{- if .Values.persistence.enabled }}
     persistentVolumeClaim:
-      claimName: {{ template "mysqldump.fullname" . }}
+      claimName: {{ template "dbdump.fullname" . }}
 {{- else }}
     emptyDir: {}
 {{- end }}
 {{- end }}
   - name: mysql-backup-script
     configMap:
-      name: {{ template "mysqldump.fullname" . }}-script
+      name: {{ template "dbdump.fullname" . }}-script

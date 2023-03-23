@@ -1,4 +1,4 @@
-# Default values for mysqldump.
+# Default values for dbdump.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -40,7 +40,7 @@ allDatabases:
   # creates single backup file with all databases
   singleBackupFile: false
 
-# options to pass to mysqldump
+# options to pass to dbdump
 options: "--opt --single-transaction"
 
 # save sql backup to a directory named like the database or "alldatabases"
@@ -62,7 +62,7 @@ debug: false
 successfulJobsHistoryLimit: 5
 failedJobsHistoryLimit: 5
 
-# additional steps for mysqldump shell script
+# additional steps for dbdump shell script
 # will be inserted after all backup and upload jobs completed successfully.
 # Use "${BACKUP_DIR}/${TIMESTAMP}_${MYSQL_DB}.sql.gz" as dump file name.
 # see examples

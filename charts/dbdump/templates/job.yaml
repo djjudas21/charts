@@ -6,7 +6,7 @@ kind: Job
 metadata:
   name: {{ .host }}
   labels:
-    {{- include "mysqldump.labels" . | nindent 4 }}
+    {{- include "dbdump.labels" . | nindent 4 }}
 spec:
   backoffLimit: 1
   template:

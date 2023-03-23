@@ -1,12 +1,12 @@
-# mysqldump
+# dbdump
 
-mysqldump is a tool for creating backups of MySQL databases in the form of a .sql file.
+dbddump is a tool for creating backups of MySQL and PostgreSQL databases in the form of a .sql file.
 
 ## TLDR
 
 ```console
-helm repo add kokuwa https://kokuwaio.github.io/helm-charts
-helm install kokuwa/mysqldump --set mysql.host=mysql;mysql.username=root,mysql.password=password
+helm repo add djjudas21 https://djjudas21.github.io/helm-charts
+helm install djjudas21/dbdump --set mysql.host=mysql;mysql.username=root,mysql.password=password
 ```
 
 ## Introduction
@@ -23,7 +23,7 @@ This chart helps set up a cronjob or one time job to backup a MySQL database wit
 To install the chart with the release name `my-release`:
 
 ```console
-helm install kokuwa/mysqldump --set mysql.host=mysql,mysql.username=root,mysql.password=password
+helm install djjudas21/dbdump --set mysql.host=mysql,mysql.username=root,mysql.password=password
 ```
 
 This command will create a cronjob to run a job once a day to backup the databases found on the host `mysql`
@@ -85,11 +85,11 @@ The following tables lists the configurable parameters of the mysqldump chart an
 | securityContext.runAsUser                     | user ID to use                                                                  | 999                          |
 
 ```console
-helm install kokuwa/mysqldump --name my-release --set persistentVolumeClaim=name-of-existing-pvc
+helm install djjudas21/dbdump --name my-release --set persistentVolumeClaim=name-of-existing-pvc
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```console
-helm install kokuwa/mysqldump --name my-release -f values.yaml
+helm install djjudas21/dbdump --name my-release -f values.yaml
 ```
