@@ -84,6 +84,3 @@ spec:
     emptyDir: {}
 {{- end }}
 {{- end }}
-  - name: mysql-backup-script
-    configMap:
-      name: {{ template "dbdump.fullname" . }}-script
