@@ -24,15 +24,11 @@ mysql:
 ## to be used only when there's an existing database to backup.
 - host: ""
   username: "root"
-  # overridden by existingSecret / existingSecretKey if set
   # no password means random value
   password: ""
   port: 3306
   # db name for single db backup
   db: ""
-  # Get password from existing secret
-  existingSecret: ""
-  existingSecretKey: ""
 
 # use --all-databases if enabled
 allDatabases:

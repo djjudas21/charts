@@ -54,8 +54,6 @@ The following tables lists the configurable parameters of the mysqldump chart an
 | mysql.host                                    | mysql host to backup                                                            | mysql                        |
 | mysql.username                                | mysql username                                                                  | root                         |
 | mysql.password                                | mysql password                                                                  | ""                           |
-| mysql.existingSecret                          | existing secret name, used to get mysql password (if set)                       |                              |
-| mysql.existingSecretKey                       | existing secret key                                                             | mysql-root-password          |
 | mysql.port                                    | mysql port                                                                      | 3306                         |
 | schedule                                      | crontab schedule to run on. set as `now` to run as a one time job               | "0 3 \* \* \*"               |
 | options                                       | options to pass onto MySQL                                                      | "--opt --single-transaction" |

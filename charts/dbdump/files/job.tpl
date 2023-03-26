@@ -18,18 +18,6 @@ spec:
     image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
     imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
     command: ["/bin/bash", "/scripts/backup.sh"]
-{{- if .Values.mysql.existingSecret }}
-    env:
-      - name: MYSQL_PWD
-        valueFrom:
-          secretKeyRef:
-            name: {{ .Values.mysql.existingSecret | quote }}
-            {{- if .Values.mysql.existingSecretKey }}
-            key: {{ .Values.mysql.existingSecretKey | quote }}
-            {{- else }}
-            key: "mysql-root-password"
-            {{- end }}
-{{- end }}
     env:
     {{- if .Values.mysql.password }}
     - name: MYSQL_PWD
