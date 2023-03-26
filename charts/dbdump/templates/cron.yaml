@@ -1,12 +1,4 @@
-{{- range .Values.mysql }}
-
-#mysql:
-#  host: ""
-#  username: "root"
-#  password: ""
-#  port: 3306
-#  db: ""
-
+{{- range .Values.databases }}
 ---
 apiVersion: batch/v1
 kind: CronJob
@@ -48,21 +40,24 @@ spec:
     imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
     command: ["/bin/bash", "/scripts/backup.sh"]
     env:
-    {{- if .Values.mysql.password }}
-    - name: MYSQL_PWD
-      value: {{ .Values.mysql.password | b64enc | quote }}
-    {{- else }}
-    - name: MYSQL_PWD
-      value: {{ randAlphaNum 40 | b64enc | quote }}
-    {{- end }}
-    - name: MYSQL_HOST
-      value: {{ .Values.mysql.host | quote }}
-    - name: MYSQL_USERNAME
-      value: {{ .Values.mysql.username | quote }}
-    - name: MYSQL_PORT
-      value: {{ .Values.mysql.port | quote }}
-    - name: MYSQL_OPTS
-      value: {{ .Values.options | quote }}
+    - name: DBDUMP_DEBUG
+      value: {{ .debug | quote }}
+    - name: DBDUMP_TYPE
+      value: {{ .type | quote }}
+    - name: DBDUMP_DB
+      value: {{ .database | quote }}
+    - name: DBDUMP_ALL_DB
+      value: {{ .allDatabases | quote }}
+    - name: DBDUMP_PASSWORD
+      value: {{ .password | quote }}
+    - name: DBDUMP_HOST
+      value: {{ .host | quote }}
+    - name: DBDUMP_USER
+      value: {{ .username | quote }}
+    - name: DBDUMP_PORT
+      value: {{ .port | quote }}
+    - name: DBDUMP_OPTS
+      value: {{ .options | quote }}
     - name: KEEP_DAYS
       value: {{ .Values.housekeeping.keepDays | quote }}
     volumeMounts:
@@ -71,8 +66,6 @@ spec:
 {{- if .Values.persistence.subPath }}
       subPath: {{ .Values.persistence.subPath }}
 {{- end }}
-    - name: mysql-backup-script
-      mountPath: /scripts
     resources: 
 {{ toYaml .Values.resources | indent 6 }}
 {{- with .Values.nodeSelector }}

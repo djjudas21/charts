@@ -19,25 +19,24 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-mysql:
+databases:
 ## Without a host set, this chart will not do anything as it is expected
 ## to be used only when there's an existing database to backup.
+## The hostname must also be unique for each backup job.
 - host: ""
+  type: ""
   username: "root"
-  # no password means random value
+  # password
   password: ""
-  port: 3306
+  port: "3306"
   # db name for single db backup
-  db: ""
-
-# use --all-databases if enabled
-allDatabases:
-  enabled: true
-  # creates single backup file with all databases
-  singleBackupFile: false
-
-# options to pass to dbdump
-options: "--opt --single-transaction"
+  database: ""
+  # use --all-databases if enabled
+  allDatabases: "true"
+  # options to pass to dbdump
+  options: "--opt --single-transaction"
+  # debug output
+  debug: "false"
 
 # save sql backup to a directory named like the database or "alldatabases"
 saveToDirectory: false
