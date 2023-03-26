@@ -58,11 +58,9 @@ The following tables lists the configurable parameters of the mysqldump chart an
 | schedule                                      | crontab schedule to run on.                                                     | "0 3 \* \* \*"               |
 | options                                       | options to pass onto MySQL                                                      | "--opt --single-transaction" |
 | debug                                         | print some extra debug logs during backup                                       | false                        |
-| dumpAllToStdout                               | dump all database contents to stdout when not uploading                         | false                        |
 | additionalSteps                               | run these extra shell steps after all backup jobs completed                     | []                           |
 | successfulJobsHistoryLimit                    | number of successful jobs to remember                                           | 5                            |
 | failedJobsHistoryLimit                        | number of failed jobs to remember                                               | 5                            |
-| sshMountpath                                  | User's path (used to mount ssh key if needed)                                   | "/home/cloudsdk"             |
 | persistentVolumeClaim                         | existing Persistent Volume Claim to backup to, leave blank to create a new one  |                              |
 | persistence.enabled                           | create new PVC (unless `persistentVolumeClaim` is set)                          | true                         |
 | persistence.size                              | size of PVC to create                                                           | 8Gi                          |
@@ -73,7 +71,6 @@ The following tables lists the configurable parameters of the mysqldump chart an
 | allDatabases.SingleSqlFile                    | backup all databases to single file                                             | false                        |
 | housekeeping.enabled                          | delete olf backups in pvc                                                       | true                         |
 | housekeeping.keepDays                         | keep last x days of backups in PVC                                              | 10                           |
-| saveToDirectory                               | saves the sql backup to a directory named like the database or alldatabases     | false                        |
 | resources                                     | resource definitions                                                            | {}                           |
 | nodeSelector                                  | k8s-node selector                                                               | {}                           |
 | tolerations                                   | tolerations                                                                     | \[]                          |

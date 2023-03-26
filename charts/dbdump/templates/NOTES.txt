@@ -1,7 +1,3 @@
-{{- if .Values.runDirectlyAfterInstall }}
-runDirectlyAfterInstall is true so running a dbdump job now...
-{{- end }}
-
 Running dbdump on crontab schedule "{{ .Values.schedule }}"
 
 For job status do:

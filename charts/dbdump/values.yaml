@@ -12,8 +12,6 @@ image:
   ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images#
   pullPolicy: IfNotPresent
 
-sshMountpath: "/home/cloudsdk"
-
 imagePullSecrets: []
 
 nameOverride: ""
@@ -38,20 +36,8 @@ databases:
   # debug output
   debug: "false"
 
-# save sql backup to a directory named like the database or "alldatabases"
-saveToDirectory: false
-
-# if to dump all databases to stdout when not uploading
-dumpAllToStdout: false
-
 # cron time setting for backup scheduleq
 schedule: "0 3 * * *"
-
-# runs the first backup imidiatly after installing the chart
-runDirectlyAfterInstall: true
-
-# enable some debug options
-debug: false
 
 # cronjob history
 successfulJobsHistoryLimit: 5
