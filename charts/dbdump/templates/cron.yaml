@@ -38,7 +38,6 @@ spec:
           - name: mysql-backup
             image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
             imagePullPolicy: {{ $.Values.image.pullPolicy | quote }}
-            command: ["/bin/ash", "/dbdump.sh"]
             env:
             - name: DBDUMP_DEBUG
               value: {{ .debug | quote }}
