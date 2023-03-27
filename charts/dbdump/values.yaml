@@ -1,0 +1,102 @@
+# Default values for dbdump.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: djjudas21/dbdump
+  # uses appVersion form Chart.yaml if not set
+  tag: ""
+  ## Specify a imagePullPolicy
+  ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
+  ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images#
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+databases:
+## Without a host set, this chart will not do anything as it is expected
+## to be used only when there's an existing database to backup.
+## The hostname must also be unique for each backup job.
+- host: "example.com"
+  # mysql or postgresql
+  type: ""
+  username: "root"
+  # password
+  password: ""
+  port: "3306"
+  # db name for single db backup
+  database: ""
+  # use --all-databases if enabled
+  allDatabases: "true"
+  # debug output
+  debug: "false"
+
+# options to pass to mysqldump
+mysqldumpOptions: "--single-transaction"
+
+# options to pass to pgdump
+pgdumpOptions: ""
+
+# cron time setting for backup scheduleq
+schedule: "0 3 * * *"
+
+# cronjob history
+successfulJobsHistoryLimit: 3
+failedJobsHistoryLimit: 3
+
+## set persistentVolumeClaim to use a PVC that already exists.
+## if set will override any settings under `persistence` otherwise
+## if not set and `persistence.enabled` set to true, will create a PVC.
+# persistentVolumeClaim: <existing-PVC>
+
+# pod anotation
+podAnnotations: {}
+
+persistence:
+  enabled: true
+  size: 8Gi
+  accessMode: ReadWriteMany
+  subPath:
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+
+# delete old backups
+housekeeping:
+  enabled: true
+  keepDays: 10
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+## Pod Security Context
+securityContext:
+  enabled: false
+  fsGroup: 999
+  runAsUser: 999
+
+# dependency chart for ci
+mariadb:
+  enabled: false

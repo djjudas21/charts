@@ -1,0 +1,24 @@
+Running dbdump on crontab schedule "{{ .Values.schedule }}"
+
+For job status do:
+$ kubectl get job {{ template "dbdump.fullname" . }} -o wide
+$ kubectl get pods -l app.kubernetes.io/name=dbdump  -o wide
+
+For cronjob status do:
+$ kubectl get cronjob -l app.kubernetes.io/name=dbdump -o yaml
+$ kubectl get jobs --selector=cronjob-name={{ template "dbdump.fullname" . }}
+
+To see the logs from the most recent backup job do:
+$ kubectl logs -f -l job-name=dbdump
+
+To run a job immediately do:
+$ kubectl create job run-now --from=cronjob/{{ template "dbdump.fullname" . }}
+
+The dbdump contents can be found in:
+{{- if .Values.persistentVolumeClaim }}
+$ kubectl get persistentvolumeclaim {{ .Values.persistentVolumeClaim }}
+{{ else if .Values.persistence.enabled }}
+$ kubectl get persistentvolumeclaim {{ template "dbdump.fullname" . }}
+{{ else }}
+Empty dir mount of the container...
+{{- end }}

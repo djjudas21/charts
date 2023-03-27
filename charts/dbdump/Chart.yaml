@@ -1,0 +1,25 @@
+apiVersion: v2
+version: 0.0.8
+appVersion: 0.0.8
+description: A Helm chart to help backup SQL databases using mysqldump and pgdump
+name: dbdump
+keywords:
+  - mysql
+  - postgresql
+  - mysqldump
+  - pgdump
+  - backup
+home: https://github.com/djjudas21/dbdump
+icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
+sources:
+  - https://hub.docker.com/repository/docker/djjudas21/dbdump/general
+  - https://github.com/djjudas21/charts
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+type: application
+dependencies:
+  - name: mariadb
+    version: 11.0.14
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: mariadb.enabled

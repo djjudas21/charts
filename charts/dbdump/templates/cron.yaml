@@ -1,0 +1,102 @@
+{{- range .Values.databases }}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .host }}
+  labels:
+    {{- include "dbdump.labels" $ | nindent 4 }}
+spec:
+  schedule: "{{ $.Values.schedule }}"
+  successfulJobsHistoryLimit: {{ $.Values.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ $.Values.failedJobsHistoryLimit }}
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    metadata:
+      labels:
+        {{- include "dbdump.labels" $ | nindent 8 }}
+        cronjob-name: {{ .host }}
+    spec:
+      backoffLimit: 1
+      template:
+        {{- if $.Values.podAnnotations }}
+        metadata:
+          annotations:
+        {{ toYaml $.Values.podAnnotations | indent 4 }}
+        {{- end }}
+        spec:
+          {{- with $.Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 4 }}
+          {{- end }}
+          {{- if $.Values.securityContext.enabled }}
+          securityContext:
+            fsGroup: {{ $.Values.securityContext.fsGroup }}
+            runAsUser: {{ $.Values.securityContext.runAsUser }}
+          {{- end }}
+          containers:
+          - name: mysql-backup
+            image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
+            imagePullPolicy: {{ $.Values.image.pullPolicy | quote }}
+            env:
+            - name: DBDUMP_DEBUG
+              value: {{ .debug | quote }}
+            - name: DBDUMP_TYPE
+              value: {{ .type | quote }}
+            - name: DBDUMP_DB
+              value: {{ .database | quote }}
+            - name: DBDUMP_ALL_DB
+              value: {{ .allDatabases | quote }}
+            - name: DBDUMP_PASSWORD
+              value: {{ .password | quote }}
+            - name: DBDUMP_HOST
+              value: {{ .host | quote }}
+            - name: DBDUMP_USER
+              value: {{ .username | quote }}
+            - name: DBDUMP_PORT
+              value: {{ .port | quote }}
+            {{ if eq .type "mysql" }}
+            - name: DBDUMP_OPTS
+              value: {{ $.Values.mysqldumpOptions | quote }}
+            {{ else if eq .type "postgresql" }}
+            - name: DBDUMP_OPTS
+              value: {{ $.Values.pgdumpOptions | quote }}
+            {{ end }}
+            - name: KEEP_DAYS
+              value: {{ $.Values.housekeeping.keepDays | quote }}
+            volumeMounts:
+            - name: backups
+              mountPath: /backup
+        {{- if $.Values.persistence.subPath }}
+              subPath: {{ $.Values.persistence.subPath }}
+        {{- end }}
+            resources: 
+        {{ toYaml $.Values.resources | indent 6 }}
+        {{- with $.Values.nodeSelector }}
+          nodeSelector:
+        {{ toYaml . | indent 4 }}
+        {{- end }}
+        {{- with $.Values.affinity }}
+          affinity:
+        {{ toYaml . | indent 4 }}
+        {{- end }}
+        {{- with $.Values.tolerations }}
+          tolerations:
+        {{ toYaml . | indent 4 }}
+        {{- end }}
+          restartPolicy: Never
+          volumes:
+          - name: backups
+        {{- if $.Values.persistentVolumeClaim }}
+            persistentVolumeClaim:
+              claimName: {{ $.Values.persistentVolumeClaim }}
+        {{- else -}}
+        {{- if $.Values.persistence.enabled }}
+            persistentVolumeClaim:
+              claimName: {{ template "dbdump.fullname" $ }}
+        {{- else }}
+            emptyDir: {}
+        {{- end }}
+        {{- end }}
+
+        {{- end }}
