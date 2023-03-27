@@ -7,9 +7,9 @@ metadata:
   labels:
     {{- include "dbdump.labels" . | nindent 4 }}
 spec:
-  schedule: "{{ .Values.schedule }}"
-  successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
-  failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
+  schedule: "{{ $.Values.schedule }}"
+  successfulJobsHistoryLimit: {{ $.Values.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ $.Values.failedJobsHistoryLimit }}
   concurrencyPolicy: Forbid
   jobTemplate:
     metadata:
@@ -19,25 +19,25 @@ spec:
     spec:
       backoffLimit: 1
       template:
-{{- if .Values.podAnnotations }}
+{{- if $.Values.podAnnotations }}
 metadata:
   annotations:
-{{ toYaml .Values.podAnnotations | indent 4 }}
+{{ toYaml $.Values.podAnnotations | indent 4 }}
 {{- end }}
 spec:
-  {{- with .Values.imagePullSecrets }}
+  {{- with $.Values.imagePullSecrets }}
   imagePullSecrets:
     {{- toYaml . | nindent 4 }}
   {{- end }}
-  {{- if .Values.securityContext.enabled }}
+  {{- if $.Values.securityContext.enabled }}
   securityContext:
-    fsGroup: {{ .Values.securityContext.fsGroup }}
-    runAsUser: {{ .Values.securityContext.runAsUser }}
+    fsGroup: {{ $.Values.securityContext.fsGroup }}
+    runAsUser: {{ $.Values.securityContext.runAsUser }}
   {{- end }}
   containers:
   - name: mysql-backup
-    image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-    imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+    image: "{{ $.Values.image.registry }}/{{ $.Values.image.repository }}:{{ $.Values.image.tag | default .Chart.AppVersion }}"
+    imagePullPolicy: {{ $.Values.image.pullPolicy | quote }}
     command: ["/bin/bash", "/scripts/backup.sh"]
     env:
     - name: DBDUMP_DEBUG
@@ -59,35 +59,35 @@ spec:
     - name: DBDUMP_OPTS
       value: {{ .options | quote }}
     - name: KEEP_DAYS
-      value: {{ .Values.housekeeping.keepDays | quote }}
+      value: {{ $.Values.housekeeping.keepDays | quote }}
     volumeMounts:
     - name: backups
       mountPath: /backup
-{{- if .Values.persistence.subPath }}
-      subPath: {{ .Values.persistence.subPath }}
+{{- if $.Values.persistence.subPath }}
+      subPath: {{ $.Values.persistence.subPath }}
 {{- end }}
     resources: 
-{{ toYaml .Values.resources | indent 6 }}
-{{- with .Values.nodeSelector }}
+{{ toYaml $.Values.resources | indent 6 }}
+{{- with $.Values.nodeSelector }}
   nodeSelector:
 {{ toYaml . | indent 4 }}
 {{- end }}
-{{- with .Values.affinity }}
+{{- with $.Values.affinity }}
   affinity:
 {{ toYaml . | indent 4 }}
 {{- end }}
-{{- with .Values.tolerations }}
+{{- with $.Values.tolerations }}
   tolerations:
 {{ toYaml . | indent 4 }}
 {{- end }}
   restartPolicy: Never
   volumes:
   - name: backups
-{{- if .Values.persistentVolumeClaim }}
+{{- if $.Values.persistentVolumeClaim }}
     persistentVolumeClaim:
-      claimName: {{ .Values.persistentVolumeClaim }}
+      claimName: {{ $.Values.persistentVolumeClaim }}
 {{- else -}}
-{{- if .Values.persistence.enabled }}
+{{- if $.Values.persistence.enabled }}
     persistentVolumeClaim:
       claimName: {{ template "dbdump.fullname" . }}
 {{- else }}
