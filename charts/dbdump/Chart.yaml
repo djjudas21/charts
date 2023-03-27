@@ -1,22 +1,22 @@
 apiVersion: v2
-version: 6.0.0
-appVersion: v3.0.16
+version: 0.0.1
+appVersion: 0.0.1
 description: A Helm chart to help backup SQL databases using mysqldump and pgdump
 name: dbdump
 keywords:
-- mysql
-- postgresql
-- mysqldump
-- pgdump
-- backup
-home: https://www.mysql.com/
+  - mysql
+  - postgresql
+  - mysqldump
+  - pgdump
+  - backup
+home: https://github.com/djjudas21/dbdump
 icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
 sources:
-- https://github.com/kokuwaio/helm-charts
-- https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html
+  - https://hub.docker.com/repository/docker/djjudas21/dbdump/general
+  - https://github.com/djjudas21/charts
 maintainers:
-- name: monotek
-  email: monotek23@gmail.com
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
 type: application
 dependencies:
   - name: mariadb
