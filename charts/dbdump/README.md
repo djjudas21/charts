@@ -74,4 +74,3 @@ Each database must be configured like this:
 | `database`     | Name of database to dump                     | `myDatabase`            |
 | `allDatabases` | Back up all databases (overrides `database`) | `true` or `false`       |
 | `debug`        | Enable debug output                          | `true` or `false`       |
-
