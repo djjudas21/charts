@@ -13,5 +13,6 @@ excluded-charts:
   - maian-music
   - owncloud
   - smtp-relay
+  - dbdump
 additional-commands:
   - helm unittest --helm3 --strict --file unittests/*.yaml --file 'unittests/**/*.yaml' {{ .Path }}
