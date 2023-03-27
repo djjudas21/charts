@@ -21,6 +21,7 @@ databases:
 ## to be used only when there's an existing database to backup.
 ## The hostname must also be unique for each backup job.
 - host: "example.com"
+  # mysql or postgresql
   type: ""
   username: "root"
   # password
@@ -43,16 +44,8 @@ pgdumpOptions: ""
 schedule: "0 3 * * *"
 
 # cronjob history
-successfulJobsHistoryLimit: 5
-failedJobsHistoryLimit: 5
-
-# additional steps for dbdump shell script
-# will be inserted after all backup and upload jobs completed successfully.
-# Use "${BACKUP_DIR}/${TIMESTAMP}_${MYSQL_DB}.sql.gz" as dump file name.
-# see examples
-additionalSteps: []
-#  - gsutil cp "${BACKUP_DIR}/${TIMESTAMP}_${MYSQL_DB}.sql.gz" gs://mybucket/latest.sql.gz
-#  - echo "latest sql dump updated"
+successfulJobsHistoryLimit: 3
+failedJobsHistoryLimit: 3
 
 ## set persistentVolumeClaim to use a PVC that already exists.
 ## if set will override any settings under `persistence` otherwise
@@ -65,7 +58,7 @@ podAnnotations: {}
 persistence:
   enabled: true
   size: 8Gi
-  accessMode: ReadWriteOnce
+  accessMode: ReadWriteMany
   subPath:
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
