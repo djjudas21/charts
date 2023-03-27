@@ -31,10 +31,14 @@ databases:
   database: ""
   # use --all-databases if enabled
   allDatabases: "true"
-  # options to pass to dbdump
-  options: "--opt --single-transaction"
   # debug output
   debug: "false"
+
+# options to pass to mysqldump
+mysqldumpOptions: "--opt --single-transaction"
+
+# options to pass to pgdump
+pgdumpOptions: ""
 
 # cron time setting for backup scheduleq
 schedule: "0 3 * * *"

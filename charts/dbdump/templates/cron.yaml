@@ -56,8 +56,13 @@ spec:
       value: {{ .username | quote }}
     - name: DBDUMP_PORT
       value: {{ .port | quote }}
+    {{ if eq .type "mysql" }}
     - name: DBDUMP_OPTS
-      value: {{ .options | quote }}
+      value: {{ $.Values.mysqldumpOptions | quote }}
+    {{ else if eq .type "postgresql" }}
+    - name: DBDUMP_OPTS
+      value: {{ $.Values.pgdumpOptions | quote }}
+    {{ end }}
     - name: KEEP_DAYS
       value: {{ $.Values.housekeeping.keepDays | quote }}
     volumeMounts:
