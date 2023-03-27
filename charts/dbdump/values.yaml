@@ -21,7 +21,7 @@ databases:
 ## Without a host set, this chart will not do anything as it is expected
 ## to be used only when there's an existing database to backup.
 ## The hostname must also be unique for each backup job.
-- host: ""
+- host: "example.com"
   type: ""
   username: "root"
   # password
