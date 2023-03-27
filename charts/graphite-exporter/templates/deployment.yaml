@@ -38,7 +38,6 @@ spec:
           args: ["--graphite.listen-address", ":{{ .Values.service.graphite.port }}"]
           {{- end }}
           ports:
-          ports:
             - name: prometheus
               containerPort: {{ .Values.service.prometheus.port }}
               protocol: TCP
