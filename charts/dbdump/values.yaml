@@ -35,7 +35,7 @@ databases:
   debug: "false"
 
 # options to pass to mysqldump
-mysqldumpOptions: "--opt --single-transaction"
+mysqldumpOptions: "--single-transaction"
 
 # options to pass to pgdump
 pgdumpOptions: ""
