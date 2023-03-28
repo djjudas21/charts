@@ -35,7 +35,7 @@ spec:
             runAsUser: {{ $.Values.securityContext.runAsUser }}
           {{- end }}
           containers:
-          - name: mysql-backup
+          - name: dbdump
             image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
             imagePullPolicy: {{ $.Values.image.pullPolicy | quote }}
             env:
