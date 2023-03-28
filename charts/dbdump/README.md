@@ -64,13 +64,13 @@ The following tables lists the configurable parameters of the mysqldump chart an
 
 Each database must be configured like this:
 
-| Parameter      | Description                                  | Example                 |
-| ---------------| ---------------------------------------------| ------------------------|
-| `host`         | Database host to connect to (must be unique) | `db.example.com`        |
-| `type`         | Type of database server                      | `mysql` or `postgresql` |
-| `username`     | Username to connect to database              | `root` or `postgres`    |
-| `password`     | Password to connect to database              | `pAsSwOrD`              |
-| `port`         | TCP port of database host                    | `3306` or `5432`        |
-| `database`     | Name of database to dump                     | `myDatabase`            |
-| `allDatabases` | Back up all databases (overrides `database`) | `true` or `false`       |
-| `debug`        | Enable debug output                          | `true` or `false`       |
+| Parameter      | Description                                  | Example                 | Required                                                    |
+| ---------------| ---------------------------------------------| ------------------------|-------------------------------------------------------------|
+| `host`         | Database host to connect to (must be unique) | `db.example.com`        | Yes                                                         |
+| `type`         | Type of database server                      | `mysql` or `postgresql` | Yes                                                         |
+| `username`     | Username to connect to database              | `root` or `postgres`    | No, defaults to `root` for MySQL, `postgres` for PostgreSQL |
+| `password`     | Password to connect to database              | `pAsSwOrD`              | Yes                                                         |
+| `port`         | TCP port of database host                    | `3306` or `5432`        | No, defaults to `3306` for MySQL, `5432` for PostgreSQL     |
+| `database`     | Name of database to dump                     | `myDatabase`            | Not if `allDatabases` is `true`                             |
+| `allDatabases` | Back up all databases (overrides `database`) | `true` or `false`       | No, defaults to `false`                                     |
+| `debug`        | Enable debug output                          | `true` or `false`       | No, defaults to `false`                                     |

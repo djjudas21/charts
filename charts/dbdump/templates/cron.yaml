@@ -39,28 +39,37 @@ spec:
             image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
             imagePullPolicy: {{ $.Values.image.pullPolicy | quote }}
             env:
+            {{- if .debug }}
             - name: DBDUMP_DEBUG
               value: {{ .debug | quote }}
+            {{- end }}
             - name: DBDUMP_TYPE
               value: {{ .type | quote }}
+            {{- if .database }}
             - name: DBDUMP_DB
               value: {{ .database | quote }}
+            {{- else if .allDatabases }}
             - name: DBDUMP_ALL_DB
               value: {{ .allDatabases | quote }}
+            {{- end }}
             - name: DBDUMP_PASSWORD
               value: {{ .password | quote }}
             - name: DBDUMP_HOST
-              value: {{ .host | quote }}
-            - name: DBDUMP_USER
-              value: {{ .username | quote }}
-            - name: DBDUMP_PORT
-              value: {{ .port | quote }}
+              value: {{ .host | quote }}        
             {{ if eq .type "mysql" }}
             - name: DBDUMP_OPTS
               value: {{ $.Values.mysqldumpOptions | quote }}
+            - name: DBDUMP_USER
+              value: {{ .username | default "root" | quote }}
+            - name: DBDUMP_PORT
+              value: {{ .port | default "3306" | quote }}
             {{ else if eq .type "postgresql" }}
             - name: DBDUMP_OPTS
               value: {{ $.Values.pgdumpOptions | quote }}
+            - name: DBDUMP_USER
+              value: {{ .username | default "postgres" | quote }}
+            - name: DBDUMP_PORT
+              value: {{ .port | default "5432" | quote }}
             {{ end }}
             - name: KEEP_DAYS
               value: {{ $.Values.housekeeping.keepDays | quote }}
