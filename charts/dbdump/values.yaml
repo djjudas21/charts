@@ -33,6 +33,8 @@ databases:
   allDatabases: "true"
   # debug output
   debug: "false"
+  # schedule override
+  schedule: ""
 
 # options to pass to mysqldump
 mysqldumpOptions: "--single-transaction"
@@ -40,7 +42,7 @@ mysqldumpOptions: "--single-transaction"
 # options to pass to pgdump
 pgdumpOptions: ""
 
-# cron time setting for backup scheduleq
+# cron time setting for backup schedule
 schedule: "0 3 * * *"
 
 # cronjob history

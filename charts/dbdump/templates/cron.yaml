@@ -7,7 +7,7 @@ metadata:
   labels:
     {{- include "dbdump.labels" $ | nindent 4 }}
 spec:
-  schedule: "{{ $.Values.schedule }}"
+  schedule: "{{ default $.Values.schedule .schedule }}"
   successfulJobsHistoryLimit: {{ $.Values.successfulJobsHistoryLimit }}
   failedJobsHistoryLimit: {{ $.Values.failedJobsHistoryLimit }}
   concurrencyPolicy: Forbid

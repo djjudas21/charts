@@ -41,7 +41,7 @@ The following tables lists the configurable parameters of the mysqldump chart an
 | `image.tag`                  | Version of image to use (uses appVersion form Chart.yaml as default if not set) |                              |
 | `image.pullPolicy`           | Pull Policy to use for image                                                    | `IfNotPresent`               |
 | `databases`                  | List of databases to backup (see format below)                                  | `[]`                         |
-| `schedule`                   | crontab schedule to run on.                                                     | `0 3 \* \* \*`               |
+| `schedule`                   | crontab schedule to run on.                                                     | `0 3 * * *`                  |
 | `mysqldumpOptions`           | options to pass onto MySQL                                                      | `--opt --single-transaction` |
 | `pgdumpOptions`              | options to pass onto PostgreSQL                                                 |                              |
 | `successfulJobsHistoryLimit` | number of successful jobs to remember                                           | `3`                          |
@@ -74,3 +74,4 @@ Each database must be configured like this:
 | `database`     | Name of database to dump                     | `myDatabase`            | Not if `allDatabases` is `true`                             |
 | `allDatabases` | Back up all databases (overrides `database`) | `true` or `false`       | No, defaults to `false`                                     |
 | `debug`        | Enable debug output                          | `true` or `false`       | No, defaults to `false`                                     |
+| `schedule`     | Override crontab schedule to run on          | `0 3 * * *`             | No                                                          |
