@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "nova-exporter.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "nova-exporter.selectorLabels" . | nindent 6 }}
