@@ -4,6 +4,44 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to BookStack 23.05.1
+    apiVersion: v2
+    appVersion: 23.05.1
+    created: "2023-05-10T10:03:01.678339875Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    description: A simple, self-hosted, easy-to-use platform for organising and storing
+      information.
+    digest: 72bd9d9ebc26eb831eca7ed04d3b4e6e17e94eff46844f7bcfac53ddf27df0d1
+    home: https://github.com/djjudas21/charts/tree/master/charts/bookstack
+    icon: https://avatars3.githubusercontent.com/u/20912696?s=400&v=4?sanitize=true
+    keywords:
+    - bookstack
+    - book
+    - stack
+    - organizer
+    - server
+    - hosted
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: bookstack
+    sources:
+    - https://www.bookstackapp.com/
+    - https://hub.docker.com/r/linuxserver/bookstack
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/bookstack-5.2.8/bookstack-5.2.8.tgz
+    version: 5.2.8
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to BookStack 23.02.1
     apiVersion: v2
     appVersion: 23.02.1
@@ -2824,6 +2862,36 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Uptime Kuma 1.21.3
+    apiVersion: v2
+    appVersion: 1.21.3
+    created: "2023-05-10T10:03:01.907426103Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 1.0.0
+    description: A fancy self-hosted monitoring tool for your websites and applications
+    digest: 5682c9d0b46bab083b65ed2aec98abb30367f021b7c9acbdff868f392c585455
+    home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma
+    icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
+    keywords:
+    - uptime-kuma
+    - status
+    - status-page
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/uptime-kuma-1.5.8/uptime-kuma-1.5.8.tgz
+    version: 1.5.8
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Uptime Kuma 1.20.0
     apiVersion: v2
     appVersion: 1.20.0
@@ -3337,4 +3405,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-05-06T10:36:23.735821483Z"
+generated: "2023-05-10T10:03:01.907943542Z"
