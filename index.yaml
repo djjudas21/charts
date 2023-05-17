@@ -1634,6 +1634,34 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/navidrome-6.5.0/navidrome-6.5.0.tgz
     version: 6.5.0
+  nova-exporter:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Improve chart metadata
+    apiVersion: v2
+    appVersion: 0.0.2
+    created: "2023-05-17T08:38:44.80853499Z"
+    description: A Prometheus exporter for Fairwinds Nova
+    digest: 2b9a67161ff5d32c85eda5997ce93990b15cc6aae4871ea6a29034c614a32454
+    home: https://github.com/djjudas21/charts/tree/master/charts/nova-exporter
+    icon: https://raw.githubusercontent.com/FairwindsOps/nova/master/img/logo.png
+    keywords:
+    - nova
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: nova-exporter
+    sources:
+    - https://github.com/djjudas21/nova-exporter
+    - https://hub.docker.com/r/djjudas21/nova-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.2/nova-exporter-0.1.2.tgz
+    version: 0.1.2
   owncloud:
   - annotations:
       artifacthub.io/changes: |-
@@ -3506,4 +3534,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-05-13T20:44:59.186471053Z"
+generated: "2023-05-17T08:38:44.808834793Z"
