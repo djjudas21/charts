@@ -1638,6 +1638,33 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Add PrometheusRule
+    apiVersion: v2
+    appVersion: 0.0.3
+    created: "2023-05-17T10:34:16.119333218Z"
+    description: A Prometheus exporter for Fairwinds Nova
+    digest: a190b63cdd7d205c62e4db19df3b59deb804ce313ec933f19ae203942286cdb8
+    home: https://github.com/djjudas21/charts/tree/master/charts/nova-exporter
+    icon: https://raw.githubusercontent.com/FairwindsOps/nova/master/img/logo.png
+    keywords:
+    - nova
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: nova-exporter
+    sources:
+    - https://github.com/djjudas21/nova-exporter
+    - https://hub.docker.com/r/djjudas21/nova-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.5/nova-exporter-0.1.5.tgz
+    version: 0.1.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to nova-exporter 0.0.3
     apiVersion: v2
     appVersion: 0.0.3
@@ -3588,4 +3615,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-05-17T09:37:32.061714968Z"
+generated: "2023-05-17T10:34:16.119765018Z"
