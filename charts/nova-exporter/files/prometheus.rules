@@ -1,0 +1,8 @@
+    - alert: HelmReleaseOutdated
+      expr: nova_release==0
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Helm release {{ $labels.release }} is outdated
+        description: "Helm release {{ $labels.release }} is outdated\n  Installed: {{ $labels.installed }}\n  Latest: {{ $labels.latest }}"

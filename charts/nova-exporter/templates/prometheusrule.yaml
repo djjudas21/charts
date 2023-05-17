@@ -1,0 +1,14 @@
+{{- if and .Values.prometheusRules.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: service-prometheus
+    role: alert-rules
+  name: {{ include "nova-exporter.fullname" . }}
+spec:
+  groups:
+  - name: nova-exporter.rules
+    rules:
+{{ .Files.Get "files/prometheus.rules" }}
+{{- end }}
