@@ -10,6 +10,6 @@ spec:
     matchLabels:
       {{- include "ecowitt-exporter.labels" . | nindent 6 }}
   endpoints:
-  - port: prometheus
+  - port: http
     interval: 30s
 {{- end }}
