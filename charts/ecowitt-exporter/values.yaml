@@ -11,7 +11,7 @@ image:
   tag: ""
 
 env:
-  debug: "FALSE"
+  debug: false
 
   # All units are expressed in lower case and without slashes, for simplicity.
   # Apologies to scientists, for whom this will be a difficult time.

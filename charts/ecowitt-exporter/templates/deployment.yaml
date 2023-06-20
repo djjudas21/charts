@@ -28,8 +28,10 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           env:
+          {{- if .Values.env.debug }}
           - name: DEBUG
-            value: "{{ .Values.env.debug }}"
+            value: "yes"          
+          {{- end }}
           - name: TEMPERATURE_UNIT
             value: {{ .Values.env.temperatureUnit }}
           - name: PRESSURE_UNIT
