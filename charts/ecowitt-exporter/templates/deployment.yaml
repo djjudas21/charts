@@ -27,6 +27,19 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
+          env:
+          - name: DEBUG
+            value: {{ .Values.env.debug }}
+          - name: TEMPERATURE_UNIT
+            value: {{ .Values.env.temperatureUnit }}
+          - name: PRESSURE_UNIT
+            value: {{ .Values.env.pressureUnit }}
+          - name: WIND_UNIT
+            value: {{ .Values.env.windUnit }}
+          - name: RAIN_UNIT
+            value: {{ .Values.env.rainUnit }}
+          - name: IRRADIANCE_UNIT
+            value: {{ .Values.env.irradianceUnit }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

@@ -10,6 +10,27 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+env:
+  debug: "FALSE"
+
+  # All units are expressed in lower case and without slashes, for simplicity.
+  # Apologies to scientists, for whom this will be a difficult time.
+
+  # Temperature in c or f
+  temperatureUnit: 'c'
+
+  # Pressure in hpa or in
+  pressureUnit: 'hpa'
+
+  # Wind speed in kmh or mph
+  windUnit: 'kmh'
+
+  # Rainfall in mm or in
+  rainUnit: 'mm'
+
+  # Irradiance in wm2
+  irradianceUnit: 'wm2'
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
