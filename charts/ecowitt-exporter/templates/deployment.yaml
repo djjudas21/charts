@@ -29,7 +29,7 @@ spec:
         - name: {{ .Chart.Name }}
           env:
           - name: DEBUG
-            value: {{ .Values.env.debug }}
+            value: "{{ .Values.env.debug }}"
           - name: TEMPERATURE_UNIT
             value: {{ .Values.env.temperatureUnit }}
           - name: PRESSURE_UNIT
