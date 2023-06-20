@@ -30,7 +30,9 @@ spec:
           env:
           {{- if .Values.env.debug }}
           - name: DEBUG
-            value: "yes"          
+            value: "yes"
+          - name: FLASK_DEBUG
+            value: "1"
           {{- end }}
           - name: TEMPERATURE_UNIT
             value: {{ .Values.env.temperatureUnit }}
