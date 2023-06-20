@@ -11,5 +11,5 @@ spec:
       {{- include "ecowitt-exporter.labels" . | nindent 6 }}
   endpoints:
   - port: http
-    interval: 30s
+    interval: 60s
 {{- end }}
