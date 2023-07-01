@@ -12,4 +12,9 @@ spec:
   endpoints:
   - port: http
     interval: 60s
+  - relabelings:
+    - action: labeldrop
+      regex: pod
+    - action: labeldrop
+      regex: instance
 {{- end }}
