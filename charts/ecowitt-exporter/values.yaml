@@ -12,6 +12,12 @@ image:
 
 env:
   debug: false
+  prometheus: true
+  influxdb: false
+  influxdbToken:
+  influxdbUrl: http://localhost:8086/
+  influxdbOrg: ecowitt
+  influxdbBucket: ecowitt
 
   # All units are expressed in lower case and without slashes, for simplicity.
   # Apologies to scientists, for whom this will be a difficult time.
