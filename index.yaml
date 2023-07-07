@@ -473,6 +473,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to ecowitt-exporter 0.3.0
+    apiVersion: v2
+    appVersion: 0.3.0
+    created: "2023-07-07T21:09:55.302542044Z"
+    description: A Prometheus exporter for Ecowitt weather stations
+    digest: d145e3b56404d376042100784c7d172458ac248c375e4302cb8059eb5ba2d147
+    home: https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: ecowitt-exporter
+    sources:
+    - https://github.com/djjudas21/ecowitt-exporter
+    - https://hub.docker.com/r/djjudas21/ecowitt-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/ecowitt-exporter-0.3.0/ecowitt-exporter-0.3.0.tgz
+    version: 0.3.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to ecowitt-exporter 0.2.0
     apiVersion: v2
     appVersion: 0.2.0
@@ -4544,4 +4572,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-07-07T20:08:23.860969975Z"
+generated: "2023-07-07T21:09:55.303117445Z"
