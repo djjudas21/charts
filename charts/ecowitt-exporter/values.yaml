@@ -16,8 +16,8 @@ env:
   influxdb: false
   influxdbToken:
   influxdbUrl: http://localhost:8086/
-  influxdbOrg:
-  influxdbBucket: ecowitt
+  influxdbOrg: influxdata
+  influxdbBucket: default
 
   # All units are expressed in lower case and without slashes, for simplicity.
   # Apologies to scientists, for whom this will be a difficult time.
