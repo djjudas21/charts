@@ -1,9 +1,9 @@
 ---
 apiVersion: v2
-appVersion: 2.1.12
+appVersion: 2.1.17
 description: Open-source online collaborative genealogy application
 name: webtrees
-version: 2.2.6
+version: 2.2.7
 kubeVersion: ">=1.16.0-0"
 keywords:
   - webtrees
@@ -28,4 +28,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to Webtrees 2.1.12
+      description: Update to Webtrees 2.1.17
