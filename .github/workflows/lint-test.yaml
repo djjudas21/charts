@@ -31,7 +31,7 @@ jobs:
         run: |
           changed=$(ct list-changed --config .github/linters/ct.yaml)
           if [[ -n "$changed" ]]; then
-            echo "::set-output name=changed::true"
+            echo "name=changed" >> "$GITHUB_OUTPUT"
           fi
 
       - name: install helm unittest plugin
