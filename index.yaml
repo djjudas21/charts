@@ -1506,6 +1506,38 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Hammond v0.0.4
+    apiVersion: v2
+    appVersion: v0.0.4
+    created: "2023-07-19T08:05:35.736331579Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Self-hosted vehicle expense tracking system with support for multiple
+      users
+    digest: e2c902dae531f92e42b4697e46947e1deb8178fc5759a0eb753f8108a50f01d9
+    home: https://github.com/alfhou/hammond
+    icon: https://github.com/alfhou/hammond/raw/master/ui/src/assets/images/logo.png
+    keywords:
+    - hammond
+    - car
+    - expense
+    - fuel
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: hammond
+    sources:
+    - https://github.com/alfhou/hammond
+    - https://hub.docker.com/r/alfhou/hammond
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/hammond-0.3.2/hammond-0.3.2.tgz
+    version: 0.3.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Switch to alfhou/hammond fork
     apiVersion: v2
     appVersion: v0.0.2
@@ -4872,4 +4904,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-07-17T08:55:16.613145132Z"
+generated: "2023-07-19T08:05:35.737193087Z"
