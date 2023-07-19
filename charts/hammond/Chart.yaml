@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: v0.0.2
+appVersion: v0.0.4
 description: Self-hosted vehicle expense tracking system with support for multiple users
 type: application
 name: hammond
-version: 0.3.1
+version: 0.3.2
 keywords:
 - hammond
 - car
@@ -24,4 +24,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Switch to alfhou/hammond fork
+      description: Update to Hammond v0.0.4
