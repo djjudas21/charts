@@ -103,3 +103,6 @@ affinity: {}
 
 serviceMonitor:
   enabled: false
+
+prometheusRules:
+  enabled: false
