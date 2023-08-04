@@ -2,8 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
-
 image:
   repository: nginx
   pullPolicy: IfNotPresent
@@ -48,8 +46,12 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
+tolerations:
+  # these tolerations are to have the daemonset runnable on control plane nodes
+  # remove them if your control plane nodes should not run pods
+  - key: node-role.kubernetes.io/control-plane
+    operator: Exists
+    effect: NoSchedule
+  - key: node-role.kubernetes.io/master
+    operator: Exists
+    effect: NoSchedule
