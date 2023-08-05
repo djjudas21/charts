@@ -1,1 +1,1 @@
-1. Get the application URL by running these commands:
+Your nodes will now be labelled according to their hardware type
