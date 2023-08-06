@@ -1,0 +1,1 @@
+Your nodes will now be labelled according to their hardware type
