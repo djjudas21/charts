@@ -1,5 +1,34 @@
 apiVersion: v1
 entries:
+  autonodelabel:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 0.0.6
+    created: "2023-08-06T19:48:12.484205927Z"
+    description: Automatically label Kubernetes nodes based on their hardware
+    digest: 499cb32f053fe777b9ddfcd8d9d8f2002a50a461619671f5327754eb069a7ffe
+    home: https://github.com/djjudas21/charts/tree/master/charts/autonodelabel
+    icon: https://raw.githubusercontent.com/kubernetes/community/master/icons/png/infrastructure_components/labeled/node-128.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: autonodelabel
+    sources:
+    - https://github.com/djjudas21/autonodelabel
+    - https://hub.docker.com/r/djjudas21/autonodelabel
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/autonodelabel-0.0.6/autonodelabel-0.0.6.tgz
+    version: 0.0.6
   bookstack:
   - annotations:
       artifacthub.io/changes: |-
@@ -5028,4 +5057,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-08-06T16:45:10.542886846Z"
+generated: "2023-08-06T19:48:12.484466228Z"
