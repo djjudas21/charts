@@ -511,6 +511,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Add support for WH57 lightning sensor
+    apiVersion: v2
+    appVersion: 0.4.0
+    created: "2023-08-06T16:45:10.542037206Z"
+    description: A Prometheus exporter for Ecowitt weather stations
+    digest: 0d6baa45507f658667da5b11d569d280e2f5c8b98e3765969ca16ae251de339d
+    home: https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: ecowitt-exporter
+    sources:
+    - https://github.com/djjudas21/ecowitt-exporter
+    - https://hub.docker.com/r/djjudas21/ecowitt-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/ecowitt-exporter-0.4.0/ecowitt-exporter-0.4.0.tgz
+    version: 0.4.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Add Prometheus alerting rules for battery status
     apiVersion: v2
     appVersion: 0.3.7
@@ -5000,4 +5028,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-07-27T19:17:03.709008083Z"
+generated: "2023-08-06T16:45:10.542886846Z"
