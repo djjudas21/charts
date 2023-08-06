@@ -14,3 +14,4 @@ excluded-charts:
   - owncloud
   - smtp-relay
   - dbdump
+  - autonodelabel
