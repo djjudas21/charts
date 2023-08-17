@@ -3,8 +3,9 @@ apiVersion: v2
 appVersion: 1.8.0
 description: Paperless - Index and archive all of your scanned paper documents
 name: paperless
-version: 9.2.3
+version: 9.2.4
 kubeVersion: ">=1.16.0-0"
+deprecated: true
 keywords:
   - paperless
 home: https://github.com/djjudas21/charts/tree/master/charts/paperless
@@ -28,5 +29,5 @@ dependencies:
     condition: redis.enabled
 annotations:
   artifacthub.io/changes: |-
-    - kind: changed
-      description: Downgrade to bjw-s/common 0.2.0
+    - kind: deprecated
+      description: Use gabe565/paperless-ngx
