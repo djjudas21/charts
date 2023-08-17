@@ -3247,6 +3247,42 @@ entries:
   paperless:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: deprecated
+          description: Use gabe565/paperless-ngx
+    apiVersion: v2
+    appVersion: 1.8.0
+    created: "2023-08-17T08:24:46.478896558Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.12
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.13.1
+    deprecated: true
+    description: Paperless - Index and archive all of your scanned paper documents
+    digest: 89eb125aa2735d9d4d200a4cb84784e3dc753ca4752af0e9b825dd9e8dca3af4
+    home: https://github.com/djjudas21/charts/tree/master/charts/paperless
+    icon: https://avatars.githubusercontent.com/u/47271576?s=200&v=4
+    keywords:
+    - paperless
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: paperless
+    sources:
+    - https://github.com/paperless-ngx/paperless-ngx
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/paperless-9.2.4/paperless-9.2.4.tgz
+    version: 9.2.4
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: changed
           description: Downgrade to bjw-s/common 0.2.0
     apiVersion: v2
@@ -5122,4 +5158,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-08-10T19:14:44.022039771Z"
+generated: "2023-08-17T08:24:46.47930516Z"
