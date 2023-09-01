@@ -14,6 +14,45 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+env:
+  # When using volumes (-v flags) permissions issues can arise between the host OS and the container, we avoid this issue by allowing you to specify the user PUID and group PGID.
+  # Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
+  # In this instance PUID=1000 and PGID=1000, to find yours use id user as below:
+  # UserID:
+  puid: 1000
+  # GroupID
+  pgid: 1000
+
+  # specify a timezone to use, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+  tz: Etc/UTC
+
+  # Optional ssh public key, which will automatically be added to authorized_keys.
+  publicKey:
+
+  # Optionally specify a file containing the public key (works with docker secrets).
+  publicKeyFile:
+
+  # Optionally specify a directory containing the public keys (works with docker secrets).
+  publicKeyDir:
+
+  # Optionally specify a URL containing the public key, e.g. https://github.com/username.keys
+  publicKeyUrl:
+
+  # Set to true to allow linuxserver.io, the ssh user, sudo access. Without USER_PASSWORD set, this will allow passwordless sudo access.
+  sudoAccess: false
+
+  # Set to true to allow user/password ssh access. You will want to set USER_PASSWORD or USER_PASSWORD_FILE as well.
+  passwordAccess: false
+
+  # Optionally set a sudo password for linuxserver.io, the ssh user. If this or USER_PASSWORD_FILE are not set but SUDO_ACCESS is set to true, the user will have passwordless sudo access.
+  userPassword:
+
+  # Optionally specify a file that contains the password. This setting supersedes the USER_PASSWORD option (works with docker secrets).
+  userPasswordFile:
+
+  # Optionally specify a user name (Default:linuxserver.io)
+  userName:
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
