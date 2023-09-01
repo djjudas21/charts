@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "openssh-server.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "openssh-server.selectorLabels" . | nindent 6 }}
