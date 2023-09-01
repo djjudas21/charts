@@ -15,3 +15,4 @@ excluded-charts:
   - smtp-relay
   - dbdump
   - autonodelabel
+  - openssh-server
