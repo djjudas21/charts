@@ -12,7 +12,7 @@ version: 0.1.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "9.3"
+appVersion: "9.3_p2-r0-ls128"
 
 home: https://github.com/djjudas21/charts
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png
