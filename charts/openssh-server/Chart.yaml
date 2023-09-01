@@ -1,15 +1,6 @@
 apiVersion: v2
 name: openssh-server
 description: Sandboxed environment that allows ssh access without giving keys to the entire server
-
-# A chart can be either an 'application' or a 'library' chart.
-#
-# Application charts are a collection of templates that can be packaged into versioned archives
-# to be deployed.
-#
-# Library charts provide useful utilities or functions for the chart developer. They're included as
-# a dependency of application charts to inject those utilities and functions into the rendering
-# pipeline. Library charts do not define any templates and therefore cannot be deployed.
 type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
@@ -22,3 +13,21 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "9.3"
+
+home: https://github.com/djjudas21/charts
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png
+keywords:
+  - ssh
+  - openssh
+  - bastion
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+sources:
+  - https://hub.docker.com/r/linuxserver/openssh-server
+  - https://github.com/linuxserver/docker-openssh-server
+annotations:
+  category: Infrastructure
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Initial release
