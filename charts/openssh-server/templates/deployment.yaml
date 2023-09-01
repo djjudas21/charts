@@ -60,7 +60,10 @@ spec:
               value: {{ .Values.env.passwordAccess }}
             {{- if .Values.env.userPassword -}}
             - name: USER_PASSWORD
-              value: {{ .Values.env.userPassword }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-password
+                  key: USER_PASSWORD
             {{- end }}
             {{- if .Values.env.userPasswordFile -}}
             - name: USER_PASSWORD_FILE
