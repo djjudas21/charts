@@ -77,6 +77,11 @@ spec:
             - name: ssh
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
+          {{- if .Values.persistence.enabled }}
+          volumeMounts:
+          - mountPath: /home
+            name: home
+          {{- end }}
           livenessProbe:
             tcpSocket:
               port: {{ .Values.service.targetPort }}
@@ -85,6 +90,12 @@ spec:
               port: {{ .Values.service.targetPort }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.persistence.enabled }}
+      volumes:
+      - name: home
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-home
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
