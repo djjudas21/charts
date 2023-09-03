@@ -79,7 +79,7 @@ spec:
               protocol: TCP
           {{- if .Values.persistence.enabled }}
           volumeMounts:
-          - mountPath: /home
+          - mountPath: /root
             name: home
           {{- end }}
           livenessProbe:
