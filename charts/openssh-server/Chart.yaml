@@ -1,0 +1,33 @@
+apiVersion: v2
+name: openssh-server
+description: Sandboxed environment that allows ssh access without giving keys to the entire server
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.1.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+# It is recommended to use it with quotes.
+appVersion: "9.3_p2-r0-ls128"
+
+home: https://github.com/djjudas21/charts
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png
+keywords:
+  - ssh
+  - openssh
+  - bastion
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+sources:
+  - https://hub.docker.com/r/linuxserver/openssh-server
+  - https://github.com/linuxserver/docker-openssh-server
+annotations:
+  category: Infrastructure
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Initial release
