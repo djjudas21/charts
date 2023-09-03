@@ -7,14 +7,14 @@ metadata:
   labels:
     {{- include "openssh-server.labels" . | nindent 4 }}
 spec:
-  {{- if .Values.persistence.storageClass }}
-  storageClassName: {{ .Values.persistence.storageClass }}
+  {{- if .Values.persistence.config.storageClass }}
+  storageClassName: {{ .Values.persistence.config.storageClass }}
   {{- end }}
   accessModes:
-  {{- range .Values.persistence.accessModes }}
+  {{- range .Values.persistence.config.accessModes }}
     - {{ . | quote }}
   {{- end }}
   resources:
     requests:
-      storage: {{ .Values.persistence.size }}
+      storage: {{ .Values.persistence.config.size }}
 {{- end }}
