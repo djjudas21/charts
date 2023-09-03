@@ -2901,6 +2901,35 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.2/nova-exporter-0.1.2.tgz
     version: 0.1.2
+  openssh-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 9.3_p2-r0-ls128
+    created: "2023-09-03T20:33:33.645148838Z"
+    description: Sandboxed environment that allows ssh access without giving keys
+      to the entire server
+    digest: 952280bcbc547b586e28cdbc2a672d429a943e803bebda9241077df33394b293
+    home: https://github.com/djjudas21/charts
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png
+    keywords:
+    - ssh
+    - openssh
+    - bastion
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: openssh-server
+    sources:
+    - https://hub.docker.com/r/linuxserver/openssh-server
+    - https://github.com/linuxserver/docker-openssh-server
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.0/openssh-server-0.1.0.tgz
+    version: 0.1.0
   owncloud:
   - annotations:
       artifacthub.io/changes: |-
@@ -5158,4 +5187,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-08-17T08:24:46.47930516Z"
+generated: "2023-09-03T20:33:33.645422338Z"
