@@ -77,10 +77,15 @@ spec:
             - name: ssh
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
-          {{- if .Values.persistence.enabled }}
+          {{- if or .Values.persistence.home.enabled .Values.persistence.config.enabled }}
           volumeMounts:
+          {{- if .Values.persistence.home.enabled }}
           - mountPath: /root
             name: home
+          {{- end }}
+          {{- if .Values.persistence.config.enabled }}
+          - mountPath: /config
+            name: config
           {{- end }}
           livenessProbe:
             tcpSocket:
