@@ -87,6 +87,7 @@ spec:
           - mountPath: /config
             name: config
           {{- end }}
+          {{- end }}
           livenessProbe:
             tcpSocket:
               port: {{ .Values.service.targetPort }}
