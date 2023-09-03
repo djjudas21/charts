@@ -38,19 +38,19 @@ spec:
               value: {{ .Values.env.pgid }}
             - name: TZ
               value: {{ .Values.env.tz }}
-            {{- if .Values.env.publicKey -}}
+            {{- if .Values.env.publicKey }}
             - name: PUBLIC_KEY
               value: {{ .Values.env.publicKey }}
             {{- end }}
-            {{- if .Values.env.publicKeyFile -}}
+            {{- if .Values.env.publicKeyFile }}
             - name: PUBLIC_KEY_FILE
               value: {{ .Values.env.publicKeyFile }}
             {{- end }}
-            {{- if .Values.env.publicKeyDir -}}
+            {{- if .Values.env.publicKeyDir }}
             - name: PUBLIC_KEY_DIR
               value: {{ .Values.env.publicKeyDir }}
             {{- end }}
-            {{- if .Values.env.publicKeyUrl -}}
+            {{- if .Values.env.publicKeyUrl }}
             - name: PUBLIC_KEY_URL
               value: {{ .Values.env.publicKeyUrl }}
             {{- end }}
@@ -58,18 +58,18 @@ spec:
               value: {{ .Values.env.sudoAccess }}
             - name: PASSWORD_ACCESS
               value: {{ .Values.env.passwordAccess }}
-            {{- if .Values.env.userPassword -}}
+            {{- if .Values.env.userPassword }}
             - name: USER_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}-password
                   key: USER_PASSWORD
             {{- end }}
-            {{- if .Values.env.userPasswordFile -}}
+            {{- if .Values.env.userPasswordFile }}
             - name: USER_PASSWORD_FILE
               value: {{ .Values.env.userPasswordFile }}
             {{- end }}
-            {{- if .Values.env.userName -}}
+            {{- if .Values.env.userName }}
             - name: USER_NAME
               value: {{ .Values.env.userName }}
             {{- end }}
