@@ -90,11 +90,18 @@ spec:
               port: {{ .Values.service.targetPort }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- if .Values.persistence.enabled }}
+      {{- if or .Values.persistence.home.enabled .Values.persistence.config.enabled }}
       volumes:
+        {{- if .Values.persistence.home.enabled }}
       - name: home
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-home
+        {{- end }}
+        {{- if .Values.persistence.config.enabled }}
+      - name: config
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-config
+        {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

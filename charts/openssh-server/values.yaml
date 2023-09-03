@@ -55,11 +55,18 @@ env:
 
 # Persist the home directory
 persistence:
-  enabled: false
-  storageClass: ""
-  accessModes:
-    - ReadWriteMany
-  size: 8Gi
+  home:
+    enabled: false
+    storageClass: ""
+    accessModes:
+      - ReadWriteMany
+    size: 8Gi
+  config:
+    enabled: false
+    storageClass: ""
+    accessModes:
+      - ReadWriteMany
+    size: 1Gi
 
 serviceAccount:
   # Specifies whether a service account should be created

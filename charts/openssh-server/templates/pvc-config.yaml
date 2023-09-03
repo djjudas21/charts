@@ -1,9 +1,9 @@
-{{- if .Values.persistence.enabled }}
+{{- if .Values.persistence.config.enabled }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Release.Name }}-home
+  name: {{ .Release.Name }}-config
   labels:
     {{- include "openssh-server.labels" . | nindent 4 }}
 spec:
