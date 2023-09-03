@@ -33,31 +33,31 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PUID
-              value: {{ .Values.env.puid }}
+              value: {{ quote .Values.env.puid }}
             - name: PGID
-              value: {{ .Values.env.pgid }}
+              value: {{ quote .Values.env.pgid }}
             - name: TZ
-              value: {{ .Values.env.tz }}
+              value: {{ quote .Values.env.tz }}
             {{- if .Values.env.publicKey }}
             - name: PUBLIC_KEY
-              value: {{ .Values.env.publicKey }}
+              value: {{ quote .Values.env.publicKey }}
             {{- end }}
             {{- if .Values.env.publicKeyFile }}
             - name: PUBLIC_KEY_FILE
-              value: {{ .Values.env.publicKeyFile }}
+              value: {{ quote .Values.env.publicKeyFile }}
             {{- end }}
             {{- if .Values.env.publicKeyDir }}
             - name: PUBLIC_KEY_DIR
-              value: {{ .Values.env.publicKeyDir }}
+              value: {{ quote .Values.env.publicKeyDir }}
             {{- end }}
             {{- if .Values.env.publicKeyUrl }}
             - name: PUBLIC_KEY_URL
-              value: {{ .Values.env.publicKeyUrl }}
+              value: {{ quote .Values.env.publicKeyUrl }}
             {{- end }}
             - name: SUDO_ACCESS
-              value: {{ .Values.env.sudoAccess }}
+              value: {{ quote .Values.env.sudoAccess }}
             - name: PASSWORD_ACCESS
-              value: {{ .Values.env.passwordAccess }}
+              value: {{ quote .Values.env.passwordAccess }}
             {{- if .Values.env.userPassword }}
             - name: USER_PASSWORD
               valueFrom:
@@ -67,11 +67,11 @@ spec:
             {{- end }}
             {{- if .Values.env.userPasswordFile }}
             - name: USER_PASSWORD_FILE
-              value: {{ .Values.env.userPasswordFile }}
+              value: {{ quote .Values.env.userPasswordFile }}
             {{- end }}
             {{- if .Values.env.userName }}
             - name: USER_NAME
-              value: {{ .Values.env.userName }}
+              value: {{ quote .Values.env.userName }}
             {{- end }}
           ports:
             - name: ssh
