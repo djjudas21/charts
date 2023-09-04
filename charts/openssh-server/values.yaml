@@ -53,6 +53,11 @@ env:
   # Optionally specify a user name (Default:linuxserver.io)
   userName:
 
+# Alpine Packages to install via custom scripts on container startup
+# https://docs.linuxserver.io/general/container-customization#custom-scripts
+# https://pkgs.alpinelinux.org/packages
+packages: []
+
 # Persist the home directory
 persistence:
   home:

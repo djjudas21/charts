@@ -77,8 +77,9 @@ spec:
             - name: ssh
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
-          {{- if or .Values.persistence.home.enabled .Values.persistence.config.enabled }}
           volumeMounts:
+          - name: custom-scripts
+            mountPath: /custom-cont-init.d
           {{- if .Values.persistence.home.enabled }}
           - mountPath: /root
             name: home
@@ -86,7 +87,6 @@ spec:
           {{- if .Values.persistence.config.enabled }}
           - mountPath: /config
             name: config
-          {{- end }}
           {{- end }}
           livenessProbe:
             tcpSocket:
@@ -96,8 +96,10 @@ spec:
               port: {{ .Values.service.targetPort }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- if or .Values.persistence.home.enabled .Values.persistence.config.enabled }}
       volumes:
+      - name: custom-scripts
+        configMap:
+          name: {{ include "openssh-server.fullname" . }}-custom-scripts
         {{- if .Values.persistence.home.enabled }}
       - name: home
         persistentVolumeClaim:
@@ -108,7 +110,6 @@ spec:
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-config
         {{- end }}
-      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
