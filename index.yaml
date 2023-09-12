@@ -5076,6 +5076,45 @@ entries:
   vikunja:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: deprecated
+          description: Use official vikunja helm repo
+    apiVersion: v2
+    appVersion: 0.17.0
+    created: "2023-09-12T12:47:17.40971372Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.12
+    deprecated: true
+    description: The to-do app to organize your life
+    digest: 642f289178f1507c371506f45ca4908e0fa5769fff7b63c9e1d4bc4fc35917d7
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/vikunja
+    icon: https://s7.gifyu.com/images/GifCroppedTran.gif
+    keywords:
+    - vikunja
+    - to-do
+    - tasks
+    - calendar
+    - kanban
+    maintainers:
+    - email: k8s-at-home@xpander.eml.cc
+      name: auricom
+    name: vikunja
+    sources:
+    - https://kolaente.dev/vikunja/api
+    - https://kolaente.dev/vikunja/frontend
+    - https://hub.docker.com/r/vikunja/api
+    - https://hub.docker.com/r/vikunja/frontend
+    - https://vikunja.io/docs/
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/vikunja-6.2.0/vikunja-6.2.0.tgz
+    version: 6.2.0
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: changed
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
@@ -5383,4 +5422,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-09-04T20:48:42.027949772Z"
+generated: "2023-09-12T12:47:17.409985325Z"
