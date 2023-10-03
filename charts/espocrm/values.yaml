@@ -55,6 +55,13 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+persistence:
+  enabled: false
+  storageClass: ""
+  accessModes:
+    - ReadWriteMany
+  size: 1Gi
+
 service:
   type: ClusterIP
   port: 80

@@ -50,6 +50,11 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          {{- if .Values.persistence.enabled }}
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: espocrm
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /
@@ -60,6 +65,12 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.persistence.enabled }}
+      volumes:
+        - name: espocrm
+          persistentVolumeClaim:
+            claimName: {{ include "espocrm.fullname" . }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
