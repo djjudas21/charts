@@ -31,6 +31,17 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          {{- if .Values.mariadb.enabled }}
+          - name: ESPOCRM_DATABASE_HOST:
+            value: mysql
+          - name: ESPOCRM_DATABASE_NAME:
+            value: {{ .Values.mariadb.auth.database }}
+          - name: ESPOCRM_DATABASE_USER:
+            value: {{ .Values.mariadb.auth.username }}
+          - name: ESPOCRM_DATABASE_PASSWORD:
+            value: {{ .Values.mariadb.auth.password }}
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
