@@ -32,6 +32,10 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+          {{- range $item := .Values.espocrm }}
+          - name: {{ $item.name }}
+            value: {{ $item.value }}
+          {{- end }}
           {{- if .Values.mariadb.enabled }}
           - name: ESPOCRM_DATABASE_HOST:
             value: mysql
