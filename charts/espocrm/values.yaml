@@ -17,7 +17,8 @@ espocrm:
   # User password for an administrator of EspoCRM
   ESPOCRM_ADMIN_PASSWORD: password
 
-  # The URL of EspoCRM. This option is very important for normal operating of EspoCRM. Examples: http://172.20.0.100:8080, http://my-crm.local.
+  # The URL of EspoCRM. This option is very important for normal operating of EspoCRM
+  # Examples: http://172.20.0.100:8080, http://my-crm.local.
   ESPOCRM_SITE_URL:
   
   ESPOCRM_LANGUAGE:
