@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "ecowitt-exporter.name" . }}
+  name: {{ include "connectbox-exporter.name" . }}
   labels:
-    {{- include "ecowitt-exporter.labels" . | nindent 4 }}
+    {{- include "connectbox-exporter.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   {{- if .Values.service.loadBalancerIP }}
@@ -15,4 +15,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "ecowitt-exporter.selectorLabels" . | nindent 4 }}
+    {{- include "connectbox-exporter.selectorLabels" . | nindent 4 }}

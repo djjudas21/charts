@@ -5,10 +5,10 @@ metadata:
   labels:
     prometheus: service-prometheus
     role: alert-rules
-  name: {{ include "ecowitt-exporter.fullname" . }}
+  name: {{ include "connectbox-exporter.fullname" . }}
 spec:
   groups:
-  - name: ecowitt-exporter.rules
+  - name: connectbox-exporter.rules
     rules:
 {{ .Files.Get "files/prometheus.rules" }}
 {{- end }}

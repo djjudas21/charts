@@ -2,13 +2,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: {{ include "ecowitt-exporter.fullname" . }}
+  name: {{ include "connectbox-exporter.fullname" . }}
   labels:
-    {{- include "ecowitt-exporter.labels" . | nindent 4 }}
+    {{- include "connectbox-exporter.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      {{- include "ecowitt-exporter.labels" . | nindent 6 }}
+      {{- include "connectbox-exporter.labels" . | nindent 6 }}
   endpoints:
   - port: http
     interval: 60s

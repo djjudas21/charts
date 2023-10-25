@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "ecowitt-exporter.fullname" . }}
+  name: {{ include "connectbox-exporter.fullname" . }}
   labels:
-    {{- include "ecowitt-exporter.labels" . | nindent 4 }}
+    {{- include "connectbox-exporter.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "ecowitt-exporter.selectorLabels" . | nindent 6 }}
+      {{- include "connectbox-exporter.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -16,15 +16,19 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "ecowitt-exporter.selectorLabels" . | nindent 8 }}
+        {{- include "connectbox-exporter.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "ecowitt-exporter.serviceAccountName" . }}
+      serviceAccountName: {{ include "connectbox-exporter.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: {{ include "connectbox-exporter.name" . }}-config
+          configMap:
+            name: config
       containers:
         - name: {{ .Chart.Name }}
           env:
@@ -64,6 +68,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - mountPath: "/data"
+              name: config
+              subPath: config.yml
+              readOnly: true
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}

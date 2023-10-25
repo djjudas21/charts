@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "ecowitt-exporter.name" -}}
+{{- define "connectbox-exporter.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "ecowitt-exporter.fullname" -}}
+{{- define "connectbox-exporter.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "ecowitt-exporter.chart" -}}
+{{- define "connectbox-exporter.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "ecowitt-exporter.labels" -}}
-helm.sh/chart: {{ include "ecowitt-exporter.chart" . }}
-{{ include "ecowitt-exporter.selectorLabels" . }}
+{{- define "connectbox-exporter.labels" -}}
+helm.sh/chart: {{ include "connectbox-exporter.chart" . }}
+{{ include "connectbox-exporter.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "ecowitt-exporter.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "ecowitt-exporter.name" . }}
+{{- define "connectbox-exporter.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "connectbox-exporter.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "ecowitt-exporter.serviceAccountName" -}}
+{{- define "connectbox-exporter.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "ecowitt-exporter.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "connectbox-exporter.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

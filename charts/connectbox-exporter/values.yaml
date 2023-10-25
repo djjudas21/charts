@@ -1,41 +1,33 @@
-# Default values for ecowitt-exporter.
+# Default values for connectbox-exporter.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: djjudas21/ecowitt-exporter
+  repository: djjudas21/connectbox-prometheus
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-env:
-  debug: false
-  prometheus: true
-  influxdb: false
-  influxdbToken:
-  influxdbUrl: http://localhost:8086/
-  influxdbOrg: influxdata
-  influxdbBucket: default
+config:
+  # Connect Box IP address
+  ipAddress: 192.168.0.1
 
-  # All units are expressed in lower case and without slashes, for simplicity.
-  # Apologies to scientists, for whom this will be a difficult time.
+  # Connect Box web interface password
+  password: WhatEverYourPasswordIs
 
-  # Temperature in c or f
-  temperatureUnit: 'c'
+  # timeout duration for connections to the Connect Box (default: 9)
+  timeoutSeconds: 9
 
-  # Pressure in hpa or in
-  pressureUnit: 'hpa'
+  # Customize the family of metrics to scrape. By default, all metrics are scraped.
+  #metrics: [device_status, downstream, upstream, lan_users, temperature]
 
-  # Wind speed in kmh or mph
-  windUnit: 'kmh'
+serviceMonitor:
+  enabled: false
 
-  # Rainfall in mm or in
-  rainUnit: 'mm'
-
-  # Irradiance in wm2
-  irradianceUnit: 'wm2'
+prometheusRules:
+  enabled: false
 
 imagePullSecrets: []
 nameOverride: ""
@@ -65,23 +57,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 8088
-
-ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: Prefix
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  port: 9705
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -100,9 +76,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-serviceMonitor:
-  enabled: false
-
-prometheusRules:
-  enabled: false
