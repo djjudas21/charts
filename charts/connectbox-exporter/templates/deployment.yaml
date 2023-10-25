@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ecowitt-exporter.fullname" . }}
+  labels:
+    {{- include "ecowitt-exporter.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "ecowitt-exporter.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "ecowitt-exporter.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "ecowitt-exporter.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          env:
+          {{- if .Values.env.debug }}
+          - name: DEBUG
+            value: "yes"
+          - name: FLASK_DEBUG
+            value: "1"
+          {{- end }}
+          - name: TEMPERATURE_UNIT
+            value: {{ .Values.env.temperatureUnit }}
+          - name: PRESSURE_UNIT
+            value: {{ .Values.env.pressureUnit }}
+          - name: WIND_UNIT
+            value: {{ .Values.env.windUnit }}
+          - name: RAIN_UNIT
+            value: {{ .Values.env.rainUnit }}
+          - name: IRRADIANCE_UNIT
+            value: {{ .Values.env.irradianceUnit }}
+          {{- if .Values.env.prometheus }}
+          - name: PROMETHEUS
+            value: "yes"
+          {{- end }}
+          {{- if .Values.env.influxdb }}
+          - name: INFLUXDB
+            value: "yes"
+          - name: INFLUXDB_TOKEN
+            value: {{ .Values.env.influxdbToken }}
+          - name: INFLUXDB_URL
+            value: {{ .Values.env.influxdbUrl }}
+          - name: INFLUXDB_ORG
+            value: {{ .Values.env.influxdbOrg }}
+          - name: INFLUXDB_BUCKET
+            value: {{ .Values.env.influxdbBucket }}
+          {{- end }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

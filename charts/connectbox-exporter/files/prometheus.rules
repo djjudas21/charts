@@ -1,0 +1,16 @@
+    - alert: EcowittPM25Battery
+      expr: pm25batt<=3
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt PM2.5 sensor battery low
+        description: "Ecowitt PM2.5 sensor battery level is {{ $value }}/5"
+    - alert: EcowittWH65Battery
+      expr: wh65batt != 0
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt WH65 sensor battery warning
+        description: "Ecowitt WH65 sensor array battery status is {{ $value }}"
