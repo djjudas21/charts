@@ -4,6 +4,20 @@ A Prometheus exporter for monitoring Compal CH7465LG cable modems. These are sol
 
 ## Values
 
+The most important values to set are the IP of your modem and its password.
+
+```yaml
+config:
+  # Connect Box IP address
+  ipAddress: 192.168.0.1
+
+  # Connect Box web interface password
+  password: WhatEverYourPasswordIs
+
+# Allow Prometheus Monitor to scrape this exporter
+serviceMonitor:
+  enabled: false
+```
 
 ## Deployment
 

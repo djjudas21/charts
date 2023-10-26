@@ -20,6 +20,7 @@ config:
   # timeout duration for connections to the Connect Box (default: 9)
   timeoutSeconds: 9
 
+# Allow Prometheus Monitor to scrape this exporter
 serviceMonitor:
   enabled: false
 
