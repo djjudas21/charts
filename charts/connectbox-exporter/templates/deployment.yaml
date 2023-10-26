@@ -26,9 +26,9 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       volumes:
-        - name: {{ include "connectbox-exporter.name" . }}-config
+        - name: config
           configMap:
-            name: config
+            name: {{ include "connectbox-exporter.name" . }}-config
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
