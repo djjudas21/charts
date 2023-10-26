@@ -31,39 +31,6 @@ spec:
             name: config
       containers:
         - name: {{ .Chart.Name }}
-          env:
-          {{- if .Values.env.debug }}
-          - name: DEBUG
-            value: "yes"
-          - name: FLASK_DEBUG
-            value: "1"
-          {{- end }}
-          - name: TEMPERATURE_UNIT
-            value: {{ .Values.env.temperatureUnit }}
-          - name: PRESSURE_UNIT
-            value: {{ .Values.env.pressureUnit }}
-          - name: WIND_UNIT
-            value: {{ .Values.env.windUnit }}
-          - name: RAIN_UNIT
-            value: {{ .Values.env.rainUnit }}
-          - name: IRRADIANCE_UNIT
-            value: {{ .Values.env.irradianceUnit }}
-          {{- if .Values.env.prometheus }}
-          - name: PROMETHEUS
-            value: "yes"
-          {{- end }}
-          {{- if .Values.env.influxdb }}
-          - name: INFLUXDB
-            value: "yes"
-          - name: INFLUXDB_TOKEN
-            value: {{ .Values.env.influxdbToken }}
-          - name: INFLUXDB_URL
-            value: {{ .Values.env.influxdbUrl }}
-          - name: INFLUXDB_ORG
-            value: {{ .Values.env.influxdbOrg }}
-          - name: INFLUXDB_BUCKET
-            value: {{ .Values.env.influxdbBucket }}
-          {{- end }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
