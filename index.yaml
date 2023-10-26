@@ -494,6 +494,36 @@ entries:
           description: Initial release
     apiVersion: v2
     appVersion: 0.0.1
+    created: "2023-10-26T20:28:47.049830932Z"
+    description: Prometheus exporter for Compal CH7465LG cable modems
+    digest: fb40f588b7b189b569c45323999a24705d31c641aae0f2b06a1a786a25421624
+    home: https://github.com/djjudas21/charts/tree/master/charts/connectbox-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - connectbox
+    - virgin
+    - cable
+    - modem
+    - router
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: connectbox-exporter
+    sources:
+    - https://github.com/djjudas21/connectbox-prometheus
+    - https://hub.docker.com/r/djjudas21/connectbox-prometheus
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/connectbox-exporter-0.0.2/connectbox-exporter-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 0.0.1
     created: "2023-10-26T20:16:19.791821437Z"
     description: Prometheus exporter for Compal CH7465LG cable modems
     digest: 448874e785319ea553ebc1a802c3816aaad439906ff0fbea2e8260151a45924b
@@ -5688,4 +5718,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-10-26T20:16:19.792159946Z"
+generated: "2023-10-26T20:28:47.050342437Z"
