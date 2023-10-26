@@ -20,9 +20,6 @@ config:
   # timeout duration for connections to the Connect Box (default: 9)
   timeoutSeconds: 9
 
-  # Customize the family of metrics to scrape. By default, all metrics are scraped.
-  #metrics: [device_status, downstream, upstream, lan_users, temperature]
-
 serviceMonitor:
   enabled: false
 
