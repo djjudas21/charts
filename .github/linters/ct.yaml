@@ -16,3 +16,4 @@ excluded-charts:
   - dbdump
   - autonodelabel
   - openssh-server
+  - connectbox-exporter
