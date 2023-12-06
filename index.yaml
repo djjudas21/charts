@@ -3112,6 +3112,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update OpenSSH image
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 9.3_p2-r0-ls138
+    created: "2023-12-06T18:04:06.828391787Z"
+    description: Sandboxed environment that allows ssh access without giving keys
+      to the entire server
+    digest: 95e829cc63604382703ed15fbc3a1d3221284d7745c6b410c400a63b7c9b2495
+    home: https://github.com/djjudas21/charts
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png
+    keywords:
+    - ssh
+    - openssh
+    - bastion
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: openssh-server
+    sources:
+    - https://hub.docker.com/r/linuxserver/openssh-server
+    - https://github.com/linuxserver/docker-openssh-server
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.9/openssh-server-0.1.9.tgz
+    version: 0.1.9
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Initial release
       category: Infrastructure
     apiVersion: v2
@@ -5924,4 +5952,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-12-06T14:43:15.454097929Z"
+generated: "2023-12-06T18:04:06.828712044Z"
