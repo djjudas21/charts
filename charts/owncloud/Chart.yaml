@@ -3,8 +3,8 @@ name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
   
-version: 0.3.7
-appVersion: "10.13.2"
+version: 0.3.8
+appVersion: "10.13.3"
 
 dependencies:
 - name: mariadb
@@ -34,4 +34,4 @@ annotations:
   category: Infrastructure
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to ownCloud 10.13.2
+      description: Update to ownCloud 10.13.3
