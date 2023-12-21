@@ -17,3 +17,4 @@ excluded-charts:
   - autonodelabel
   - openssh-server
   - connectbox-exporter
+  - liturgical-colour
