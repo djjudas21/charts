@@ -1,6 +1,6 @@
 apiVersion: v2
 name: liturgical-colour
-description: A Helm chart for Kubernetes
+description: A simple app to display the current liturgical colour of the Church of England
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -15,10 +15,27 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.0
+version: 0.0.1
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "1.16.0"
+appVersion: "0.0.1"
+keywords:
+  - liturgical
+  - calendar
+  - church
+  - anglican
+home: https://github.com/djjudas21/charts/tree/master/charts/liturgical-colour
+icon: https://www.churchofengland.org/themes/custom/cofe/favicon.ico
+sources:
+  - https://github.com/djjudas21/liturgical-colour-app
+  - https://hub.docker.com/r/djjudas21/liturgical-colour-app
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+annotations:
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Initial release
