@@ -21,14 +21,14 @@ version: 0.0.1
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "0.0.1"
+appVersion: "0.0.2"
 keywords:
   - liturgical
   - calendar
   - church
   - anglican
 home: https://github.com/djjudas21/charts/tree/master/charts/liturgical-colour
-icon: https://www.churchofengland.org/themes/custom/cofe/favicon.ico
+icon: https://www.nlwc.org.uk/wp-content/uploads/2015/08/Church-of-England-LOGO-Mauve.jpg
 sources:
   - https://github.com/djjudas21/liturgical-colour-app
   - https://hub.docker.com/r/djjudas21/liturgical-colour-app
@@ -38,4 +38,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Initial release
+      description: Fix icon
