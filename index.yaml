@@ -2586,6 +2586,35 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/littlelink-server-1.5.0/littlelink-server-1.5.0.tgz
     version: 1.5.0
+  liturgical-colour:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 0.0.1
+    created: "2023-12-21T10:33:21.30688885Z"
+    description: A simple app to display the current liturgical colour of the Church
+      of England
+    digest: 24496b6c079921631a494a6be3799069a394758e414f945cef4a56ecc4298005
+    home: https://github.com/djjudas21/charts/tree/master/charts/liturgical-colour
+    icon: https://www.churchofengland.org/themes/custom/cofe/favicon.ico
+    keywords:
+    - liturgical
+    - calendar
+    - church
+    - anglican
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: liturgical-colour
+    sources:
+    - https://github.com/djjudas21/liturgical-colour-app
+    - https://hub.docker.com/r/djjudas21/liturgical-colour-app
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/liturgical-colour-0.0.1/liturgical-colour-0.0.1.tgz
+    version: 0.0.1
   maian-music:
   - annotations:
       artifacthub.io/changes: |-
@@ -5983,4 +6012,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-12-15T11:57:59.117352422Z"
+generated: "2023-12-21T10:33:21.307269193Z"
