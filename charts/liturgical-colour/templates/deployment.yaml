@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "liturgical-colour.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "liturgical-colour.selectorLabels" . | nindent 6 }}
