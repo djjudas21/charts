@@ -2590,6 +2590,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Add favicon
+    apiVersion: v2
+    appVersion: 0.1.2
+    created: "2023-12-24T22:39:56.664359081Z"
+    description: A simple app to display the current liturgical colour of the Church
+      of England
+    digest: f7c608a4f38e6f50d02474b662b0919778cef9688db76fe2fa5699529139918a
+    home: https://github.com/djjudas21/charts/tree/master/charts/liturgical-colour
+    icon: https://www.nlwc.org.uk/wp-content/uploads/2015/08/Church-of-England-LOGO-Mauve.jpg
+    keywords:
+    - liturgical
+    - calendar
+    - church
+    - anglican
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: liturgical-colour
+    sources:
+    - https://github.com/djjudas21/liturgical-colour-app
+    - https://hub.docker.com/r/djjudas21/liturgical-colour-app
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/liturgical-colour-0.1.2/liturgical-colour-0.1.2.tgz
+    version: 0.1.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Fix bug with Advent Sunday
     apiVersion: v2
     appVersion: 0.1.1
@@ -6032,4 +6060,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2023-12-24T21:01:19.899505597Z"
+generated: "2023-12-24T22:39:56.664710979Z"
