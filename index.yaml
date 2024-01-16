@@ -1805,6 +1805,38 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Hammond v0.0.24
+    apiVersion: v2
+    appVersion: v0.0.24
+    created: "2024-01-16T12:45:02.297416952Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Self-hosted vehicle expense tracking system with support for multiple
+      users
+    digest: 9972f24fc5f831d4d15c3fec78f12b0923b91703aec1c09b115023dab9a5d593
+    home: https://github.com/alfhou/hammond
+    icon: https://github.com/alfhou/hammond/raw/master/ui/src/assets/images/logo.png
+    keywords:
+    - hammond
+    - car
+    - expense
+    - fuel
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: hammond
+    sources:
+    - https://github.com/alfhou/hammond
+    - https://hub.docker.com/r/alfhou/hammond
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/hammond-0.3.4/hammond-0.3.4.tgz
+    version: 0.3.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Hammond v0.0.21
     apiVersion: v2
     appVersion: v0.0.21
@@ -3449,6 +3481,34 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.2/nova-exporter-0.1.2.tgz
     version: 0.1.2
   openssh-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update OpenSSH image
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 9.3_p2-r1-ls142
+    created: "2024-01-16T12:45:02.452186105Z"
+    description: Sandboxed environment that allows ssh access without giving keys
+      to the entire server
+    digest: eeea521ee485847930f4c7e4e39180c034622491ac0eb190fd97c11490fd25d7
+    home: https://github.com/djjudas21/charts
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png
+    keywords:
+    - ssh
+    - openssh
+    - bastion
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: openssh-server
+    sources:
+    - https://hub.docker.com/r/linuxserver/openssh-server
+    - https://github.com/linuxserver/docker-openssh-server
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.10/openssh-server-0.1.10.tgz
+    version: 0.1.10
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -5546,6 +5606,36 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Uptime Kuma 1.23.11
+    apiVersion: v2
+    appVersion: 1.23.11
+    created: "2024-01-16T12:45:02.626476992Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 1.0.0
+    description: A fancy self-hosted monitoring tool for your websites and applications
+    digest: 14459ea9b712869e813d4b3602855d8033eab7f5b0ea60b39905447721c1cbc1
+    home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma
+    icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
+    keywords:
+    - uptime-kuma
+    - status
+    - status-page
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/uptime-kuma-1.5.11/uptime-kuma-1.5.11.tgz
+    version: 1.5.11
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Uptime Kuma 1.22.1
     apiVersion: v2
     appVersion: 1.22.1
@@ -6256,4 +6346,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-01-15T13:54:06.551152078Z"
+generated: "2024-01-16T12:45:02.626736149Z"
