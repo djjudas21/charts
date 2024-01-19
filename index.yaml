@@ -212,6 +212,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Fix calculation of UK DAQI
+    apiVersion: v2
+    appVersion: 0.5.3
+    created: "2024-01-19T10:05:24.816626852Z"
+    description: A Prometheus exporter for Ecowitt weather stations
+    digest: 07aa8ccc10547942cd140531def56bf31e145168bcd29018670aeb412f11e77b
+    home: https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: ecowitt-exporter
+    sources:
+    - https://github.com/djjudas21/ecowitt-exporter
+    - https://hub.docker.com/r/djjudas21/ecowitt-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/ecowitt-exporter-0.5.3/ecowitt-exporter-0.5.3.tgz
+    version: 0.5.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Fix low battery condition for the WH41 PM2.5 sensor
     apiVersion: v2
     appVersion: 0.5.2
@@ -5894,4 +5922,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-01-16T16:37:16.862278588Z"
+generated: "2024-01-19T10:05:24.81725914Z"
