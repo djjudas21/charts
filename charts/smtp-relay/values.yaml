@@ -83,6 +83,15 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+persistence:
+  # server.persistence.enabled is the toggle for server volume persistence.
+  enabled: false
+  accessMode: "ReadWriteOnce"
+  # The storage space that should be claimed from the persistent volume
+  size: 1Gi
+  # If undefined (the default) the default StorageClass is used
+  storageClass: ""
+
 nodeSelector: {}
 
 tolerations: []
