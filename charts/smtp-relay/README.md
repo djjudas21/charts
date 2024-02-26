@@ -1,4 +1,5 @@
 # smtp-relay
+
 Helm chart for smtp-relay
 
 This image provides an SMTP relay host for emails from within a Kubernetes cluster.
@@ -6,7 +7,7 @@ This image provides an SMTP relay host for emails from within a Kubernetes clust
 Configure this container to use an upstream authenticated SMTP relay like SendGrid or your ISP's mail server, and provide an
 open relay service to your cluster. This means you don't have to configure all of your containerised services with email auth secrets.
 
-```
+```sh
 helm repo add djjudas21 https://djjudas21.github.io/charts/
 helm repo update
 helm upgrade --install -n smtp-relay  [-f values.yaml] --create-namespace djjudas21/smtp-relay
