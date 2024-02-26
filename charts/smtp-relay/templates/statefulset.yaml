@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "smtp-relay.labels" . | nindent 4 }}
 spec:
-replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       {{- include "smtp-relay.selectorLabels" . | nindent 6 }}
