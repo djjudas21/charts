@@ -49,10 +49,15 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
+            - mountPath: /data
+              name: {{ include "lldap.fullname" . }}-data
             {{- toYaml . | nindent 12 }}
           {{- end }}
       {{- with .Values.volumes }}
       volumes:
+        - name: {{ include "lldap.fullname" . }}-data
+          persistentVolumeClaim:
+            claimName: {{ include "lldap.fullname" . }}-data
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.nodeSelector }}
