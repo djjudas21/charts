@@ -14,6 +14,11 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+lldap:
+  base-dn: LLDAP_BASE_DN
+  lldap-jwt-secret: LLDAP_JWT_SECRET
+  lldap-ldap-user-pass: LLDAP_LDAP_USER_PASS
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
