@@ -7,9 +7,13 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
+    - port: {{ .Values.service.http.port }}
       targetPort: http
       protocol: TCP
       name: http
+    - port: {{ .Values.service.ldap.port }}
+      targetPort: ldap
+      protocol: TCP
+      name: ldap
   selector:
     {{- include "lldap.selectorLabels" . | nindent 4 }}
