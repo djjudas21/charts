@@ -27,5 +27,11 @@ spec:
       targetPort: ldap
       protocol: TCP
       name: ldap
+    {{ if $.Values.lldap.ldaps.enabled }}
+    - port: {{ .Values.service.ldaps.port }}
+      targetPort: ldaps
+      protocol: TCP
+      name: ldaps
+      {{ end }}
   selector:
     {{- include "lldap.selectorLabels" . | nindent 4 }}

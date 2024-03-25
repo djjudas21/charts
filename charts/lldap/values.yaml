@@ -2,6 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# Do not increase this above 1 if you are using the SQLite backend
 replicaCount: 1
 
 image:
@@ -15,21 +16,98 @@ nameOverride: ""
 fullnameOverride: ""
 
 lldap:
+
+  ## Base DN for LDAP.
+  ## This is usually your domain name, and is used as a
+  ## namespace for your users. The choice is arbitrary, but will be needed
+  ## to configure the LDAP integration with other services.
+  ## The sample value is for "example.com", but you can extend it with as
+  ## many "dc" as you want, and you don't actually need to own the domain
+  ## name.
   baseDN: "dc=example,dc=com"
+
+  ## The public URL of the server, for password reset links.
+  #http_url = "http://localhost"
+
+  ## Random secret for JWT signature.
+  ## This secret should be random, and should be shared with application
+  ## servers that need to consume the JWTs.
+  ## Changing this secret will invalidate all user sessions and require
+  ## them to re-login.
+  ## You can generate it with (on linux):
+  ## LC_ALL=C tr -dc 'A-Za-z0-9!#%&'\''()*+,-./:;<=>?@[\]^_{|}~' </dev/urandom | head -c 32; echo ''
   jwtSecret: REPLACE_WITH_RANDOM
+  
+  ## Admin username.
+  ## For the LDAP interface, a value of "admin" here will create the LDAP
+  ## user "cn=admin,ou=people,dc=example,dc=com" (with the base DN above).
+  ## For the administration interface, this is the username.
+  ldapUserDN: "admin"
+
+  ## Admin password.
+  ## Password for the admin account, both for the LDAP bind and for the
+  ## administration interface. It is only used when initially creating
+  ## the admin user. It should be minimum 8 characters long.
+  ## Note: you can create another admin user for user administration, this
+  ## is just the default one.
   ldapUserPass: REPLACE_WITH_RANDOM
+  
   uid: 1000
   gid: 1000
   tz: "Etc/UTC"
-  
-  # If using LDAPS, set enabled true and configure cert and key path
-  # LLDAP_LDAPS_OPTIONS__ENABLED=true
-  # LLDAP_LDAPS_OPTIONS__CERT_FILE=/path/to/certfile.crt
-  # LLDAP_LDAPS_OPTIONS__KEY_FILE=/path/to/keyfile.key
-  
-  # You can also set a different database:
-  # LLDAP_DATABASE_URL=mysql://mysql-user:password@mysql-server/my-database
-  # LLDAP_DATABASE_URL=postgres://postgres-user:password@postgres-server/my-database
+
+  ## Tune the logging to be more verbose by setting this to be true.
+  verbose: false
+
+  ## Options to configure SMTP parameters, to send password reset emails.
+  smtp:
+    ## Whether to enabled password reset via email, from LLDAP.
+    enablePasswordReset: false
+    ## The SMTP server.
+    server: "smtp.gmail.com"
+    ## The SMTP port.
+    port: 587
+    ## How the connection is encrypted, either "NONE" (no encryption), "TLS" or "STARTTLS".
+    smtpEncryption: "TLS"
+    ## The SMTP user, usually your email address.
+    user: "sender@gmail.com"
+    ## The SMTP password.
+    password: "password"
+    ## The header field, optional: how the sender appears in the email. The first
+    ## is a free-form name, followed by an email between <>.
+    from: "LLDAP Admin <sender@gmail.com>"
+    ## Same for reply-to, optional.
+    replyTo: "Do not reply <noreply@localhost>"
+
+  ## Options to configure LDAPS.
+  ldaps:
+    ## Whether to enable LDAPS.
+    enabled: "false"
+    ## Certificate file.
+    certFile: "/data/cert.pem"
+    ## Certificate key file.
+    keyFile: "/data/key.pem"
+
+  ## Database URL.
+  ## This encodes the type of database (SQlite, MySQL, or PostgreSQL)
+  ## , the path, the user, password, and sometimes the mode (when
+  ## relevant).
+  ## Note: SQlite should come with "?mode=rwc" to create the DB
+  ## if not present.
+  ## Example URLs:
+  ##  - "postgres://postgres-user:password@postgres-server/my-database"
+  ##  - "mysql://mysql-user:password@mysql-server/my-database"
+  ##
+  ## This can be overridden with the LLDAP_DATABASE_URL env variable.
+  #database_url = "sqlite:///data/users.db?mode=rwc"
+
+  ## Ignored attributes.
+  ## Some services will request attributes that are not present in LLDAP. When it
+  ## is the case, LLDAP will warn about the attribute being unknown. If you want
+  ## to ignore the attribute and the service works without, you can add it to this
+  ## list to silence the warning.
+  #ignored_user_attributes = [ "sAMAccountName" ]
+  #ignored_group_attributes = [ "mail", "userPrincipalName" ]
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -63,6 +141,9 @@ service:
   ldap:
     type: ClusterIP
     port: 3890
+  ldaps:
+    type: ClusterIP
+    port: 6360
 
 ingress:
   enabled: false
