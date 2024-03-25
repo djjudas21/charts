@@ -41,6 +41,12 @@ spec:
               value: "{{ .Values.lldap.gid }}"
             - name: TZ
               value: "{{ .Values.lldap.tz }}"
+            {{- if .Values.ingress.enabled }}
+            - name: LLDAP_HTTP_URL
+            {{- with (first .Values.ingress.hosts) }}
+              value: http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .host }}{{- with (first .paths) }}{{ .path }}{{- end }}
+            {{- end }}
+            {{- end }}
             - name: LLDAP_LDAP_PORT
               value: "{{ .Values.service.ldap.port }}"
             - name: LLDAP_HTTP_PORT
