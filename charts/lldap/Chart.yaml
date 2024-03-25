@@ -1,0 +1,39 @@
+apiVersion: v2
+name: lldap
+description: Light LDAP implementation
+
+# A chart can be either an 'application' or a 'library' chart.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.1.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+# It is recommended to use it with quotes.
+appVersion: "v0.5.0"
+
+keywords:
+  - rust
+  - security
+  - ldap
+  - authentication
+  - wasm
+  - web-assembly
+  - opaque
+
+home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+icon: https://img.icons8.com/emoji/96/latin-cross-emoji.png
+sources:
+  - https://github.com/lldap/lldap
+  - https://hub.docker.com/r/lldap/lldap
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+annotations:
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Initial chart release

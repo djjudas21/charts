@@ -1,0 +1,139 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "lldap.fullname" . }}
+  labels:
+    {{- include "lldap.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "lldap.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "lldap.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "lldap.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: uid
+              value: "{{ .Values.lldap.uid }}"
+            - name: gid
+              value: "{{ .Values.lldap.gid }}"
+            - name: TZ
+              value: "{{ .Values.lldap.tz }}"
+            {{- if .Values.ingress.enabled }}
+            - name: LLDAP_HTTP_URL
+            {{- with (first .Values.ingress.hosts) }}
+              value: http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .host }}{{- with (first .paths) }}{{ .path }}{{- end }}
+            {{- end }}
+            {{- end }}
+            - name: LLDAP_LDAP_PORT
+              value: "{{ .Values.service.ldap.port }}"
+            - name: LLDAP_HTTP_PORT
+              value: "{{ .Values.service.http.port }}"
+            - name: LLDAP_JWT_SECRET
+              valueFrom: 
+                secretKeyRef: 
+                  name: {{ include "lldap.fullname" . }}-credentials
+                  key: jwtSecret
+            - name: LLDAP_LDAP_USER_PASS
+              valueFrom: 
+                secretKeyRef: 
+                  name: {{ include "lldap.fullname" . }}-credentials
+                  key: ldapUserPass
+            - name: LLDAP_BASE_DN
+              value: "{{ .Values.lldap.baseDN }}"
+            - name: LLDAP_LDAP_USER_DN
+              value: "{{ .Values.lldap.ldapUserDN }}"
+            - name: LLDAP_VERBOSE
+              value: "{{ .Values.lldap.verbose }}"
+            {{ if $.Values.lldap.smtp.enablePasswordReset }}
+            - name: LLDAP_SMTP_OPTIONS__ENABLE_PASSWORD_RESET
+              value: "{{ .Values.lldap.smtp.enablePasswordReset }}"
+            - name: LLDAP_SMTP_OPTIONS__SERVER
+              value: "{{ .Values.lldap.smtp.server }}"
+            - name: LLDAP_SMTP_OPTIONS__PORT
+              value: "{{ .Values.lldap.smtp.port }}"
+            - name: LLDAP_SMTP_OPTIONS__ENCRYPTION
+              value: "{{ .Values.lldap.smtp.smtpEncryption }}"
+            - name: LLDAP_SMTP_OPTIONS__USER
+              value: "{{ .Values.lldap.smtp.user }}"
+            - name: LLDAP_SMTP_OPTIONS__FROM
+              value: "{{ .Values.lldap.smtp.from }}"
+            - name: LLDAP_SMTP_OPTIONS__REPLY_TO
+              value: "{{ .Values.lldap.smtp.replyTo }}"
+            - name: LLDAP_SMTP_OPTIONS__PASSWORD
+              valueFrom: 
+                secretKeyRef: 
+                  name: {{ include "lldap.fullname" . }}-credentials
+                  key: smtpPassword
+            {{ end }}
+            {{ if $.Values.lldap.ldaps.enabled }}
+            - name: LLDAP_LDAPS_OPTIONS__ENABLED
+              value: "{{ .Values.lldap.ldaps.enabled }}"
+            - name: LLDAP_LDAPS_OPTIONS__CERT_FILE
+              value: "{{ .Values.lldap.ldaps.certFile }}"
+            - name: LLDAP_LDAPS_OPTIONS__KEY_FILE
+              value: "{{ .Values.lldap.ldaps.keyFile }}"
+            {{ end }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.http.port }}
+              protocol: TCP
+            - name: ldap
+              containerPort: {{ .Values.service.ldap.port }}
+              protocol: TCP
+            {{ if $.Values.lldap.ldaps.enabled }}
+            - name: ldaps
+              containerPort: {{ .Values.service.ldaps.port }}
+              protocol: TCP
+            {{ end }}
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- if $.Values.persistence.enabled }}
+          volumeMounts:
+            - mountPath: /data
+              name: {{ include "lldap.fullname" . }}-data
+          {{- end }}
+      {{- if $.Values.persistence.enabled }}
+      volumes:
+        - name: {{ include "lldap.fullname" . }}-data
+          persistentVolumeClaim:
+            claimName: {{ include "lldap.fullname" . }}-data
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

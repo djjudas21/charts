@@ -18,3 +18,4 @@ excluded-charts:
   - openssh-server
   - connectbox-exporter
   - liturgical-colour
+  - lldap
