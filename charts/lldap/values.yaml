@@ -15,9 +15,21 @@ nameOverride: ""
 fullnameOverride: ""
 
 lldap:
-  base-dn: LLDAP_BASE_DN
-  lldap-jwt-secret: LLDAP_JWT_SECRET
-  lldap-ldap-user-pass: LLDAP_LDAP_USER_PASS
+  base-dn: "dc=example,dc=com"
+  lldap-jwt-secret: REPLACE_WITH_RANDOM
+  lldap-ldap-user-pass: REPLACE_WITH_RANDOM
+  uid: 1000
+  gid: 1000
+  tz: "Etc/UTC"
+  
+  # If using LDAPS, set enabled true and configure cert and key path
+  # LLDAP_LDAPS_OPTIONS__ENABLED=true
+  # LLDAP_LDAPS_OPTIONS__CERT_FILE=/path/to/certfile.crt
+  # LLDAP_LDAPS_OPTIONS__KEY_FILE=/path/to/keyfile.key
+  
+  # You can also set a different database:
+  # LLDAP_DATABASE_URL=mysql://mysql-user:password@mysql-server/my-database
+  # LLDAP_DATABASE_URL=postgres://postgres-user:password@postgres-server/my-database
 
 serviceAccount:
   # Specifies whether a service account should be created
