@@ -2721,6 +2721,37 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/liturgical-colour-0.0.1/liturgical-colour-0.0.1.tgz
     version: 0.0.1
+  lldap:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial chart release
+    apiVersion: v2
+    appVersion: v0.5.0
+    created: "2024-03-25T21:10:53.006525797Z"
+    description: Light LDAP implementation
+    digest: 474be83d77b75b9eff94a7c919fa86800b62a35239e2e9b3bc1ec3378d5ee109
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    icon: https://img.icons8.com/emoji/96/latin-cross-emoji.png
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.1.0/lldap-0.1.0.tgz
+    version: 0.1.0
   maian-music:
   - annotations:
       artifacthub.io/changes: |-
@@ -6234,4 +6265,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-03-13T21:02:39.640841358Z"
+generated: "2024-03-25T21:10:53.006922441Z"
