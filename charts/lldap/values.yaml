@@ -34,7 +34,7 @@ lldap:
   ## You can generate it with (on linux):
   ## LC_ALL=C tr -dc 'A-Za-z0-9!#%&'\''()*+,-./:;<=>?@[\]^_{|}~' </dev/urandom | head -c 32; echo ''
   jwtSecret: REPLACE_WITH_RANDOM
-  
+
   ## Admin username.
   ## For the LDAP interface, a value of "admin" here will create the LDAP
   ## user "cn=admin,ou=people,dc=example,dc=com" (with the base DN above).
@@ -48,7 +48,7 @@ lldap:
   ## Note: you can create another admin user for user administration, this
   ## is just the default one.
   ldapUserPass: REPLACE_WITH_RANDOM
-  
+
   uid: 1000
   gid: 1000
   tz: "Etc/UTC"
@@ -96,15 +96,15 @@ lldap:
   ##  - "mysql://mysql-user:password@mysql-server/my-database"
   ##
   ## This can be overridden with the LLDAP_DATABASE_URL env variable.
-  #database_url = "sqlite:///data/users.db?mode=rwc"
+  # database_url = "sqlite:///data/users.db?mode=rwc"
 
   ## Ignored attributes.
   ## Some services will request attributes that are not present in LLDAP. When it
   ## is the case, LLDAP will warn about the attribute being unknown. If you want
   ## to ignore the attribute and the service works without, you can add it to this
   ## list to silence the warning.
-  #ignored_user_attributes = [ "sAMAccountName" ]
-  #ignored_group_attributes = [ "mail", "userPrincipalName" ]
+  # ignored_user_attributes = [ "sAMAccountName" ]
+  # ignored_group_attributes = [ "mail", "userPrincipalName" ]
 
 serviceAccount:
   # Specifies whether a service account should be created
