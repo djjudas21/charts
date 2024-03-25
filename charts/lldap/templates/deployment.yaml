@@ -41,6 +41,21 @@ spec:
               value: "{{ .Values.lldap.gid }}"
             - name: TZ
               value: "{{ .Values.lldap.tz }}"
+            - name: LLDAP_JWT_SECRET
+              valueFrom: 
+                secretKeyRef: 
+                  name: {{ include "lldap.fullname" . }}-credentials
+                  key: jwtSecret
+            - name: LLDAP_LDAP_USER_PASS
+              valueFrom: 
+                secretKeyRef: 
+                  name: {{ include "lldap.fullname" . }}-credentials
+                  key: ldapUserPass
+            - name: LLDAP_BASE_DN
+              valueFrom: 
+                secretKeyRef: 
+                  name: {{ include "lldap.fullname" . }}-credentials
+                  key: baseDN
           ports:
             - name: http
               containerPort: {{ .Values.service.http.port }}
