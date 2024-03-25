@@ -1,16 +1,28 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "lldap.fullname" . }}
+  name: {{ include "lldap.fullname" . }}-http
   labels:
     {{- include "lldap.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.service.http.type }}
   ports:
     - port: {{ .Values.service.http.port }}
       targetPort: http
       protocol: TCP
       name: http
+  selector:
+    {{- include "lldap.selectorLabels" . | nindent 4 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "lldap.fullname" . }}-ldap
+  labels:
+    {{- include "lldap.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.ldap.type }}
+  ports:
     - port: {{ .Values.service.ldap.port }}
       targetPort: ldap
       protocol: TCP
