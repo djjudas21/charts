@@ -15,9 +15,9 @@ nameOverride: ""
 fullnameOverride: ""
 
 lldap:
-  base-dn: "dc=example,dc=com"
-  jwt-secret: REPLACE_WITH_RANDOM
-  ldap-user-pass: REPLACE_WITH_RANDOM
+  baseDN: "dc=example,dc=com"
+  jwtSecret: REPLACE_WITH_RANDOM
+  ldapUserPass: REPLACE_WITH_RANDOM
   uid: 1000
   gid: 1000
   tz: "Etc/UTC"
