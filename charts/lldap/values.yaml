@@ -159,6 +159,7 @@ ingress:
   #      - chart-example.local
 
 persistence:
+  enabled: false
   size: 100Mi
   accessMode: ReadWriteOnce
   ## If defined, storageClassName: <storageClass>
@@ -189,19 +190,6 @@ readinessProbe:
   httpGet:
     path: /
     port: http
-
-# Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
-
-# Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
 
 nodeSelector: {}
 
