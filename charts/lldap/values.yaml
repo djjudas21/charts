@@ -85,19 +85,6 @@ lldap:
     ## Certificate key file.
     keyFile: "/data/key.pem"
 
-  ## Database URL.
-  ## This encodes the type of database (SQlite, MySQL, or PostgreSQL)
-  ## , the path, the user, password, and sometimes the mode (when
-  ## relevant).
-  ## Note: SQlite should come with "?mode=rwc" to create the DB
-  ## if not present.
-  ## Example URLs:
-  ##  - "postgres://postgres-user:password@postgres-server/my-database"
-  ##  - "mysql://mysql-user:password@mysql-server/my-database"
-  ##
-  ## This can be overridden with the LLDAP_DATABASE_URL env variable.
-  # database_url = "sqlite:///data/users.db?mode=rwc"
-
   ## Ignored attributes.
   ## Some services will request attributes that are not present in LLDAP. When it
   ## is the case, LLDAP will warn about the attribute being unknown. If you want
@@ -196,3 +183,36 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# -- Enable and configure postgresql database subchart under this key.
+#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+postgresql:
+  enabled: false
+  auth:
+    postgresPassword:	lldapadminpw
+    username:	lldap
+    password:	lldap
+    database: lldap
+  primary:
+    persistence:
+      enabled: false
+      # storageClass: ""
+      size: 1Gi
+    resources: {}
+
+# -- Enable and configure mariadb database subchart under this key.
+#    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
+mariadb:
+  enabled: false
+  architecture: standalone
+  auth:
+    database: lldap
+    username: lldap
+    password: lldap
+    rootPassword: lldapadminpw
+  primary:
+    resources: {}
+    persistence:
+      enabled: false
+      size: 1Gi
+      # storageClass: ""

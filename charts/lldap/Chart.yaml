@@ -8,7 +8,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.0
+version: 0.2.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
@@ -24,6 +24,16 @@ keywords:
   - wasm
   - web-assembly
   - opaque
+
+dependencies:
+  - name: postgresql
+    version: ~15.1.4
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+  - name: mariadb
+    version: ~17.0.1
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled
 
 home: https://github.com/djjudas21/charts/tree/master/charts/lldap
 icon: https://img.icons8.com/emoji/96/latin-cross-emoji.png

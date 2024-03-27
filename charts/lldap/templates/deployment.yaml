@@ -61,6 +61,14 @@ spec:
                 secretKeyRef: 
                   name: {{ include "lldap.fullname" . }}-credentials
                   key: ldapUserPass
+            - name: LLDAP_DATABASE_URL
+            {{- if .Values.postgresql.enabled }}
+              value: "postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "lldap.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}"
+            {{- else if .Values.mariadb.enabled }}
+              value: "mysql://{{ .Values.mariadb.auth.username }}:{{ .Values.mariadb.auth.password }}@{{ include "lldap.fullname" . }}-mariadb/{{ .Values.mariadb.auth.database }}"
+            {{- else }}
+              value: "sqlite:///data/users.db?mode=rwc"
+            {{- end }}
             - name: LLDAP_BASE_DN
               value: "{{ .Values.lldap.baseDN }}"
             - name: LLDAP_LDAP_USER_DN
