@@ -2753,6 +2753,44 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Remove incorrect icon
+    apiVersion: v2
+    appVersion: v0.5.0
+    created: "2024-03-27T16:36:48.861700024Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15.1.4
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~17.0.1
+    description: Light LDAP implementation
+    digest: 0fbbb87de12c9a0f993c612261d69c9bfbabbcaa3fa05cbc8853dcbb517abfeb
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.2.1/lldap-0.2.1.tgz
+    version: 0.2.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Initial chart release
     apiVersion: v2
     appVersion: v0.5.0
@@ -6332,4 +6370,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-03-27T16:11:49.938363231Z"
+generated: "2024-03-27T16:36:48.862039419Z"
