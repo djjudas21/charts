@@ -77,7 +77,7 @@ spec:
               value: "{{ .Values.lldap.verbose }}"
             - name: LLDAP_KEY_SEED
               value: "{{ .Values.lldap.keySeed }}"
-            {{ if $.Values.lldap.smtp.enablePasswordReset }}
+            {{- if $.Values.lldap.smtp.enablePasswordReset }}
             - name: LLDAP_SMTP_OPTIONS__ENABLE_PASSWORD_RESET
               value: "{{ .Values.lldap.smtp.enablePasswordReset }}"
             - name: LLDAP_SMTP_OPTIONS__SERVER
@@ -97,15 +97,15 @@ spec:
                 secretKeyRef: 
                   name: {{ include "lldap.fullname" . }}-credentials
                   key: smtpPassword
-            {{ end }}
-            {{ if $.Values.lldap.ldaps.enabled }}
+            {{- end }}
+            {{- if $.Values.lldap.ldaps.enabled }}
             - name: LLDAP_LDAPS_OPTIONS__ENABLED
               value: "{{ .Values.lldap.ldaps.enabled }}"
             - name: LLDAP_LDAPS_OPTIONS__CERT_FILE
               value: "{{ .Values.lldap.ldaps.certFile }}"
             - name: LLDAP_LDAPS_OPTIONS__KEY_FILE
               value: "{{ .Values.lldap.ldaps.keyFile }}"
-            {{ end }}
+            {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.http.port }}
