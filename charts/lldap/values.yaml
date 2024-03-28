@@ -49,6 +49,11 @@ lldap:
   ## is just the default one.
   ldapUserPass: REPLACE_WITH_RANDOM
 
+  ## Seed to generate the server private key
+  ## This can be any random string, the recommendation is that it's at least 12
+  ## characters long.
+  keySeed: REPLACE_WITH_RANDOM
+
   uid: 1000
   gid: 1000
   tz: "Etc/UTC"
@@ -145,6 +150,8 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+# Persistence is only required if you are using the SQLite database (default)
+# You can disable persistence if you select MariaDB or PostgreSQL
 persistence:
   enabled: false
   size: 100Mi

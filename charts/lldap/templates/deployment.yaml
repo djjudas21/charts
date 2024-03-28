@@ -75,6 +75,8 @@ spec:
               value: "{{ .Values.lldap.ldapUserDN }}"
             - name: LLDAP_VERBOSE
               value: "{{ .Values.lldap.verbose }}"
+            - name: LLDAP_KEY_SEED
+              value: "{{ .Values.lldap.keySeed }}"
             {{ if $.Values.lldap.smtp.enablePasswordReset }}
             - name: LLDAP_SMTP_OPTIONS__ENABLE_PASSWORD_RESET
               value: "{{ .Values.lldap.smtp.enablePasswordReset }}"
