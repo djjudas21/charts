@@ -69,7 +69,7 @@ spec:
             {{- else }}
               value: "sqlite:///data/users.db?mode=rwc"
             {{- end }}
-            - name: LLDAP_BASE_DN
+            - name: LLDAP_LDAP_BASE_DN
               value: "{{ .Values.lldap.baseDN }}"
             - name: LLDAP_LDAP_USER_DN
               value: "{{ .Values.lldap.ldapUserDN }}"
