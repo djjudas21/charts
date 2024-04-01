@@ -60,3 +60,13 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Build database connection strings as templates
+*/}}
+{{- define "lldap.postgresConnectString" -}}
+postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "lldap.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}
+{{- end }}
+{{- define "lldap.mariadbConnectString" -}}
+mysql://{{ .Values.mariadb.auth.username }}:{{ .Values.mariadb.auth.password }}@{{ include "lldap.fullname" . }}-mariadb/{{ .Values.mariadb.auth.database }}
+{{- end }}

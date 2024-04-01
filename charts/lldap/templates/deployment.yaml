@@ -63,9 +63,9 @@ spec:
                   key: ldapUserPass
             - name: LLDAP_DATABASE_URL
             {{- if .Values.postgresql.enabled }}
-              value: "postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "lldap.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}"
+              value: {{ include "lldap.postgresConnectString" . | quote }}
             {{- else if .Values.mariadb.enabled }}
-              value: "mysql://{{ .Values.mariadb.auth.username }}:{{ .Values.mariadb.auth.password }}@{{ include "lldap.fullname" . }}-mariadb/{{ .Values.mariadb.auth.database }}"
+              value: {{ include "lldap.mariadbConnectString" . | quote }}
             {{- else }}
               value: "sqlite:///data/users.db?mode=rwc"
             {{- end }}
