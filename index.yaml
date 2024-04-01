@@ -2753,6 +2753,44 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Add support for bootstrapping users
+    apiVersion: v2
+    appVersion: v0.5.0
+    created: "2024-04-01T20:49:50.443783205Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15.1.4
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~17.0.1
+    description: Light LDAP implementation
+    digest: de530dda957fac19f384813eaed19484d282c0071864b06fe56e7251fbe3a92a
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.3.0/lldap-0.3.0.tgz
+    version: 0.3.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Fix bugs in chart
     apiVersion: v2
     appVersion: v0.5.0
@@ -6446,4 +6484,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-04-01T14:01:21.993207481Z"
+generated: "2024-04-01T20:49:50.444113641Z"
