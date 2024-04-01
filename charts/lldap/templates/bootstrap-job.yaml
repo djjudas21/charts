@@ -1,0 +1,47 @@
+{{- if .Values.bootstrap.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "lldap.fullname" . }}-bootstrap
+  # Next annotations are required if the job managed by Argo CD,
+  # so Argo CD can relaunch the job on every app sync action
+  annotations: 
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: bootstrap
+          image: "{{ .Values.image.repository }}:2024-04-01"
+          command:
+            - ./bootstrap.sh
+          env:
+            - name: LLDAP_URL
+              value: "http://{{ include "lldap.fullname" . }}-http:{{ .Values.service.http.port }}"
+            - name: LLDAP_ADMIN_USERNAME
+              value: "{{ .Values.lldap.ldapUserDN }}"
+            - name: LLDAP_ADMIN_PASSWORD
+              valueFrom: 
+                secretKeyRef: 
+                  name: {{ include "lldap.fullname" . }}-credentials
+                  key: ldapUserPass
+            - name: DO_CLEANUP
+              value: "{{ .Values.bootstrap.cleanup }}"
+          volumeMounts:
+            - name: user-configs
+              mountPath: /user-configs
+              readOnly: true
+            - name: group-configs
+              mountPath: /group-configs
+              readOnly: true
+
+      volumes:
+        - name: user-configs
+          configMap:
+            name: {{ include "lldap.fullname" . }}-users
+        - name: group-configs
+          configMap:
+            name: {{ include "lldap.fullname" . }}-groups
+{{- end }}

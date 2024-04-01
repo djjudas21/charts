@@ -1,0 +1,30 @@
+{{- if .Values.bootstrap.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "lldap.fullname" . }}-users
+data:
+  {{ .Values.lldap.ldapUserDN }}.json: |-
+    {
+      "id": {{ .Values.lldap.ldapUserDN | quote }},
+      "password": {{ .Values.lldap.ldapUserPass | quote }},
+      "displayName": "Administrator",
+      "groups": ["lldap_admin"]
+    }
+  {{- range .Values.bootstrap.users }}
+  {{ .id }}.json: |-
+    {
+      "id": "{{ .id }}",
+      "email": "{{ .email }}",
+      "password": "{{ .password }}",
+      "displayName": "{{ .displayName }}",
+      "firstName": "{{ .firstName }}",
+      "lastName": "{{ .lastName }}",
+      "avatar_file": "{{ .avatar_file }}",
+      "avatar_url": "{{ .avatar_url }}",
+      "gravatar_avatar": "{{ .gravatar_avatar }}",
+      "weserv_avatar": "{{ .weserv_avatar }}",
+      "groups": {{ .groups | toJson }}
+    }
+  {{- end }}
+{{- end }}

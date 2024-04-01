@@ -223,3 +223,28 @@ mariadb:
       enabled: false
       size: 1Gi
       # storageClass: ""
+
+# Bootstrap (i.e. create) users and groups automatically
+# It is safe to run the bootstrap multiple times, however the one-shot
+# Kubernetes job will be created on the first deployment, and the job
+# will not be executed on subsequent deployments unless the job is deleted.
+bootstrap:
+  enabled: false
+  # Remove redundant users and groups which are not in the config below
+  cleanup: false
+  groups:
+    - group1
+    - group2
+  users:
+    - id: "username"
+      email: "username@example.com"
+      password: "changeme"
+      displayName: "Display Name"
+      firstName: "First"
+      lastName: "Last"
+      avatar_url: "https://i.imgur.com/nbCxk3z.jpg"
+      gravatar_avatar: "false"
+      weserv_avatar: "false"
+      groups:
+        - group1
+        - group2
