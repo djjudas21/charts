@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 2.1.18
 description: Open-source online collaborative genealogy application
 name: webtrees
-version: 2.2.8
+version: 2.2.9
 kubeVersion: ">=1.16.0-0"
 keywords:
   - webtrees
@@ -22,7 +22,7 @@ dependencies:
     version: 0.2.0
     repository: http://bjw-s.github.io/helm-charts/
   - name: mariadb
-    version: 11.0.14
+    version: ~18
     repository: https://charts.bitnami.com/bitnami
     condition: mariadb.enabled
 annotations:

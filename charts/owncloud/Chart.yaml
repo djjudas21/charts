@@ -3,16 +3,16 @@ name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
   
-version: 0.3.9
+version: 0.3.10
 appVersion: "10.13.4"
 
 dependencies:
 - name: mariadb
   condition: mariadb.enabled
-  version: "11.0.14"
+  version: ~18
   repository: "https://charts.bitnami.com/bitnami"
 - name: redis
-  version: "16.x.2"
+  version: ~19
   repository: "https://charts.bitnami.com/bitnami"
 
 home: https://github.com/djjudas21/owncloud-helm
