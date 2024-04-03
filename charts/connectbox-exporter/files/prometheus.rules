@@ -1,8 +1,0 @@
-#    - alert: connectboxPM25Battery
-#      expr: pm25batt<=3
-#      for: 15m
-#      labels:
-#        severity: warning
-#      annotations:
-#        summary: connectbox PM2.5 sensor battery low
-#        description: "connectbox PM2.5 sensor battery level is {{ $value }}/5"
