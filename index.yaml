@@ -32,6 +32,37 @@ entries:
   connectbox-exporter:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: deprecated
+          description: Deprecated
+    apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-04-03T10:48:03.424867744Z"
+    deprecated: true
+    description: Prometheus exporter for Compal CH7465LG cable modems
+    digest: 7f375dc6c54a90a90009e637b0b9e1a820556c68fd8373afc72b66c95d656c46
+    home: https://github.com/djjudas21/charts/tree/master/charts/connectbox-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - connectbox
+    - virgin
+    - cable
+    - modem
+    - router
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: connectbox-exporter
+    sources:
+    - https://github.com/djjudas21/connectbox-prometheus
+    - https://hub.docker.com/r/djjudas21/connectbox-prometheus
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/connectbox-exporter-0.0.4/connectbox-exporter-0.0.4.tgz
+    version: 0.0.4
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: changed
           description: Initial release
     apiVersion: v2
@@ -1249,6 +1280,39 @@ entries:
   focalboard:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: deprecated
+          description: Deprecated
+    apiVersion: v2
+    appVersion: 0.9.0
+    created: "2024-04-03T10:48:03.516437411Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    deprecated: true
+    description: Focalboard is an open source, self-hosted alternative to Trello,
+      Notion, and Asana.
+    digest: 8722dfa905c7db921e8c5184e74c144bfc89ba10744b9e33f442c026ae29fc80
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/focalboard
+    icon: https://github.com/mattermost/focalboard/raw/main/webapp/static/favicon.svg
+    keywords:
+    - focalboard
+    - kanban
+    - project management
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: focalboard
+    sources:
+    - https://www.focalboard.com/
+    - https://github.com/mattermost/focalboard
+    - https://github.com/djjudas21/charts
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/focalboard-4.4.3/focalboard-4.4.3.tgz
+    version: 4.4.3
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: changed
           description: Adopt chart from k8s@home
     apiVersion: v2
@@ -1682,6 +1746,35 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/hammond-0.1.4/hammond-0.1.4.tgz
     version: 0.1.4
   heimdall:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: deprecated
+          description: Deprecated
+    apiVersion: v2
+    appVersion: 2.6.1
+    created: "2024-04-03T10:48:03.618839129Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    deprecated: true
+    description: An Application dashboard and launcher
+    digest: 31972cc874d95eccd214ac670acfa0e00cf583827725b568835c1bb0ab823ce7
+    home: https://github.com/djjudas21/charts/tree/master/charts/heimdall
+    icon: https://i.imgur.com/mM4tcO5.png
+    keywords:
+    - heimdall
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: heimdall
+    sources:
+    - https://hub.docker.com/r/linuxserver/heimdall/
+    - https://github.com/linuxserver/heimdall
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/heimdall-8.5.4/heimdall-8.5.4.tgz
+    version: 8.5.4
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -2248,6 +2341,35 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/joplin-server-5.4.0/joplin-server-5.4.0.tgz
     version: 5.4.0
   littlelink-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: deprecated
+          description: Deprecated
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-04-03T10:48:03.727773033Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    deprecated: true
+    description: A lightweight open source alternative to linktree
+    digest: a5aad6089bea6043bd6fcd3cb2ea31f3146c43d2976a8800bdadc8cd4a1dcb8b
+    home: https://github.com/djjudas21/charts/tree/master/charts/littlelink-server
+    icon: https://camo.githubusercontent.com/edebb9bce46a8d4a75fa8c4f50f20996c3fe55ace28ecfbfdc5da3794cc90e9a/68747470733a2f2f63646e2e636f74746c652e636c6f75642f6c6974746c656c696e6b2f736f6369616c2d636972636c652e706e67
+    keywords:
+    - littlelink-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: littlelink-server
+    sources:
+    - https://github.com/techno-tim/littlelink-server
+    - https://github.com/sethcottle/littlelink
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/littlelink-server-1.5.4/littlelink-server-1.5.4.tgz
+    version: 1.5.4
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -3126,6 +3248,35 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/lldap-0.1.0/lldap-0.1.0.tgz
     version: 0.1.0
   maian-music:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: deprecated
+          description: Deprecated
+    apiVersion: v2
+    appVersion: "2.9"
+    created: "2024-04-03T10:48:03.820677399Z"
+    dependencies:
+    - name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.x.x
+    deprecated: true
+    description: Maian Music is a PHP application for selling digital and physical
+      music
+    digest: 1dc8733fd8456d0def3a13410659b0ce2a278b0ca4667be45a72f9c5533e5cef
+    home: https://www.maianmusic.com/
+    keywords:
+    - maian
+    - music
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: maian-music
+    sources:
+    - https://github.com/djjudas21/maian-music-helm
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.6/maian-music-0.2.6.tgz
+    version: 0.2.6
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -5668,6 +5819,32 @@ entries:
   remote-wake-sleep-on-lan:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: deprecated
+          description: Deprecated
+    apiVersion: v2
+    appVersion: latest
+    created: "2024-04-03T10:48:03.920605748Z"
+    deprecated: true
+    description: Web app to send Magic Packets to wake machines on your LAN
+    digest: 5ddb06cc15b04d1f33b57347e93fca8974b630786b3f246b6a658ce0dae76b1a
+    home: https://github.com/djjudas21/charts/tree/main/charts/remote-wake-sleep-on-lan
+    keywords:
+    - wakeonlan
+    - wake
+    - magicpacket
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: remote-wake-sleep-on-lan
+    sources:
+    - https://github.com/sciguy14/Remote-Wake-Sleep-On-LAN-Server
+    - https://hub.docker.com/r/ex0nuss/remote-wake-sleep-on-lan-docker
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/remote-wake-sleep-on-lan-0.1.11/remote-wake-sleep-on-lan-0.1.11.tgz
+    version: 0.1.11
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: changed
           description: Container runs on port 80
     apiVersion: v2
@@ -6775,4 +6952,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-04-03T08:41:01.008051733Z"
+generated: "2024-04-03T10:48:03.920962235Z"
