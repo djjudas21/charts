@@ -3,11 +3,11 @@ name: maian-music
 description: Maian Music is a PHP application for selling digital and physical music
 home: https://www.maianmusic.com/
 type: application
-version: 0.2.5
+version: 0.2.6
 appVersion: "2.9"
 dependencies:
 - name: mysql
-  version: "8.x.x"
+  version: "9.x.x"
   repository: "https://charts.bitnami.com/bitnami"
 keywords:
   - maian
