@@ -10,6 +10,75 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+search:
+  - name: Google
+    url: "https://www.google.co.uk/search?q="
+  - name: DuckDuckGo
+    url: "https://duckduckgo.com/?q="
+  - name: Bing
+    url: "https://www.bing.com/search?q="
+
+sites:
+  default:
+    nofollow: true
+    icon: my-default-icon.png
+    newtab: false
+  sites:
+    - name: Github
+      url: "https://github.com/daledavies/jump"
+      description: This is an example description
+      nofollow: false
+      newtab: true
+    - name: Docker Hub
+      url: "https://hub.docker.com/r/daledavies/jump"
+    - name: Bitwarden
+      url: "https://bitwarden.com/"
+      description: This is another example of a site with a description
+      icon: bitwarden.png
+      tags:
+        - stuff
+    - name: Gitea
+      url: "https://git.example.com"
+      icon: gitea.png
+      tags:
+        - stuff
+    - name: Nextcloud
+      url: "https://cloud.example.com"
+      icon: nextcloud.png
+      tags:
+        - home
+        - things
+    - name: Paperless
+      url: "https://paperless.example.com"
+      icon: paperless.jpg
+      tags:
+        - things
+        - home
+    - name: Matomo
+      url: "https://matomo.org/pagedoesnotexist"
+      nofollow: false
+      tags:
+        - home
+        - stuff
+    - name: Pi-hole
+      url: "https://pi-hole.net/"
+      nofollow: false
+      tags:
+        - home
+        - things
+    - name: Teapot
+      url: "https://www.google.com/pagedoesnotexist"
+      nofollow: false
+      tags:
+        - stuff
+        - things
+      status:
+        allowed_status_codes:
+          - 418
+        request_method: GET
+        url: "https://www.google.com/teapot"
+        verify_cert: false
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -81,17 +150,42 @@ readinessProbe:
     port: http
 
 # Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+volumes:
+  - name: backgrounds
+    emptyDir:
+      sizeLimit: 100Mi
+  - name: favicon
+    emptyDir:
+      sizeLimit: 100Mi
+  - name: search
+    emptyDir:
+      sizeLimit: 100Mi
+  - name: sites
+    emptyDir:
+      sizeLimit: 100Mi
+  - name: sites-config
+    configMap:
+      name: sites-config
+  - name: search-config
+    configMap:
+      name: search-config
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+volumeMounts:
+  - name: backgrounds
+    mountPath: /backgrounds
+  - name: favicon
+    mountPath: /favicon
+  - name: search
+    mountPath: /search
+  - name: sites
+    mountPath: /sites
+  - name: sites-config
+    mountPath: "/sites/sites.json"
+    subPath: sites.json
+  - name: search-config
+    mountPath: "/search/search.json"
+    subPath: search.json
 
 nodeSelector: {}
 
