@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 2.6.1
 description: An Application dashboard and launcher
 name: heimdall
-version: 8.5.3
+version: 8.5.4
 kubeVersion: ">=1.16.0-0"
 keywords:
   - heimdall
@@ -21,5 +21,6 @@ dependencies:
     version: 0.2.0
 annotations:
   artifacthub.io/changes: |-
-    - kind: changed
-      description: Downgrade to bjw-s/common 0.2.0
+    - kind: deprecated
+      description: Deprecated
+deprecated: true

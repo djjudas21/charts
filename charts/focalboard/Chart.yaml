@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 0.9.0
 description: Focalboard is an open source, self-hosted alternative to Trello, Notion, and Asana.
 name: focalboard
-version: 4.4.2
+version: 4.4.3
 kubeVersion: ">=1.16.0-0"
 keywords:
   - focalboard
@@ -24,5 +24,6 @@ dependencies:
     version: 0.2.0
 annotations:
   artifacthub.io/changes: |-
-    - kind: changed
-      description: Adopt chart from k8s@home
+    - kind: deprecated
+      description: Deprecated
+deprecated: true

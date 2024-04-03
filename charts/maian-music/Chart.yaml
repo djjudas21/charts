@@ -3,7 +3,7 @@ name: maian-music
 description: Maian Music is a PHP application for selling digital and physical music
 home: https://www.maianmusic.com/
 type: application
-version: 0.2.4
+version: 0.2.5
 appVersion: "2.9"
 dependencies:
 - name: mysql
@@ -19,5 +19,6 @@ maintainers:
     email: djjudas21@users.noreply.github.com
 annotations:
   artifacthub.io/changes: |-
-    - kind: changed
-      description: Drop Chart.yaml comments
+    - kind: deprecated
+      description: Deprecated
+deprecated: true

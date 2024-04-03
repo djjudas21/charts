@@ -2,7 +2,7 @@ apiVersion: v2
 name: remote-wake-sleep-on-lan
 description: Web app to send Magic Packets to wake machines on your LAN
 type: application
-version: 0.1.10
+version: 0.1.11
 appVersion: "latest"
 
 home: https://github.com/djjudas21/charts/tree/main/charts/remote-wake-sleep-on-lan
@@ -18,5 +18,6 @@ sources:
   - https://hub.docker.com/r/ex0nuss/remote-wake-sleep-on-lan-docker
 annotations:
   artifacthub.io/changes: |-
-    - kind: changed
-      description: Container runs on port 80
+    - kind: deprecated
+      description: Deprecated
+deprecated: true
