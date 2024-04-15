@@ -176,16 +176,16 @@ volumeMounts:
     mountPath: /backgrounds
   - name: favicon
     mountPath: /favicon
-  - name: search
-    mountPath: /search
-  - name: sites
-    mountPath: /sites
+  #- name: search
+  #  mountPath: /search
+  #- name: sites
+  #  mountPath: /sites
   - name: sites-config
     mountPath: "/sites/sites.json"
     subPath: sites.json
   - name: search-config
-    mountPath: "/search/search.json"
-    subPath: search.json
+    mountPath: "/search/searchengines.json"
+    subPath: searchengines.json
 
 nodeSelector: {}
 

@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: search-config
 data:
-  search.json: |-
+  searchengines.json: |-
 {{ .Values.search | toPrettyJson | indent 4 }}
