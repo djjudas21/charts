@@ -10,6 +10,81 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+# Config values for Jump. Always check https://github.com/daledavies/jump
+# for latest details of available options.
+env:
+  #- Custom site name.
+  # SITENAME:
+
+  # Hide the clock.
+  SHOWCLOCK: 'false'
+
+  # Show 12 hour clock format if true.
+  AMPMCLOCK: 'true'
+
+  # Show the label "#home" instead of a friendly greeting message.
+  SHOWGREETING: 'false'
+
+  # Show a custom greeting message instead.
+  CUSTOMGREETING: 'Some other greeting message'
+
+  # Hide the search button (disable search).
+  SHOWSEARCH : 'false'
+
+  # Display list of sites using an alternative layout.
+  ALTLAYOUT: 'true'
+
+  # Set a custom with for the page container/site list.
+  CUSTOMWIDTH: 1000
+
+  # Background image blur percentage.
+  BGBLUR: 50
+
+  # Background image brightness percentage.
+  BGBRIGHT: 90
+
+  # An API key for Unsplash, enables fetching random background images from Unsplash.
+  # UNSPLASHAPIKEY:
+
+  # List of Unsplash collection ID's (separated by commas) to select random images from.
+  # UNSPLASHCOLLECTIONS:
+
+  # An alternative background provider url.
+  # ALTBGPROVIDER:
+
+  # An API key for Open Weather Map, LATLONG (below) must also be defined.
+  # OWMAPIKEY:
+
+  # A latitude and longitude for the default location (e.g. "51.509865,-0.118092").
+  # LATLONG:
+
+  # Metric (C) or imperial (F) temperature units.
+  METRICTEMP: 'true'
+
+  # Disable checking site availability status.
+  CHECKSTATUS: 'false'
+
+  # Duration in minutes to cache site availability status.
+  STATUSCACHE: 5
+
+  # Include a robots noindex meta tag in site header.
+  NOINDEX: 'true'
+
+  # Useful if Jump is hosted in a sub-directory (e.g. "/startpage").
+  # WWWURL:
+
+  # Disable IPV6 if required.
+  # DISABLEIPV6:
+
+  # Set to your chosen language code.
+  # LANGUAGE: 'en'
+
+  # Bypass all caches, useful for testing changes.
+  CACHEBYPASS: 'false'
+
+  # Enable debug mode.
+  DEBUG: 'false'
+
 search:
   - name: Google
     url: "https://www.google.co.uk/search?q="
