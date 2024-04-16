@@ -2,14 +2,8 @@ apiVersion: v2
 name: jump
 description: Jump is a self-hosted startpage and real-time status page for your server designed to be simple, stylish, fast and secure.
 
-# A chart can be either an 'application' or a 'library' chart.
-#
 # Application charts are a collection of templates that can be packaged into versioned archives
 # to be deployed.
-#
-# Library charts provide useful utilities or functions for the chart developer. They're included as
-# a dependency of application charts to inject those utilities and functions into the rendering
-# pipeline. Library charts do not define any templates and therefore cannot be deployed.
 type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
@@ -53,3 +47,10 @@ annotations:
   artifacthub.io/changes: |-
     - kind: added
       description: Initial release
+  artifacthub.io/screenshots: |
+    - title: Tag selection
+      url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagselection.png
+    - title: Tag page
+      url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagpage.png
+    - title: Search
+      url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-search.png
