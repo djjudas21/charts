@@ -13,7 +13,7 @@ image:
 # Config values for Jump. Always check https://github.com/daledavies/jump
 # for latest details of available options.
 env:
-  #- Custom site name.
+  # Custom site name.
   # SITENAME:
 
   # Hide the clock.
@@ -29,7 +29,7 @@ env:
   CUSTOMGREETING: 'Some other greeting message'
 
   # Hide the search button (disable search).
-  SHOWSEARCH : 'false'
+  SHOWSEARCH: 'false'
 
   # Display list of sites using an alternative layout.
   ALTLAYOUT: 'true'
