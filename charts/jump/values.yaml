@@ -251,10 +251,6 @@ volumeMounts:
     mountPath: /backgrounds
   - name: favicon
     mountPath: /favicon
-  #- name: search
-  #  mountPath: /search
-  #- name: sites
-  #  mountPath: /sites
   - name: sites-config
     mountPath: "/sites/sites.json"
     subPath: sites.json
