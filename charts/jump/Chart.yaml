@@ -22,3 +22,34 @@ version: 0.1.1
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "v1.4.0"
+keywords:
+  - javascript
+  - docker
+  - php
+  - weather
+  - links
+  - dashboard
+  - home
+  - unsplash
+  - directory
+  - selfhosted
+  - homepage
+  - portal
+  - self-hosted
+  - startpage
+  - start
+  - status-page
+  - selfhosted-apps
+
+home: https://github.com/djjudas21/charts/tree/master/charts/jump
+icon: https://raw.githubusercontent.com/daledavies/jump/main/jumpapp/assets/images/favicon/icon.png
+sources:
+  - https://github.com/daledavies/jump
+  - https://hub.docker.com/r/daledavies/jump
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+annotations:
+  artifacthub.io/changes: |-
+    - kind: added
+      description: Initial release
