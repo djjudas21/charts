@@ -2366,6 +2366,55 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/joplin-server-5.4.0/joplin-server-5.4.0.tgz
     version: 5.4.0
+  jump:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
+          description: Initial release
+      artifacthub.io/screenshots: |
+        - title: Tag selection
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagselection.png
+        - title: Tag page
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagpage.png
+        - title: Search
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-search.png
+    apiVersion: v2
+    appVersion: v1.4.0
+    created: "2024-04-16T20:23:21.286065621Z"
+    description: Jump is a self-hosted startpage and real-time status page for your
+      server designed to be simple, stylish, fast and secure.
+    digest: 0013620c06a0fc69fda2f0edcb609c8774ca86f22bb95013413c2309629d0973
+    home: https://github.com/djjudas21/charts/tree/master/charts/jump
+    icon: https://raw.githubusercontent.com/daledavies/jump/main/jumpapp/assets/images/favicon/icon.png
+    keywords:
+    - javascript
+    - docker
+    - php
+    - weather
+    - links
+    - dashboard
+    - home
+    - unsplash
+    - directory
+    - selfhosted
+    - homepage
+    - portal
+    - self-hosted
+    - startpage
+    - start
+    - status-page
+    - selfhosted-apps
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: jump
+    sources:
+    - https://github.com/daledavies/jump
+    - https://hub.docker.com/r/daledavies/jump
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jump-0.1.1/jump-0.1.1.tgz
+    version: 0.1.1
   littlelink-server:
   - annotations:
       artifacthub.io/changes: |-
@@ -7012,4 +7061,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-04-09T12:54:57.760085345Z"
+generated: "2024-04-16T20:23:21.286499142Z"
