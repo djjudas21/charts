@@ -1,0 +1,265 @@
+# Default values for jump.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: daledavies/jump
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+# Config values for Jump. Always check https://github.com/daledavies/jump
+# for latest details of available options.
+env:
+  # Custom site name.
+  # SITENAME:
+
+  # Hide the clock.
+  SHOWCLOCK: 'false'
+
+  # Show 12 hour clock format if true.
+  AMPMCLOCK: 'true'
+
+  # Show the label "#home" instead of a friendly greeting message.
+  SHOWGREETING: 'false'
+
+  # Show a custom greeting message instead.
+  CUSTOMGREETING: 'Some other greeting message'
+
+  # Hide the search button (disable search).
+  SHOWSEARCH: 'false'
+
+  # Display list of sites using an alternative layout.
+  ALTLAYOUT: 'true'
+
+  # Set a custom with for the page container/site list.
+  CUSTOMWIDTH: 1000
+
+  # Background image blur percentage.
+  BGBLUR: 50
+
+  # Background image brightness percentage.
+  BGBRIGHT: 90
+
+  # An API key for Unsplash, enables fetching random background images from Unsplash.
+  # UNSPLASHAPIKEY:
+
+  # List of Unsplash collection ID's (separated by commas) to select random images from.
+  # UNSPLASHCOLLECTIONS:
+
+  # An alternative background provider url.
+  # ALTBGPROVIDER:
+
+  # An API key for Open Weather Map, LATLONG (below) must also be defined.
+  # OWMAPIKEY:
+
+  # A latitude and longitude for the default location (e.g. "51.509865,-0.118092").
+  # LATLONG:
+
+  # Metric (C) or imperial (F) temperature units.
+  METRICTEMP: 'true'
+
+  # Disable checking site availability status.
+  CHECKSTATUS: 'false'
+
+  # Duration in minutes to cache site availability status.
+  STATUSCACHE: 5
+
+  # Include a robots noindex meta tag in site header.
+  NOINDEX: 'true'
+
+  # Useful if Jump is hosted in a sub-directory (e.g. "/startpage").
+  # WWWURL:
+
+  # Disable IPV6 if required.
+  # DISABLEIPV6:
+
+  # Set to your chosen language code.
+  # LANGUAGE: 'en'
+
+  # Bypass all caches, useful for testing changes.
+  CACHEBYPASS: 'false'
+
+  # Enable debug mode.
+  DEBUG: 'false'
+
+search:
+  - name: Google
+    url: "https://www.google.co.uk/search?q="
+  - name: DuckDuckGo
+    url: "https://duckduckgo.com/?q="
+  - name: Bing
+    url: "https://www.bing.com/search?q="
+
+sites:
+  default:
+    nofollow: true
+    icon: my-default-icon.png
+    newtab: false
+  sites:
+    - name: Github
+      url: "https://github.com/daledavies/jump"
+      description: This is an example description
+      nofollow: false
+      newtab: true
+    - name: Docker Hub
+      url: "https://hub.docker.com/r/daledavies/jump"
+    - name: Bitwarden
+      url: "https://bitwarden.com/"
+      description: This is another example of a site with a description
+      icon: bitwarden.png
+      tags:
+        - stuff
+    - name: Gitea
+      url: "https://git.example.com"
+      icon: gitea.png
+      tags:
+        - stuff
+    - name: Nextcloud
+      url: "https://cloud.example.com"
+      icon: nextcloud.png
+      tags:
+        - home
+        - things
+    - name: Paperless
+      url: "https://paperless.example.com"
+      icon: paperless.jpg
+      tags:
+        - things
+        - home
+    - name: Matomo
+      url: "https://matomo.org/pagedoesnotexist"
+      nofollow: false
+      tags:
+        - home
+        - stuff
+    - name: Pi-hole
+      url: "https://pi-hole.net/"
+      nofollow: false
+      tags:
+        - home
+        - things
+    - name: Teapot
+      url: "https://www.google.com/pagedoesnotexist"
+      nofollow: false
+      tags:
+        - stuff
+        - things
+      status:
+        allowed_status_codes:
+          - 418
+        request_method: GET
+        url: "https://www.google.com/teapot"
+        verify_cert: false
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+# Additional volumes on the output Deployment definition.
+volumes:
+  - name: backgrounds
+    emptyDir:
+      sizeLimit: 100Mi
+  - name: favicon
+    emptyDir:
+      sizeLimit: 100Mi
+  - name: search
+    emptyDir:
+      sizeLimit: 100Mi
+  - name: sites
+    emptyDir:
+      sizeLimit: 100Mi
+  - name: sites-config
+    configMap:
+      name: sites-config
+  - name: search-config
+    configMap:
+      name: search-config
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts:
+  - name: backgrounds
+    mountPath: /backgrounds
+  - name: favicon
+    mountPath: /favicon
+  - name: sites-config
+    mountPath: "/sites/sites.json"
+    subPath: sites.json
+  - name: search-config
+    mountPath: "/search/searchengines.json"
+    subPath: searchengines.json
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

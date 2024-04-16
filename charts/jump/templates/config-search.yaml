@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: search-config
+data:
+  searchengines.json: |-
+{{ .Values.search | toPrettyJson | indent 4 }}
