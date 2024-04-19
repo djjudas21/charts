@@ -83,7 +83,7 @@ jobs:
   update-pr:
     runs-on: ubuntu-latest
     needs: [get-chart]
-    name: Automatically update README and CRDs
+    name: Automatically update README
     permissions:
       contents: write
     outputs:
@@ -99,48 +99,16 @@ jobs:
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-      - name: Install readme-generator-for-helm
+
+      - name: Install helm-docs
+        uses: gabe565/setup-helm-docs-action@v1
         if: needs.get-chart.outputs.values-updated == 'true'
-        run: npm install -g @bitnami/readme-generator-for-helm
-      - id: update-readme
-        name: 'Update README'
-        if: needs.get-chart.outputs.values-updated == 'true'
-        env:
-          CHART: ${{ needs.get-chart.outputs.chart }}
+
+      - name: Generate Helm docs
         run: |
-            exit_code=0
-            echo "Validating README.md for ${CHART}"
-            # Validating *.registry parameters
-            while read line; do
-              echo "$line" | grep --quiet "\[default: \(REGISTRY_NAME\|\"\"\)\]" || exit_code=$?
-            done < <(grep "@param\s\+[A-Za-z\.]\+\.registry\s\+" "charts/${CHART}/values.yaml")
-            if [[ $exit_code -ne 0 ]]; then
-              echo "error=Please ensure all *.registry params include the [default: REGISTRY_NAME] modifier in the chart charts/${CHART}/values.yaml file"
-              exit "$exit_code"
-            fi
-            # Validating *.repository parameters
-            while read line; do
-              param=$(echo "$line" | awk '{print $3}')
-              # Checking if it's a image's registry-related param
-              registry_param=$(echo ${param} | sed 's/\.repository/\.registry/g')
-              grep --quiet "@param\s\+${registry_param}" "charts/${CHART}/values.yaml" && ( echo "$line" | grep --quiet "\[default: \(REPOSITORY_NAME/.*\|\"\"\)\]" || exit_code=$? )
-            done < <(grep "@param\s\+[A-Za-z\.]\+\.repository\s\+" "charts/${CHART}/values.yaml")
-            if [[ $exit_code -ne 0 ]]; then
-              echo "error=Please ensure all *.repository params include the [default: REPOSITORY_NAME] modifier the in the chart charts/${CHART}/values.yaml file"
-              exit "$exit_code"
-            fi
-            # Validating *.tag parameters
-            ! grep --quiet "@param\s\+[A-Za-z\.]\+\.tag\s\+" "charts/${CHART}/values.yaml" || exit_code=$?
-            if [[ $exit_code -ne 0 ]]; then
-              echo "error=Please ensure all *.tag params are skipped (@skip) in the charts/${CHART}/values.yaml file"
-              exit "$exit_code"
-            fi
-            echo "Updating README.md for ${CHART}"
-            readme-generator --values "charts/${CHART}/values.yaml" --readme "charts/${CHART}/README.md" --schema "/tmp/schema.json"
-            # Commit all changes, if any
-            if git status -s | grep "charts/${CHART}"; then
-              git add "charts/${CHART}" && git commit -m "Update README.md with readme-generator-for-helm" --signoff
-            fi
+          set -eu
+          ./ci/gen-helm-docs.sh
+
       - id: update-pr
         name: Push changes
         run: |
