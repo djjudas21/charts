@@ -35,9 +35,9 @@ jobs:
           files_changed_data="$(gh api --paginate /repos/${GITHUB_REPOSITORY}/pulls/${PULL_REQUEST_NUMBER}/files)"
           files_changed="$(echo "$files_changed_data" | jq -r '.[] | .filename')"
           # Adding || true to avoid "Process exited with code 1" errors
-          charts_dirs_changed="$(echo "$files_changed" | xargs dirname | grep -o "bitnami/[^/]*" | sort | uniq || true)"
+          charts_dirs_changed="$(echo "$files_changed" | xargs dirname | grep -o "charts/[^/]*" | sort | uniq || true)"
           # Using grep -c as a better alternative to wc -l when dealing with empty strings."
-          num_charts_changed="$(echo "$charts_dirs_changed" | grep -c "bitnami" || true)"
+          num_charts_changed="$(echo "$charts_dirs_changed" | grep -c "charts" || true)"
           num_version_bumps="$(echo "$files_changed_data" | jq -r '[.[] | select(.filename|endswith("Chart.yaml")) | select(.patch|contains("+version")) ] | length' )"
           non_readme_files=$(echo "$files_changed" | grep -vc "\.md" || true)
 
@@ -56,14 +56,14 @@ jobs:
             # Changes done in only one chart -> OK
             echo "result=ok" >> $GITHUB_OUTPUT
             # Extra output: chart name
-            chart_name=$(echo "$charts_dirs_changed" | sed "s|bitnami/||g")
+            chart_name=$(echo "$charts_dirs_changed" | sed "s|charts/||g")
             echo "chart=${chart_name}" >> $GITHUB_OUTPUT
             # Extra output: values-updated
-            if [[ ${files_changed[@]} =~ "bitnami/${chart_name}/values.yaml" ]]; then
+            if [[ ${files_changed[@]} =~ "charts/${chart_name}/values.yaml" ]]; then
               echo "values-updated=true" >> $GITHUB_OUTPUT
             fi
           elif [[ "$num_charts_changed" -le "0" ]]; then
-            # Changes done in the bitnami/ folder but not inside a chart subfolder -> SKIP
+            # Changes done in the charts/ folder but not inside a chart subfolder -> SKIP
             echo "error=No changes detected in charts. The rest of the tests will be skipped." >> $GITHUB_OUTPUT
             echo "result=skip" >> $GITHUB_OUTPUT
           else
@@ -95,16 +95,15 @@ jobs:
       result: ${{ steps.update-pr.outputs.result }}
     if: needs.get-chart.outputs.result == 'ok'
     steps:
-      - name: Checkout bitnami/charts
-        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
+      - name: Checkout charts repo
+        uses: actions/checkout@4
         with:
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
-          token: ${{ secrets.BITNAMI_BOT_TOKEN }}
-      - name: Setup git configuration
+      - name: Configure Git
         run: |
-          git config user.name "Bitnami Containers"
-          git config user.email "bitnami-bot@vmware.com"
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - name: Install readme-generator-for-helm
         if: needs.get-chart.outputs.values-updated == 'true'
         run: npm install -g @bitnami/readme-generator-for-helm
