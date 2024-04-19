@@ -1,7 +1,7 @@
 name: Renovate
 
 on:
-  push:
+  pull_request:
     branches:
       - '**'
 
