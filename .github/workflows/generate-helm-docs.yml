@@ -1,13 +1,8 @@
 name: Generate Helm docs
 on: # rebuild any PRs and main branch changes
-  pull_request_target:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - labeled
+  pull_request:
     branches:
-      - main
+      - '*'
 # Remove all permissions by default
 permissions: {}
 # Avoid concurrency over the same PR
