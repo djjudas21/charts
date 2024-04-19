@@ -115,13 +115,13 @@ jobs:
           CHART: ${{ needs.get-chart.outputs.chart }}
         run: |
             exit_code=0
-            echo "Validating README.md for bitnami/${CHART}"
+            echo "Validating README.md for ${CHART}"
             # Validating *.registry parameters
             while read line; do
               echo "$line" | grep --quiet "\[default: \(REGISTRY_NAME\|\"\"\)\]" || exit_code=$?
-            done < <(grep "@param\s\+[A-Za-z\.]\+\.registry\s\+" "bitnami/${CHART}/values.yaml")
+            done < <(grep "@param\s\+[A-Za-z\.]\+\.registry\s\+" "charts/${CHART}/values.yaml")
             if [[ $exit_code -ne 0 ]]; then
-              echo "error=Please ensure all *.registry params include the [default: REGISTRY_NAME] modifier in the chart bitnami/${CHART}/values.yaml file"
+              echo "error=Please ensure all *.registry params include the [default: REGISTRY_NAME] modifier in the chart charts/${CHART}/values.yaml file"
               exit "$exit_code"
             fi
             # Validating *.repository parameters
@@ -129,23 +129,23 @@ jobs:
               param=$(echo "$line" | awk '{print $3}')
               # Checking if it's a image's registry-related param
               registry_param=$(echo ${param} | sed 's/\.repository/\.registry/g')
-              grep --quiet "@param\s\+${registry_param}" "bitnami/${CHART}/values.yaml" && ( echo "$line" | grep --quiet "\[default: \(REPOSITORY_NAME/.*\|\"\"\)\]" || exit_code=$? )
-            done < <(grep "@param\s\+[A-Za-z\.]\+\.repository\s\+" "bitnami/${CHART}/values.yaml")
+              grep --quiet "@param\s\+${registry_param}" "charts/${CHART}/values.yaml" && ( echo "$line" | grep --quiet "\[default: \(REPOSITORY_NAME/.*\|\"\"\)\]" || exit_code=$? )
+            done < <(grep "@param\s\+[A-Za-z\.]\+\.repository\s\+" "charts/${CHART}/values.yaml")
             if [[ $exit_code -ne 0 ]]; then
-              echo "error=Please ensure all *.repository params include the [default: REPOSITORY_NAME] modifier the in the chart bitnami/${CHART}/values.yaml file"
+              echo "error=Please ensure all *.repository params include the [default: REPOSITORY_NAME] modifier the in the chart charts/${CHART}/values.yaml file"
               exit "$exit_code"
             fi
             # Validating *.tag parameters
-            ! grep --quiet "@param\s\+[A-Za-z\.]\+\.tag\s\+" "bitnami/${CHART}/values.yaml" || exit_code=$?
+            ! grep --quiet "@param\s\+[A-Za-z\.]\+\.tag\s\+" "charts/${CHART}/values.yaml" || exit_code=$?
             if [[ $exit_code -ne 0 ]]; then
-              echo "error=Please ensure all *.tag params are skipped (@skip) in the bitnami/${CHART}/values.yaml file"
+              echo "error=Please ensure all *.tag params are skipped (@skip) in the charts/${CHART}/values.yaml file"
               exit "$exit_code"
             fi
-            echo "Updating README.md for bitnami/${CHART}"
-            readme-generator --values "bitnami/${CHART}/values.yaml" --readme "bitnami/${CHART}/README.md" --schema "/tmp/schema.json"
+            echo "Updating README.md for ${CHART}"
+            readme-generator --values "charts/${CHART}/values.yaml" --readme "charts/${CHART}/README.md" --schema "/tmp/schema.json"
             # Commit all changes, if any
-            if git status -s | grep "bitnami/${CHART}"; then
-              git add "bitnami/${CHART}" && git commit -m "Update README.md with readme-generator-for-helm" --signoff
+            if git status -s | grep "charts/${CHART}"; then
+              git add "charts/${CHART}" && git commit -m "Update README.md with readme-generator-for-helm" --signoff
             fi
       - id: update-pr
         name: Push changes
