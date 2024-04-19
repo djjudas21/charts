@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>gabe565/renovate-config"
+  ],
+  "ignorePresets": [
+    "github>gabe565/renovate-config:githubActions"
+  ],
+  "gitIgnoredAuthors": [
+    "renovate[bot]@users.noreply.github.com",
+    "160046936+charts-bot[bot]@users.noreply.github.com"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["\\.yaml$"],
+      "matchStrings": [
+        "# ?renovate datasource=(?<datasource>.+?) depName=(?<depName>.+)\\n.+: [\"']?(?<currentValue>.+?)[\"']?\\n"
+      ]
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["helm"],
+      "commitMessageTopic": "{{depName}} Helm release"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/dgtlmoon/changedetection.io"],
+      "versioning": "loose"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/juanfont/headscale"],
+      "allowedVersions": "!/^0.23.0$/"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["eqalpha/keydb"],
+      "versioning": "regex:^(?<compatability>.+?)_v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    }
+  ]
+}
