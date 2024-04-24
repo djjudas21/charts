@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: foreman
+    tier: app
+  name: rails-deployment
+  namespace: foreman
+spec:
+  minReadySeconds: 10
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: foreman
+      tier: app
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: foreman
+        tier: app
+      name: rails
+    spec:
+      containers:
+      - args:
+        - bundle
+        - exec
+        - rails
+        - server
+        env:
+        - name: RAILS_LOG_TO_STDOUT
+          value: "true"
+        - name: RAILS_SERVE_STATIC_FILES
+          value: "true"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: url
+              name: db-url
+        - name: RAILS_ENV
+          value: production
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: secret-key-base
+              name: secret-key-base
+        - name: FOREMAN_FQDN
+          value: foreman.example.com
+        - name: FOREMAN_RAILS_CACHE_STORE_TYPE
+          value: redis
+        - name: FOREMAN_RAILS_CACHE_STORE_URLS
+          value: redis://$(REDIS_SERVICE_HOST):$(REDIS_SERVICE_PORT)/0
+        image: quay.io/foreman/foreman:develop
+        imagePullPolicy: Always
+        name: rails
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
