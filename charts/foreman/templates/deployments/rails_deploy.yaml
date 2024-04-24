@@ -38,11 +38,10 @@ spec:
           value: "true"
         - name: RAILS_SERVE_STATIC_FILES
           value: "true"
+        {{- if .Values.postgresql.enabled }}
         - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              key: url
-              name: db-url
+          value: postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "foreman.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}?pool=5 
+        {{- end }}
         - name: RAILS_ENV
           value: production
         - name: SECRET_KEY_BASE
@@ -52,15 +51,17 @@ spec:
               name: secret-key-base
         - name: FOREMAN_FQDN
           value: foreman.example.com
+        {{- if .Values.redis.enabled }}
         - name: FOREMAN_RAILS_CACHE_STORE_TYPE
           value: redis
         - name: FOREMAN_RAILS_CACHE_STORE_URLS
-          value: redis://$(REDIS_SERVICE_HOST):$(REDIS_SERVICE_PORT)/0
+          value: redis://{{ include "foreman.fullname" . }}-redis:$(REDIS_SERVICE_PORT)/0
+        {{- end }}
         image: quay.io/foreman/foreman:develop
         imagePullPolicy: Always
         name: rails
         ports:
-        - containerPort: 3000
+        - containerPort: {{ .Values.service.port }}
           protocol: TCP
         resources: {}
       dnsPolicy: ClusterFirst

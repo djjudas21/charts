@@ -99,3 +99,48 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# -- Enable and configure postgresql database subchart under this key.
+#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+# @default -- See values.yaml
+postgresql:
+  enabled: false
+  auth:
+    postgresPassword:	adminpw
+    username:	foreman
+    password:	foreman
+    database: foreman
+  primary:
+    persistence:
+      enabled: false
+      # storageClass: ""
+      size: 1Gi
+    resources: {}
+
+# Bitnami Redis
+# https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml
+redis:
+  enabled: false
+  architecture: standalone
+  auth:
+    enabled: false
+    sentinel: true
+    password: "redis"
+    existingSecret: ""
+    existingSecretPasswordKey: ""
+    usePasswordFiles: false
+  master:
+    resources: {}
+    priorityClassName: ""
+    persistence:
+      enabled: true
+      storageClass: ""
+      accessModes:
+        - ReadWriteOnce
+      size: 8Gi
+  metrics:
+    enabled: false
+    serviceMonitor:
+      enabled: false
+    prometheusRule:
+      enabled: false

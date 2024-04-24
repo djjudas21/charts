@@ -36,10 +36,7 @@ spec:
         - name: RAILS_LOG_TO_STDOUT
           value: "true"
         - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              key: url
-              name: db-url
+          value: postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "foreman.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}?pool=5 
         - name: RAILS_ENV
           value: production
         - name: SECRET_KEY_BASE
