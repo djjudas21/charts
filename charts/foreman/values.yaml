@@ -4,6 +4,8 @@
 
 replicaCount: 1
 
+secret_key_base: changeme
+
 image:
   repository: nginx
   pullPolicy: IfNotPresent
