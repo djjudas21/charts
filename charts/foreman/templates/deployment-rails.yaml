@@ -81,11 +81,11 @@ spec:
           containerPort: {{ .Values.service.port }}
           protocol: TCP
         resources:
-            {{- toYaml .Values.rails.resources | nindent 12 }}
+          {{- toYaml .Values.rails.resources | nindent 10 }}
         livenessProbe:
-            {{- toYaml .Values.rails.livenessProbe | nindent 12 }}
+          {{- toYaml .Values.rails.livenessProbe | nindent 10 }}
           readinessProbe:
-            {{- toYaml .Values.rails.readinessProbe | nindent 12 }}
+          {{- toYaml .Values.rails.readinessProbe | nindent 10 }}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
