@@ -63,7 +63,7 @@ spec:
         - name: FOREMAN_RAILS_CACHE_STORE_TYPE
           value: redis
         - name: FOREMAN_RAILS_CACHE_STORE_URLS
-          value: redis://$(REDIS_SERVICE_HOST):$(REDIS_SERVICE_PORT)/0
+          value: redis://{{ include "foreman.fullname" . }}-redis:6379/0
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: worker
