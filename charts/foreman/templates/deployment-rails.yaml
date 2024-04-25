@@ -52,6 +52,8 @@ spec:
           value: "true"
         - name: RAILS_SERVE_STATIC_FILES
           value: "true"
+        - name: HOST
+          value: "0.0.0.0"
         {{- if .Values.postgresql.enabled }}
         - name: DATABASE_URL
           value: postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "foreman.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}?pool=5 
