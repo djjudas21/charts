@@ -1,0 +1,106 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    {{- include "foreman.labels" . | nindent 4 }}
+    app: foreman
+    tier: app
+  name: {{ include "foreman.fullname" . }}-rails
+spec:
+  minReadySeconds: 10
+  progressDeadlineSeconds: 600
+  replicas: {{ .Values.rails.replicaCount }}
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      {{- include "foreman.selectorLabels" . | nindent 6 }}
+      app: foreman
+      tier: app
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      {{- with .Values.rails.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "foreman.labels" . | nindent 8 }}
+        {{- with .Values.rails.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        app: foreman
+        tier: app
+      name: rails
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "foreman.serviceAccountName" . }}
+      containers:
+      - args:
+        - bundle
+        - exec
+        - rails
+        - server
+        env:
+        - name: RAILS_LOG_TO_STDOUT
+          value: "true"
+        - name: RAILS_SERVE_STATIC_FILES
+          value: "true"
+        {{- if .Values.postgresql.enabled }}
+        - name: DATABASE_URL
+          value: postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "foreman.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}?pool=5 
+        {{- end }}
+        - name: RAILS_ENV
+          value: production
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: secret-key-base
+              name: secret-key-base
+        - name: FOREMAN_FQDN
+          value: {{ .Values.foremanFqdn }}
+        {{- if .Values.redis.enabled }}
+        - name: FOREMAN_RAILS_CACHE_STORE_TYPE
+          value: redis
+        - name: FOREMAN_RAILS_CACHE_STORE_URLS
+          value: redis://{{ include "foreman.fullname" . }}-redis:$(REDIS_SERVICE_PORT)/0
+        {{- end }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: rails
+        securityContext:
+            {{- toYaml .Values.rails.securityContext | nindent 12 }}
+        ports:
+        - name: http
+          containerPort: {{ .Values.service.port }}
+          protocol: TCP
+        resources:
+            {{- toYaml .Values.rails.resources | nindent 12 }}
+        livenessProbe:
+            {{- toYaml .Values.rails.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.rails.readinessProbe | nindent 12 }}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      terminationGracePeriodSeconds: 30
+            {{- with .Values.rails.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.rails.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.rails.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

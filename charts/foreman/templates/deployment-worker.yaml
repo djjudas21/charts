@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    {{- include "foreman.labels" . | nindent 4 }}
+    app: foreman
+  name: {{ include "foreman.fullname" . }}-worker
+spec:
+  minReadySeconds: 10
+  progressDeadlineSeconds: 600
+  replicas: {{ .Values.worker.replicaCount }}
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      {{- include "foreman.selectorLabels" . | nindent 6 }}
+      app: foreman
+      tier: worker
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      {{- with .Values.worker.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "foreman.labels" . | nindent 8 }}
+        {{- with .Values.worker.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        app: foreman
+        tier: worker
+      name: worker
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "foreman.serviceAccountName" . }}
+      containers:
+      - args:
+        - bundle
+        - exec
+        - rake
+        - dynflow:executor
+        env:
+        - name: RAILS_LOG_TO_STDOUT
+          value: "true"
+        - name: DATABASE_URL
+          value: postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "foreman.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}?pool=5 
+        - name: RAILS_ENV
+          value: production
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: secret-key-base
+              name: secret-key-base
+        - name: FOREMAN_FQDN
+          value: {{ .Values.foremanFqdn }}
+        - name: FOREMAN_RAILS_CACHE_STORE_TYPE
+          value: redis
+        - name: FOREMAN_RAILS_CACHE_STORE_URLS
+          value: redis://$(REDIS_SERVICE_HOST):$(REDIS_SERVICE_PORT)/0
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: worker
+        securityContext:
+            {{- toYaml .Values.worker.securityContext | nindent 12 }}
+        resources:
+            {{- toYaml .Values.worker.resources | nindent 12 }}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      terminationGracePeriodSeconds: 30
+            {{- with .Values.worker.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.worker.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.worker.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
