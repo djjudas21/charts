@@ -1,15 +1,6 @@
 apiVersion: v2
 name: foreman
-description: A Helm chart for Kubernetes
-
-# A chart can be either an 'application' or a 'library' chart.
-#
-# Application charts are a collection of templates that can be packaged into versioned archives
-# to be deployed.
-#
-# Library charts provide useful utilities or functions for the chart developer. They're included as
-# a dependency of application charts to inject those utilities and functions into the rendering
-# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+description: Foreman is a complete lifecycle management tool for physical and virtual servers
 type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
@@ -32,3 +23,32 @@ dependencies:
     version: ~19
     repository: https://charts.bitnami.com/bitnami
     condition: redis.enabled
+
+home: https://github.com/djjudas21/charts/tree/main/charts/foreman
+icon: https://theforeman.org/static/images/foremanhelmet.svg
+keywords:
+  - ruby
+  - rails
+  - infrastructure
+  - puppet
+  - cloud
+  - config-management
+  - virtualization
+  - provisioning
+  - infrastructure-management
+  - foreman
+  - theforeman
+  - maas
+  - hacktoberfest
+  - hybrid-cloud 
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+sources:
+  - https://quay.io/repository/foreman/foreman
+  - https://theforeman.org/
+annotations:
+  category: Infrastructure
+  artifacthub.io/changes: |-
+    - kind: added
+      description: Initial release
