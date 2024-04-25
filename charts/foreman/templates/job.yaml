@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
       - name: setup
-        image: quay.io/foreman/foreman:develop
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         args: 
         - bundle 
         - exec
@@ -19,14 +19,11 @@ spec:
         - db:seed
         env:
         - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              name: "db-url"
-              key: "url"
+          value: postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "foreman.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}?pool=5 
         - name: RAILS_ENV
           value: "production"
         - name: SEED_ADMIN_PASSWORD
-          value: "changeme"
+          value: {{ .Values.initialAdminPassword }}
         - name: SECRET_KEY_BASE
           valueFrom:
             secretKeyRef:

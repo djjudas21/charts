@@ -4,6 +4,7 @@
 
 foremanFqdn: foreman.example.com
 secret_key_base: changeme
+initialAdminPassword: changeme
 
 image:
   repository: quay.io/foreman/foreman
