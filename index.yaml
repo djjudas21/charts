@@ -3507,6 +3507,37 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Navidrome v0.52.0
+    apiVersion: v2
+    appVersion: 0.52.0
+    created: "2024-05-04T20:45:25.898633913Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: ec8fc53da371b71ef3a302bbf7a57bf5f4216181d728edd3cc63c33f505a5663
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.6.9/navidrome-6.6.9.tgz
+    version: 6.6.9
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Navidrome v0.51.1
     apiVersion: v2
     appVersion: 0.51.1
@@ -7174,4 +7205,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-04-21T20:46:11.327976078Z"
+generated: "2024-05-04T20:45:25.899014999Z"
