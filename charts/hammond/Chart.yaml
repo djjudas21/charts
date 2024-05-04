@@ -3,7 +3,7 @@ appVersion: v0.0.24
 description: Self-hosted vehicle expense tracking system with support for multiple users
 type: application
 name: hammond
-version: 0.3.4
+version: 0.3.5
 keywords:
 - hammond
 - car

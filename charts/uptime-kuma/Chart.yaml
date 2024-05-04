@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 1.23.11
 description: A fancy self-hosted monitoring tool for your websites and applications
 name: uptime-kuma
-version: 1.5.11
+version: 1.5.12
 kubeVersion: ">=1.16.0-0"
 keywords:
   - uptime-kuma
