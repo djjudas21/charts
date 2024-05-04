@@ -1,19 +1,18 @@
 # Default values for smtp-relay.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
+# -- Number of replicas
 replicaCount: 1
 
 smtp:
-  # Hostname of SMTP server to relay to
+  # -- Hostname of upstream SMTP server
   host: ""
-  # Username for SMTP server to relay to
+  # -- Username for upstream SMTP server
   username: ""
-  # Password for SMTP server to relay to
+  # -- Password for upstream SMTP server
   password: ""
-  # Hostname of THIS relay SMTP server
+  # -- Hostname of THIS relay SMTP server
   myhostname: ""
-  # Networks to permit relaying from - by default just localhost and Kubernetes
+  # -- Networks to permit relaying from
   mynetworks:
     - 127.0.0.0/8
     - 10.0.0.0/8
@@ -21,9 +20,12 @@ smtp:
   tls_security_level: ""
 
 image:
+  # -- image repository
   repository: djjudas21/smtp-relay
+  # -- image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- image tag
+  # @default -- chart.appVersion
   tag: ""
 
 imagePullSecrets: []
@@ -31,12 +33,12 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use.
+  # @default -- a name is generated using the fullname template
   name: ""
 
 probes:
@@ -66,16 +68,14 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
 service:
   type: ClusterIP
   loadBalancerIP: ""
   port: 25
 
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
@@ -84,12 +84,12 @@ resources: {}
   #   memory: 128Mi
 
 persistence:
-  # server.persistence.enabled is the toggle for server volume persistence.
+  # -- Enable mail queue persistence
   enabled: false
   accessMode: "ReadWriteOnce"
-  # The storage space that should be claimed from the persistent volume
+  # -- The storage space that should be claimed from the persistent volume
   size: 1Gi
-  # If undefined (the default) the default StorageClass is used
+  # -- If undefined (the default) the default StorageClass is used
   storageClass: ""
 
 nodeSelector: {}
@@ -99,9 +99,13 @@ tolerations: []
 affinity: {}
 
 metrics:
+  # -- Enable metrics sidecar
   enabled: false
+  # -- Metrics port
   port: 9154
   serviceMonitor:
+    # -- Enable Service Monitor for Prometheus Operator
     enabled: false
   prometheusRules:
+    # -- Enable Prometheus rules for Prometheus Operator
     enabled: false

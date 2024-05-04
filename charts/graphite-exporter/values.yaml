@@ -1,13 +1,15 @@
 # Default values for graphite-exporter.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
+# -- Number of replicas
 replicaCount: 1
 
 image:
+  # -- image repository
   repository: prom/graphite-exporter
+  # -- image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- image tag
+  # @default -- chart.appVersion
   tag: ""
 
 imagePullSecrets: []
@@ -15,12 +17,12 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use.
+  # @default -- a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -36,6 +38,8 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
 service:
   prometheus:
     type: ClusterIP
@@ -51,16 +55,11 @@ graphite: {}
   #mapping: |-
     # Add custom graphite mappings here: https://github.com/prometheus/graphite_exporter#metric-mapping-and-configuration
 
-# Enable this if you have the Prometheus Operator, to create a ServiceMonitor
-# resource so Prometheus will scrape this endpoint
 serviceMonitor:
+  # -- Enable Service Monitor for Prometheus Operator
   enabled: false
 
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
   #   memory: 128Mi

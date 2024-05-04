@@ -1,14 +1,12 @@
 # Default values for dbdump.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
 image:
+  # -- image repository
   repository: djjudas21/dbdump
-  # uses appVersion form Chart.yaml if not set
+  # -- image tag
+  # @default -- chart.appVersion
   tag: ""
-  ## Specify a imagePullPolicy
-  ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
-  ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images#
+  # -- image pull policy
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -21,31 +19,32 @@ databases:
 ## to be used only when there's an existing database to backup.
 ## The hostname must also be unique for each backup job.
 - host: "example.com"
-  # mysql or postgresql
+  # -- Database type, mysql or postgresql
   type: ""
+  # -- username
   username: "root"
-  # password
+  # -- password
   password: ""
   port: "3306"
-  # db name for single db backup
+  # -- db name for single db backup
   database: ""
-  # use --all-databases if enabled
+  # -- use --all-databases if enabled
   allDatabases: "true"
-  # debug output
+  # -- debug output
   debug: "false"
-  # schedule override
+  # -- schedule override
   schedule: ""
 
-# options to pass to mysqldump
+# -- options to pass to mysqldump
 mysqldumpOptions: "--single-transaction"
 
-# options to pass to pgdump
+# -- options to pass to pgdump
 pgdumpOptions: ""
 
-# cron time setting for backup schedule
+# -- cron time setting for backup schedule
 schedule: "0 3 * * *"
 
-# cronjob history
+# -- cronjob history
 successfulJobsHistoryLimit: 3
 failedJobsHistoryLimit: 3
 
@@ -54,7 +53,6 @@ failedJobsHistoryLimit: 3
 ## if not set and `persistence.enabled` set to true, will create a PVC.
 # persistentVolumeClaim: <existing-PVC>
 
-# pod anotation
 podAnnotations: {}
 
 persistence:
@@ -70,16 +68,12 @@ persistence:
   ##
   # storageClass: "-"
 
-# delete old backups
+# -- delete old backups
 housekeeping:
   enabled: true
   keepDays: 10
 
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
@@ -93,12 +87,12 @@ tolerations: []
 
 affinity: {}
 
-## Pod Security Context
+# -- Pod Security Context
 securityContext:
   enabled: false
   fsGroup: 999
   runAsUser: 999
 
-# dependency chart for ci
+# -- dependency chart for ci
 mariadb:
   enabled: false

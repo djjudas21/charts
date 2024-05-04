@@ -1,6 +1,4 @@
 # Default values for owncloud.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
 global:
   imageRegistry: ""
@@ -27,12 +25,16 @@ ownCloud:
     username: owncloud
     password: owncloudsecretpassword
 
+# -- Number of replicas
 replicaCount: 1
 
 image:
+  # -- image repository
   repository: owncloud/server
+  # -- image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- image tag
+  # @default -- chart.appVersion
   tag: ""
 
 imagePullSecrets: []
@@ -40,20 +42,24 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use.
+  # @default -- a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
 
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
 service:
   type: ClusterIP
   port: 8080
 
+# -- Enable and configure ingress settings for the chart under this key.
+# @default -- See values.yaml
 ingress:
   enabled: false
   className: ""
@@ -78,10 +84,6 @@ persistence:
   size: 8Gi
 
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
@@ -97,8 +99,9 @@ priorityClassName: ""
 
 affinity: {}
 
-# Bitnami MariaDB
-# https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
+# -- Enable and configure mariadb database subchart under this key.
+#    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
+# @default -- [https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml]
 mariadb:
   enabled: true
   architecture: standalone
@@ -124,8 +127,9 @@ mariadb:
     serviceMonitor:
       enabled: false
 
-# Bitnami Redis
-# https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml
+# -- Enable and configure redis subchart under this key.
+#    For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis)
+# @default -- [https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml]
 redis:
   architecture: standalone
   auth:

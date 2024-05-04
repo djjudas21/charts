@@ -1,7 +1,5 @@
 #
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
+# This chart inherits from a common library chart. You can check the default values/options here:
 # https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml
 #
 
@@ -9,6 +7,7 @@ image:
   # -- image repository
   repository: ghcr.io/nathanvaughn/webtrees
   # -- image tag
+  # @default -- chart.appVersion
   tag:
   # -- image pull policy
   pullPolicy: IfNotPresent
@@ -22,7 +21,7 @@ env:
   PRETTY_URLS: "TRUE"
   # -- webtrees localization setting
   LANG: "en-US"
-  # -- Base URL of the installation, with protocol. This needs to be in the form of http://webtrees.example.com
+  # -- Base URL of the installation, with protocol. Must be in the form `http://webtrees.example.com`
   BASE_URL: https://webtrees.example.com
   # -- Database server type
   DB_TYPE: "mysql"
@@ -71,7 +70,7 @@ persistence:
 
 # -- Enable and configure mariadb database subchart under this key.
 #    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
-# @default -- See values.yaml
+# @default -- [https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml]
 mariadb:
   enabled: false
   architecture: standalone
