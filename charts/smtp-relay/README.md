@@ -1,65 +1,69 @@
 # smtp-relay
 
-Helm chart for smtp-relay
+![Version: 0.5.1](https://img.shields.io/badge/Version-0.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.7.0](https://img.shields.io/badge/AppVersion-0.7.0-informational?style=flat-square)
 
-This image provides an SMTP relay host for emails from within a Kubernetes cluster.
+An SMTP smarthost relay for Kubernetes
 
-Configure this container to use an upstream authenticated SMTP relay like SendGrid or your ISP's mail server, and provide an
-open relay service to your cluster. This means you don't have to configure all of your containerised services with email auth secrets.
+**Homepage:** <https://github.com/djjudas21/charts/tree/main/charts/smtp-relay>
 
-```sh
-helm repo add djjudas21 https://djjudas21.github.io/charts/
-helm repo update
-helm upgrade --install -n smtp-relay  [-f values.yaml] --create-namespace djjudas21/smtp-relay
-```
+## Maintainers
 
-As a minimum, you will need to provide your own `values.yaml` with some SMTP config:
+| Name | Email | Url |
+| ---- | ------ | --- |
+| djjudas21 | <djjudas21@users.noreply.github.com> |  |
 
-| Key               | Required | Use                                  | Example                         |
-|-------------------|----------|--------------------------------------|---------------------------------|
-| `smtp.host`       | Required | Hostname of SMTP server to relay to  | `[smtp.sendgrid.net]:587`       |
-| `smtp.username`   | Required | Username for SMTP server to relay to | `apikey`                        |
-| `smtp.password`   | Required | Password for SMTP server to relay to | `pAsSwOrD`                      |
-| `smtp.myhostname` | Optional | Hostname of this relay SMTP server   | `smtp-relay.example.com         |
-| `smtp.mynetworks` | Optional | Networks to permit relaying from     | `['127.0.0.0/8', '10.0.0.0/8']` |
+## Source Code
 
-## Persistence
+* <https://github.com/djjudas21/smtp-relay>
+* <https://hub.docker.com/r/djjudas21/smtp-relay>
 
-By default, this chart sets up an [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) volume to contain the
-Postfix spool directory (`/var/spool/postfix`). If the pod crashes or gets restarted while there are still unsent messages in the
-queue, those messages will be lost, as the emptyDir has the same lifetime as the pod.
+## Values
 
-You can enable persistence which creates a small [persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
-to contain `/var/spool/postfix` which will survive pod restarts. If you have multiple replicas, each replica will have its own
-spool volume to represent its own mail queue.
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| fullnameOverride | string | `""` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
+| image.repository | string | `"djjudas21/smtp-relay"` | image repository |
+| image.tag | string | chart.appVersion | image tag |
+| imagePullSecrets | list | `[]` |  |
+| metrics.enabled | bool | `false` | Enable metrics sidecar |
+| metrics.port | int | `9154` | Metrics port |
+| metrics.prometheusRules.enabled | bool | `false` | Enable Prometheus rules for Prometheus Operator |
+| metrics.serviceMonitor.enabled | bool | `false` | Enable Service Monitor for Prometheus Operator |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` |  |
+| persistence.accessMode | string | `"ReadWriteOnce"` |  |
+| persistence.enabled | bool | `false` | Enable mail queue persistence |
+| persistence.size | string | `"1Gi"` | The storage space that should be claimed from the persistent volume |
+| persistence.storageClass | string | `""` | If undefined (the default) the default StorageClass is used |
+| podAnnotations | object | `{}` |  |
+| podSecurityContext | object | `{}` |  |
+| probes.liveness.enabled | bool | `true` |  |
+| probes.liveness.failureThreshold | int | `3` |  |
+| probes.liveness.initialDelaySeconds | int | `0` |  |
+| probes.liveness.periodSeconds | int | `10` |  |
+| probes.liveness.timeoutSeconds | int | `1` |  |
+| probes.readiness.enabled | bool | `true` |  |
+| probes.readiness.failureThreshold | int | `3` |  |
+| probes.readiness.initialDelaySeconds | int | `0` |  |
+| probes.readiness.periodSeconds | int | `10` |  |
+| probes.readiness.timeoutSeconds | int | `1` |  |
+| replicaCount | int | `1` | Number of replicas |
+| resources | object | `{}` |  |
+| securityContext | object | `{}` |  |
+| service | object | See values.yaml | Configures service settings for the chart. |
+| serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
+| serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
+| serviceAccount.name | string | a name is generated using the fullname template | The name of the service account to use. |
+| smtp.host | string | `""` | Hostname of upstream SMTP server |
+| smtp.myhostname | string | `""` | Hostname of THIS relay SMTP server |
+| smtp.mynetworks | list | `["127.0.0.0/8","10.0.0.0/8"]` | Networks to permit relaying from |
+| smtp.password | string | `""` | Password for upstream SMTP server |
+| smtp.tls_security_level | string | `""` |  |
+| smtp.tls_wrappermode | string | `"no"` |  |
+| smtp.username | string | `""` | Username for upstream SMTP server |
+| tolerations | list | `[]` |  |
 
-Example configuration:
-
-```yaml
-persistence:
-  enabled: true
-  accessMode: "ReadWriteOnce"
-  size: 1Gi
-  storageClass: ""
-```
-
-## Metrics
-
-If the metrics sidecar is enabled, both the Postfix container and the metrics container additionally mount another subdir
-`/var/spool/postfix/public` as an emptyDir. This directory contains some Postfix sockets, and allows both containers in
-the same pod to have access to the same sockets, so the metrics container can report on your Postfix `mailq`.
-
-Sockets do not work properly in persistent volumes, so this is why an emptyDir is mounted inside a persistent volume.
-You shouldn't need to worry about this unless you are a chart maintainer!
-
-Example configuration:
-
-```yaml
-metrics:
-  enabled: true
-  port: 9154
-  serviceMonitor:
-    enabled: false
-  prometheusRules:
-    enabled: false
-```
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.13.1](https://github.com/norwoodj/helm-docs/releases/v1.13.1)
