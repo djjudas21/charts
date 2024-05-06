@@ -1,19 +1,23 @@
 # Default values for openssh-server.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
+# -- Number of replicas
 replicaCount: 1
 
 image:
+  # -- image repository
   repository: linuxserver/openssh-server
+  # -- image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- image tag
+  # @default -- chart.appVersion
   tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# -- environment variables
+# @default -- See below
 env:
   # When using volumes (-v flags) permissions issues can arise between the host OS and the container, we avoid this issue by allowing you to specify the user PUID and group PGID.
   # Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
@@ -23,42 +27,42 @@ env:
   # GroupID
   pgid: 1000
 
-  # specify a timezone to use, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+  # -- specify a timezone to use, see <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List>
   tz: Etc/UTC
 
-  # Optional ssh public key, which will automatically be added to authorized_keys.
+  # -- Optional ssh public key, which will automatically be added to authorized_keys.
   publicKey:
 
-  # Optionally specify a file containing the public key (works with docker secrets).
+  # -- Optionally specify a file containing the public key (works with docker secrets).
   publicKeyFile:
 
-  # Optionally specify a directory containing the public keys (works with docker secrets).
+  # -- Optionally specify a directory containing the public keys (works with docker secrets).
   publicKeyDir:
 
-  # Optionally specify a URL containing the public key, e.g. https://github.com/username.keys
+  # -- Optionally specify a URL containing the public key, e.g. <https://github.com/username.keys>
   publicKeyUrl:
 
-  # Set to true to allow linuxserver.io, the ssh user, sudo access. Without USER_PASSWORD set, this will allow passwordless sudo access.
+  # -- Set to true to allow linuxserver.io, the ssh user, sudo access. Without USER_PASSWORD set, this will allow passwordless sudo access.
   sudoAccess: false
 
-  # Set to true to allow user/password ssh access. You will want to set USER_PASSWORD or USER_PASSWORD_FILE as well.
+  # -- Set to true to allow user/password ssh access. You will want to set USER_PASSWORD or USER_PASSWORD_FILE as well.
   passwordAccess: false
 
-  # Optionally set a sudo password for linuxserver.io, the ssh user. If this or USER_PASSWORD_FILE are not set but SUDO_ACCESS is set to true, the user will have passwordless sudo access.
+  # -- Optionally set a sudo password for linuxserver.io, the ssh user. If this or USER_PASSWORD_FILE are not set but SUDO_ACCESS is set to true, the user will have passwordless sudo access.
   userPassword:
 
-  # Optionally specify a file that contains the password. This setting supersedes the USER_PASSWORD option (works with docker secrets).
+  # -- Optionally specify a file that contains the password. This setting supersedes the USER_PASSWORD option (works with docker secrets).
   userPasswordFile:
 
-  # Optionally specify a user name (Default:linuxserver.io)
+  # -- Optionally specify a user name (Default:linuxserver.io)
   userName:
 
-# Alpine Packages to install via custom scripts on container startup
+# -- Alpine Packages to install via custom scripts on container startup
 # https://docs.linuxserver.io/general/container-customization#custom-scripts
 # https://pkgs.alpinelinux.org/packages
 packages: []
 
-# Persist the home directory
+# -- Persist the home directory
 persistence:
   home:
     enabled: false
@@ -74,12 +78,12 @@ persistence:
     size: 1Gi
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use.
+  # @default -- a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -95,16 +99,14 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
 service:
   type: ClusterIP
   port: 2222
   targetPort: 2222
 
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
   #   memory: 128Mi

@@ -1,90 +1,87 @@
 # Default values for jump.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
+# -- Number of replicas
 replicaCount: 1
 
 image:
+  # -- image repository
   repository: daledavies/jump
+  # -- image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- image tag
+  # @default -- chart.appVersion
   tag: ""
 
-# Config values for Jump. Always check https://github.com/daledavies/jump
+# -- Config values for Jump. Always check https://github.com/daledavies/jump
 # for latest details of available options.
 env:
-  # Custom site name.
+  # -- Custom site name
   # SITENAME:
 
-  # Hide the clock.
+  # -- Hide the clock
   SHOWCLOCK: 'false'
 
-  # Show 12 hour clock format if true.
+  # -- Show 12 hour clock format if true
   AMPMCLOCK: 'true'
 
-  # Show the label "#home" instead of a friendly greeting message.
+  # -- Show the label "#home" instead of a friendly greeting message
   SHOWGREETING: 'false'
 
-  # Show a custom greeting message instead.
+  # -- Show a custom greeting message instead
   CUSTOMGREETING: 'Some other greeting message'
 
-  # Hide the search button (disable search).
+  # -- Hide the search button (disable search)
   SHOWSEARCH: 'false'
 
-  # Display list of sites using an alternative layout.
+  # -- Display list of sites using an alternative layout
   ALTLAYOUT: 'true'
 
-  # Set a custom with for the page container/site list.
+  # -- Set a custom with for the page container/site list
   CUSTOMWIDTH: 1000
 
-  # Background image blur percentage.
+  # -- Background image blur percentage
   BGBLUR: 50
 
-  # Background image brightness percentage.
+  # -- Background image brightness percentage
   BGBRIGHT: 90
 
-  # An API key for Unsplash, enables fetching random background images from Unsplash.
-  # UNSPLASHAPIKEY:
+  # -- An API key for Unsplash, enables fetching random background images from Unsplash.
+  UNSPLASHAPIKEY:
 
-  # List of Unsplash collection ID's (separated by commas) to select random images from.
-  # UNSPLASHCOLLECTIONS:
+  # -- List of Unsplash collection ID's (separated by commas) to select random images from.
+  UNSPLASHCOLLECTIONS:
 
-  # An alternative background provider url.
-  # ALTBGPROVIDER:
+  # -- An alternative background provider url.
+  ALTBGPROVIDER:
 
-  # An API key for Open Weather Map, LATLONG (below) must also be defined.
-  # OWMAPIKEY:
+  # -- An API key for Open Weather Map, LATLONG (below) must also be defined.
+  OWMAPIKEY:
 
-  # A latitude and longitude for the default location (e.g. "51.509865,-0.118092").
-  # LATLONG:
+  # -- A latitude and longitude for the default location (e.g. "51.509865,-0.118092").
+  LATLONG:
 
-  # Metric (C) or imperial (F) temperature units.
+  # -- Metric (C) or imperial (F) temperature units
   METRICTEMP: 'true'
 
-  # Disable checking site availability status.
+  # -- Disable checking site availability status
   CHECKSTATUS: 'false'
 
-  # Duration in minutes to cache site availability status.
+  # -- Duration in minutes to cache site availability status
   STATUSCACHE: 5
 
-  # Include a robots noindex meta tag in site header.
+  # -- Include a robots noindex meta tag in site header
   NOINDEX: 'true'
 
-  # Useful if Jump is hosted in a sub-directory (e.g. "/startpage").
-  # WWWURL:
+  # -- Set to your chosen language code.
+  LANGUAGE: 'en'
 
-  # Disable IPV6 if required.
-  # DISABLEIPV6:
-
-  # Set to your chosen language code.
-  # LANGUAGE: 'en'
-
-  # Bypass all caches, useful for testing changes.
+  # -- Bypass all caches, useful for testing changes
   CACHEBYPASS: 'false'
 
-  # Enable debug mode.
+  # -- Enable debug mode
   DEBUG: 'false'
 
+# -- List of search providers, rendered as search.json
 search:
   - name: Google
     url: "https://www.google.co.uk/search?q="
@@ -94,10 +91,12 @@ search:
     url: "https://www.bing.com/search?q="
 
 sites:
+  # -- Default settings for sites
   default:
     nofollow: true
     icon: my-default-icon.png
     newtab: false
+  # -- List of sites to include, rendered as sites.json
   sites:
     - name: Github
       url: "https://github.com/daledavies/jump"
@@ -112,32 +111,9 @@ sites:
       icon: bitwarden.png
       tags:
         - stuff
-    - name: Gitea
-      url: "https://git.example.com"
-      icon: gitea.png
-      tags:
-        - stuff
     - name: Nextcloud
       url: "https://cloud.example.com"
       icon: nextcloud.png
-      tags:
-        - home
-        - things
-    - name: Paperless
-      url: "https://paperless.example.com"
-      icon: paperless.jpg
-      tags:
-        - things
-        - home
-    - name: Matomo
-      url: "https://matomo.org/pagedoesnotexist"
-      nofollow: false
-      tags:
-        - home
-        - stuff
-    - name: Pi-hole
-      url: "https://pi-hole.net/"
-      nofollow: false
       tags:
         - home
         - things
@@ -159,14 +135,14 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Automatically mount a ServiceAccount's API credentials?
+  # -- Automatically mount a ServiceAccount's API credentials?
   automount: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use.
+  # @default -- a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -183,10 +159,14 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
 service:
   type: ClusterIP
   port: 8080
 
+# -- Enable and configure ingress settings for the chart under this key.
+# @default -- See values.yaml
 ingress:
   enabled: false
   className: ""
@@ -204,10 +184,6 @@ ingress:
   #      - chart-example.local
 
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
@@ -224,7 +200,7 @@ readinessProbe:
     path: /
     port: http
 
-# Additional volumes on the output Deployment definition.
+# -- Additional volumes on the output Deployment definition.
 volumes:
   - name: backgrounds
     emptyDir:
@@ -245,7 +221,7 @@ volumes:
     configMap:
       name: search-config
 
-# Additional volumeMounts on the output Deployment definition.
+# -- Additional volumeMounts on the output Deployment definition.
 volumeMounts:
   - name: backgrounds
     mountPath: /backgrounds

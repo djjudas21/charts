@@ -2,7 +2,7 @@ apiVersion: v2
 name: graphite-exporter
 description: A Prometheus exporter for metrics exported in the Graphite plaintext protocol
 type: application
-version: 0.1.6
+version: 0.1.7
 appVersion: "v0.12.3"
 home: https://github.com/djjudas21/charts/tree/master/charts/graphite-exporter
 icon: https://graphiteapp.org/img/apple-touch-icon-144x144.png

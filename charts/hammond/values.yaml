@@ -1,6 +1,5 @@
-# IMPORTANT NOTE
 #
-# This chart inherits from the k8s@home common library chart. You can check the default values/options here:
+# This chart inherits from the bjw-s common library chart. You can check the default values/options here:
 # https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml
 #
 
@@ -8,15 +7,14 @@ image:
   # -- image repository
   repository: alfhou/hammond
   # -- image tag
+  # @default -- chart.appVersion
   tag: ""
   # -- image pull policy
   pullPolicy: IfNotPresent
 
-# -- environment variables. See [image docs](https://docs.kanboard.org/en/latest/admin_guide/docker.html#environment-variables)
-# and [application docs](# https://docs.kanboard.org/en/latest/admin_guide/config_file.html) for more details.
-# @default -- See below (only deviations from the default settings are specified)
+# -- environment variables
+# @default -- See below
 env:
-  # Application Configuration
   # -- Application Timezone
   TZ: UTC
   # -- The secret used to sign the JWT token. It is important that you change it to something else

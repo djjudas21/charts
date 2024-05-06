@@ -1,14 +1,16 @@
 # Default values for lldap.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
-# Do not increase this above 1 if you are using the SQLite backend
+# -- Number of lldap replicas.
+# Do not increase this above 1 if you are using the SQLite backend.
 replicaCount: 1
 
 image:
+  # -- image repository
   repository: lldap/lldap
+  # -- image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- image tag
+  # @default -- chart.appVersion
   tag: ""
 
 imagePullSecrets: []
@@ -17,96 +19,90 @@ fullnameOverride: ""
 
 lldap:
 
-  ## Base DN for LDAP.
-  ## This is usually your domain name, and is used as a
-  ## namespace for your users. The choice is arbitrary, but will be needed
-  ## to configure the LDAP integration with other services.
-  ## The sample value is for "example.com", but you can extend it with as
-  ## many "dc" as you want, and you don't actually need to own the domain
-  ## name.
+  # -- Base DN for LDAP.
+  # This is usually your domain name, and is used as a namespace for your users. The choice is
+  # arbitrary, but will be needed to configure the LDAP integration with other services. The sample
+  # value is for "example.com", but you can extend it with as many "dc" as you want, and you don't
+  # actually need to own the domain name.
   baseDN: "dc=example,dc=com"
 
-  ## Random secret for JWT signature.
-  ## This secret should be random, and should be shared with application
-  ## servers that need to consume the JWTs.
-  ## Changing this secret will invalidate all user sessions and require
-  ## them to re-login.
-  ## You can generate it with (on linux):
-  ## LC_ALL=C tr -dc 'A-Za-z0-9!#%&'\''()*+,-./:;<=>?@[\]^_{|}~' </dev/urandom | head -c 32; echo ''
+  # -- Random secret for JWT signature.
+  # This secret should be random, and should be shared with application servers that need to
+  # consume the JWTs. Changing this secret will invalidate all user sessions and require them
+  # to re-login. You can generate it with (on linux):
+  # LC_ALL=C tr -dc 'A-Za-z0-9!#%&'\''()*+,-./:;<=>?@[\]^_{|}~' </dev/urandom | head -c 32; echo ''
   jwtSecret: REPLACE_WITH_RANDOM
 
-  ## Admin username.
-  ## For the LDAP interface, a value of "admin" here will create the LDAP
-  ## user "cn=admin,ou=people,dc=example,dc=com" (with the base DN above).
-  ## For the administration interface, this is the username.
+  # -- Admin username.
+  # For the LDAP interface, a value of "admin" here will create the LDAP user
+  # "cn=admin,ou=people,dc=example,dc=com" (with the base DN above). For the administration
+  # interface, this is the username.
   ldapUserDN: "admin"
 
-  ## Admin password.
-  ## Password for the admin account, both for the LDAP bind and for the
-  ## administration interface. It is only used when initially creating
-  ## the admin user. It should be minimum 8 characters long.
-  ## Note: you can create another admin user for user administration, this
-  ## is just the default one.
+  # -- Admin password.
+  # Password for the admin account, both for the LDAP bind and for the administration interface.
+  # It is only used when initially creating the admin user. It should be minimum 8 characters long.
+  # Note: you can create another admin user for user administration, this is just the default one.
   ldapUserPass: REPLACE_WITH_RANDOM
 
-  ## Seed to generate the server private key
-  ## This can be any random string, the recommendation is that it's at least 12
-  ## characters long.
+  # -- Seed to generate the server private key. This can be any random string, the recommendation
+  # is that it's at least 12 characters long.
   keySeed: REPLACE_WITH_RANDOM
 
   uid: 1000
   gid: 1000
   tz: "Etc/UTC"
 
-  ## Tune the logging to be more verbose by setting this to be true.
+  # -- Tune the logging to be more verbose
   verbose: false
 
-  ## Options to configure SMTP parameters, to send password reset emails.
+  # -- Options to configure SMTP parameters, to send password reset emails.
+  # @default -- see below
   smtp:
-    ## Whether to enabled password reset via email, from LLDAP.
+    # -- Whether to enabled password reset via email, from LLDAP.
     enablePasswordReset: false
-    ## The SMTP server.
+    # -- The SMTP server.
     server: "smtp.gmail.com"
-    ## The SMTP port.
+    # -- The SMTP port.
     port: 587
-    ## How the connection is encrypted, either "NONE" (no encryption), "TLS" or "STARTTLS".
+    # -- How the connection is encrypted, either "NONE" (no encryption), "TLS" or "STARTTLS".
     smtpEncryption: "TLS"
-    ## The SMTP user, usually your email address.
+    # -- The SMTP user, usually your email address.
     user: "sender@gmail.com"
-    ## The SMTP password.
+    # -- The SMTP password.
     password: "password"
-    ## The header field, optional: how the sender appears in the email. The first
-    ## is a free-form name, followed by an email between <>.
+    # -- The header field: how the sender appears in the email. The first
+    # is a free-form name, followed by an email between <>. Optional.
     from: "LLDAP Admin <sender@gmail.com>"
-    ## Same for reply-to, optional.
+    # -- Same for reply-to, optional.
     replyTo: "Do not reply <noreply@localhost>"
 
-  ## Options to configure LDAPS.
+  # -- Options to configure LDAPS
+  # @default -- see below
   ldaps:
-    ## Whether to enable LDAPS.
+    # -- Whether to enable LDAPS.
     enabled: "false"
-    ## Certificate file.
+    # -- Certificate file.
     certFile: "/data/cert.pem"
-    ## Certificate key file.
+    # -- Certificate key file.
     keyFile: "/data/key.pem"
 
-  ## Ignored attributes.
-  ## Some services will request attributes that are not present in LLDAP. When it
-  ## is the case, LLDAP will warn about the attribute being unknown. If you want
-  ## to ignore the attribute and the service works without, you can add it to this
-  ## list to silence the warning.
+  # -- Ignored attributes.
+  # Some services will request attributes that are not present in LLDAP. When it is the case, LLDAP
+  # will warn about the attribute being unknown. If you want to ignore the attribute and the
+  # service works without, you can add it to this list to silence the warning.
   # ignored_user_attributes = [ "sAMAccountName" ]
   # ignored_group_attributes = [ "mail", "userPrincipalName" ]
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
   # Automatically mount a ServiceAccount's API credentials?
   automount: false
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use.
+  # @default -- a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -123,6 +119,8 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
 service:
   http:
     type: ClusterIP
@@ -134,6 +132,8 @@ service:
     type: ClusterIP
     port: 6360
 
+# -- Enable and configure ingress settings for the chart under this key.
+# @default -- See values.yaml
 ingress:
   enabled: false
   className: ""
@@ -150,8 +150,9 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-# Persistence is only required if you are using the SQLite database (default)
-# You can disable persistence if you select MariaDB or PostgreSQL
+# -- Persistence is only required if you are using the SQLite database (default).
+# You can disable persistence if you select MariaDB or PostgreSQL.
+# @default -- see below
 persistence:
   enabled: false
   size: 100Mi
@@ -165,10 +166,6 @@ persistence:
   # storageClass: "-"
 
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
@@ -193,6 +190,7 @@ affinity: {}
 
 # -- Enable and configure postgresql database subchart under this key.
 #    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+# @default -- https://github.com/bitnami/charts/blob/master/bitnami/postgresql/values.yaml
 postgresql:
   enabled: false
   auth:
@@ -209,6 +207,7 @@ postgresql:
 
 # -- Enable and configure mariadb database subchart under this key.
 #    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
+# @default -- https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
 mariadb:
   enabled: false
   architecture: standalone
@@ -224,13 +223,14 @@ mariadb:
       size: 1Gi
       # storageClass: ""
 
-# Bootstrap (i.e. create) users and groups automatically
+# -- Bootstrap (i.e. create) users and groups automatically.
 # It is safe to run the bootstrap multiple times, however the one-shot
 # Kubernetes job will be created on the first deployment, and the job
 # will not be executed on subsequent deployments unless the job is deleted.
+# @default -- see below
 bootstrap:
   enabled: false
-  # Remove redundant users and groups which are not in the config below
+  # -- Remove redundant users and groups which are not in the config below
   cleanup: false
   groups:
     - group1

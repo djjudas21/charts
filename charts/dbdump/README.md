@@ -1,77 +1,71 @@
 # dbdump
 
-dbddump is a tool for creating backups of MySQL and PostgreSQL databases in the form of a .sql file.
+![Version: 0.0.13](https://img.shields.io/badge/Version-0.0.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
 
-## Introduction
+A Helm chart to help backup SQL databases using mysqldump and pgdump
 
-This chart helps set up a cronjob to backup a MySQL or PostgreSQL database into a Persistent Volume. You can specify an existing PVC, or Helm will create one for you.
+**Homepage:** <https://github.com/djjudas21/dbdump>
 
-## Prerequisites
+## Maintainers
 
-- Kubernetes 1.21
-- Helm 3.0
+| Name | Email | Url |
+| ---- | ------ | --- |
+| djjudas21 | <djjudas21@users.noreply.github.com> |  |
 
-## Installing the Chart
+## Source Code
 
-To install the chart with the release name `my-release` with a list of databases in `values.yaml`:
+* <https://hub.docker.com/repository/docker/djjudas21/dbdump/general>
+* <https://github.com/djjudas21/charts>
 
-```console
-helm install my-release djjudas21/dbdump -f values.yaml
-```
+## Requirements
 
-> **Tip**: List all releases using `helm list`
+| Repository | Name | Version |
+|------------|------|---------|
+| https://charts.bitnami.com/bitnami | mariadb | ~18 |
 
-## Uninstalling the Chart
+## Values
 
-To uninstall/delete the `my-release` deployment:
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| databases | list | `[{"allDatabases":"true","database":"","debug":"false","host":"example.com","password":"","port":"3306","schedule":"","type":"","username":"root"}]` | to be used only when there's an existing database to backup. |
+| databases[0] | object | `{"allDatabases":"true","database":"","debug":"false","host":"example.com","password":"","port":"3306","schedule":"","type":"","username":"root"}` | Database host to connect to (must be unique) |
+| databases[0].allDatabases | string | `"true"` | Back up all databases (overrides database) |
+| databases[0].database | string | `""` | DB name for single DB backup |
+| databases[0].debug | string | `"false"` | Enable debug output |
+| databases[0].password | string | `""` | Database password |
+| databases[0].port | string | `"3306"` | Database port |
+| databases[0].schedule | string | `""` | Override crontab schedule for this host |
+| databases[0].type | string | `""` | Database type, mysql or postgresql |
+| databases[0].username | string | `"root"` | Database username |
+| failedJobsHistoryLimit | int | `3` | number of failed jobs to remember |
+| fullnameOverride | string | `""` |  |
+| housekeeping | object | `{"enabled":true,"keepDays":10}` | delete old backups |
+| housekeeping.enabled | bool | `true` | delete old backups |
+| housekeeping.keepDays | int | `10` | backup retention period |
+| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
+| image.repository | string | `"djjudas21/dbdump"` | image repository |
+| image.tag | string | chart.appVersion | image tag |
+| imagePullSecrets | list | `[]` |  |
+| mariadb | object | `{"enabled":false}` | dependency chart for ci |
+| mysqldumpOptions | string | `"--single-transaction"` | options to pass to mysqldump |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` | resource definitions |
+| persistence.accessMode | string | `"ReadWriteMany"` | accessMode to use for PVC |
+| persistence.enabled | bool | `true` | create new PVC |
+| persistence.size | string | `"8Gi"` | size of PVC to create |
+| persistence.storageClass | string | `nil` | storage class to use for PVC |
+| persistence.subPath | string | `nil` | subPath for PVC |
+| pgdumpOptions | string | `""` | options to pass to pgdump |
+| podAnnotations | object | `{}` |  |
+| resources | object | `{}` | resource definitions |
+| schedule | string | `"0 3 * * *"` | cron time setting for backup schedule |
+| securityContext | object | `{"enabled":false,"fsGroup":999,"runAsUser":999}` | Pod Security Context |
+| securityContext.enabled | bool | `false` | set true to change default security context of job/cronjob |
+| securityContext.fsGroup | int | `999` | group ID to use |
+| securityContext.runAsUser | int | `999` | user ID to use |
+| successfulJobsHistoryLimit | int | `3` | number of successful jobs to remember |
+| tolerations | list | `[]` |  |
 
-```console
-helm uninstall my-release
-```
-
-The command removes all the Kubernetes components associated with the chart and deletes the release.
-
-## Configuration
-
-The following tables lists the configurable parameters of the mysqldump chart and their default values.
-
-| Parameter                    | Description                                                                     | Default                      |
-| ---------------------------- | ------------------------------------------------------------------------------- | ---------------------------- |
-| `image.repository`           | Name of image to use                                                            | `djjudas21/dbdump`           |
-| `image.tag`                  | Version of image to use (uses appVersion form Chart.yaml as default if not set) |                              |
-| `image.pullPolicy`           | Pull Policy to use for image                                                    | `IfNotPresent`               |
-| `databases`                  | List of databases to backup (see format below)                                  | `[]`                         |
-| `schedule`                   | crontab schedule to run on.                                                     | `0 3 * * *`                  |
-| `mysqldumpOptions`           | options to pass onto MySQL                                                      | `--opt --single-transaction` |
-| `pgdumpOptions`              | options to pass onto PostgreSQL                                                 |                              |
-| `successfulJobsHistoryLimit` | number of successful jobs to remember                                           | `3`                          |
-| `failedJobsHistoryLimit`     | number of failed jobs to remember                                               | `3`                          |
-| `persistentVolumeClaim`      | existing Persistent Volume Claim to backup to, leave blank to create a new one  |                              |
-| `persistence.enabled`        | create new PVC (unless `persistentVolumeClaim` is set)                          | `true`                       |
-| `persistence.size`           | size of PVC to create                                                           | `8Gi`                        |
-| `persistence.accessMode`     | accessMode to use for PVC                                                       | `ReadWriteMany`              |
-| `persistence.storageClass`   | storage class to use for PVC                                                    |                              |
-| `persistence.subPath`        | subPath for PVC                                                                 |                              |
-| `housekeeping.enabled`       | delete old backups in pvc                                                       | `true`                       |
-| `housekeeping.keepDays`      | keep last x days of backups in PVC                                              | `10`                         |
-| `resources`                  | resource definitions                                                            | `{}`                         |
-| `nodeSelector`               | k8s-node selector                                                               | `{}`                         |
-| `tolerations`                | tolerations                                                                     | `[]`                         |
-| `affinity`                   | affinity                                                                        | `{}`                         |
-| `securityContext.enabled`    | set true to change default security context of job/cronjob                      | `false`                      |
-| `securityContext.fsGroup`    | group ID to use                                                                 | `999`                        |
-| `securityContext.runAsUser`  | user ID to use                                                                  | `999`                        |
-
-Each database must be configured like this:
-
-| Parameter      | Description                                  | Example                 | Required                                                    |
-| ---------------| ---------------------------------------------| ------------------------|-------------------------------------------------------------|
-| `host`         | Database host to connect to (must be unique) | `db.example.com`        | Yes                                                         |
-| `type`         | Type of database server                      | `mysql` or `postgresql` | Yes                                                         |
-| `username`     | Username to connect to database              | `root` or `postgres`    | No, defaults to `root` for MySQL, `postgres` for PostgreSQL |
-| `password`     | Password to connect to database              | `pAsSwOrD`              | Yes                                                         |
-| `port`         | TCP port of database host                    | `3306` or `5432`        | No, defaults to `3306` for MySQL, `5432` for PostgreSQL     |
-| `database`     | Name of database to dump                     | `myDatabase`            | Not if `allDatabases` is `true`                             |
-| `allDatabases` | Back up all databases (overrides `database`) | `true` or `false`       | No, defaults to `false`                                     |
-| `debug`        | Enable debug output                          | `true` or `false`       | No, defaults to `false`                                     |
-| `schedule`     | Override crontab schedule to run on          | `0 3 * * *`             | No                                                          |
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.13.1](https://github.com/norwoodj/helm-docs/releases/v1.13.1)

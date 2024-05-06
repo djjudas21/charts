@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 2.14.2-beta
 description: This server allows you to sync any Joplin client
 name: joplin-server
-version: 5.5.0
+version: 5.5.1
 keywords:
   - joplin
   - notes
