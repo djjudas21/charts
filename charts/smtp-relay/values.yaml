@@ -41,6 +41,7 @@ serviceAccount:
   # @default -- a name is generated using the fullname template
   name: ""
 
+# -- configure probes
 probes:
   liveness:
     enabled: true

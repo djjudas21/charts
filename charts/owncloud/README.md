@@ -38,7 +38,7 @@ A file sharing server that puts the control and security of your own data back i
 | image.tag | string | chart.appVersion | image tag |
 | imagePullSecrets | list | `[]` |  |
 | ingress | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
-| mariadb | object | [https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml] | Enable and configure mariadb database subchart under this key.    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb) |
+| mariadb | object | <https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml> | Enable and configure mariadb database subchart under this key.    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb) |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | ownCloud.adminPassword | string | `"admin"` |  |
@@ -62,7 +62,7 @@ A file sharing server that puts the control and security of your own data back i
 | persistence.storageClass | string | `""` |  |
 | podAnnotations | object | `{}` |  |
 | priorityClassName | string | `""` |  |
-| redis | object | [https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml] | Enable and configure redis subchart under this key.    For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis) |
+| redis | object | <https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml> | Enable and configure redis subchart under this key.    For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis) |
 | replicaCount | int | `1` | Number of replicas |
 | resources | object | `{}` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |

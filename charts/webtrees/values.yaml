@@ -70,7 +70,7 @@ persistence:
 
 # -- Enable and configure mariadb database subchart under this key.
 #    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
-# @default -- [https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml]
+# @default -- <https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml>
 mariadb:
   enabled: false
   architecture: standalone

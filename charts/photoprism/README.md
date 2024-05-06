@@ -48,7 +48,7 @@ Kubernetes: `>=1.16.0-0`
 | image.repository | string | `"photoprism/photoprism"` | image repository |
 | image.tag | string | chart.appVersion | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
-| mariadb | object | [https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml] | Enable and configure mariadb database subchart under this key.    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb) |
+| mariadb | object | <https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml> | Enable and configure mariadb database subchart under this key.    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb) |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

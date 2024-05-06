@@ -27,7 +27,7 @@ env:
   # GroupID
   pgid: 1000
 
-  # -- specify a timezone to use, see [https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List]
+  # -- specify a timezone to use, see <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List>
   tz: Etc/UTC
 
   # -- Optional ssh public key, which will automatically be added to authorized_keys.
@@ -39,7 +39,7 @@ env:
   # -- Optionally specify a directory containing the public keys (works with docker secrets).
   publicKeyDir:
 
-  # -- Optionally specify a URL containing the public key, e.g. [https://github.com/username.keys]
+  # -- Optionally specify a URL containing the public key, e.g. <https://github.com/username.keys>
   publicKeyUrl:
 
   # -- Set to true to allow linuxserver.io, the ssh user, sudo access. Without USER_PASSWORD set, this will allow passwordless sudo access.

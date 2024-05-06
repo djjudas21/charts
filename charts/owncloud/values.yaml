@@ -101,7 +101,7 @@ affinity: {}
 
 # -- Enable and configure mariadb database subchart under this key.
 #    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
-# @default -- [https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml]
+# @default -- <https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml>
 mariadb:
   enabled: true
   architecture: standalone
@@ -129,7 +129,7 @@ mariadb:
 
 # -- Enable and configure redis subchart under this key.
 #    For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis)
-# @default -- [https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml]
+# @default -- <https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml>
 redis:
   architecture: standalone
   auth:

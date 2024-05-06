@@ -27,9 +27,9 @@ Sandboxed environment that allows ssh access without giving keys to the entire s
 | env.publicKey | string | `nil` | Optional ssh public key, which will automatically be added to authorized_keys. |
 | env.publicKeyDir | string | `nil` | Optionally specify a directory containing the public keys (works with docker secrets). |
 | env.publicKeyFile | string | `nil` | Optionally specify a file containing the public key (works with docker secrets). |
-| env.publicKeyUrl | string | `nil` | Optionally specify a URL containing the public key, e.g. [https://github.com/username.keys] |
+| env.publicKeyUrl | string | `nil` | Optionally specify a URL containing the public key, e.g. <https://github.com/username.keys> |
 | env.sudoAccess | bool | `false` | Set to true to allow linuxserver.io, the ssh user, sudo access. Without USER_PASSWORD set, this will allow passwordless sudo access. |
-| env.tz | string | `"Etc/UTC"` | specify a timezone to use, see [https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List] |
+| env.tz | string | `"Etc/UTC"` | specify a timezone to use, see <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List> |
 | env.userName | string | `nil` | Optionally specify a user name (Default:linuxserver.io) |
 | env.userPassword | string | `nil` | Optionally set a sudo password for linuxserver.io, the ssh user. If this or USER_PASSWORD_FILE are not set but SUDO_ACCESS is set to true, the user will have passwordless sudo access. |
 | env.userPasswordFile | string | `nil` | Optionally specify a file that contains the password. This setting supersedes the USER_PASSWORD option (works with docker secrets). |
