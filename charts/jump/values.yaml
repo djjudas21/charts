@@ -14,7 +14,6 @@ image:
 
 # -- Config values for Jump. Always check https://github.com/daledavies/jump
 # for latest details of available options.
-# @ignore
 env:
   # -- Custom site name
   # SITENAME:

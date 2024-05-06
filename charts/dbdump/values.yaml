@@ -17,7 +17,6 @@ fullnameOverride: ""
 # -- List of databases to backup (see format below).
 # -- Without a host set, this chart will not do anything as it is expected
 # -- to be used only when there's an existing database to backup.
-# -- @ignore
 databases:
   # -- Database host to connect to (must be unique)
 - host: "example.com"
@@ -72,7 +71,6 @@ persistence:
   storageClass:
 
 # -- delete old backups
-# -- @ignore
 housekeeping:
   # -- delete old backups
   enabled: true
