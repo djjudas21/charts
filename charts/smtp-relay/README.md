@@ -39,16 +39,7 @@ An SMTP smarthost relay for Kubernetes
 | persistence.storageClass | string | `""` | If undefined (the default) the default StorageClass is used |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
-| probes.liveness.enabled | bool | `true` |  |
-| probes.liveness.failureThreshold | int | `3` |  |
-| probes.liveness.initialDelaySeconds | int | `0` |  |
-| probes.liveness.periodSeconds | int | `10` |  |
-| probes.liveness.timeoutSeconds | int | `1` |  |
-| probes.readiness.enabled | bool | `true` |  |
-| probes.readiness.failureThreshold | int | `3` |  |
-| probes.readiness.initialDelaySeconds | int | `0` |  |
-| probes.readiness.periodSeconds | int | `10` |  |
-| probes.readiness.timeoutSeconds | int | `1` |  |
+| probes | object | `{"liveness":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":0,"periodSeconds":10,"timeoutSeconds":1},"readiness":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":0,"periodSeconds":10,"timeoutSeconds":1}}` | configure probes |
 | replicaCount | int | `1` | Number of replicas |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |

@@ -28,18 +28,8 @@ A Helm chart to help backup SQL databases using mysqldump and pgdump
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| databases[0].allDatabases | string | `"true"` |  |
-| databases[0].database | string | `""` | db name for single db backup |
-| databases[0].debug | string | `"false"` | debug output |
-| databases[0].host | string | `"example.com"` |  |
-| databases[0].password | string | `""` | password |
-| databases[0].port | string | `"3306"` |  |
-| databases[0].schedule | string | `""` | schedule override |
-| databases[0].type | string | `""` | Database type, mysql or postgresql |
-| databases[0].username | string | `"root"` | username |
-| failedJobsHistoryLimit | int | `3` |  |
+| failedJobsHistoryLimit | int | `3` | number of failed jobs to remember |
 | fullnameOverride | string | `""` |  |
-| housekeeping | object | `{"enabled":true,"keepDays":10}` | delete old backups |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"djjudas21/dbdump"` | image repository |
 | image.tag | string | chart.appVersion | image tag |
@@ -47,17 +37,21 @@ A Helm chart to help backup SQL databases using mysqldump and pgdump
 | mariadb | object | `{"enabled":false}` | dependency chart for ci |
 | mysqldumpOptions | string | `"--single-transaction"` | options to pass to mysqldump |
 | nameOverride | string | `""` |  |
-| nodeSelector | object | `{}` |  |
-| persistence.accessMode | string | `"ReadWriteMany"` |  |
-| persistence.enabled | bool | `true` |  |
-| persistence.size | string | `"8Gi"` |  |
-| persistence.subPath | string | `nil` |  |
+| nodeSelector | object | `{}` | resource definitions |
+| persistence.accessMode | string | `"ReadWriteMany"` | accessMode to use for PVC |
+| persistence.enabled | bool | `true` | create new PVC |
+| persistence.size | string | `"8Gi"` | size of PVC to create |
+| persistence.storageClass | string | `nil` | storage class to use for PVC |
+| persistence.subPath | string | `nil` | subPath for PVC |
 | pgdumpOptions | string | `""` | options to pass to pgdump |
 | podAnnotations | object | `{}` |  |
-| resources | object | `{}` |  |
+| resources | object | `{}` | resource definitions |
 | schedule | string | `"0 3 * * *"` | cron time setting for backup schedule |
 | securityContext | object | `{"enabled":false,"fsGroup":999,"runAsUser":999}` | Pod Security Context |
-| successfulJobsHistoryLimit | int | `3` | cronjob history |
+| securityContext.enabled | bool | `false` | set true to change default security context of job/cronjob |
+| securityContext.fsGroup | int | `999` | group ID to use |
+| securityContext.runAsUser | int | `999` | user ID to use |
+| successfulJobsHistoryLimit | int | `3` | number of successful jobs to remember |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
