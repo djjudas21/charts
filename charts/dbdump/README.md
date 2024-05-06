@@ -28,8 +28,21 @@ A Helm chart to help backup SQL databases using mysqldump and pgdump
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| databases | list | `[{"allDatabases":"true","database":"","debug":"false","host":"example.com","password":"","port":"3306","schedule":"","type":"","username":"root"}]` | to be used only when there's an existing database to backup. |
+| databases[0] | object | `{"allDatabases":"true","database":"","debug":"false","host":"example.com","password":"","port":"3306","schedule":"","type":"","username":"root"}` | Database host to connect to (must be unique) |
+| databases[0].allDatabases | string | `"true"` | Back up all databases (overrides database) |
+| databases[0].database | string | `""` | DB name for single DB backup |
+| databases[0].debug | string | `"false"` | Enable debug output |
+| databases[0].password | string | `""` | Database password |
+| databases[0].port | string | `"3306"` | Database port |
+| databases[0].schedule | string | `""` | Override crontab schedule for this host |
+| databases[0].type | string | `""` | Database type, mysql or postgresql |
+| databases[0].username | string | `"root"` | Database username |
 | failedJobsHistoryLimit | int | `3` | number of failed jobs to remember |
 | fullnameOverride | string | `""` |  |
+| housekeeping | object | `{"enabled":true,"keepDays":10}` | delete old backups |
+| housekeeping.enabled | bool | `true` | delete old backups |
+| housekeeping.keepDays | int | `10` | backup retention period |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"djjudas21/dbdump"` | image repository |
 | image.tag | string | chart.appVersion | image tag |
