@@ -30,12 +30,37 @@ spec:
       serviceAccountName: {{ include "foreman.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - args:
+            - bundle
+            - exec
+            - rake
+            - db:migrate
+            - db:seed
+            - assets:clean
+            - assets:precompile
+            - webpack:compile
+            - apipie:cache:index
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          name: foreman-init
+          volumeMounts:
+            - mountPath: /usr/src/app/public/assets
+              name: assets
+            - mountPath: /usr/src/app/public/webpack
+              name: webpack
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - rails
+            - server
+            - -p
+            - "{{ .Values.service.port }}"
+            - -b
+            - 0.0.0.0
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
@@ -48,10 +73,20 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
+            - mountPath: /usr/src/app/public/assets
+              name: assets
+            - mountPath: /usr/src/app/public/webpack
+              name: webpack
             {{- toYaml . | nindent 12 }}
           {{- end }}
       {{- with .Values.volumes }}
       volumes:
+        - name: assets
+          persistentVolumeClaim:
+            claimName: {{ include "foreman.fullname" . }}-assets
+        - name: webpack
+          persistentVolumeClaim:
+            claimName: {{ include "foreman.fullname" . }}-webpack
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.nodeSelector }}
