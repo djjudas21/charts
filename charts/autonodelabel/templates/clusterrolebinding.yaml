@@ -6,7 +6,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: {{ include "autonodelabel.serviceAccountName" . }}
-  namespace: kube-system
+  namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
   name: {{ include "autonodelabel.fullname" . }}
