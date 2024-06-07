@@ -1,0 +1,3 @@
+# Because helm-dashboard need to see everything (dashboard), it must access to everything (unfortunately, secret too).
+# NOTE: maybe it should be more interesting to use existing 'cluster-admin' and 'view' role?
+KSV046

@@ -1,0 +1,34 @@
+---
+# Source: jellyfin/templates/storage.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jellyfin-config
+  labels:
+    app.kubernetes.io/name: jellyfin
+    helm.sh/chart: jellyfin-2.3.0
+    app.kubernetes.io/instance: jellyfin
+    app.kubernetes.io/managed-by: Helm
+spec: 
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 250Mi
+---
+# Source: jellyfin/templates/storage.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jellyfin-data
+  labels:
+    app.kubernetes.io/name: jellyfin
+    helm.sh/chart: jellyfin-2.3.0
+    app.kubernetes.io/instance: jellyfin
+    app.kubernetes.io/managed-by: Helm
+spec: 
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

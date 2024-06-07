@@ -1,0 +1,139 @@
+---
+# Source: jellyfin/templates/statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: jellyfin
+  annotations:
+    podAnnotations: enabled
+  labels:
+    app.kubernetes.io/name: jellyfin
+    helm.sh/chart: jellyfin-2.3.0
+    app.kubernetes.io/instance: jellyfin
+    app.kubernetes.io/managed-by: Helm
+    commonLabels01: enabled
+    commonLabels02: enabled
+spec:
+  serviceName: jellyfin
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: jellyfin
+      app.kubernetes.io/instance: jellyfin
+      podLabels: enabled
+  updateStrategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        podAnnotations: enabled
+      labels:
+        app.kubernetes.io/name: jellyfin
+        app.kubernetes.io/instance: jellyfin
+        podLabels: enabled
+    spec:
+      imagePullSecrets:
+        - name: image-pull-secret
+      securityContext:
+        fsGroup: 65534
+        runAsGroup: 65534
+        runAsNonRoot: true
+        runAsUser: 65534
+        seccompProfile:
+          type: Unconfined
+      containers:
+        - name: jellyfin
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: false
+            runAsGroup: 65534
+            runAsNonRoot: true
+            runAsUser: 65534
+          image: ghcr.io/beluga-cloud/jellyfin/jellyfin:10.8.13
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: web
+              containerPort: 8096
+              protocol: TCP
+          livenessProbe:
+            httpGet: &httpProbe
+              port: web
+              path: /health
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet: *httpProbe
+            periodSeconds: 10
+            timeoutSeconds: 10
+          resources:
+            limits:
+              cpu: 2
+              memory: 2Gi
+            requests:
+              cpu: 10m
+              memory: 10Mi
+          volumeMounts:
+            - name: config
+              mountPath: /opt/jellyfin/config
+            - name: data
+              mountPath: /opt/jellyfin/data
+            - name: cache
+              mountPath: /opt/jellyfin/cache
+            - name: log
+              mountPath: /opt/jellyfin/log
+            - name: tmpfs
+              mountPath: /tmp
+            - name: dev-dri-renderd128
+              mountPath: /dev/dri/renderD128
+            - name: movies
+              mountPath: /media/movies
+              readOnly: false
+            - name: musics
+              mountPath: /media/musics
+              readOnly: true
+      nodeSelector:
+        kubernetes.io/os: linux
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - preference:
+              matchExpressions:
+              - key: another-node-label-key
+                operator: In
+                values:
+                - another-node-label-value
+            weight: 1
+      tolerations:
+        - effect: NoSchedule
+          key: foo.bar.com/role
+          operator: Equal
+          value: master
+      volumes:
+        - name: config
+          emptyDir: { }
+        - name: data
+          emptyDir: { }
+        - name: cache
+          emptyDir: { }
+        - name: log
+          emptyDir: { }
+        - name: tmpfs
+          emptyDir:
+            medium: Memory
+            sizeLimit: 10Mi
+        - name: dev-dri-renderd128
+          hostPath:
+            path: /dev/dri/renderD128
+        - name: movies
+          persistentVolumeClaim:
+            claimName: jellyfin-mediavol-movies
+        - name: musics
+          persistentVolumeClaim:
+            claimName: jellyfin-mediavol-musics

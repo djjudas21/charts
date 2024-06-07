@@ -1,0 +1,40 @@
+---
+# Source: jellyfin/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "jellyfin-test-connection"
+  labels:
+    app.kubernetes.io/name: jellyfin
+    helm.sh/chart: jellyfin-2.3.0
+    app.kubernetes.io/instance: jellyfin
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      args: ['--timeout=5', '-O/dev/null', 'jellyfin:8888/health']
+      command: ['wget']
+      image: busybox:musl
+      resources:
+        requests:
+          cpu: 10m
+          memory: 25Mi
+        limits:
+          cpu: 100m
+          memory: 25Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        runAsUser: 65534
+        runAsGroup: 65534
+  restartPolicy: Never
+  securityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault

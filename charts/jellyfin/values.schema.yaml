@@ -1,0 +1,17 @@
+---
+$:
+  .: !!jsonschema
+    $schema: http://json-schema.org/draft-07/schema#
+    oneOf:
+      - $ref: '{{ .HelmValuesReferenceURL }}#/$defs/io.belugacloud.v1.HelmValues'
+
+  # Configure specific properties to deploy Jellyfin.
+  jellyfin:
+    extraDevices: !!array_of_str # List of extra devices to mount in the Jellyfin container.
+    mediaVolumes: !!array # List of media volumes to mount to `/media` in the Jellyfin container.
+      .: !!jsonschema
+        required: [ name, volumeSpec ]
+
+      name: !!str _ # Volume and directory name.
+      readOnly: !!bool _ # Whether the volume is read-only.
+      volumeSpec: !!ref_on_kubernetes io.k8s.api.core.v1.PersistentVolumeSpec

@@ -1,0 +1,98 @@
+---
+# Source: jellyfin/templates/statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: jellyfin
+  labels:
+    app.kubernetes.io/name: jellyfin
+    helm.sh/chart: jellyfin-2.3.0
+    app.kubernetes.io/instance: jellyfin
+    app.kubernetes.io/managed-by: Helm
+spec:
+  serviceName: jellyfin
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: jellyfin
+      app.kubernetes.io/instance: jellyfin
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: jellyfin
+        app.kubernetes.io/instance: jellyfin
+    spec:
+      securityContext:
+        fsGroup: 64710
+        runAsGroup: 64710
+        runAsNonRoot: true
+        runAsUser: 64710
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: jellyfin
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsGroup: 64710
+            runAsNonRoot: true
+            runAsUser: 64710
+          image: ghcr.io/beluga-cloud/jellyfin/jellyfin:10.8.13
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: web
+              containerPort: 8096
+              protocol: TCP
+          livenessProbe:
+            httpGet: &httpProbe
+              port: web
+              path: /health
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet: *httpProbe
+            periodSeconds: 10
+            timeoutSeconds: 10
+          resources:
+            limits:
+              cpu: "2"
+              memory: 6Gi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+            - name: config
+              mountPath: /opt/jellyfin/config
+            - name: data
+              mountPath: /opt/jellyfin/data
+            - name: transcodes
+              mountPath: /opt/jellyfin/data/transcodes
+            - name: cache
+              mountPath: /opt/jellyfin/cache
+            - name: log
+              mountPath: /opt/jellyfin/log
+            - name: tmpfs
+              mountPath: /tmp
+      nodeSelector:
+        kubernetes.io/os: linux
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: jellyfin-config
+        - name: data
+          persistentVolumeClaim:
+            claimName: jellyfin-data
+        - name: transcodes
+          emptyDir: { }
+        - name: cache
+          emptyDir: { }
+        - name: log
+          emptyDir: { }
+        - name: tmpfs
+          emptyDir:
+            medium: Memory
+            sizeLimit: 10Mi

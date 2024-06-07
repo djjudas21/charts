@@ -1,0 +1,125 @@
+# yaml-language-server: $schema=../../../values.schema.json
+
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - preference:
+        matchExpressions:
+        - key: another-node-label-key
+          operator: In
+          values:
+          - another-node-label-value
+      weight: 1
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities: {}
+  readOnlyRootFilesystem: false
+  runAsGroup: 65534
+  runAsNonRoot: true
+  runAsUser: 65534
+global:
+  commonLabels:
+    commonLabels01: enabled
+    commonLabels02: enabled
+  debug: true
+  imagePullSecrets:
+  - name: image-pull-secret
+ingress:
+  annotations:
+    annotations: enabled
+  enabled: true
+  hostname: jellyfin.example.com
+  ingressClassName: nginx
+  path: /ui
+  pathType: ImplementationSpecific
+  tls: true
+jellyfin:
+  extraDevices:
+  - /dev/dri/renderD128
+  mediaVolumes:
+  - name: movies
+    readOnly: false
+    volumeSpec:
+      accessModes:
+      - ReadWriteOnce
+      capacity:
+        storage: 8Ti
+      nfs:
+        path: /nas/movies
+        server: my-nfs-server.example.com
+  - name: musics
+    readOnly: true
+    volumeSpec:
+      accessModes:
+      - ReadWriteOnce
+      capacity:
+        storage: 8Ti
+      nfs:
+        path: /nas/musics
+        server: my-nfs-server.example.com
+  persistentTranscodes: true
+networkPolicy:
+  allowAllOutbound: false
+  allowExternal: false
+  egress:
+  - ports:
+    - port: 8080
+      protocol: TCP
+    to:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+  enabled: true
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+nodeSelector: {}
+persistence:
+  config:
+    enabled: false
+  data:
+    enabled: false
+podAnnotations:
+  podAnnotations: enabled
+podLabels:
+  podLabels: enabled
+podSecurityContext:
+  fsGroup: 65534
+  runAsGroup: 65534
+  runAsNonRoot: true
+  runAsUser: 65534
+  seccompProfile:
+    type: Unconfined
+resources:
+  jellyfin:
+    limits:
+      cpu: 2
+      memory: 2Gi
+    requests:
+      cpu: 10m
+      memory: 10Mi
+service:
+  annotations:
+    annotations: enabled
+  type: LoadBalancer
+  loadBalancerIP: 0.0.0.0
+  web:
+    port: 8888
+strategy:
+  rollingUpdate:
+    maxSurge: 25%
+    maxUnavailable: 25%
+  type: RollingUpdate
+tolerations:
+- effect: NoSchedule
+  key: foo.bar.com/role
+  operator: Equal
+  value: master
+topologySpreadConstraints:
+- labelSelector:
+    matchLabels:
+      app.kubernetes.io/component: dashboard
+      app.kubernetes.io/instance: helm-dashboard
+  maxSkew: 2
+  topologyKey: topology.kubernetes.io/zone
+  whenUnsatisfiable: ScheduleAnyway

@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "common.names.fullname" . }}-test-connection"
+  labels:
+    {{- include "common.labels.standard" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      args: ['--timeout=5', '-O/dev/null', '{{ include "common.names.fullname" . }}:{{ .Values.service.web.port }}/health']
+      command: ['wget']
+      image: busybox:musl
+      resources:
+        requests:
+          cpu: 10m
+          memory: 25Mi
+        limits:
+          cpu: 100m
+          memory: 25Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        runAsUser: 65534
+        runAsGroup: 65534
+  restartPolicy: Never
+  securityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault

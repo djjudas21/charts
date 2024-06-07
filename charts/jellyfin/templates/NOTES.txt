@@ -1,0 +1,42 @@
+Thank you for installing {{ .Chart.Name | replace "-" " " | title }}.
+
+******************************************************************
+*** PLEASE BE PATIENT: Parse may take a few minutes to install ***
+******************************************************************
+
+{{ .Chart.Name | replace "-" " " | title }} can be accessed:
+  * Within your cluster, at the following DNS name at port {{ .Values.service.port }}:
+
+    {{ template "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
+
+  * From outside the cluster:
+    {{- $selector := (printf "app.kubernetes.io/name=%s,app.kubernetes.io/instance=%s" (include "common.names.name" .) .Release.Name) -}}
+
+    {{- if .Values.ingress.enabled }}
+
+    Visit {{ .Values.ingress.tls | ternary "https" "http" }}://{{ .Values.ingress.hostname }}{{ .Values.ingress.path }}
+
+    {{- else if contains "NodePort" .Values.service.type }}
+
+    export NODE_PORT=$(kubectl get service --namespace {{ .Release.Namespace }} --selector {{ $selector | quote }} -o jsonpath="{.spec.ports[0].nodePort}")
+    export NODE_IP=$(kubectl get service --namespace {{ .Release.Namespace }} --selector {{ $selector | quote }} -o jsonpath="{.items[0].status.addresses[0].address}")
+    echo "Visit http://$NODE_IP:$NODE_PORT/ to use {{ .Chart.Name | lower }}"
+
+    {{- else if contains "LoadBalancer" .Values.service.type }}
+
+    NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+          Watch the status with: 'kubectl get service --namespace {{ .Release.Namespace }} --selector {{ $selector | quote }} --watch'
+
+    export LB_HOST=$(kubectl get service --namespace {{ .Release.Namespace }} --selector {{ $selector | quote }} --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}"):{{ .Values.service.web.port }}
+    echo "Visit http://$LB_HOST to use {{ .Chart.Name | lower }}"
+
+    {{- else }}
+
+    export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} --selector {{ $selector | quote }} -o jsonpath="{.items[0].metadata.name}")
+    export CONTAINER_PORT=$(kubectl get pod --namespace {{ .Release.Namespace }} $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+    echo "Visit http://127.0.0.1:8080 to use {{ .Chart.Name | lower }}"
+    kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:$CONTAINER_PORT
+    {{- end }}
+
+Visit official {{ .Chart.Name | replace "-" " " | title }} documentation at:
+  {{ .Chart.Home }}
