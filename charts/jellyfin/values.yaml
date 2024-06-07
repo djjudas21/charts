@@ -22,7 +22,7 @@ images:
     # -- jellyfin image registry (optional)
     registry: ""
     # -- jellyfin image repository
-    repository: ghcr.io/beluga-cloud/jellyfin/jellyfin
+    repository: jellyfin/jellyfin
     # -- jellyfin image tag (immutable tags are recommended)
     tag: ""
     # -- jellyfin image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag
