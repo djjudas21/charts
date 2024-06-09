@@ -3,7 +3,6 @@ images/
 
 # Ignore everything related to CI or development tools
 ci/
-~develop/
 
 .justfile
 .trivyignore
