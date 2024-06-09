@@ -124,5 +124,9 @@ spec:
         {{- range .Values.jellyfin.mediaVolumes }}
         - name: {{ .name }}
           persistentVolumeClaim:
+          {{- if .existingClaim }}
+            claimName: {{ .existingClaim }}
+          {{- else }}
             claimName: {{ include "common.names.fullname" $ }}-mediavol-{{ .name }}
+          {{- end }}
         {{- end }}

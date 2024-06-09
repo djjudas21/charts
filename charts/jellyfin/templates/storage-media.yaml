@@ -1,4 +1,5 @@
 {{- range .Values.jellyfin.mediaVolumes }}
+{{- if not .existingClaim }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -18,4 +19,5 @@ spec:
   resources:
     requests:
       storage: {{ .volumeSpec.capacity.storage }}
+{{- end }}
 {{- end }}

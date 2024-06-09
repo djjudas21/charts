@@ -214,6 +214,7 @@ jellyfin:
   mediaVolumes: []
   # - name: movies # this volume will be mounted into `/media/movies`
   #   readOnly: false # is this volume readonly ? (optional, default true)
+  #   existingClaim: "" # use an existing PVC
   #   volumeSpec: # see https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumespec-v1-core
   #     accessModes:
   #       - ReadWriteOnce
