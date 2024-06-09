@@ -1,6 +1,0 @@
-Types: deb
-URIs: https://repo.jellyfin.org/ubuntu
-Suites: @RELEASE_NAME
-Components: main
-Architectures: @ARCH
-Signed-By: /etc/apt/keyrings/jellyfin_team.gpg
