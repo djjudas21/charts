@@ -1,0 +1,23 @@
+{{- range .Values.jellyfin.mediaVolumes }}
+{{- if not .existingClaim }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "common.names.fullname" $ }}-mediavol-{{ .name }}
+  labels:
+    {{- include "common.labels.standard" $ | nindent 4 }}
+    {{- with $.Values.global.commonLabels }}{{ toYaml . | nindent 4 }}{{ end }}
+spec:
+  {{- if .volumeSpec.storageClass }}
+  storageClassName: {{ .volumeSpec.storageClass }}
+  {{- end }}
+  accessModes:
+  {{- range .volumeSpec.accessModes }}
+    - {{ . | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .volumeSpec.capacity.storage }}
+{{- end }}
+{{- end }}

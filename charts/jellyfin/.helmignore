@@ -1,0 +1,9 @@
+# Ignore all images
+images/
+
+# Ignore everything related to CI or development tools
+ci/
+
+.justfile
+.trivyignore
+README.md.gotmpl

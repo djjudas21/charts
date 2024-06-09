@@ -1,0 +1,275 @@
+{{- define "chart.title" }}{{ .Name | replace "-" " " | title }}{{- end }}
+{{- define "chart.icon" }}https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg{{- end }}
+{{- define "parameter.description" }}{{ regexReplaceAll "(https?://)([^/]+(?:/[^/]+)?)([^\\s]+)" (.Description | default .AutoDescription) "[$2]($1$2$3)" }}{{- end }}
+
+<!-- markdownlint-disable MD033 -->
+
+<h1 align="center">
+    <a href="{{ template "chart.homepage" . }}">
+        <img src="{{ template "chart.icon" . }}" alt="Logo" style="max-height: 150px">
+    </a>
+</h1>
+
+<h4 align="center">{{ template "chart.title" . }} - {{ template "chart.description" . }}</h4>
+
+<div align="center">
+  <br/>
+
+  [
+    ![License](https://img.shields.io/github/license/beluga-cloud/charts?logo=git&logoColor=white&logoWidth=20)
+  ](LICENSE)
+  <br/>
+  {{ template "chart.typeBadge" . }}
+  {{ template "chart.versionBadge" . }}
+  {{ template "chart.appVersionBadge" . }}
+
+</div>
+
+
+---
+
+## [{{ template "chart.title" . }}]({{ template "chart.homepage" . }})
+
+> _Disclaimer: This application has been developed by the [{{ template "chart.title" . }}]({{ template "chart.homepage" . }}) community._
+
+_Jellyfin_ is the volunteer-built media solution that puts you in control of your media. Stream to any device from
+your own server, with no strings attached.
+
+Some features of Jellyfin:
+- **Movies**: Enjoy your entire movie collection, easy to browse and with beautiful artwork.
+- **Shows**: Watch your favorite shows, automatically sorted by season and ready to binge.
+- **Music**: Listen to music, your artists and your playlists, at home or on the go.
+- **Live TV & DVR**: Watch TV and set automatic recordings to expand your library.
+- **Books**: Read your books, comics, and magazines.
+- **Photos**: Organize your photos and share memories with your friends and family.
+- **SyncPlay**: Sharing a movie night remotely has never been so easy.
+
+[> More about {{ template "chart.title" . }}]({{ template "chart.homepage" . }})
+
+---
+
+## TL;DR
+
+```shell
+helm repo add beluga-cloud https://beluga-cloud.github.io/charts
+helm install my-release beluga-cloud/{{ template "chart.name" . }}
+```
+
+## Introduction
+
+This chart bootstraps a {{ template "chart.title" . }} deployment on a [Kubernetes](kubernetes.io) cluster using the [Helm](helm.sh) package manager.
+
+## Prerequisites
+
+- Kubernetes {{ template "chart.kubeVersion" . }}
+- Helm 3+
+
+## Installing the Chart
+
+To install the chart with the release name `my-release`:
+
+```shell
+helm repo add beluga-cloud https://beluga-cloud.github.io/charts
+helm install my-release beluga-cloud/{{ template "chart.name" . }}
+```
+
+These commands deploy {{ template "chart.name" . }} on the Kubernetes cluster in the default configuration.
+The Parameters section lists the parameters that can be configured during installation.
+
+> **Tip:** List all releases using `helm list`
+
+## Uninstalling the Chart
+
+To uninstall/delete the `my-release` deployment:
+
+```shell
+helm delete my-release
+```
+
+The command removes all the Kubernetes components associated with the chart and deletes the release.
+
+## Parameters
+{{- $params := list }}
+
+### Global parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+{{- range .Values }}
+    {{- if hasPrefix "global." .Key }}
+        {{- $params = append $params .Key }}
+| `{{ .Key }}` |  {{ template "parameter.description" . }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} |
+    {{- end }}
+{{- end }}
+
+### Common parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+{{- range .Values }}
+    {{- if and
+      (not (has .Key $params))
+      (or
+        (hasPrefix "commonAnnotations" .Key)
+        (hasPrefix "commonLabels" .Key)
+        (hasPrefix "fullnameOverride" .Key)
+        (hasPrefix "nameOverride" .Key)
+      )
+    }}
+        {{- $params = append $params .Key }}
+| `{{ .Key }}` | {{ template "parameter.description" . }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} |
+    {{- end }}
+{{- end }}
+
+### {{ template "chart.title" . }} parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+{{- range .Values }}
+    {{- if and
+      (not (has .Key $params))
+      (or
+        (hasPrefix "image" .Key)
+        (hasPrefix ($.Name | snakecase) .Key)
+      )
+    }}
+        {{- $params = append $params .Key }}
+| `{{ .Key }}` | {{ template "parameter.description" . }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} |
+    {{- end }}
+{{- end }}
+
+### Security parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+{{- range .Values }}
+    {{- if and
+      (not (has .Key $params))
+      (or
+        (hasPrefix "podSecurityContext" .Key)
+        (hasPrefix "containerSecurityContext" .Key)
+      )
+    }}
+        {{- $params = append $params .Key }}
+| `{{ .Key }}` | {{ template "parameter.description" . }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} |
+    {{- end }}
+{{- end }}
+
+### Deployment/Statefulset parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+{{- range .Values }}
+    {{- if and
+      (not (has .Key $params))
+      (or
+        (hasPrefix "affinity" .Key)
+        (hasPrefix "container" .Key)
+        (hasPrefix "deployment" .Key)
+        (hasPrefix "nodeSelector" .Key)
+        (hasPrefix "pod" .Key)
+        (hasPrefix "priorityClassName" .Key)
+        (hasPrefix "provisioning" .Key)
+        (hasPrefix "replicaCount" .Key)
+        (hasPrefix "resources" .Key)
+        (hasPrefix "statefulset" .Key)
+        (hasPrefix "strategy" .Key)
+        (hasPrefix "tolerations" .Key)
+        (hasPrefix "topologySpreadConstraints" .Key)
+      )
+    }}
+        {{- $params = append $params .Key }}
+| `{{ .Key }}` | {{ template "parameter.description" . }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} |
+    {{- end }}
+{{- end }}
+
+### Network parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+{{- range .Values }}
+    {{- if and
+      (not (has .Key $params))
+      (or
+        (hasPrefix "service" .Key)
+        (hasPrefix "ingress" .Key)
+        (hasPrefix "networkPolicy" .Key)
+      )
+    }}
+        {{- $params = append $params .Key }}
+| `{{ .Key }}` | {{ template "parameter.description" . }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} |
+    {{- end }}
+{{- end }}
+
+### Persistence parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+{{- range .Values }}
+    {{- if and
+      (not (has .Key $params))
+      (or
+        (hasPrefix "persistence" .Key)
+      )
+    }}
+        {{- $params = append $params .Key }}
+| `{{ .Key }}` | {{ template "parameter.description" . }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} |
+    {{- end }}
+{{- end }}
+
+### RBAC parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+{{- range .Values }}
+    {{- if and
+      (not (has .Key $params))
+      (or
+        (hasPrefix "rbac" .Key)
+      )
+    }}
+        {{- $params = append $params .Key }}
+| `{{ .Key }}` | {{ template "parameter.description" . }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} |
+    {{- end }}
+{{- end }}
+
+{{- if not (eq (len .Values) (len $params)) }}
+### Other parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+{{- range .Values }}
+    {{- if not (has .Key $params) }}
+| `{{ .Key }}` | {{ template "parameter.description" . }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} |
+    {{- end }}
+{{- end }}
+{{- end }}
+
+Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
+
+```shell
+helm install my-release --set fullnameOverride=my-{{ template "chart.name" . }} beluga-cloud/{{ template "chart.name" . }}
+```
+
+Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
+
+```shell
+helm install my-release -f values.yaml my-repo/{{ template "chart.name" . }}
+```
+
+> **Tip:** You can use the default values.yaml
+
+## License
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the License at
+
+```
+http://www.apache.org/licenses/LICENSE-2.0
+```
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific
+language governing permissions and limitations under the License.
+
+{{ template "helm-docs.versionFooter" . }}

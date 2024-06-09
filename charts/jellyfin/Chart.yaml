@@ -1,0 +1,21 @@
+apiVersion: v2
+type: application
+name: jellyfin
+description: Your media, your server, your way
+version: 3.0.0
+# renovate: datasource=docker depName=ghcr.io/beluga-cloud/jellyfin/jellyfin
+appVersion: 10.9.6
+kubeVersion: '>=1.20'
+home: https://jellyfin.org/
+icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+keywords:
+  - jellyfin
+  - media-server
+  - plex
+sources:
+  - https://github.com/jellyfin/jellyfin
+  - https://github.com/beluga-cloud/charts/tree/main/charts/jellyfin
+maintainers:
+  - name: xunleii
+    url: https://github.com/beluga-cloud
+dependencies: []
