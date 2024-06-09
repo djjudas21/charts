@@ -18,7 +18,4 @@ sources:
 maintainers:
   - name: xunleii
     url: https://github.com/beluga-cloud
-dependencies:
-  - name: common
-    repository: https://beluga-cloud.github.io/charts
-    version: 1.0.0
+dependencies: []
