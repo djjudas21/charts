@@ -84,7 +84,7 @@ spec:
               value: "{{ .Values.lldap.smtp.server }}"
             - name: LLDAP_SMTP_OPTIONS__PORT
               value: "{{ .Values.lldap.smtp.port }}"
-            - name: LLDAP_SMTP_OPTIONS__ENCRYPTION
+            - name: LLDAP_SMTP_OPTIONS__SMTP_ENCRYPTION
               value: "{{ .Values.lldap.smtp.smtpEncryption }}"
             - name: LLDAP_SMTP_OPTIONS__USER
               value: "{{ .Values.lldap.smtp.user }}"
