@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: jellyfin
 description: Your media, your server, your way
-version: 3.0.2
+version: 3.1.0
 appVersion: 10.9.7
 kubeVersion: '>=1.20'
 home: https://jellyfin.org/
@@ -22,4 +22,4 @@ dependencies: []
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to Jellyfin 10.9.7
+      description: Fix problems with persistence

@@ -54,17 +54,11 @@ spec:
           resources: {{- toYaml .Values.resources.jellyfin | nindent 12 }}
           volumeMounts:
             - name: config
-              mountPath: /opt/jellyfin/config
-            - name: data
-              mountPath: /opt/jellyfin/data
+              mountPath: /config
             {{- if not .Values.jellyfin.persistentTranscodes }}
-            - name: transcodes
-              mountPath: /opt/jellyfin/data/transcodes
             {{- end }}
             - name: cache
-              mountPath: /opt/jellyfin/cache
-            - name: log
-              mountPath: /opt/jellyfin/log
+              mountPath: /cache
             - name: tmpfs
               mountPath: /tmp
             {{- range .Values.jellyfin.extraDevices }}
@@ -97,8 +91,8 @@ spec:
           {{- else }}
           emptyDir: { }
           {{- end }}
-        - name: data
-          {{- if .Values.persistence.data.enabled }}
+        - name: cache
+          {{- if .Values.persistence.cache.enabled }}
           persistentVolumeClaim:
             claimName: {{ include "common.names.fullname" . }}-data
           {{- else }}
@@ -108,10 +102,6 @@ spec:
         - name: transcodes
           emptyDir: { }
         {{- end }}
-        - name: cache
-          emptyDir: { }
-        - name: log
-          emptyDir: { }
         - name: tmpfs
           emptyDir:
             medium: Memory
