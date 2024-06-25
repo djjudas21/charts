@@ -18,8 +18,8 @@
   ](LICENSE)
   <br/>
   ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
-  ![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square)
-  ![AppVersion: 10.9.6](https://img.shields.io/badge/AppVersion-10.9.6-informational?style=flat-square)
+  ![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square)
+  ![AppVersion: 10.9.7](https://img.shields.io/badge/AppVersion-10.9.7-informational?style=flat-square)
 
 </div>
 
@@ -48,13 +48,16 @@ Some features of Jellyfin:
 ## TL;DR
 
 ```shell
-helm repo add djjudas21 https://djjudas21.github.io/charts
+helm repo add djjudas21 https://djjudas21.github.io/charts/
+helm repo update djjudas21
 helm install my-release djjudas21/jellyfin
 ```
 
 ## Introduction
 
 This chart bootstraps a Jellyfin deployment on a [Kubernetes](kubernetes.io) cluster using the [Helm](helm.sh) package manager.
+
+It was forked from [beluga-cloud/jellyfin](https://github.com/beluga-cloud/charts/tree/main/charts/jellyfin)
 
 ## Prerequisites
 
@@ -66,7 +69,8 @@ This chart bootstraps a Jellyfin deployment on a [Kubernetes](kubernetes.io) clu
 To install the chart with the release name `my-release`:
 
 ```shell
-helm repo add djjudas21 https://djjudas21.github.io/charts
+helm repo add djjudas21 https://djjudas21.github.io/charts/
+helm repo update djjudas21
 helm install my-release djjudas21/jellyfin
 ```
 
@@ -170,10 +174,10 @@ The command removes all the Kubernetes components associated with the chart and 
 
 | Key | Description | Default |
 |-----|-------------|---------|
+| `persistence.cache.enabled` | Enable cache persistence using `PVC`. If false, use emptyDir | `true` |
+| `persistence.cache.volumeClaimSpec` | Claims that pods are allowed to reference (see    [kubernetes.io/docs](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaim-v1-core)    for structural reference) | `{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"2Gi"}}}` |
 | `persistence.config.enabled` | Enable configuration persistence using `PVC`. If false, use emptyDir | `true` |
-| `persistence.config.volumeClaimSpec` | Claims that pods are allowed to reference (see    [kubernetes.io/docs](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaim-v1-core)    for structural reference) | `{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"250Mi"}}}` |
-| `persistence.data.enabled` | Enable data persistence using `PVC`. If false, use emptyDir | `true` |
-| `persistence.data.volumeClaimSpec` | Claims that pods are allowed to reference (see    [kubernetes.io/docs](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaim-v1-core)    for structural reference) | `{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"2Gi"}}}` |
+| `persistence.config.volumeClaimSpec` | Claims that pods are allowed to reference (see    [kubernetes.io/docs](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaim-v1-core)    for structural reference) | `{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}` |
 
 ### RBAC parameters
 
