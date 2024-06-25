@@ -94,7 +94,7 @@ spec:
         - name: cache
           {{- if .Values.persistence.cache.enabled }}
           persistentVolumeClaim:
-            claimName: {{ include "common.names.fullname" . }}-data
+            claimName: {{ include "common.names.fullname" . }}-cache
           {{- else }}
           emptyDir: { }
           {{- end }}
