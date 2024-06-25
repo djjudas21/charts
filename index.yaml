@@ -2427,6 +2427,34 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/homer-8.1.0/homer-8.1.0.tgz
     version: 8.1.0
   jellyfin:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jellyfin 10.9.7
+    apiVersion: v2
+    appVersion: 10.9.7
+    created: "2024-06-25T08:28:18.481295065Z"
+    description: Your media, your server, your way
+    digest: 786a76581f4ec90c2121b8a317c36b4733ca607cb7dc923af0958278c59051b5
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-3.0.2/jellyfin-3.0.2.tgz
+    version: 3.0.2
   - apiVersion: v2
     appVersion: 10.9.6
     created: "2024-06-10T20:09:38.884130466Z"
@@ -8042,4 +8070,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-06-24T10:55:18.621725037Z"
+generated: "2024-06-25T08:28:18.481721397Z"
