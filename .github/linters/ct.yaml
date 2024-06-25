@@ -6,7 +6,6 @@ chart-dirs:
 chart-repos:
   - bitnami=https://charts.bitnami.com/bitnami
   - bjw-s=http://bjw-s.github.io/helm-charts/
-  - truecharts-library=https://library-charts.truecharts.org/
 helm-extra-args: --timeout 600s
 excluded-charts:
   - graphite-exporter
