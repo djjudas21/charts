@@ -2433,6 +2433,34 @@ entries:
           description: Fix problems with persistence
     apiVersion: v2
     appVersion: 10.9.7
+    created: "2024-06-25T14:04:41.149785973Z"
+    description: Your media, your server, your way
+    digest: 8707f01d4321e6182d31a1b455204b381baf00301f8821c4e1bf66f82c60bc34
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-3.1.1/jellyfin-3.1.1.tgz
+    version: 3.1.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fix problems with persistence
+    apiVersion: v2
+    appVersion: 10.9.7
     created: "2024-06-25T13:51:10.240481917Z"
     description: Your media, your server, your way
     digest: 2d0828eee4f74b67b3732ed4678f9062eaae872a72e733746e06caadd59128ea
@@ -8098,4 +8126,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-06-25T13:51:10.68644248Z"
+generated: "2024-06-25T14:04:41.150204758Z"
