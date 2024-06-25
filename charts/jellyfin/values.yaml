@@ -135,9 +135,9 @@ persistence:
         - ReadWriteOnce
       resources:
         requests:
-          storage: 250Mi
-  data:
-    # -- Enable data persistence using `PVC`. If false, use emptyDir
+          storage: 1Gi
+  cache:
+    # -- Enable cache persistence using `PVC`. If false, use emptyDir
     enabled: true
     # -- Claims that pods are allowed to reference (see
     #    https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaim-v1-core
