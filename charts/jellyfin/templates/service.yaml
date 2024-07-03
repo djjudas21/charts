@@ -27,7 +27,7 @@ spec:
     - name: {{ $name }}
       port: {{ $svc.port }}
       targetPort: {{ $name }}
-      {{- if and (or (eq $.Values.service.type "NodePort") (eq $.Values.service.type "LoadBalancer")) (not (empty $.Values.service.nodePort)) }}
+      {{- if and (or (eq $.Values.service.type "NodePort") (eq $.Values.service.type "LoadBalancer")) (not (empty $svc.nodePort)) }}
       nodePort: {{ $svc.nodePort }}
       {{- else if eq $.Values.service.type "ClusterIP" }}
       nodePort: null
