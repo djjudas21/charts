@@ -5826,6 +5826,42 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to PhotoPrism 240711-ce
+    apiVersion: v2
+    appVersion: 240711-ce
+    created: "2024-07-11T14:20:39.718529833Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: PhotoPrism® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: f1f9d32e2d635375cfc05b87c957c145b9f82147c5fdb2e638e80ae91a8751d6
+    home: https://github.com/djjudas21/charts/tree/master/charts/photoprism
+    icon: https://raw.githubusercontent.com/photoprism/photoprism/develop/assets/static/icons/app.svg
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/photoprism-7.4.15/photoprism-7.4.15.tgz
+    version: 7.4.15
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to PhotoPrism 240531-ce
     apiVersion: v2
     appVersion: 240531-ce
@@ -8157,4 +8193,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-07-05T15:57:36.393606483Z"
+generated: "2024-07-11T14:20:39.71933519Z"
