@@ -1,6 +1,6 @@
 ---
 apiVersion: v2
-appVersion: 240531-ce
+appVersion: 240711-ce
 description: PhotoPrism® is a server-based application for browsing, organizing and sharing your personal photo collection
 name: photoprism
 version: 7.4.14
@@ -29,4 +29,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to PhotoPrism 240531-ce
+      description: Update to PhotoPrism 240711-ce
