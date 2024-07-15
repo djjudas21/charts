@@ -4,6 +4,8 @@
 
 replicaCount: 1
 
+jwtSecret: my-secret-jwt-key
+
 image:
   repository: cyfershepard/jellystat
   pullPolicy: IfNotPresent
