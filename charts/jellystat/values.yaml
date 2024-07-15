@@ -107,9 +107,9 @@ affinity: {}
 postgresql:
   enabled: false
   auth:
-    postgresPassword:	jellystat
-    username:	jellystat
-    password:	jellystat
+    postgresPassword: jellystat
+    username: jellystat
+    password: jellystat
     database: jellystat
   primary:
     persistence:
