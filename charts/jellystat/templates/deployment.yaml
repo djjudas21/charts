@@ -42,7 +42,7 @@ spec:
             - name: POSTGRES_IP
               value: {{ include "jellystat.fullname" . }}-postgresql
             - name: POSTGRES_PORT
-              value: 5432
+              value: "5432"
             - name: JWT_SECRET
               value: {{ .Values.jwtSecret }}
           ports:
