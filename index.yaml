@@ -2586,6 +2586,40 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/jellyfin-3.0.0/jellyfin-3.0.0.tgz
     version: 3.0.0
+  jellystat:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: New
+          description: Initial release
+    apiVersion: v2
+    appVersion: 1.1.0
+    created: "2024-07-15T21:59:54.835038482Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: b61ccf7446e363ff5334051c724aedd97c59747e08d366adb1e5165e562fe459
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.0/jellystat-0.1.0.tgz
+    version: 0.1.0
   joplin-server:
   - annotations:
       artifacthub.io/changes: |-
@@ -8221,4 +8255,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-07-12T19:54:24.344472613Z"
+generated: "2024-07-15T21:59:56.119755583Z"
