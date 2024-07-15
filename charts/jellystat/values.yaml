@@ -1,15 +1,18 @@
 # Default values for jellystat.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
+# -- Number of jellystat replicas.
 replicaCount: 1
 
+# -- JWT Key to be used to encrypt JWT tokens for authentication
 jwtSecret: my-secret-jwt-key
 
 image:
+  # -- image repository
   repository: cyfershepard/jellystat
+  # -- image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- image tag
+  # @default -- chart.appVersion
   tag: ""
 
 imagePullSecrets: []
@@ -17,14 +20,14 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
   # Automatically mount a ServiceAccount's API credentials?
-  automount: true
-  # Annotations to add to the service account
+  automount: false
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use.
+  # @default -- a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -41,10 +44,14 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
 service:
   type: ClusterIP
   port: 3000
 
+# -- Enable and configure ingress settings for the chart under this key.
+# @default -- See values.yaml
 ingress:
   enabled: false
   className: ""
