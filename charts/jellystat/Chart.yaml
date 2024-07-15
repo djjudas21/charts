@@ -1,0 +1,29 @@
+apiVersion: v2
+type: application
+name: jellystat
+description: Jellystat is a free and open source Statistics App for Jellyfin
+version: 0.1.0
+appVersion: "1.1.0"
+home: https://github.com/CyferShepard/Jellystat
+icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+keywords:
+  - jellyfin
+  - media-server
+  - stats
+  - statistics
+sources:
+  - https://hub.docker.com/r/cyfershepard/jellystat
+  - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+    url: https://github.com/djjudas21
+dependencies:
+  - name: postgresql
+    version: ~15
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+annotations:
+  artifacthub.io/changes: |-
+    - kind: New
+      description: Initial release
