@@ -3674,6 +3674,44 @@ entries:
           description: Add support for bootstrapping users
     apiVersion: v2
     appVersion: v0.5.0
+    created: "2024-07-23T12:13:52.946097922Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: 44f846a21fca8847aef11468f2dd0541a8fc4a5b2ac450c0b2fdda2badaf5eb2
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.3.4/lldap-0.3.4.tgz
+    version: 0.3.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Add support for bootstrapping users
+    apiVersion: v2
+    appVersion: v0.5.0
     created: "2024-06-24T10:55:18.621312526Z"
     dependencies:
     - condition: postgresql.enabled
@@ -8283,4 +8321,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-07-21T14:30:00.685383128Z"
+generated: "2024-07-23T12:13:52.946406389Z"
