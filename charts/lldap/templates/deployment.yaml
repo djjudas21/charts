@@ -64,7 +64,7 @@ spec:
             - name: LLDAP_DATABASE_URL
             {{- if .Values.postgresql.enabled }}
               value: {{ include "lldap.postgresConnectString" . | quote }}
-            {{- if .Values.eternalPostgresql.enabled }}
+            {{- else if .Values.externalPostgresql.enabled }}
               value: {{ include "lldap.externalPostgresConnectString" . | quote }}
             {{- else if .Values.mariadb.enabled }}
               value: {{ include "lldap.mariadbConnectString" . | quote }}
