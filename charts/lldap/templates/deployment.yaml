@@ -64,8 +64,12 @@ spec:
             - name: LLDAP_DATABASE_URL
             {{- if .Values.postgresql.enabled }}
               value: {{ include "lldap.postgresConnectString" . | quote }}
+            {{- else if .Values.externalPostgresql.enabled }}
+              value: {{ include "lldap.externalPostgresConnectString" . | quote }}
             {{- else if .Values.mariadb.enabled }}
               value: {{ include "lldap.mariadbConnectString" . | quote }}
+            {{- else if .Values.externalMariadb.enabled }}
+              value: {{ include "lldap.externalMariadbConnectString" . | quote }}
             {{- else }}
               value: "sqlite:///data/users.db?mode=rwc"
             {{- end }}
