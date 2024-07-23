@@ -65,8 +65,14 @@ Create the name of the service account to use
 Build database connection strings as templates
 */}}
 {{- define "lldap.postgresConnectString" -}}
-postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ include "lldap.fullname" . }}-postgresql/{{ .Values.postgresql.auth.database }}
+postgres://{{- .Values.postgresql.auth.username -}}:{{- .Values.postgresql.auth.password -}}@{{- include "lldap.fullname" . -}}-postgresql/{{- .Values.postgresql.auth.database -}}
+{{- end }}
+{{- define "lldap.externalPostgresConnectString" -}}
+postgres://{{- .Values.externalPostgresql.auth.username -}}:{{- .Values.externalPostgresql.auth.password -}}@{{- .Values.externalPostgresql.auth.host -}}:{{- .Values.externalPostgresql.auth.port -}}/{{- .Values.externalPostgresql.auth.database -}}
 {{- end }}
 {{- define "lldap.mariadbConnectString" -}}
-mysql://{{ .Values.mariadb.auth.username }}:{{ .Values.mariadb.auth.password }}@{{ include "lldap.fullname" . }}-mariadb/{{ .Values.mariadb.auth.database }}
+mysql://{{- .Values.mariadb.auth.username -}}:{{- .Values.mariadb.auth.password -}}@{{- include "lldap.fullname" . -}}-mariadb/{{- .Values.mariadb.auth.database -}}
+{{- end }}
+{{- define "lldap.externalMariadbConnectString" -}}
+mysql://{{- .Values.externalMariadb.auth.username -}}:{{- .Values.externalMariadb.auth.password -}}@{{- .Values.externalMariadb.auth.host -}}:{{- .Values.externalMariadb.auth.port -}}/{{- .Values.externalMariadb.auth.database -}}
 {{- end }}

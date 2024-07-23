@@ -205,6 +205,18 @@ postgresql:
       size: 1Gi
     resources: {}
 
+
+# --- Enable and configure external postgresql database
+externalPostgresql:
+  enabled: false
+  auth:
+    host: ""
+    port: 5432
+    username:	""
+    password:	""
+    database: lldap
+
+
 # -- Enable and configure mariadb database subchart under this key.
 #    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
 # @default -- https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
@@ -222,6 +234,18 @@ mariadb:
       enabled: false
       size: 1Gi
       # storageClass: ""
+
+
+# -- Enable and configure external mariadb database
+externalMariadb:
+  enabled: false
+  auth:
+    host: ""
+    port: 3306
+    username: ""
+    password: ""
+    database: lldap
+
 
 # -- Bootstrap (i.e. create) users and groups automatically.
 # It is safe to run the bootstrap multiple times, however the one-shot
