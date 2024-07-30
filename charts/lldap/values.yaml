@@ -158,7 +158,7 @@ ingress:
 # You can disable persistence if you select MariaDB or PostgreSQL.
 # @default -- see below
 persistence:
-  enabled: true
+  enabled: false
   size: 100Mi
   accessMode: ReadWriteOnce
   ## If defined, storageClassName: <storageClass>
