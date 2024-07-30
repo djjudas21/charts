@@ -87,6 +87,10 @@ lldap:
     # -- Certificate key file.
     keyFile: "/data/key.pem"
 
+  # --- define extra volumes and mounts for the ldap
+  extraVolumes: []
+  extraVolumeMounts: []
+
   # -- Ignored attributes.
   # Some services will request attributes that are not present in LLDAP. When it is the case, LLDAP
   # will warn about the attribute being unknown. If you want to ignore the attribute and the
