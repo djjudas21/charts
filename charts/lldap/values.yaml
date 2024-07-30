@@ -87,6 +87,10 @@ lldap:
     # -- Certificate key file.
     keyFile: "/data/key.pem"
 
+  # --- define extra volumes and mounts for the ldap
+  extraVolumes: []
+  extraVolumeMounts: []
+
   # -- Ignored attributes.
   # Some services will request attributes that are not present in LLDAP. When it is the case, LLDAP
   # will warn about the attribute being unknown. If you want to ignore the attribute and the
@@ -154,7 +158,7 @@ ingress:
 # You can disable persistence if you select MariaDB or PostgreSQL.
 # @default -- see below
 persistence:
-  enabled: false
+  enabled: true
   size: 100Mi
   accessMode: ReadWriteOnce
   ## If defined, storageClassName: <storageClass>

@@ -128,17 +128,23 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- if $.Values.persistence.enabled }}
           volumeMounts:
+            {{- with .Values.lldap.extraVolumeMounts }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{- if $.Values.persistence.enabled }}
             - mountPath: /data
               name: {{ include "lldap.fullname" . }}-data
-          {{- end }}
-      {{- if $.Values.persistence.enabled }}
+            {{- end }}
       volumes:
+        {{- with .Values.lldap.extraVolumes }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- if $.Values.persistence.enabled }}
         - name: {{ include "lldap.fullname" . }}-data
           persistentVolumeClaim:
             claimName: {{ include "lldap.fullname" . }}-data
-      {{- end }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
