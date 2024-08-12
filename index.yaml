@@ -5293,6 +5293,45 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update ownCloud to v10.15.0
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.15.0
+    created: "2024-08-12T07:37:01.518796194Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~19
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: eb6da8b1086e53ab370e6ec0bcf917362339d013aa5bb4342046a10aed027456
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.14/owncloud-0.3.14.tgz
+    version: 0.3.14
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update MariaDB
       category: Infrastructure
     apiVersion: v2
@@ -8414,4 +8453,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-08-05T13:44:30.369403224Z"
+generated: "2024-08-12T07:37:01.519235605Z"
