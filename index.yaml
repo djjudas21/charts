@@ -4712,6 +4712,33 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to nova-exporter 0.0.8
+    apiVersion: v2
+    appVersion: 0.0.8
+    created: "2024-08-13T09:10:56.347265546Z"
+    description: A Prometheus exporter for Fairwinds Nova
+    digest: 18d5448ab6f6381f9717787cfe48057e2f1657e894ed3d7d1331fba01d5b1095
+    home: https://github.com/djjudas21/charts/tree/master/charts/nova-exporter
+    icon: https://raw.githubusercontent.com/FairwindsOps/nova/master/img/logo.png
+    keywords:
+    - nova
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: nova-exporter
+    sources:
+    - https://github.com/djjudas21/nova-exporter
+    - https://hub.docker.com/r/djjudas21/nova-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.11/nova-exporter-0.1.11.tgz
+    version: 0.1.11
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to nova-exporter 0.0.7
     apiVersion: v2
     appVersion: 0.0.7
@@ -8453,4 +8480,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-08-12T07:37:01.519235605Z"
+generated: "2024-08-13T09:10:56.347795665Z"
