@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "wizarr.fullname" . }}-test-connection"
+  labels:
+    {{- include "wizarr.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "wizarr.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
