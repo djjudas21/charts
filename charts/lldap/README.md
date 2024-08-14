@@ -1,6 +1,6 @@
 # lldap
 
-![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.0](https://img.shields.io/badge/AppVersion-v0.5.0-informational?style=flat-square)
+![Version: 0.3.5](https://img.shields.io/badge/Version-0.3.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.0](https://img.shields.io/badge/AppVersion-v0.5.0-informational?style=flat-square)
 
 Light LDAP implementation
 
@@ -31,6 +31,8 @@ Light LDAP implementation
 | affinity | object | `{}` |  |
 | bootstrap | object | see below | Bootstrap (i.e. create) users and groups automatically. It is safe to run the bootstrap multiple times, however the one-shot Kubernetes job will be created on the first deployment, and the job will not be executed on subsequent deployments unless the job is deleted. |
 | bootstrap.cleanup | bool | `false` | Remove redundant users and groups which are not in the config below |
+| externalMariadb | object | `{"auth":{"database":"lldap","host":"","password":"","port":3306,"username":""},"enabled":false}` | Enable and configure external mariadb database |
+| externalPostgresql | object | `{"auth":{"database":"lldap","host":"","password":"","port":5432,"username":""},"enabled":false}` | - Enable and configure external postgresql database |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"lldap/lldap"` | image repository |
@@ -40,6 +42,8 @@ Light LDAP implementation
 | livenessProbe.httpGet.path | string | `"/"` |  |
 | livenessProbe.httpGet.port | string | `"http"` |  |
 | lldap.baseDN | string | `"dc=example,dc=com"` | Base DN for LDAP. This is usually your domain name, and is used as a namespace for your users. The choice is arbitrary, but will be needed to configure the LDAP integration with other services. The sample value is for "example.com", but you can extend it with as many "dc" as you want, and you don't actually need to own the domain name. |
+| lldap.extraVolumeMounts | list | `[]` |  |
+| lldap.extraVolumes | list | `[]` | - define extra volumes and mounts for the ldap |
 | lldap.gid | int | `1000` |  |
 | lldap.jwtSecret | string | `"REPLACE_WITH_RANDOM"` | Random secret for JWT signature. This secret should be random, and should be shared with application servers that need to consume the JWTs. Changing this secret will invalidate all user sessions and require them to re-login. You can generate it with (on linux): LC_ALL=C tr -dc 'A-Za-z0-9!#%&'\''()*+,-./:;<=>?@[\]^_{|}~' </dev/urandom | head -c 32; echo '' |
 | lldap.keySeed | string | `"REPLACE_WITH_RANDOM"` | Seed to generate the server private key. This can be any random string, the recommendation is that it's at least 12 characters long. |
