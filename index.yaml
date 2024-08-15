@@ -2673,6 +2673,39 @@ entries:
   jellystat:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 1.1.0
+    created: "2024-08-15T18:58:25.227506875Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: 884596a666f3d53da9acd5321de003c12c5c88d2601b8c570d3e2c285081e9f4
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.1/jellystat-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: New
           description: Initial release
     apiVersion: v2
@@ -8576,6 +8609,38 @@ entries:
   wizarr:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 4.2.0-beta.3
+    created: "2024-08-15T18:58:25.432370971Z"
+    description: Wizarr is an advanced user invitation and management system for Jellyfin,
+      Plex, Emby etc.
+    digest: c230ea9d057bf23378540889d622922f2da9784ebf65db496b42c6c14c1097b7
+    home: https://github.com/wizarrrr/wizarr
+    icon: https://raw.githubusercontent.com/Wizarrrr/wizarr/master/apps/wizarr-frontend/src/assets/img/wizard.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    - jellyseerr
+    - overseerr
+    - ombi
+    - invite
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: wizarr
+    sources:
+    - https://github.com/wizarrrr/wizarr/pkgs/container/wizarr
+    - https://github.com/djjudas21/charts/tree/main/charts/wizarr
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: New
           description: Initial release
     apiVersion: v2
@@ -8606,4 +8671,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-08-15T08:06:24.233716637Z"
+generated: "2024-08-15T18:58:25.432895312Z"
