@@ -1,0 +1,27 @@
+apiVersion: v2
+type: application
+name: wizarr
+description: Wizarr is an advanced user invitation and management system for Jellyfin, Plex, Emby etc.
+version: 0.1.0
+appVersion: "4.2.0-beta.3"
+home: https://github.com/wizarrrr/wizarr
+icon: https://raw.githubusercontent.com/Wizarrrr/wizarr/master/apps/wizarr-frontend/src/assets/img/wizard.png
+keywords:
+  - jellyfin
+  - plex
+  - emby
+  - jellyseerr
+  - overseerr
+  - ombi
+  - invite
+sources:
+  - https://github.com/wizarrrr/wizarr/pkgs/container/wizarr
+  - https://github.com/djjudas21/charts/tree/main/charts/wizarr
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+    url: https://github.com/djjudas21
+annotations:
+  artifacthub.io/changes: |-
+    - kind: New
+      description: Initial release
