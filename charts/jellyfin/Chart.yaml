@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: jellyfin
 description: Your media, your server, your way
-version: 3.1.4
+version: 3.1.5
 appVersion: 10.9.9
 kubeVersion: '>=1.20'
 home: https://jellyfin.org/

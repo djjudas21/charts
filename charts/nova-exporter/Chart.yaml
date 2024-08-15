@@ -3,7 +3,7 @@ apiVersion: v2
 name: nova-exporter
 description: A Prometheus exporter for Fairwinds Nova
 type: application
-version: 0.1.11
+version: 0.1.12
 appVersion: "0.0.8"
 keywords:
   - nova
