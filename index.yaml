@@ -2433,6 +2433,34 @@ entries:
           description: Update to Jellyfin v10.9.9
     apiVersion: v2
     appVersion: 10.9.9
+    created: "2024-08-15T08:06:23.54527352Z"
+    description: Your media, your server, your way
+    digest: ee33e17720ad38be17c637506f802d4c0bad96a7f917662a15edd196737b8632
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-3.1.5/jellyfin-3.1.5.tgz
+    version: 3.1.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jellyfin v10.9.9
+    apiVersion: v2
+    appVersion: 10.9.9
     created: "2024-08-05T13:44:30.36889867Z"
     description: Your media, your server, your way
     digest: adb98d1310b945eb04ef5b9ac43b1ae48e18b4e53dc8cd907e19f6bc9163ce22
@@ -3702,6 +3730,44 @@ entries:
           description: Add support for bootstrapping users
     apiVersion: v2
     appVersion: v0.5.0
+    created: "2024-08-15T08:06:23.71246127Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: 0f7cf8b166bac8091b37a730f4ed7b57f460a4abb89105f74d27642f8ee3c2fa
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.3.6/lldap-0.3.6.tgz
+    version: 0.3.6
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Add support for bootstrapping users
+    apiVersion: v2
+    appVersion: v0.5.0
     created: "2024-07-30T23:47:44.111433015Z"
     dependencies:
     - condition: postgresql.enabled
@@ -4709,6 +4775,33 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/navidrome-6.5.0/navidrome-6.5.0.tgz
     version: 6.5.0
   nova-exporter:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to nova-exporter 0.0.8
+    apiVersion: v2
+    appVersion: 0.0.8
+    created: "2024-08-15T08:06:23.863191587Z"
+    description: A Prometheus exporter for Fairwinds Nova
+    digest: be2abeaafcdfabd7754d8c488434cbdbbbcada28886a7acf361f9935f6682c16
+    home: https://github.com/djjudas21/charts/tree/master/charts/nova-exporter
+    icon: https://raw.githubusercontent.com/FairwindsOps/nova/master/img/logo.png
+    keywords:
+    - nova
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: nova-exporter
+    sources:
+    - https://github.com/djjudas21/nova-exporter
+    - https://hub.docker.com/r/djjudas21/nova-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.12/nova-exporter-0.1.12.tgz
+    version: 0.1.12
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -8480,4 +8573,37 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.0/webtrees-2.2.0.tgz
     version: 2.2.0
-generated: "2024-08-13T09:10:56.347795665Z"
+  wizarr:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: New
+          description: Initial release
+    apiVersion: v2
+    appVersion: 4.2.0-beta.3
+    created: "2024-08-15T08:06:24.233290957Z"
+    description: Wizarr is an advanced user invitation and management system for Jellyfin,
+      Plex, Emby etc.
+    digest: fb402bc6ecfc11aeb151d13353384b870c8769e11318a2177b743f94cc5e9335
+    home: https://github.com/wizarrrr/wizarr
+    icon: https://raw.githubusercontent.com/Wizarrrr/wizarr/master/apps/wizarr-frontend/src/assets/img/wizard.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    - jellyseerr
+    - overseerr
+    - ombi
+    - invite
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: wizarr
+    sources:
+    - https://github.com/wizarrrr/wizarr/pkgs/container/wizarr
+    - https://github.com/djjudas21/charts/tree/main/charts/wizarr
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-08-15T08:06:24.233716637Z"
