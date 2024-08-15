@@ -38,7 +38,7 @@ Wizarr is an advanced user invitation and management system for Jellyfin, Plex, 
 | livenessProbe.httpGet.port | string | `"http"` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
-| persistence | object | see below | Persistence is only required if you are using the SQLite database (default). You can disable persistence if you select MariaDB or PostgreSQL. |
+| persistence | object | see below | Persistence is required if you are using the SQLite database (default). |
 | podAnnotations | object | `{}` |  |
 | podLabels | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
@@ -50,7 +50,7 @@ Wizarr is an advanced user invitation and management system for Jellyfin, Plex, 
 | service.port | int | `5690` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.automount | bool | `true` |  |
+| serviceAccount.automount | bool | `false` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
 | tolerations | list | `[]` |  |
