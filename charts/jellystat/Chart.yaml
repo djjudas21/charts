@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: jellystat
 description: Jellystat is a free and open source Statistics App for Jellyfin
-version: 0.1.0
+version: 0.1.1
 appVersion: "1.1.0"
 home: https://github.com/CyferShepard/Jellystat
 icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
@@ -25,5 +25,5 @@ dependencies:
     condition: postgresql.enabled
 annotations:
   artifacthub.io/changes: |-
-    - kind: New
+    - kind: changed
       description: Initial release
