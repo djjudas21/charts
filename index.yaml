@@ -7737,36 +7737,6 @@ entries:
           description: Update to Uptime Kuma 1.23.11
     apiVersion: v2
     appVersion: 1.23.11
-    created: "2024-05-06T20:11:13.947163368Z"
-    dependencies:
-    - name: common
-      repository: http://bjw-s.github.io/helm-charts/
-      version: 1.0.0
-    description: A fancy self-hosted monitoring tool for your websites and applications
-    digest: 716c8c14db96262e45661b66264cb40b45b6d251326b3fb6dd30a5f5a4333b6c
-    home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma
-    icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
-    keywords:
-    - uptime-kuma
-    - status
-    - status-page
-    - monitoring
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: djjudas21@users.noreply.github.com
-      name: djjudas21
-    name: uptime-kuma
-    sources:
-    - https://github.com/louislam/uptime-kuma
-    urls:
-    - https://github.com/djjudas21/charts/releases/download/uptime-kuma-1.5.12/uptime-kuma-1.5.12.tgz
-    version: 1.5.12
-  - annotations:
-      artifacthub.io/changes: |-
-        - kind: changed
-          description: Update to Uptime Kuma 1.23.11
-    apiVersion: v2
-    appVersion: 1.23.11
     created: "2024-01-16T12:45:02.626476992Z"
     dependencies:
     - name: common
