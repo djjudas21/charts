@@ -59,8 +59,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-# -- Persistence is only required if you are using the SQLite database (default).
-# You can disable persistence if you select MariaDB or PostgreSQL.
+# -- Persistence is required if you are using the SQLite database (default).
 # @default -- see below
 persistence:
   enabled: false
