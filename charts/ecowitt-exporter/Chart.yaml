@@ -3,8 +3,8 @@ apiVersion: v2
 name: ecowitt-exporter
 description: A Prometheus & InfluxDB exporter for Ecowitt weather stations
 type: application
-version: 0.5.4
-appVersion: "0.5.3"
+version: 0.6.0
+appVersion: "0.6.0"
 keywords:
   - ecowitt
   - weather
@@ -22,4 +22,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Fix calculation of UK DAQI
+      description: Add support for WS90
