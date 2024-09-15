@@ -71,14 +71,20 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
+# -- configure probes
+probes:
+  liveness:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 1
+  readiness:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 1
 
 # Additional volumes on the output Deployment definition.
 volumes: []
