@@ -1,0 +1,287 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+data:
+  Alerts: |+
+    *** Alerts ***
+    to = {{ .Values.smokeping.email.to }}
+    from = {{ .Values.smokeping.email.from }}
+
+    +someloss
+    type = loss
+    # in percent
+    pattern = >0%,*12*,>0%,*12*,>0%
+    comment = loss 3 times  in a row
+
+  Database: |+
+    *** Database ***
+
+    step     = {{ .Values.smokeping.database.step }}
+    pings    = {{ .Values.smokeping.database.pings }}
+
+    # consfn mrhb steps total
+
+    AVERAGE  0.5   1  1008
+    AVERAGE  0.5  12  4320
+        MIN  0.5  12  4320
+        MAX  0.5  12  4320
+    AVERAGE  0.5 144   720
+        MAX  0.5 144   720
+        MIN  0.5 144   720
+
+  General: |
+    *** General ***
+
+    owner    = {{ .Values.smokeping.owner }}
+    contact  = {{ .Values.smokeping.contact }}
+    mailhost = my.mail.host
+    # NOTE: do not put the Image Cache below cgi-bin
+    # since all files under cgi-bin will be executed ... this is not
+    # good for images.
+    cgiurl   = http://localhost/smokeping/smokeping.cgi
+    # specify this to get syslog logging
+    syslogfacility = local0
+    # each probe is now run in its own process
+    # disable this to revert to the old behaviour
+    # concurrentprobes = no
+
+    @include /config/pathnames
+  Presentation: |+
+    *** Presentation ***
+
+    template = /etc/smokeping/basepage.html
+    charset  = utf-8
+
+    + charts
+
+    menu = Charts
+    title = The most interesting destinations
+
+    ++ stddev
+    sorter = StdDev(entries=>4)
+    title = Top Standard Deviation
+    menu = Std Deviation
+    format = Standard Deviation %f
+
+    ++ max
+    sorter = Max(entries=>5)
+    title = Top Max Roundtrip Time
+    menu = by Max
+    format = Max Roundtrip Time %f seconds
+
+    ++ loss
+    sorter = Loss(entries=>5)
+    title = Top Packet Loss
+    menu = Loss
+    format = Packets Lost %f
+
+    ++ median
+    sorter = Median(entries=>5)
+    title = Top Median Roundtrip Time
+    menu = by Median
+    format = Median RTT %f seconds
+
+    + overview
+
+    width = 600
+    height = 50
+    range = 10h
+
+    + detail
+
+    width = 600
+    height = 200
+    unison_tolerance = 2
+
+    "Last 3 Hours"    3h
+    "Last 30 Hours"   30h
+    "Last 10 Days"    10d
+    "Last 360 Days"   360d
+
+    #+ hierarchies
+    #++ owner
+    #title = Host Owner
+    #++ location
+    #title = Location
+
+  Probes: |
+    *** Probes ***
+
+    + FPing
+    binary = /usr/sbin/fping
+
+    + FPing6
+    binary = /usr/sbin/fping
+    protocol = 6
+
+    + DNS
+    binary = /usr/bin/dig
+    lookup = google.com
+    pings = 5
+    step = 300
+
+    + TCPPing
+    binary = /usr/bin/tcpping
+    forks = 10
+    offset = random
+    pings = 5
+    port = 80
+  
+  TargetsTemplate: |+
+    *** Targets ***
+
+    probe = FPing
+
+    menu = Top
+    title = Network Latency Grapher
+    remark = Welcome to the SmokePing website of WORKS Company. \
+            Here you will learn all about the latency of our network.
+
+    {{- range $key1, $target := .Values.smokeping.targets }}
+    + {{ $target.name }}
+
+    menu = {{ $target.menu }}
+    title = {{ $target.title }}
+
+    {{- range $key2, $host := $target.hosts }}
+    ++ {{ $host.name }}
+    menu = {{ $host.menu }}
+    title = {{ $host.title }}
+    host = {{ $host.host }}
+
+    {{- end }}
+
+    {{- end }}
+
+  
+  Targets: |+
+    *** Targets ***
+
+    probe = FPing
+
+    menu = Top
+    title = Network Latency Grapher
+    remark = Welcome to the SmokePing website of WORKS Company. \
+            Here you will learn all about the latency of our network.
+
+    + Internet
+
+    menu = Internal Devices
+    title = Internal Devices
+
+    ++ Router
+    menu = Router
+    title = Router
+    host = modem.gazeley.lan
+
+    ++ TrueNAS
+    menu = TrueNAS
+    title = TrueNAS
+    host = nas.gazeley.lan
+
+    ++ RaspberryPi
+    menu = RaspberryPi
+    title = Raspberry Pi
+    host = rpi.gazeley.lan
+
+    ++ AP
+    menu = AP
+    title = AP
+    host = ap.gazeley.lan
+
+    ++ uk-west-1
+    menu = uk-west-1
+    title = uk-west-1
+    host = uk-west-1-wifi.gazeley.lan
+
+    + VirginMedia
+    menu = Virgin Media
+    title = Virgin Media
+
+    ++ VirginMediaDNS1
+    menu = cache1.service.virginmedia.net
+    title = cache1.service.virginmedia.net
+    host = 194.168.4.100
+
+    ++ VirginMediaDNS2
+    menu = cache2.service.virginmedia.net
+    title = cache2.service.virginmedia.net
+    host = 194.168.8.100
+
+    + InternetSites
+
+    menu = Internet Sites
+    title = Internet Sites
+
+    ++ GoogleSearch
+    menu = Google
+    title = google.com
+    host = google.com
+
+    ++ linuxserverio
+    menu = linuxserver.io
+    title = linuxserver.io
+    host = linuxserver.io
+
+    + DNSProbes
+    menu = DNS Probes
+    title = DNS Probes
+    probe = DNS
+
+    ++ GoogleDNS1
+    menu = Google DNS 1
+    title = Google DNS 8.8.8.8
+    host = 8.8.8.8
+
+    ++ GoogleDNS2
+    menu = Google DNS 2
+    title = Google DNS 8.8.4.4
+    host = 8.8.4.4
+
+    ++ CloudflareDNS1
+    menu = Cloudflare DNS 1
+    title = Cloudflare DNS 1.1.1.1
+    host = 1.1.1.1
+
+    ++ CloudflareDNS2
+    menu = Cloudflare DNS 2
+    title = Cloudflare DNS 1.0.0.1
+    host = 1.0.0.1
+
+    ++ VirginMediaDNS1
+    menu = Virgin Media DNS 1
+    title = Virgin Media DNS 194.168.4.100
+    host = 194.168.4.100
+                    
+    ++ VirginMediaDNS2
+    menu = Virgin Media DNS 2
+    title = Virgin Media DNS 194.168.8.100
+    host = 194.168.8.100
+  ssmtp.conf: |
+    #
+    # Config file for sSMTP sendmail
+    #
+    # The person who gets all mail for userids < 1000
+    # Make this empty to disable rewriting.
+
+    root=
+
+    # The place where the mail goes. The actual machine name is required no
+    # MX records are consulted. Commonly mailhosts are named mail.domain.com
+
+    mailhub=smtp.gmail.com:587
+    AuthUser=
+    AuthPass=
+    UseSTARTTLS=yes
+
+    # Where will the mail seem to come from?
+    #rewriteDomain=
+
+    # The full hostname
+    #hostname=
+
+    # Are users allowed to set their own From: address?
+    # YES - Allow the user to specify their own From: address
+    # NO - Use the system generated From: address
+    #FromLineOverride=YES

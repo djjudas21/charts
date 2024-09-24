@@ -1,0 +1,102 @@
+*** Targets ***
+
+probe = FPing
+
+menu = Top
+title = Network Latency Grapher
+remark = Welcome to the SmokePing website of WORKS Company. \
+         Here you will learn all about the latency of our network.
+
++ Internet
+
+menu = Internal Devices
+title = Internal Devices
+
+++ Router
+menu = Router
+title = Router
+host = modem.gazeley.lan
+
+++ TrueNAS
+menu = TrueNAS
+title = TrueNAS
+host = nas.gazeley.lan
+
+++ RaspberryPi
+menu = RaspberryPi
+title = Raspberry Pi
+host = rpi.gazeley.lan
+
+++ AP
+menu = AP
+title = AP
+host = ap.gazeley.lan
+
+++ uk-west-1
+menu = uk-west-1
+title = uk-west-1
+host = uk-west-1-wifi.gazeley.lan
+
++ VirginMedia
+menu = Virgin Media
+title = Virgin Media
+
+++ VirginMediaDNS1
+menu = cache1.service.virginmedia.net
+title = cache1.service.virginmedia.net
+host = 194.168.4.100
+
+++ VirginMediaDNS2
+menu = cache2.service.virginmedia.net
+title = cache2.service.virginmedia.net
+host = 194.168.8.100
+
++ InternetSites
+
+menu = Internet Sites
+title = Internet Sites
+
+++ GoogleSearch
+menu = Google
+title = google.com
+host = google.com
+
+++ linuxserverio
+menu = linuxserver.io
+title = linuxserver.io
+host = linuxserver.io
+
++ DNSProbes
+menu = DNS Probes
+title = DNS Probes
+probe = DNS
+
+++ GoogleDNS1
+menu = Google DNS 1
+title = Google DNS 8.8.8.8
+host = 8.8.8.8
+
+++ GoogleDNS2
+menu = Google DNS 2
+title = Google DNS 8.8.4.4
+host = 8.8.4.4
+
+++ CloudflareDNS1
+menu = Cloudflare DNS 1
+title = Cloudflare DNS 1.1.1.1
+host = 1.1.1.1
+
+++ CloudflareDNS2
+menu = Cloudflare DNS 2
+title = Cloudflare DNS 1.0.0.1
+host = 1.0.0.1
+
+++ VirginMediaDNS1
+menu = Virgin Media DNS 1
+title = Virgin Media DNS 194.168.4.100
+host = 194.168.4.100
+                 
+++ VirginMediaDNS2
+menu = Virgin Media DNS 2
+title = Virgin Media DNS 194.168.8.100
+host = 194.168.8.100

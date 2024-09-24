@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "smokeping.fullname" . }}
+  labels:
+    {{- include "smokeping.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "smokeping.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "smokeping.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "smokeping.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      - name: sockets
+        emptyDir: {}
+      - name: log
+        emptyDir: {}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          {{- if .Values.persistence.enabled }}  
+          - name: data
+            mountPath: {{ .Values.persistence.data.mountPath }}
+          - name: config
+            mountPath: {{ .Values.persistence.config.mountPath }}
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          {{- if .Values.probes.liveness.enabled }}
+          livenessProbe:
+            failureThreshold: {{ .Values.probes.liveness.failureThreshold }}
+            tcpSocket:
+              port: 25
+            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
+            timeoutSeconds: {{ .Values.probes.liveness.timeoutSeconds }}
+          {{-  end }}
+          {{- if .Values.probes.readiness.enabled }}
+          readinessProbe:
+            failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
+            tcpSocket:
+              port: 25
+            initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
+            timeoutSeconds: {{ .Values.probes.readiness.timeoutSeconds }}
+          {{-  end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  {{- if .Values.persistence.enabled }}  
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: 
+      - {{ .Values.persistence.data.accessMode }}
+      storageClassName: {{ .Values.persistence.data.storageClass }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.data.size }}
+  - metadata:
+      name: config
+    spec:
+      accessModes: 
+      - {{ .Values.persistence.config.accessMode }}
+      storageClassName: {{ .Values.persistence.config.storageClass }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.config.size }}
+  {{- end }}
