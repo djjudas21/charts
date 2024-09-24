@@ -4398,6 +4398,37 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Navidrome v0.53.2
+    apiVersion: v2
+    appVersion: 0.53.2
+    created: "2024-09-24T19:49:30.795389936Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: d8e54b73089a1838727a2a5f2d6b71b825f92c016c1ad7a92b361eae6da8bfb2
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.6.12/navidrome-6.6.12.tgz
+    version: 6.6.12
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Navidrome v0.52.5
     apiVersion: v2
     appVersion: 0.52.5
@@ -8725,4 +8756,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-12T09:13:09.163874111Z"
+generated: "2024-09-24T19:49:30.79586183Z"
