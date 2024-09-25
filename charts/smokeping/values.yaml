@@ -175,28 +175,12 @@ probes:
     periodSeconds: 10
     timeoutSeconds: 1
 
-# Additional volumes on the output Deployment definition.
-volumes:
-  - name: foo
-    secret:
-      secretName: mysecret
-      optional: false
-  - name: data
-    persistentVolumeClaim:
-      claimName:
-
 persistence:
   enabled: true
-  data:
-    storageClass: ""  # leave empty if you want to use default
-    size: "5Gi"  # We recommend to allocate a minimum of 1GB if you do not use attachments
-    mountPath: "/data/"
-    accessMode: ReadWriteOnce
-  config:
-    storageClass: ""  # leave empty if you want to use default
-    size: "1Gi"  # We recommend to allocate a minimum of 1GB if you do not use attachments
-    mountPath: "/config/"
-    accessMode: ReadWriteOnce
+  storageClass: ""  # leave empty if you want to use default
+  size: "5Gi"  # We recommend to allocate a minimum of 1GB if you do not use attachments
+  mountPath: "/data/"
+  accessMode: ReadWriteOnce
 
 nodeSelector: {}
 

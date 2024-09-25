@@ -30,6 +30,9 @@ spec:
         emptyDir: {}
       - name: log
         emptyDir: {}
+      - name: config-volume
+        configMap:
+          name: config        
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -37,11 +40,11 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
+          - name: config-volume
+            mountPath: /config
           {{- if .Values.persistence.enabled }}  
           - name: data
-            mountPath: {{ .Values.persistence.data.mountPath }}
-          - name: config
-            mountPath: {{ .Values.persistence.config.mountPath }}
+            mountPath: {{ .Values.persistence.mountPath }}
           {{- end }}
           ports:
             - name: http
@@ -85,18 +88,9 @@ spec:
       name: data
     spec:
       accessModes: 
-      - {{ .Values.persistence.data.accessMode }}
-      storageClassName: {{ .Values.persistence.data.storageClass }}
+      - {{ .Values.persistence.accessMode }}
+      storageClassName: {{ .Values.persistence.storageClass }}
       resources:
         requests:
-          storage: {{ .Values.persistence.data.size }}
-  - metadata:
-      name: config
-    spec:
-      accessModes: 
-      - {{ .Values.persistence.config.accessMode }}
-      storageClassName: {{ .Values.persistence.config.storageClass }}
-      resources:
-        requests:
-          storage: {{ .Values.persistence.config.size }}
+          storage: {{ .Values.persistence.size }}
   {{- end }}
