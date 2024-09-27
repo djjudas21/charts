@@ -85,7 +85,7 @@ smokeping:
         - name: VirginMediaDNS1
           menu: Virgin Media DNS 1
           title: Virgin Media DNS 194.168.4.100
-          host: 194.168.4.100           
+          host: 194.168.4.100
         - name: VirginMediaDNS2
           menu: Virgin Media DNS 2
           title: Virgin Media DNS 194.168.8.100
