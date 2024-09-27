@@ -41,7 +41,26 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
           - name: config-volume
-            mountPath: /config
+            mountPath: /config/Targets
+            subPath: Targets
+          - name: config-volume
+            mountPath: /config/Alerts
+            subPath: Alerts
+          - name: config-volume
+            mountPath: /config/Database
+            subPath: Database
+          - name: config-volume
+            mountPath: /config/General
+            subPath: General
+          - name: config-volume
+            mountPath: /config/Presentation
+            subPath: Presentation
+          - name: config-volume
+            mountPath: /config/Probes
+            subPath: Probes
+          - name: config-volume
+            mountPath: /config/ssmtp.conf
+            subPath: ssmtp.conf
           {{- if .Values.persistence.enabled }}  
           - name: data
             mountPath: {{ .Values.persistence.mountPath }}
