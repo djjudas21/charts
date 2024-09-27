@@ -52,21 +52,11 @@ spec:
               protocol: TCP
           {{- if .Values.probes.liveness.enabled }}
           livenessProbe:
-            failureThreshold: {{ .Values.probes.liveness.failureThreshold }}
-            tcpSocket:
-              port: 25
-            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
-            periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
-            timeoutSeconds: {{ .Values.probes.liveness.timeoutSeconds }}
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           {{-  end }}
           {{- if .Values.probes.readiness.enabled }}
           readinessProbe:
-            failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
-            tcpSocket:
-              port: 25
-            initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
-            periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
-            timeoutSeconds: {{ .Values.probes.readiness.timeoutSeconds }}
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           {{-  end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
