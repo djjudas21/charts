@@ -6,7 +6,9 @@ smokeping:
   owner: LinuxServer.io
   contact: admin@linuxserver.io
   database:
+    # -- How many seconds between tests
     step: 300
+    # -- How many pings to send for each test
     pings: 20
   email:
     to: alertee@address.somewhere
@@ -116,13 +118,13 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Automatically mount a ServiceAccount's API credentials?
-  automount: true
-  # Annotations to add to the service account
+  # -- Automatically mount a ServiceAccount's API credentials?
+  automount: false
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
+  # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
@@ -189,8 +191,8 @@ probes:
 
 persistence:
   enabled: true
-  storageClass: ""  # leave empty if you want to use default
-  size: "5Gi"  # We recommend to allocate a minimum of 1GB if you do not use attachments
+  storageClass: ""
+  size: "5Gi"
   mountPath: "/data/"
   accessMode: ReadWriteOnce
 
