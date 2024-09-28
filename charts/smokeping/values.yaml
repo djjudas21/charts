@@ -105,8 +105,6 @@ smokeping:
           title: Virgin Media DNS 194.168.8.100
           host: 194.168.8.100
 
-replicaCount: 1
-
 image:
   repository: linuxserver/smokeping
   pullPolicy: IfNotPresent
