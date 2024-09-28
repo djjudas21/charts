@@ -33,35 +33,7 @@ smokeping:
         - name: Router
           menu: Router
           title: Router
-          host: modem.gazeley.lan
-        - name: TrueNAS
-          menu: TrueNAS
-          title: TrueNAS
-          host: nas.gazeley.lan
-        - name: RaspberryPi
-          menu: RaspberryPi
-          title: Raspberry Pi
-          host: rpi.gazeley.lan
-        - name: AP
-          menu: AP
-          title: AP
-          host: ap.gazeley.lan
-        - name: uk-west-1
-          menu: uk-west-1
-          title: uk-west-1
-          host: uk-west-1-wifi.gazeley.lan
-    - name: VirginMedia
-      menu: Virgin Media
-      title: Virgin Media
-      hosts:
-        - name: VirginMediaDNS1
-          menu: cache1.service.virginmedia.net
-          title: cache1.service.virginmedia.net
-          host: 194.168.4.100
-        - name: VirginMediaDNS2
-          menu: cache2.service.virginmedia.net
-          title: cache2.service.virginmedia.net
-          host: 194.168.8.100
+          host: 192.168.0.1
     - name: InternetSites
       menu: Internet Sites
       title: Internet Sites
@@ -70,11 +42,6 @@ smokeping:
           menu: Google
           title: google.com
           host: google.com
-        - name: linuxserverio
-          menu: linuxserver.io
-          title: linuxserver.io
-          host: linuxserver.io
-
     - name: DNSProbes
       menu: DNS Probes
       title: DNS Probes
@@ -96,14 +63,6 @@ smokeping:
           menu: Cloudflare DNS 2
           title: Cloudflare DNS 1.0.0.1
           host: 1.0.0.1
-        - name: VirginMediaDNS1
-          menu: Virgin Media DNS 1
-          title: Virgin Media DNS 194.168.4.100
-          host: 194.168.4.100
-        - name: VirginMediaDNS2
-          menu: Virgin Media DNS 2
-          title: Virgin Media DNS 194.168.8.100
-          host: 194.168.8.100
 
 image:
   repository: linuxserver/smokeping
