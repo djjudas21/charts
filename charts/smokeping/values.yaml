@@ -20,7 +20,7 @@ smokeping:
     mailhub: smtp.gmail.com:587
     AuthUser:
     AuthPass:
-    UseSTARTTLS: yes
+    UseSTARTTLS: "yes"
     # -- Where will the mail seem to come from?
     rewriteDomain:
     # -- The full hostname
