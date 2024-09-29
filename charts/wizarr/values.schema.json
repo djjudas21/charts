@@ -1,0 +1,337 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "affinity": {
+      "required": [],
+      "title": "affinity",
+      "type": "object"
+    },
+    "fullnameOverride": {
+      "default": "",
+      "required": [],
+      "title": "fullnameOverride",
+      "type": "string"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "ghcr.io/wizarrrr/wizarr",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "Overrides the image tag whose default is the chart appVersion.",
+          "required": [],
+          "title": "tag",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "imagePullSecrets",
+      "type": "array"
+    },
+    "ingress": {
+      "properties": {
+        "annotations": {
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "className": {
+          "default": "",
+          "required": [],
+          "title": "className",
+          "type": "string"
+        },
+        "enabled": {
+          "default": false,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "hosts": {
+          "description": "kubernetes.io/ingress.class: nginx\nkubernetes.io/tls-acme: \"true\"",
+          "items": {
+            "anyOf": [
+              {
+                "properties": {
+                  "host": {
+                    "default": "chart-example.local",
+                    "required": [],
+                    "title": "host",
+                    "type": "string"
+                  },
+                  "paths": {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "path": {
+                              "default": "/",
+                              "required": [],
+                              "title": "path",
+                              "type": "string"
+                            },
+                            "pathType": {
+                              "default": "ImplementationSpecific",
+                              "required": [],
+                              "title": "pathType",
+                              "type": "string"
+                            }
+                          },
+                          "required": [],
+                          "type": "object"
+                        }
+                      ],
+                      "required": []
+                    },
+                    "required": [],
+                    "title": "paths",
+                    "type": "array"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            ],
+            "required": []
+          },
+          "required": [],
+          "title": "hosts",
+          "type": "array"
+        },
+        "tls": {
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "tls",
+          "type": "array"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "livenessProbe": {
+      "properties": {
+        "httpGet": {
+          "properties": {
+            "path": {
+              "default": "/",
+              "required": [],
+              "title": "path",
+              "type": "string"
+            },
+            "port": {
+              "default": "http",
+              "required": [],
+              "title": "port",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "httpGet",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "livenessProbe",
+      "type": "object"
+    },
+    "nameOverride": {
+      "default": "",
+      "required": [],
+      "title": "nameOverride",
+      "type": "string"
+    },
+    "nodeSelector": {
+      "required": [],
+      "title": "nodeSelector",
+      "type": "object"
+    },
+    "persistence": {
+      "description": "Persistence is required if you are using the SQLite database (default).",
+      "properties": {
+        "accessMode": {
+          "default": "ReadWriteOnce",
+          "required": [],
+          "title": "accessMode",
+          "type": "string"
+        },
+        "enabled": {
+          "default": false,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "size": {
+          "default": "100Mi",
+          "required": [],
+          "title": "size",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "podAnnotations": {
+      "required": [],
+      "title": "podAnnotations",
+      "type": "object"
+    },
+    "podLabels": {
+      "required": [],
+      "title": "podLabels",
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "required": [],
+      "title": "podSecurityContext",
+      "type": "object"
+    },
+    "readinessProbe": {
+      "properties": {
+        "httpGet": {
+          "properties": {
+            "path": {
+              "default": "/",
+              "required": [],
+              "title": "path",
+              "type": "string"
+            },
+            "port": {
+              "default": "http",
+              "required": [],
+              "title": "port",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "httpGet",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "readinessProbe",
+      "type": "object"
+    },
+    "replicaCount": {
+      "default": 1,
+      "description": "Number of replicas to run. \u003e1 requires RWX persistence",
+      "required": [],
+      "title": "replicaCount",
+      "type": "integer"
+    },
+    "resources": {
+      "required": [],
+      "title": "resources",
+      "type": "object"
+    },
+    "securityContext": {
+      "required": [],
+      "title": "securityContext",
+      "type": "object"
+    },
+    "service": {
+      "properties": {
+        "port": {
+          "default": 5690,
+          "required": [],
+          "title": "port",
+          "type": "integer"
+        },
+        "type": {
+          "default": "ClusterIP",
+          "required": [],
+          "title": "type",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    },
+    "serviceAccount": {
+      "properties": {
+        "annotations": {
+          "description": "Annotations to add to the service account",
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "automount": {
+          "default": false,
+          "description": "Automatically mount a ServiceAccount's API credentials?",
+          "required": [],
+          "title": "automount",
+          "type": "boolean"
+        },
+        "create": {
+          "default": true,
+          "description": "Specifies whether a service account should be created",
+          "required": [],
+          "title": "create",
+          "type": "boolean"
+        },
+        "name": {
+          "default": "",
+          "description": "The name of the service account to use.\nIf not set and create is true, a name is generated using the fullname template",
+          "required": [],
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "serviceAccount",
+      "type": "object"
+    },
+    "strategy": {
+      "properties": {
+        "type": {
+          "default": "RollingUpdate",
+          "description": "Deployment strategy. RollingUpdate for RWX or Recreate for RWO",
+          "required": [],
+          "title": "type",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "strategy",
+      "type": "object"
+    },
+    "tolerations": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "tolerations",
+      "type": "array"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

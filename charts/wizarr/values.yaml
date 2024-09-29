@@ -2,7 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# -- Number of replicas to run. >1 requires RWX persistence
 replicaCount: 1
+
+strategy:
+  # -- Deployment strategy. RollingUpdate for RWX or Recreate for RWO
+  type: RollingUpdate
 
 image:
   repository: ghcr.io/wizarrrr/wizarr

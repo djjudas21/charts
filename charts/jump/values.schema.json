@@ -1,0 +1,1042 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "affinity": {
+      "required": [],
+      "title": "affinity",
+      "type": "object"
+    },
+    "env": {
+      "description": "Config values for Jump. Always check https://github.com/daledavies/jump\nfor latest details of available options.",
+      "properties": {
+        "ALTBGPROVIDER": {
+          "default": "",
+          "description": "An alternative background provider url.",
+          "required": [],
+          "title": "ALTBGPROVIDER",
+          "type": "null"
+        },
+        "ALTLAYOUT": {
+          "default": "true",
+          "description": "Display list of sites using an alternative layout",
+          "required": [],
+          "title": "ALTLAYOUT",
+          "type": "string"
+        },
+        "AMPMCLOCK": {
+          "default": "true",
+          "description": "Show 12 hour clock format if true",
+          "required": [],
+          "title": "AMPMCLOCK",
+          "type": "string"
+        },
+        "BGBLUR": {
+          "default": 50,
+          "description": "Background image blur percentage",
+          "required": [],
+          "title": "BGBLUR",
+          "type": "integer"
+        },
+        "BGBRIGHT": {
+          "default": 90,
+          "description": "Background image brightness percentage",
+          "required": [],
+          "title": "BGBRIGHT",
+          "type": "integer"
+        },
+        "CACHEBYPASS": {
+          "default": "false",
+          "description": "Bypass all caches, useful for testing changes",
+          "required": [],
+          "title": "CACHEBYPASS",
+          "type": "string"
+        },
+        "CHECKSTATUS": {
+          "default": "false",
+          "description": "Disable checking site availability status",
+          "required": [],
+          "title": "CHECKSTATUS",
+          "type": "string"
+        },
+        "CUSTOMGREETING": {
+          "default": "Some other greeting message",
+          "description": "Show a custom greeting message instead",
+          "required": [],
+          "title": "CUSTOMGREETING",
+          "type": "string"
+        },
+        "CUSTOMWIDTH": {
+          "default": 1000,
+          "description": "Set a custom with for the page container/site list",
+          "required": [],
+          "title": "CUSTOMWIDTH",
+          "type": "integer"
+        },
+        "DEBUG": {
+          "default": "false",
+          "description": "Enable debug mode",
+          "required": [],
+          "title": "DEBUG",
+          "type": "string"
+        },
+        "LANGUAGE": {
+          "default": "en",
+          "description": "Set to your chosen language code.",
+          "required": [],
+          "title": "LANGUAGE",
+          "type": "string"
+        },
+        "LATLONG": {
+          "default": "",
+          "description": "A latitude and longitude for the default location (e.g. \"51.509865,-0.118092\").",
+          "required": [],
+          "title": "LATLONG",
+          "type": "null"
+        },
+        "METRICTEMP": {
+          "default": "true",
+          "description": "Metric (C) or imperial (F) temperature units",
+          "required": [],
+          "title": "METRICTEMP",
+          "type": "string"
+        },
+        "NOINDEX": {
+          "default": "true",
+          "description": "Include a robots noindex meta tag in site header",
+          "required": [],
+          "title": "NOINDEX",
+          "type": "string"
+        },
+        "OWMAPIKEY": {
+          "default": "",
+          "description": "An API key for Open Weather Map, LATLONG (below) must also be defined.",
+          "required": [],
+          "title": "OWMAPIKEY",
+          "type": "null"
+        },
+        "SHOWCLOCK": {
+          "default": "false",
+          "description": "Hide the clock",
+          "required": [],
+          "title": "SHOWCLOCK",
+          "type": "string"
+        },
+        "SHOWGREETING": {
+          "default": "false",
+          "description": "Show the label \"#home\" instead of a friendly greeting message",
+          "required": [],
+          "title": "SHOWGREETING",
+          "type": "string"
+        },
+        "SHOWSEARCH": {
+          "default": "false",
+          "description": "Hide the search button (disable search)",
+          "required": [],
+          "title": "SHOWSEARCH",
+          "type": "string"
+        },
+        "STATUSCACHE": {
+          "default": 5,
+          "description": "Duration in minutes to cache site availability status",
+          "required": [],
+          "title": "STATUSCACHE",
+          "type": "integer"
+        },
+        "UNSPLASHAPIKEY": {
+          "default": "",
+          "description": "An API key for Unsplash, enables fetching random background images from Unsplash.",
+          "required": [],
+          "title": "UNSPLASHAPIKEY",
+          "type": "null"
+        },
+        "UNSPLASHCOLLECTIONS": {
+          "default": "",
+          "description": "List of Unsplash collection ID's (separated by commas) to select random images from.",
+          "required": [],
+          "title": "UNSPLASHCOLLECTIONS",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "env",
+      "type": "object"
+    },
+    "fullnameOverride": {
+      "default": "",
+      "required": [],
+      "title": "fullnameOverride",
+      "type": "string"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "daledavies/jump",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "imagePullSecrets",
+      "type": "array"
+    },
+    "ingress": {
+      "description": "Enable and configure ingress settings for the chart under this key.",
+      "properties": {
+        "annotations": {
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "className": {
+          "default": "",
+          "required": [],
+          "title": "className",
+          "type": "string"
+        },
+        "enabled": {
+          "default": false,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "hosts": {
+          "description": "kubernetes.io/ingress.class: nginx\nkubernetes.io/tls-acme: \"true\"",
+          "items": {
+            "anyOf": [
+              {
+                "properties": {
+                  "host": {
+                    "default": "chart-example.local",
+                    "required": [],
+                    "title": "host",
+                    "type": "string"
+                  },
+                  "paths": {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "path": {
+                              "default": "/",
+                              "required": [],
+                              "title": "path",
+                              "type": "string"
+                            },
+                            "pathType": {
+                              "default": "ImplementationSpecific",
+                              "required": [],
+                              "title": "pathType",
+                              "type": "string"
+                            }
+                          },
+                          "required": [],
+                          "type": "object"
+                        }
+                      ],
+                      "required": []
+                    },
+                    "required": [],
+                    "title": "paths",
+                    "type": "array"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            ],
+            "required": []
+          },
+          "required": [],
+          "title": "hosts",
+          "type": "array"
+        },
+        "tls": {
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "tls",
+          "type": "array"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "livenessProbe": {
+      "properties": {
+        "httpGet": {
+          "properties": {
+            "path": {
+              "default": "/",
+              "required": [],
+              "title": "path",
+              "type": "string"
+            },
+            "port": {
+              "default": "http",
+              "required": [],
+              "title": "port",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "httpGet",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "livenessProbe",
+      "type": "object"
+    },
+    "nameOverride": {
+      "default": "",
+      "required": [],
+      "title": "nameOverride",
+      "type": "string"
+    },
+    "nodeSelector": {
+      "required": [],
+      "title": "nodeSelector",
+      "type": "object"
+    },
+    "podAnnotations": {
+      "required": [],
+      "title": "podAnnotations",
+      "type": "object"
+    },
+    "podLabels": {
+      "required": [],
+      "title": "podLabels",
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "required": [],
+      "title": "podSecurityContext",
+      "type": "object"
+    },
+    "readinessProbe": {
+      "properties": {
+        "httpGet": {
+          "properties": {
+            "path": {
+              "default": "/",
+              "required": [],
+              "title": "path",
+              "type": "string"
+            },
+            "port": {
+              "default": "http",
+              "required": [],
+              "title": "port",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "httpGet",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "readinessProbe",
+      "type": "object"
+    },
+    "replicaCount": {
+      "default": 1,
+      "description": "Number of replicas",
+      "required": [],
+      "title": "replicaCount",
+      "type": "integer"
+    },
+    "resources": {
+      "required": [],
+      "title": "resources",
+      "type": "object"
+    },
+    "search": {
+      "description": "List of search providers, rendered as search.json",
+      "items": {
+        "anyOf": [
+          {
+            "properties": {
+              "name": {
+                "default": "Google",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              },
+              "url": {
+                "default": "https://www.google.co.uk/search?q=",
+                "required": [],
+                "title": "url",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "name": {
+                "default": "DuckDuckGo",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              },
+              "url": {
+                "default": "https://duckduckgo.com/?q=",
+                "required": [],
+                "title": "url",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "name": {
+                "default": "Bing",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              },
+              "url": {
+                "default": "https://www.bing.com/search?q=",
+                "required": [],
+                "title": "url",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          }
+        ],
+        "required": []
+      },
+      "required": [],
+      "title": "search",
+      "type": "array"
+    },
+    "securityContext": {
+      "required": [],
+      "title": "securityContext",
+      "type": "object"
+    },
+    "service": {
+      "description": "Configures service settings for the chart.",
+      "properties": {
+        "port": {
+          "default": 8080,
+          "required": [],
+          "title": "port",
+          "type": "integer"
+        },
+        "type": {
+          "default": "ClusterIP",
+          "required": [],
+          "title": "type",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    },
+    "serviceAccount": {
+      "properties": {
+        "annotations": {
+          "description": "Annotations to add to the service account",
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "automount": {
+          "default": true,
+          "description": "Automatically mount a ServiceAccount's API credentials?",
+          "required": [],
+          "title": "automount",
+          "type": "boolean"
+        },
+        "create": {
+          "default": true,
+          "description": "Specifies whether a service account should be created",
+          "required": [],
+          "title": "create",
+          "type": "boolean"
+        },
+        "name": {
+          "default": "",
+          "description": "The name of the service account to use.",
+          "required": [],
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "serviceAccount",
+      "type": "object"
+    },
+    "sites": {
+      "properties": {
+        "default": {
+          "description": "Default settings for sites",
+          "properties": {
+            "icon": {
+              "default": "my-default-icon.png",
+              "required": [],
+              "title": "icon",
+              "type": "string"
+            },
+            "newtab": {
+              "default": false,
+              "required": [],
+              "title": "newtab",
+              "type": "boolean"
+            },
+            "nofollow": {
+              "default": true,
+              "required": [],
+              "title": "nofollow",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "default",
+          "type": "object"
+        },
+        "sites": {
+          "description": "List of sites to include, rendered as sites.json",
+          "items": {
+            "anyOf": [
+              {
+                "properties": {
+                  "description": {
+                    "default": "This is an example description",
+                    "required": [],
+                    "title": "description",
+                    "type": "string"
+                  },
+                  "name": {
+                    "default": "Github",
+                    "required": [],
+                    "title": "name",
+                    "type": "string"
+                  },
+                  "newtab": {
+                    "default": true,
+                    "required": [],
+                    "title": "newtab",
+                    "type": "boolean"
+                  },
+                  "nofollow": {
+                    "default": false,
+                    "required": [],
+                    "title": "nofollow",
+                    "type": "boolean"
+                  },
+                  "url": {
+                    "default": "https://github.com/daledavies/jump",
+                    "required": [],
+                    "title": "url",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              },
+              {
+                "properties": {
+                  "name": {
+                    "default": "Docker Hub",
+                    "required": [],
+                    "title": "name",
+                    "type": "string"
+                  },
+                  "url": {
+                    "default": "https://hub.docker.com/r/daledavies/jump",
+                    "required": [],
+                    "title": "url",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              },
+              {
+                "properties": {
+                  "description": {
+                    "default": "This is another example of a site with a description",
+                    "required": [],
+                    "title": "description",
+                    "type": "string"
+                  },
+                  "icon": {
+                    "default": "bitwarden.png",
+                    "required": [],
+                    "title": "icon",
+                    "type": "string"
+                  },
+                  "name": {
+                    "default": "Bitwarden",
+                    "required": [],
+                    "title": "name",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "required": [],
+                          "type": "string"
+                        }
+                      ],
+                      "required": []
+                    },
+                    "required": [],
+                    "title": "tags",
+                    "type": "array"
+                  },
+                  "url": {
+                    "default": "https://bitwarden.com/",
+                    "required": [],
+                    "title": "url",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              },
+              {
+                "properties": {
+                  "icon": {
+                    "default": "nextcloud.png",
+                    "required": [],
+                    "title": "icon",
+                    "type": "string"
+                  },
+                  "name": {
+                    "default": "Nextcloud",
+                    "required": [],
+                    "title": "name",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "required": [],
+                          "type": "string"
+                        },
+                        {
+                          "required": [],
+                          "type": "string"
+                        }
+                      ],
+                      "required": []
+                    },
+                    "required": [],
+                    "title": "tags",
+                    "type": "array"
+                  },
+                  "url": {
+                    "default": "https://cloud.example.com",
+                    "required": [],
+                    "title": "url",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              },
+              {
+                "properties": {
+                  "name": {
+                    "default": "Teapot",
+                    "required": [],
+                    "title": "name",
+                    "type": "string"
+                  },
+                  "nofollow": {
+                    "default": false,
+                    "required": [],
+                    "title": "nofollow",
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "properties": {
+                      "allowed_status_codes": {
+                        "items": {
+                          "anyOf": [
+                            {
+                              "required": [],
+                              "type": "integer"
+                            }
+                          ],
+                          "required": []
+                        },
+                        "required": [],
+                        "title": "allowed_status_codes",
+                        "type": "array"
+                      },
+                      "request_method": {
+                        "default": "GET",
+                        "required": [],
+                        "title": "request_method",
+                        "type": "string"
+                      },
+                      "url": {
+                        "default": "https://www.google.com/teapot",
+                        "required": [],
+                        "title": "url",
+                        "type": "string"
+                      },
+                      "verify_cert": {
+                        "default": false,
+                        "required": [],
+                        "title": "verify_cert",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [],
+                    "title": "status",
+                    "type": "object"
+                  },
+                  "tags": {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "required": [],
+                          "type": "string"
+                        },
+                        {
+                          "required": [],
+                          "type": "string"
+                        }
+                      ],
+                      "required": []
+                    },
+                    "required": [],
+                    "title": "tags",
+                    "type": "array"
+                  },
+                  "url": {
+                    "default": "https://www.google.com/pagedoesnotexist",
+                    "required": [],
+                    "title": "url",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            ],
+            "required": []
+          },
+          "required": [],
+          "title": "sites",
+          "type": "array"
+        }
+      },
+      "required": [],
+      "title": "sites",
+      "type": "object"
+    },
+    "tolerations": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "tolerations",
+      "type": "array"
+    },
+    "volumeMounts": {
+      "description": "Additional volumeMounts on the output Deployment definition.",
+      "items": {
+        "anyOf": [
+          {
+            "properties": {
+              "mountPath": {
+                "default": "/backgrounds",
+                "required": [],
+                "title": "mountPath",
+                "type": "string"
+              },
+              "name": {
+                "default": "backgrounds",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "mountPath": {
+                "default": "/favicon",
+                "required": [],
+                "title": "mountPath",
+                "type": "string"
+              },
+              "name": {
+                "default": "favicon",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "mountPath": {
+                "default": "/sites/sites.json",
+                "required": [],
+                "title": "mountPath",
+                "type": "string"
+              },
+              "name": {
+                "default": "sites-config",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              },
+              "subPath": {
+                "default": "sites.json",
+                "required": [],
+                "title": "subPath",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "mountPath": {
+                "default": "/search/searchengines.json",
+                "required": [],
+                "title": "mountPath",
+                "type": "string"
+              },
+              "name": {
+                "default": "search-config",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              },
+              "subPath": {
+                "default": "searchengines.json",
+                "required": [],
+                "title": "subPath",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          }
+        ],
+        "required": []
+      },
+      "required": [],
+      "title": "volumeMounts",
+      "type": "array"
+    },
+    "volumes": {
+      "description": "Additional volumes on the output Deployment definition.",
+      "items": {
+        "anyOf": [
+          {
+            "properties": {
+              "emptyDir": {
+                "properties": {
+                  "sizeLimit": {
+                    "default": "100Mi",
+                    "required": [],
+                    "title": "sizeLimit",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "title": "emptyDir",
+                "type": "object"
+              },
+              "name": {
+                "default": "backgrounds",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "emptyDir": {
+                "properties": {
+                  "sizeLimit": {
+                    "default": "100Mi",
+                    "required": [],
+                    "title": "sizeLimit",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "title": "emptyDir",
+                "type": "object"
+              },
+              "name": {
+                "default": "favicon",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "emptyDir": {
+                "properties": {
+                  "sizeLimit": {
+                    "default": "100Mi",
+                    "required": [],
+                    "title": "sizeLimit",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "title": "emptyDir",
+                "type": "object"
+              },
+              "name": {
+                "default": "search",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "emptyDir": {
+                "properties": {
+                  "sizeLimit": {
+                    "default": "100Mi",
+                    "required": [],
+                    "title": "sizeLimit",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "title": "emptyDir",
+                "type": "object"
+              },
+              "name": {
+                "default": "sites",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "configMap": {
+                "properties": {
+                  "name": {
+                    "default": "sites-config",
+                    "required": [],
+                    "title": "name",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "title": "configMap",
+                "type": "object"
+              },
+              "name": {
+                "default": "sites-config",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "configMap": {
+                "properties": {
+                  "name": {
+                    "default": "search-config",
+                    "required": [],
+                    "title": "name",
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "title": "configMap",
+                "type": "object"
+              },
+              "name": {
+                "default": "search-config",
+                "required": [],
+                "title": "name",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          }
+        ],
+        "required": []
+      },
+      "required": [],
+      "title": "volumes",
+      "type": "array"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

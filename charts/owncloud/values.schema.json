@@ -1,0 +1,728 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "affinity": {
+      "required": [],
+      "title": "affinity",
+      "type": "object"
+    },
+    "fullnameOverride": {
+      "default": "",
+      "required": [],
+      "title": "fullnameOverride",
+      "type": "string"
+    },
+    "global": {
+      "properties": {
+        "imagePullSecrets": {
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "imagePullSecrets",
+          "type": "array"
+        },
+        "imageRegistry": {
+          "default": "",
+          "required": [],
+          "title": "imageRegistry",
+          "type": "string"
+        },
+        "storageClass": {
+          "default": "",
+          "required": [],
+          "title": "storageClass",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "owncloud/server",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "imagePullSecrets",
+      "type": "array"
+    },
+    "ingress": {
+      "description": "Enable and configure ingress settings for the chart under this key.",
+      "properties": {
+        "annotations": {
+          "properties": {
+            "nginx.ingress.kubernetes.io/proxy-body-size": {
+              "default": "0",
+              "required": [],
+              "title": "nginx.ingress.kubernetes.io/proxy-body-size",
+              "type": "string"
+            },
+            "nginx.ingress.kubernetes.io/proxy-buffering": {
+              "default": "off",
+              "required": [],
+              "title": "nginx.ingress.kubernetes.io/proxy-buffering",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "className": {
+          "default": "",
+          "required": [],
+          "title": "className",
+          "type": "string"
+        },
+        "enabled": {
+          "default": false,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "hosts": {
+          "items": {
+            "anyOf": [
+              {
+                "properties": {
+                  "host": {
+                    "default": "chart-example.local",
+                    "required": [],
+                    "title": "host",
+                    "type": "string"
+                  },
+                  "paths": {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "path": {
+                              "default": "/",
+                              "required": [],
+                              "title": "path",
+                              "type": "string"
+                            },
+                            "pathType": {
+                              "default": "ImplementationSpecific",
+                              "required": [],
+                              "title": "pathType",
+                              "type": "string"
+                            }
+                          },
+                          "required": [],
+                          "type": "object"
+                        }
+                      ],
+                      "required": []
+                    },
+                    "required": [],
+                    "title": "paths",
+                    "type": "array"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            ],
+            "required": []
+          },
+          "required": [],
+          "title": "hosts",
+          "type": "array"
+        },
+        "tls": {
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "tls",
+          "type": "array"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "mariadb": {
+      "description": "Enable and configure mariadb database subchart under this key.\n   For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)",
+      "properties": {
+        "architecture": {
+          "default": "standalone",
+          "required": [],
+          "title": "architecture",
+          "type": "string"
+        },
+        "auth": {
+          "properties": {
+            "database": {
+              "default": "owncloud",
+              "required": [],
+              "title": "database",
+              "type": "string"
+            },
+            "password": {
+              "default": "owncloud",
+              "required": [],
+              "title": "password",
+              "type": "string"
+            },
+            "replicationPassword": {
+              "default": "replication",
+              "required": [],
+              "title": "replicationPassword",
+              "type": "string"
+            },
+            "replicationUser": {
+              "default": "replicator",
+              "required": [],
+              "title": "replicationUser",
+              "type": "string"
+            },
+            "rootPassword": {
+              "default": "owncloud",
+              "required": [],
+              "title": "rootPassword",
+              "type": "string"
+            },
+            "username": {
+              "default": "owncloud",
+              "required": [],
+              "title": "username",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "auth",
+          "type": "object"
+        },
+        "enabled": {
+          "default": true,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "metrics": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "resources": {
+              "required": [],
+              "title": "resources",
+              "type": "object"
+            },
+            "serviceMonitor": {
+              "properties": {
+                "enabled": {
+                  "default": false,
+                  "required": [],
+                  "title": "enabled",
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "title": "serviceMonitor",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "metrics",
+          "type": "object"
+        },
+        "primary": {
+          "properties": {
+            "persistence": {
+              "properties": {
+                "accessModes": {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "required": [],
+                        "type": "string"
+                      }
+                    ],
+                    "required": []
+                  },
+                  "required": [],
+                  "title": "accessModes",
+                  "type": "array"
+                },
+                "enabled": {
+                  "default": true,
+                  "required": [],
+                  "title": "enabled",
+                  "type": "boolean"
+                },
+                "size": {
+                  "default": "8Gi",
+                  "required": [],
+                  "title": "size",
+                  "type": "string"
+                },
+                "storageClass": {
+                  "default": "",
+                  "required": [],
+                  "title": "storageClass",
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "title": "persistence",
+              "type": "object"
+            },
+            "priorityClassName": {
+              "default": "",
+              "required": [],
+              "title": "priorityClassName",
+              "type": "string"
+            },
+            "resources": {
+              "required": [],
+              "title": "resources",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "primary",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "mariadb",
+      "type": "object"
+    },
+    "nameOverride": {
+      "default": "",
+      "required": [],
+      "title": "nameOverride",
+      "type": "string"
+    },
+    "nodeSelector": {
+      "required": [],
+      "title": "nodeSelector",
+      "type": "object"
+    },
+    "ownCloud": {
+      "properties": {
+        "adminPassword": {
+          "default": "admin",
+          "required": [],
+          "title": "adminPassword",
+          "type": "string"
+        },
+        "adminUsername": {
+          "default": "admin",
+          "required": [],
+          "title": "adminUsername",
+          "type": "string"
+        },
+        "externalDatabase": {
+          "properties": {
+            "database": {
+              "default": "owncloud",
+              "required": [],
+              "title": "database",
+              "type": "string"
+            },
+            "host": {
+              "default": "",
+              "required": [],
+              "title": "host",
+              "type": "string"
+            },
+            "password": {
+              "default": "owncloudsecretpassword",
+              "required": [],
+              "title": "password",
+              "type": "string"
+            },
+            "username": {
+              "default": "owncloud",
+              "required": [],
+              "title": "username",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "externalDatabase",
+          "type": "object"
+        },
+        "mail": {
+          "properties": {
+            "domain": {
+              "default": "cluster.local",
+              "required": [],
+              "title": "domain",
+              "type": "string"
+            },
+            "fromAddress": {
+              "default": "owncloud",
+              "required": [],
+              "title": "fromAddress",
+              "type": "string"
+            },
+            "mode": {
+              "default": "smtp",
+              "required": [],
+              "title": "mode",
+              "type": "string"
+            },
+            "smtp": {
+              "properties": {
+                "auth": {
+                  "default": false,
+                  "required": [],
+                  "title": "auth",
+                  "type": "boolean"
+                },
+                "host": {
+                  "default": "",
+                  "required": [],
+                  "title": "host",
+                  "type": "null"
+                },
+                "password": {
+                  "default": "",
+                  "required": [],
+                  "title": "password",
+                  "type": "string"
+                },
+                "port": {
+                  "default": "",
+                  "required": [],
+                  "title": "port",
+                  "type": "null"
+                },
+                "secure": {
+                  "default": "",
+                  "required": [],
+                  "title": "secure",
+                  "type": "null"
+                },
+                "username": {
+                  "default": "",
+                  "required": [],
+                  "title": "username",
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "title": "smtp",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "mail",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "ownCloud",
+      "type": "object"
+    },
+    "persistence": {
+      "properties": {
+        "accessModes": {
+          "items": {
+            "anyOf": [
+              {
+                "required": [],
+                "type": "string"
+              }
+            ],
+            "required": []
+          },
+          "required": [],
+          "title": "accessModes",
+          "type": "array"
+        },
+        "enabled": {
+          "default": true,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "size": {
+          "default": "8Gi",
+          "required": [],
+          "title": "size",
+          "type": "string"
+        },
+        "storageClass": {
+          "default": "",
+          "required": [],
+          "title": "storageClass",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "podAnnotations": {
+      "required": [],
+      "title": "podAnnotations",
+      "type": "object"
+    },
+    "priorityClassName": {
+      "default": "",
+      "required": [],
+      "title": "priorityClassName",
+      "type": "string"
+    },
+    "redis": {
+      "description": "Enable and configure redis subchart under this key.\n   For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis)",
+      "properties": {
+        "architecture": {
+          "default": "standalone",
+          "required": [],
+          "title": "architecture",
+          "type": "string"
+        },
+        "auth": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "existingSecret": {
+              "default": "",
+              "required": [],
+              "title": "existingSecret",
+              "type": "string"
+            },
+            "existingSecretPasswordKey": {
+              "default": "",
+              "required": [],
+              "title": "existingSecretPasswordKey",
+              "type": "string"
+            },
+            "password": {
+              "default": "redis",
+              "required": [],
+              "title": "password",
+              "type": "string"
+            },
+            "sentinel": {
+              "default": true,
+              "required": [],
+              "title": "sentinel",
+              "type": "boolean"
+            },
+            "usePasswordFiles": {
+              "default": false,
+              "required": [],
+              "title": "usePasswordFiles",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "auth",
+          "type": "object"
+        },
+        "master": {
+          "properties": {
+            "persistence": {
+              "properties": {
+                "accessModes": {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "required": [],
+                        "type": "string"
+                      }
+                    ],
+                    "required": []
+                  },
+                  "required": [],
+                  "title": "accessModes",
+                  "type": "array"
+                },
+                "enabled": {
+                  "default": true,
+                  "required": [],
+                  "title": "enabled",
+                  "type": "boolean"
+                },
+                "size": {
+                  "default": "8Gi",
+                  "required": [],
+                  "title": "size",
+                  "type": "string"
+                },
+                "storageClass": {
+                  "default": "",
+                  "required": [],
+                  "title": "storageClass",
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "title": "persistence",
+              "type": "object"
+            },
+            "priorityClassName": {
+              "default": "",
+              "required": [],
+              "title": "priorityClassName",
+              "type": "string"
+            },
+            "resources": {
+              "required": [],
+              "title": "resources",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "master",
+          "type": "object"
+        },
+        "metrics": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "prometheusRule": {
+              "properties": {
+                "enabled": {
+                  "default": false,
+                  "required": [],
+                  "title": "enabled",
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "title": "prometheusRule",
+              "type": "object"
+            },
+            "serviceMonitor": {
+              "properties": {
+                "enabled": {
+                  "default": false,
+                  "required": [],
+                  "title": "enabled",
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "title": "serviceMonitor",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "metrics",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "redis",
+      "type": "object"
+    },
+    "replicaCount": {
+      "default": 1,
+      "description": "Number of replicas",
+      "required": [],
+      "title": "replicaCount",
+      "type": "integer"
+    },
+    "resources": {
+      "required": [],
+      "title": "resources",
+      "type": "object"
+    },
+    "service": {
+      "description": "Configures service settings for the chart.",
+      "properties": {
+        "port": {
+          "default": 8080,
+          "required": [],
+          "title": "port",
+          "type": "integer"
+        },
+        "type": {
+          "default": "ClusterIP",
+          "required": [],
+          "title": "type",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    },
+    "serviceAccount": {
+      "properties": {
+        "annotations": {
+          "description": "Annotations to add to the service account",
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "create": {
+          "default": true,
+          "description": "Specifies whether a service account should be created",
+          "required": [],
+          "title": "create",
+          "type": "boolean"
+        },
+        "name": {
+          "default": "",
+          "description": "The name of the service account to use.",
+          "required": [],
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "serviceAccount",
+      "type": "object"
+    },
+    "tolerations": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "tolerations",
+      "type": "array"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

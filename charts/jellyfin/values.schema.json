@@ -1,0 +1,680 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "affinity": {
+      "description": "expects input structure as per specification\nAffinity for pod assignment (https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#affinity-v1-core)",
+      "required": [],
+      "title": "affinity",
+      "type": "object"
+    },
+    "containerSecurityContext": {
+      "description": "Security context for the jellyfin container\n   (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)",
+      "properties": {
+        "allowPrivilegeEscalation": {
+          "default": false,
+          "required": [],
+          "title": "allowPrivilegeEscalation",
+          "type": "boolean"
+        },
+        "capabilities": {
+          "properties": {
+            "drop": {
+              "items": {
+                "anyOf": [
+                  {
+                    "required": [],
+                    "type": "string"
+                  }
+                ],
+                "required": []
+              },
+              "required": [],
+              "title": "drop",
+              "type": "array"
+            }
+          },
+          "required": [],
+          "title": "capabilities",
+          "type": "object"
+        },
+        "readOnlyRootFilesystem": {
+          "default": true,
+          "required": [],
+          "title": "readOnlyRootFilesystem",
+          "type": "boolean"
+        },
+        "runAsGroup": {
+          "default": 64710,
+          "required": [],
+          "title": "runAsGroup",
+          "type": "integer"
+        },
+        "runAsNonRoot": {
+          "default": true,
+          "required": [],
+          "title": "runAsNonRoot",
+          "type": "boolean"
+        },
+        "runAsUser": {
+          "default": 64710,
+          "required": [],
+          "title": "runAsUser",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "containerSecurityContext",
+      "type": "object"
+    },
+    "fullnameOverride": {
+      "default": "",
+      "description": "String to fully override `common.names.fullname` template",
+      "required": [],
+      "title": "fullnameOverride",
+      "type": "string"
+    },
+    "global": {
+      "description": "Default values for jellyfin",
+      "properties": {
+        "commonLabels": {
+          "description": "Labels to apply to all resources.",
+          "required": [],
+          "title": "commonLabels",
+          "type": "object"
+        },
+        "debug": {
+          "default": false,
+          "description": "Enable global debug mode",
+          "required": [],
+          "title": "debug",
+          "type": "boolean"
+        },
+        "imagePullSecrets": {
+          "description": "Reference to one or more secrets to be used when pulling images\n   (https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "imagePullSecrets",
+          "type": "array"
+        },
+        "imageRegistry": {
+          "default": "",
+          "description": "Global Docker image registry",
+          "required": [],
+          "title": "imageRegistry",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "images": {
+      "properties": {
+        "jellyfin": {
+          "properties": {
+            "digest": {
+              "default": "",
+              "description": "jellyfin image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag",
+              "required": [],
+              "title": "digest",
+              "type": "string"
+            },
+            "pullPolicy": {
+              "default": "IfNotPresent",
+              "description": "jellyfin image pull policy",
+              "required": [],
+              "title": "pullPolicy",
+              "type": "string"
+            },
+            "registry": {
+              "default": "",
+              "description": "jellyfin image registry (optional)",
+              "required": [],
+              "title": "registry",
+              "type": "string"
+            },
+            "repository": {
+              "default": "jellyfin/jellyfin",
+              "description": "jellyfin image repository",
+              "required": [],
+              "title": "repository",
+              "type": "string"
+            },
+            "tag": {
+              "default": "",
+              "description": "jellyfin image tag (immutable tags are recommended)",
+              "required": [],
+              "title": "tag",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "jellyfin",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "images",
+      "type": "object"
+    },
+    "ingress": {
+      "properties": {
+        "annotations": {
+          "description": "Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.",
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "enabled": {
+          "default": false,
+          "description": "Enable ingress resource",
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "extraHosts": {
+          "description": "The list of additional hostnames to be covered with this ingress record.",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "extraHosts",
+          "type": "array"
+        },
+        "extraPaths": {
+          "description": "Any additional paths that may need to be added to the ingress under the main host",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "extraPaths",
+          "type": "array"
+        },
+        "extraRules": {
+          "description": "Additional rules to be covered with this ingress record",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "extraRules",
+          "type": "array"
+        },
+        "extraTls": {
+          "description": "The tls configuration for additional hostnames to be covered with this ingress record.",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "extraTls",
+          "type": "array"
+        },
+        "hostname": {
+          "default": "jellyfin.local",
+          "description": "Default host for the ingress resource",
+          "required": [],
+          "title": "hostname",
+          "type": "string"
+        },
+        "ingressClassName": {
+          "default": "",
+          "description": "IngressClass that will be used to implement the Ingress",
+          "required": [],
+          "title": "ingressClassName",
+          "type": "string"
+        },
+        "path": {
+          "default": "/",
+          "description": "The Path to jellyfin. You may need to set this to '/*' in order to use this with ALB ingress controllers.",
+          "required": [],
+          "title": "path",
+          "type": "string"
+        },
+        "pathType": {
+          "default": "ImplementationSpecific",
+          "description": "Ingress path type",
+          "required": [],
+          "title": "pathType",
+          "type": "string"
+        },
+        "tls": {
+          "default": true,
+          "description": "Enable TLS configuration for the hostname defined at apiIngress.hostname parameter",
+          "required": [],
+          "title": "tls",
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "jellyfin": {
+      "properties": {
+        "extraDevices": {
+          "description": "Additional device like GPU to mount",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "extraDevices",
+          "type": "array"
+        },
+        "mediaVolumes": {
+          "description": "The list of volumes that will be mounted inside jellyfin pod, to `/media`.",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "mediaVolumes",
+          "type": "array"
+        },
+        "persistentTranscodes": {
+          "default": false,
+          "description": "Keep all transcoded files persistent.",
+          "required": [],
+          "title": "persistentTranscodes",
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "jellyfin",
+      "type": "object"
+    },
+    "nameOverride": {
+      "default": "",
+      "description": "String to partially override `common.names.fullname` template (will maintain the release name)",
+      "required": [],
+      "title": "nameOverride",
+      "type": "string"
+    },
+    "networkPolicy": {
+      "properties": {
+        "allowAllOutbound": {
+          "default": true,
+          "description": "Whether to allow all outbound traffic by default.",
+          "required": [],
+          "title": "allowAllOutbound",
+          "type": "boolean"
+        },
+        "allowExternal": {
+          "default": true,
+          "description": "Don't require client label for connections",
+          "required": [],
+          "title": "allowExternal",
+          "type": "boolean"
+        },
+        "egress": {
+          "description": "Sets egress policy block. See NetworkPolicies documentation (https://kubernetes.io/docs/concepts/services-networking/network-policies/).",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "egress",
+          "type": "array"
+        },
+        "enabled": {
+          "default": false,
+          "description": "Enable the default NetworkPolicy policy",
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "ingress": {
+          "description": "Sets ingress policy block. See NetworkPolicies documentation (https://kubernetes.io/docs/concepts/services-networking/network-policies/).",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "ingress",
+          "type": "array"
+        }
+      },
+      "required": [],
+      "title": "networkPolicy",
+      "type": "object"
+    },
+    "nodeSelector": {
+      "description": "Node labels for pod assignment",
+      "properties": {
+        "kubernetes.io/os": {
+          "default": "linux",
+          "required": [],
+          "title": "kubernetes.io/os",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "nodeSelector",
+      "type": "object"
+    },
+    "persistence": {
+      "properties": {
+        "cache": {
+          "properties": {
+            "enabled": {
+              "default": true,
+              "description": "Enable cache persistence using `PVC`. If false, use emptyDir",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "volumeClaimSpec": {
+              "description": "Claims that pods are allowed to reference (see\n   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaim-v1-core\n   for structural reference)",
+              "properties": {
+                "accessModes": {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "required": [],
+                        "type": "string"
+                      }
+                    ],
+                    "required": []
+                  },
+                  "required": [],
+                  "title": "accessModes",
+                  "type": "array"
+                },
+                "resources": {
+                  "properties": {
+                    "requests": {
+                      "properties": {
+                        "storage": {
+                          "default": "2Gi",
+                          "required": [],
+                          "title": "storage",
+                          "type": "string"
+                        }
+                      },
+                      "required": [],
+                      "title": "requests",
+                      "type": "object"
+                    }
+                  },
+                  "required": [],
+                  "title": "resources",
+                  "type": "object"
+                }
+              },
+              "required": [],
+              "title": "volumeClaimSpec",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "cache",
+          "type": "object"
+        },
+        "config": {
+          "properties": {
+            "enabled": {
+              "default": true,
+              "description": "Enable configuration persistence using `PVC`. If false, use emptyDir",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "volumeClaimSpec": {
+              "description": "Claims that pods are allowed to reference (see\n   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaim-v1-core\n   for structural reference)",
+              "properties": {
+                "accessModes": {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "required": [],
+                        "type": "string"
+                      }
+                    ],
+                    "required": []
+                  },
+                  "required": [],
+                  "title": "accessModes",
+                  "type": "array"
+                },
+                "resources": {
+                  "properties": {
+                    "requests": {
+                      "properties": {
+                        "storage": {
+                          "default": "1Gi",
+                          "required": [],
+                          "title": "storage",
+                          "type": "string"
+                        }
+                      },
+                      "required": [],
+                      "title": "requests",
+                      "type": "object"
+                    }
+                  },
+                  "required": [],
+                  "title": "resources",
+                  "type": "object"
+                }
+              },
+              "required": [],
+              "title": "volumeClaimSpec",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "config",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "podAnnotations": {
+      "description": "Additional annotations to apply to the pod.",
+      "required": [],
+      "title": "podAnnotations",
+      "type": "object"
+    },
+    "podLabels": {
+      "description": "Additional labels to be added to pods.",
+      "required": [],
+      "title": "podLabels",
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "description": "Security context for the pod (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)",
+      "properties": {
+        "fsGroup": {
+          "default": 64710,
+          "required": [],
+          "title": "fsGroup",
+          "type": "integer"
+        },
+        "runAsGroup": {
+          "default": 64710,
+          "required": [],
+          "title": "runAsGroup",
+          "type": "integer"
+        },
+        "runAsNonRoot": {
+          "default": true,
+          "required": [],
+          "title": "runAsNonRoot",
+          "type": "boolean"
+        },
+        "runAsUser": {
+          "default": 64710,
+          "required": [],
+          "title": "runAsUser",
+          "type": "integer"
+        },
+        "seccompProfile": {
+          "properties": {
+            "type": {
+              "default": "RuntimeDefault",
+              "required": [],
+              "title": "type",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "seccompProfile",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "podSecurityContext",
+      "type": "object"
+    },
+    "resources": {
+      "properties": {
+        "jellyfin": {
+          "properties": {
+            "limits": {
+              "description": "The resources limits for the container",
+              "properties": {
+                "cpu": {
+                  "default": "2",
+                  "required": [],
+                  "title": "cpu",
+                  "type": "string"
+                },
+                "memory": {
+                  "default": "6Gi",
+                  "required": [],
+                  "title": "memory",
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "title": "limits",
+              "type": "object"
+            },
+            "requests": {
+              "description": "The requested resources for the container",
+              "properties": {
+                "cpu": {
+                  "default": "500m",
+                  "required": [],
+                  "title": "cpu",
+                  "type": "string"
+                },
+                "memory": {
+                  "default": "512Mi",
+                  "required": [],
+                  "title": "memory",
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "title": "requests",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "jellyfin",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "resources",
+      "type": "object"
+    },
+    "service": {
+      "properties": {
+        "annotations": {
+          "description": "Additional annotations for the Service",
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "clusterIP": {
+          "default": "",
+          "description": "Service Cluster IP",
+          "required": [],
+          "title": "clusterIP",
+          "type": "string"
+        },
+        "externalTrafficPolicy": {
+          "default": "Cluster",
+          "description": "Enable client source IP preservation",
+          "required": [],
+          "title": "externalTrafficPolicy",
+          "type": "string"
+        },
+        "loadBalancerIP": {
+          "default": "",
+          "description": "LoadBalancer IP if service type is `LoadBalancer` (optional, cloud specific)",
+          "required": [],
+          "title": "loadBalancerIP",
+          "type": "string"
+        },
+        "loadBalancerSourceRanges": {
+          "description": "Addresses that are allowed when service is `LoadBalancer`",
+          "items": {
+            "required": []
+          },
+          "required": [],
+          "title": "loadBalancerSourceRanges",
+          "type": "array"
+        },
+        "type": {
+          "default": "ClusterIP",
+          "description": "Service type",
+          "required": [],
+          "title": "type",
+          "type": "string"
+        },
+        "web": {
+          "properties": {
+            "nodePort": {
+              "default": 0,
+              "description": "Specify the nodePort value for the `LoadBalancer` and `NodePort` service types",
+              "required": [],
+              "title": "nodePort",
+              "type": "integer"
+            },
+            "port": {
+              "default": 8096,
+              "description": "`web` service port",
+              "required": [],
+              "title": "port",
+              "type": "integer"
+            }
+          },
+          "required": [],
+          "title": "web",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    },
+    "strategy": {
+      "description": "Set up update strategy for jellyfin installation. Set to `Recreate` if you use persistent volume\n   that cannot be mounted by more than one pods to make sure the pods is destroyed first.\n   (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy)",
+      "required": [],
+      "title": "strategy",
+      "type": "object"
+    },
+    "tolerations": {
+      "description": "Tolerations for pod assignment (https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#toleration-v1-core)",
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "tolerations",
+      "type": "array"
+    },
+    "topologySpreadConstraints": {
+      "description": "Topology Spread Constraints for pod assignment\n   (https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#topologyspreadconstraint-v1-core)",
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "topologySpreadConstraints",
+      "type": "array"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

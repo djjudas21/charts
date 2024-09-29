@@ -1,0 +1,346 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "affinity": {
+      "required": [],
+      "title": "affinity",
+      "type": "object"
+    },
+    "env": {
+      "description": "environment variables",
+      "properties": {
+        "passwordAccess": {
+          "default": false,
+          "description": "Set to true to allow user/password ssh access. You will want to set USER_PASSWORD or USER_PASSWORD_FILE as well.",
+          "required": [],
+          "title": "passwordAccess",
+          "type": "boolean"
+        },
+        "pgid": {
+          "default": 1000,
+          "description": "GroupID",
+          "required": [],
+          "title": "pgid",
+          "type": "integer"
+        },
+        "publicKey": {
+          "default": "",
+          "description": "Optional ssh public key, which will automatically be added to authorized_keys.",
+          "required": [],
+          "title": "publicKey",
+          "type": "null"
+        },
+        "publicKeyDir": {
+          "default": "",
+          "description": "Optionally specify a directory containing the public keys (works with docker secrets).",
+          "required": [],
+          "title": "publicKeyDir",
+          "type": "null"
+        },
+        "publicKeyFile": {
+          "default": "",
+          "description": "Optionally specify a file containing the public key (works with docker secrets).",
+          "required": [],
+          "title": "publicKeyFile",
+          "type": "null"
+        },
+        "publicKeyUrl": {
+          "default": "",
+          "description": "Optionally specify a URL containing the public key, e.g. \u003chttps://github.com/username.keys\u003e",
+          "required": [],
+          "title": "publicKeyUrl",
+          "type": "null"
+        },
+        "puid": {
+          "default": 1000,
+          "description": "When using volumes (-v flags) permissions issues can arise between the host OS and the container, we avoid this issue by allowing you to specify the user PUID and group PGID.\nEnsure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.\nIn this instance PUID=1000 and PGID=1000, to find yours use id user as below:\nUserID:",
+          "required": [],
+          "title": "puid",
+          "type": "integer"
+        },
+        "sudoAccess": {
+          "default": false,
+          "description": "Set to true to allow linuxserver.io, the ssh user, sudo access. Without USER_PASSWORD set, this will allow passwordless sudo access.",
+          "required": [],
+          "title": "sudoAccess",
+          "type": "boolean"
+        },
+        "tz": {
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see \u003chttps://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List\u003e",
+          "required": [],
+          "title": "tz",
+          "type": "string"
+        },
+        "userName": {
+          "default": "",
+          "description": "Optionally specify a user name (Default:linuxserver.io)",
+          "required": [],
+          "title": "userName",
+          "type": "null"
+        },
+        "userPassword": {
+          "default": "",
+          "description": "Optionally set a sudo password for linuxserver.io, the ssh user. If this or USER_PASSWORD_FILE are not set but SUDO_ACCESS is set to true, the user will have passwordless sudo access.",
+          "required": [],
+          "title": "userPassword",
+          "type": "null"
+        },
+        "userPasswordFile": {
+          "default": "",
+          "description": "Optionally specify a file that contains the password. This setting supersedes the USER_PASSWORD option (works with docker secrets).",
+          "required": [],
+          "title": "userPasswordFile",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "env",
+      "type": "object"
+    },
+    "fullnameOverride": {
+      "default": "",
+      "required": [],
+      "title": "fullnameOverride",
+      "type": "string"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "linuxserver/openssh-server",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "imagePullSecrets",
+      "type": "array"
+    },
+    "nameOverride": {
+      "default": "",
+      "required": [],
+      "title": "nameOverride",
+      "type": "string"
+    },
+    "nodeSelector": {
+      "required": [],
+      "title": "nodeSelector",
+      "type": "object"
+    },
+    "packages": {
+      "description": "Alpine Packages to install via custom scripts on container startup\nhttps://docs.linuxserver.io/general/container-customization#custom-scripts\nhttps://pkgs.alpinelinux.org/packages",
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "packages",
+      "type": "array"
+    },
+    "persistence": {
+      "description": "Persist the home directory",
+      "properties": {
+        "config": {
+          "properties": {
+            "accessModes": {
+              "items": {
+                "anyOf": [
+                  {
+                    "required": [],
+                    "type": "string"
+                  }
+                ],
+                "required": []
+              },
+              "required": [],
+              "title": "accessModes",
+              "type": "array"
+            },
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "size": {
+              "default": "1Gi",
+              "required": [],
+              "title": "size",
+              "type": "string"
+            },
+            "storageClass": {
+              "default": "",
+              "required": [],
+              "title": "storageClass",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "config",
+          "type": "object"
+        },
+        "home": {
+          "properties": {
+            "accessModes": {
+              "items": {
+                "anyOf": [
+                  {
+                    "required": [],
+                    "type": "string"
+                  }
+                ],
+                "required": []
+              },
+              "required": [],
+              "title": "accessModes",
+              "type": "array"
+            },
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "size": {
+              "default": "8Gi",
+              "required": [],
+              "title": "size",
+              "type": "string"
+            },
+            "storageClass": {
+              "default": "",
+              "required": [],
+              "title": "storageClass",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "home",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "podAnnotations": {
+      "required": [],
+      "title": "podAnnotations",
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "required": [],
+      "title": "podSecurityContext",
+      "type": "object"
+    },
+    "replicaCount": {
+      "default": 1,
+      "description": "Number of replicas",
+      "required": [],
+      "title": "replicaCount",
+      "type": "integer"
+    },
+    "resources": {
+      "required": [],
+      "title": "resources",
+      "type": "object"
+    },
+    "securityContext": {
+      "required": [],
+      "title": "securityContext",
+      "type": "object"
+    },
+    "service": {
+      "description": "Configures service settings for the chart.",
+      "properties": {
+        "port": {
+          "default": 2222,
+          "required": [],
+          "title": "port",
+          "type": "integer"
+        },
+        "targetPort": {
+          "default": 2222,
+          "required": [],
+          "title": "targetPort",
+          "type": "integer"
+        },
+        "type": {
+          "default": "ClusterIP",
+          "required": [],
+          "title": "type",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    },
+    "serviceAccount": {
+      "properties": {
+        "annotations": {
+          "description": "Annotations to add to the service account",
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "create": {
+          "default": true,
+          "description": "Specifies whether a service account should be created",
+          "required": [],
+          "title": "create",
+          "type": "boolean"
+        },
+        "name": {
+          "default": "",
+          "description": "The name of the service account to use.",
+          "required": [],
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "serviceAccount",
+      "type": "object"
+    },
+    "tolerations": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "tolerations",
+      "type": "array"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

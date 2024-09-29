@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "env": {
+      "description": "environment variables. See [application docs](https://github.com/louislam/uptime-kuma/wiki/Environment-Variables) for more details.",
+      "properties": {
+        "TZ": {
+          "default": "UTC",
+          "description": "Set the container timezone",
+          "required": [],
+          "title": "TZ",
+          "type": "string"
+        },
+        "UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN": {
+          "default": 0,
+          "description": "Set the custom ssl cert path (string)\nUPTIME_KUMA_SSL_CERT:\nSet the custom ssl key path (string)\nUPTIME_KUMA_SSL_KEY:\nSet the frame same-origin policy (int)",
+          "required": [],
+          "title": "UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "env",
+      "type": "object"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "louislam/uptime-kuma",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "ingress": {
+      "properties": {
+        "main": {
+          "description": "Enable and configure ingress settings for the chart under this key.",
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "persistence": {
+      "description": "Configure persistence settings for the chart under this key.",
+      "properties": {
+        "data": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "mountPath": {
+              "default": "/app/data",
+              "required": [],
+              "title": "mountPath",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "data",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "service": {
+      "description": "Configures service settings for the chart.",
+      "properties": {
+        "main": {
+          "properties": {
+            "ports": {
+              "properties": {
+                "http": {
+                  "properties": {
+                    "port": {
+                      "default": 3001,
+                      "required": [],
+                      "title": "port",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [],
+                  "title": "http",
+                  "type": "object"
+                }
+              },
+              "required": [],
+              "title": "ports",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    }
+  },
+  "required": [],
+  "type": "object"
+}
