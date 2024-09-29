@@ -28,6 +28,8 @@ spec:
       serviceAccountName: {{ include "wizarr.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      strategy:
+        type: {{ .Values.strategy.type }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
