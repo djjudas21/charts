@@ -1,6 +1,6 @@
 # wizarr
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.2.0-beta.3](https://img.shields.io/badge/AppVersion-4.2.0--beta.3-informational?style=flat-square)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.2.0-beta.3](https://img.shields.io/badge/AppVersion-4.2.0--beta.3-informational?style=flat-square)
 
 Wizarr is an advanced user invitation and management system for Jellyfin, Plex, Emby etc.
 
@@ -44,7 +44,7 @@ Wizarr is an advanced user invitation and management system for Jellyfin, Plex, 
 | podSecurityContext | object | `{}` |  |
 | readinessProbe.httpGet.path | string | `"/"` |  |
 | readinessProbe.httpGet.port | string | `"http"` |  |
-| replicaCount | int | `1` |  |
+| replicaCount | int | `1` | Number of replicas to run. >1 requires RWX persistence |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `5690` |  |
@@ -53,6 +53,7 @@ Wizarr is an advanced user invitation and management system for Jellyfin, Plex, 
 | serviceAccount.automount | bool | `false` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| strategy.type | string | `"RollingUpdate"` | Deployment strategy. RollingUpdate for RWX or Recreate for RWO |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
