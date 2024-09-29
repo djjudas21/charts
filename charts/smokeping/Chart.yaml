@@ -1,0 +1,17 @@
+---
+apiVersion: v2
+name: smokeping
+description: SmokePing is a latency logging and graphing and alerting system
+type: application
+version: 0.1.0
+appVersion: "2.8.2"
+keywords:
+  - smokeping
+home: https://oss.oetiker.ch/smokeping/
+icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/smokeping-logo.png
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+    url: https://github.com/djjudas21
+sources:
+  - https://github.com/oetiker/SmokePing

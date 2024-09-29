@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "smokeping.fullname" . }}
+  labels:
+    {{- include "smokeping.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "smokeping.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "smokeping.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "smokeping.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      - name: sockets
+        emptyDir: {}
+      - name: log
+        emptyDir: {}
+      - name: config-volume
+        configMap:
+          name: config        
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: config-volume
+            mountPath: /config/Targets
+            subPath: Targets
+          - name: config-volume
+            mountPath: /config/Alerts
+            subPath: Alerts
+          - name: config-volume
+            mountPath: /config/Database
+            subPath: Database
+          - name: config-volume
+            mountPath: /config/General
+            subPath: General
+          - name: config-volume
+            mountPath: /config/Presentation
+            subPath: Presentation
+          - name: config-volume
+            mountPath: /config/Probes
+            subPath: Probes
+          - name: config-volume
+            mountPath: /config/ssmtp.conf
+            subPath: ssmtp.conf
+          {{- if .Values.persistence.enabled }}  
+          - name: data
+            mountPath: {{ .Values.persistence.mountPath }}
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          {{- if .Values.probes.liveness.enabled }}
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          {{-  end }}
+          {{- if .Values.probes.readiness.enabled }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          {{-  end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  {{- if .Values.persistence.enabled }}  
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: 
+      - {{ .Values.persistence.accessMode }}
+      storageClassName: {{ .Values.persistence.storageClass }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.size }}
+  {{- end }}

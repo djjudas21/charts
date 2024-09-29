@@ -1,0 +1,184 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+data:
+  Alerts: |+
+    *** Alerts ***
+    to = {{ .Values.smokeping.email.to }}
+    from = {{ .Values.smokeping.email.from }}
+
+    +someloss
+    type = loss
+    # in percent
+    pattern = >0%,*12*,>0%,*12*,>0%
+    comment = loss 3 times  in a row
+
+  Database: |+
+    *** Database ***
+
+    step     = {{ .Values.smokeping.database.step }}
+    pings    = {{ .Values.smokeping.database.pings }}
+
+    # consfn mrhb steps total
+
+    AVERAGE  0.5   1  1008
+    AVERAGE  0.5  12  4320
+        MIN  0.5  12  4320
+        MAX  0.5  12  4320
+    AVERAGE  0.5 144   720
+        MAX  0.5 144   720
+        MIN  0.5 144   720
+
+  General: |
+    *** General ***
+
+    owner    = {{ .Values.smokeping.owner }}
+    contact  = {{ .Values.smokeping.contact }}
+    mailhost = my.mail.host
+    # NOTE: do not put the Image Cache below cgi-bin
+    # since all files under cgi-bin will be executed ... this is not
+    # good for images.
+    cgiurl   = http://localhost/smokeping/smokeping.cgi
+    # specify this to get syslog logging
+    syslogfacility = local0
+    # each probe is now run in its own process
+    # disable this to revert to the old behaviour
+    # concurrentprobes = no
+
+    @include /config/pathnames
+  Presentation: |+
+    *** Presentation ***
+
+    template = /etc/smokeping/basepage.html
+    charset  = utf-8
+
+    + charts
+
+    menu = Charts
+    title = The most interesting destinations
+
+    ++ stddev
+    sorter = StdDev(entries=>4)
+    title = Top Standard Deviation
+    menu = Std Deviation
+    format = Standard Deviation %f
+
+    ++ max
+    sorter = Max(entries=>5)
+    title = Top Max Roundtrip Time
+    menu = by Max
+    format = Max Roundtrip Time %f seconds
+
+    ++ loss
+    sorter = Loss(entries=>5)
+    title = Top Packet Loss
+    menu = Loss
+    format = Packets Lost %f
+
+    ++ median
+    sorter = Median(entries=>5)
+    title = Top Median Roundtrip Time
+    menu = by Median
+    format = Median RTT %f seconds
+
+    + overview
+
+    width = 600
+    height = 50
+    range = 10h
+
+    + detail
+
+    width = 600
+    height = 200
+    unison_tolerance = 2
+
+    "Last 3 Hours"    3h
+    "Last 30 Hours"   30h
+    "Last 10 Days"    10d
+    "Last 360 Days"   360d
+
+    #+ hierarchies
+    #++ owner
+    #title = Host Owner
+    #++ location
+    #title = Location
+
+  Probes: |
+    *** Probes ***
+
+    + FPing
+    binary = /usr/sbin/fping
+
+    + FPing6
+    binary = /usr/sbin/fping
+    protocol = 6
+
+    + DNS
+    binary = /usr/bin/dig
+    lookup = google.com
+    pings = 5
+    step = 300
+
+    + TCPPing
+    binary = /usr/bin/tcpping
+    forks = 10
+    offset = random
+    pings = 5
+    port = 80
+  
+  Targets: |+
+    *** Targets ***
+
+    probe = FPing
+
+    menu = Top
+    title = Network Latency Grapher
+    remark = Welcome to the SmokePing website of WORKS Company. \
+            Here you will learn all about the latency of our network.
+
+    {{- range $i, $target := .Values.smokeping.targets }}
+    + {{ $target.name }}
+
+    menu = {{ $target.menu }}
+    title = {{ $target.title }}
+
+    {{- range $j, $host := $target.hosts }}
+    ++ {{ $host.name }}
+    menu = {{ $host.menu }}
+    title = {{ $host.title }}
+    host = {{ $host.host }}
+    {{ end }}
+    {{ end }}
+  ssmtp.conf: |
+    #
+    # Config file for sSMTP sendmail
+    #
+    # The person who gets all mail for userids < 1000
+    # Make this empty to disable rewriting.
+
+    root={{ .Values.smokeping.email.root }}
+
+    # The place where the mail goes. The actual machine name is required no
+    # MX records are consulted. Commonly mailhosts are named mail.domain.com
+
+    mailhub={{ .Values.smokeping.email.mailhub }}
+    AuthUser={{ .Values.smokeping.email.AuthUser }}
+    AuthPass={{ .Values.smokeping.email.AuthPass }}
+    UseSTARTTLS={{ .Values.smokeping.email.UseSTARTTLS }}
+    
+    {{- if .Values.smokeping.email.rewriteDomain }}
+    # Where will the mail seem to come from?
+    rewriteDomain={{ .Values.smokeping.email.rewriteDomain }}
+    {{- end }}
+    
+    {{- if .Values.smokeping.email.hostname }}
+    # The full hostname
+    hostname={{ .Values.smokeping.email.hostname }}
+    {{- end }}
+
+    # Are users allowed to set their own From: address?
+    # YES - Allow the user to specify their own From: address
+    # NO - Use the system generated From: address
+    #FromLineOverride=YES
