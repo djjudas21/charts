@@ -1,0 +1,313 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "affinity": {
+      "required": [],
+      "title": "affinity",
+      "type": "object"
+    },
+    "databases": {
+      "description": "List of databases to backup (see format below).\nWithout a host set, this chart will not do anything as it is expected\nto be used only when there's an existing database to backup.",
+      "items": {
+        "anyOf": [
+          {
+            "properties": {
+              "allDatabases": {
+                "default": "true",
+                "description": "Back up all databases (overrides database)",
+                "required": [],
+                "title": "allDatabases",
+                "type": "string"
+              },
+              "database": {
+                "default": "",
+                "description": "DB name for single DB backup",
+                "required": [],
+                "title": "database",
+                "type": "string"
+              },
+              "debug": {
+                "default": "false",
+                "description": "Enable debug output",
+                "required": [],
+                "title": "debug",
+                "type": "string"
+              },
+              "host": {
+                "default": "example.com",
+                "required": [],
+                "title": "host",
+                "type": "string"
+              },
+              "password": {
+                "default": "",
+                "description": "Database password",
+                "required": [],
+                "title": "password",
+                "type": "string"
+              },
+              "port": {
+                "default": "3306",
+                "description": "Database port",
+                "required": [],
+                "title": "port",
+                "type": "string"
+              },
+              "schedule": {
+                "default": "",
+                "description": "Override crontab schedule for this host",
+                "required": [],
+                "title": "schedule",
+                "type": "string"
+              },
+              "type": {
+                "default": "",
+                "description": "Database type, mysql or postgresql",
+                "required": [],
+                "title": "type",
+                "type": "string"
+              },
+              "username": {
+                "default": "root",
+                "description": "Database username",
+                "required": [],
+                "title": "username",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          }
+        ],
+        "required": []
+      },
+      "required": [],
+      "title": "databases",
+      "type": "array"
+    },
+    "failedJobsHistoryLimit": {
+      "default": 3,
+      "description": "number of failed jobs to remember",
+      "required": [],
+      "title": "failedJobsHistoryLimit",
+      "type": "integer"
+    },
+    "fullnameOverride": {
+      "default": "",
+      "required": [],
+      "title": "fullnameOverride",
+      "type": "string"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "housekeeping": {
+      "description": "delete old backups",
+      "properties": {
+        "enabled": {
+          "default": true,
+          "description": "delete old backups",
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "keepDays": {
+          "default": 10,
+          "description": "backup retention period",
+          "required": [],
+          "title": "keepDays",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "housekeeping",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "djjudas21/dbdump",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "imagePullSecrets",
+      "type": "array"
+    },
+    "mariadb": {
+      "description": "dependency chart for ci",
+      "properties": {
+        "enabled": {
+          "default": false,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "mariadb",
+      "type": "object"
+    },
+    "mysqldumpOptions": {
+      "default": "--single-transaction",
+      "description": "options to pass to mysqldump",
+      "required": [],
+      "title": "mysqldumpOptions",
+      "type": "string"
+    },
+    "nameOverride": {
+      "default": "",
+      "required": [],
+      "title": "nameOverride",
+      "type": "string"
+    },
+    "nodeSelector": {
+      "description": "resource definitions",
+      "required": [],
+      "title": "nodeSelector",
+      "type": "object"
+    },
+    "persistence": {
+      "properties": {
+        "accessMode": {
+          "default": "ReadWriteMany",
+          "description": "accessMode to use for PVC",
+          "required": [],
+          "title": "accessMode",
+          "type": "string"
+        },
+        "enabled": {
+          "default": true,
+          "description": "create new PVC",
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "size": {
+          "default": "8Gi",
+          "description": "size of PVC to create",
+          "required": [],
+          "title": "size",
+          "type": "string"
+        },
+        "storageClass": {
+          "default": "",
+          "description": "storage class to use for PVC",
+          "required": [],
+          "title": "storageClass",
+          "type": "null"
+        },
+        "subPath": {
+          "default": "",
+          "description": "subPath for PVC",
+          "required": [],
+          "title": "subPath",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "pgdumpOptions": {
+      "default": "",
+      "description": "options to pass to pgdump",
+      "required": [],
+      "title": "pgdumpOptions",
+      "type": "string"
+    },
+    "podAnnotations": {
+      "description": "# set persistentVolumeClaim to use a PVC that already exists.\n# if set will override any settings under `persistence` otherwise\n# if not set and `persistence.enabled` set to true, will create a PVC.\npersistentVolumeClaim: \u003cexisting-PVC\u003e",
+      "required": [],
+      "title": "podAnnotations",
+      "type": "object"
+    },
+    "resources": {
+      "description": "resource definitions",
+      "required": [],
+      "title": "resources",
+      "type": "object"
+    },
+    "schedule": {
+      "default": "0 3 * * *",
+      "description": "cron time setting for backup schedule",
+      "required": [],
+      "title": "schedule",
+      "type": "string"
+    },
+    "securityContext": {
+      "description": "Pod Security Context",
+      "properties": {
+        "enabled": {
+          "default": false,
+          "description": "set true to change default security context of job/cronjob",
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "fsGroup": {
+          "default": 999,
+          "description": "group ID to use",
+          "required": [],
+          "title": "fsGroup",
+          "type": "integer"
+        },
+        "runAsUser": {
+          "default": 999,
+          "description": "user ID to use",
+          "required": [],
+          "title": "runAsUser",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "securityContext",
+      "type": "object"
+    },
+    "successfulJobsHistoryLimit": {
+      "default": 3,
+      "description": "number of successful jobs to remember",
+      "required": [],
+      "title": "successfulJobsHistoryLimit",
+      "type": "integer"
+    },
+    "tolerations": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "tolerations",
+      "type": "array"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

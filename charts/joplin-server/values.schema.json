@@ -1,0 +1,213 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "env": {
+      "description": "environment variables. See [image docs](https://github.com/laurent22/joplin) for more details.",
+      "properties": {
+        "APP_BASE_URL": {
+          "default": "https://joplin.domain",
+          "description": "joplin-server base URL",
+          "required": [],
+          "title": "APP_BASE_URL",
+          "type": "string"
+        },
+        "APP_PORT": {
+          "default": 22300,
+          "description": "joplin-server listening port (same as Service port)",
+          "required": [],
+          "title": "APP_PORT",
+          "type": "integer"
+        },
+        "DB_CLIENT": {
+          "default": "",
+          "description": "Use pg for postgres",
+          "required": [],
+          "title": "DB_CLIENT",
+          "type": "null"
+        },
+        "POSTGRES_DATABASE": {
+          "default": "",
+          "description": "Postgres DB name",
+          "required": [],
+          "title": "POSTGRES_DATABASE",
+          "type": "null"
+        },
+        "POSTGRES_HOST": {
+          "default": "",
+          "description": "Postgres DB Host",
+          "required": [],
+          "title": "POSTGRES_HOST",
+          "type": "null"
+        },
+        "POSTGRES_PASSWORD": {
+          "default": "",
+          "description": "Postgres DB password",
+          "required": [],
+          "title": "POSTGRES_PASSWORD",
+          "type": "null"
+        },
+        "POSTGRES_PORT": {
+          "default": "",
+          "description": "Postgres DB port",
+          "required": [],
+          "title": "POSTGRES_PORT",
+          "type": "null"
+        },
+        "POSTGRES_USER": {
+          "default": "",
+          "description": "Postgres DB Username",
+          "required": [],
+          "title": "POSTGRES_USER",
+          "type": "null"
+        },
+        "TZ": {
+          "default": "UTC",
+          "description": "Set the container timezone",
+          "required": [],
+          "title": "TZ",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "env",
+      "type": "object"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "joplin/server",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "ingress": {
+      "properties": {
+        "main": {
+          "description": "Enable and configure ingress settings for the chart under this key.",
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "postgresql": {
+      "description": "Enable and configure postgresql database subchart under this key.\n   For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)",
+      "properties": {
+        "enabled": {
+          "default": false,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "persistence": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "persistence",
+          "type": "object"
+        },
+        "postgresqlDatabase": {
+          "default": "joplin",
+          "required": [],
+          "title": "postgresqlDatabase",
+          "type": "string"
+        },
+        "postgresqlPassword": {
+          "default": "joplin-pass",
+          "required": [],
+          "title": "postgresqlPassword",
+          "type": "string"
+        },
+        "postgresqlUsername": {
+          "default": "joplin",
+          "required": [],
+          "title": "postgresqlUsername",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "postgresql",
+      "type": "object"
+    },
+    "service": {
+      "description": "Configures service settings for the chart.",
+      "properties": {
+        "main": {
+          "properties": {
+            "ports": {
+              "properties": {
+                "http": {
+                  "properties": {
+                    "port": {
+                      "default": 22300,
+                      "required": [],
+                      "title": "port",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [],
+                  "title": "http",
+                  "type": "object"
+                }
+              },
+              "required": [],
+              "title": "ports",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

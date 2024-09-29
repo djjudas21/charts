@@ -1,0 +1,390 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "affinity": {
+      "required": [],
+      "title": "affinity",
+      "type": "object"
+    },
+    "fullnameOverride": {
+      "default": "",
+      "required": [],
+      "title": "fullnameOverride",
+      "type": "string"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "djjudas21/smtp-relay",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "imagePullSecrets",
+      "type": "array"
+    },
+    "metrics": {
+      "properties": {
+        "enabled": {
+          "default": false,
+          "description": "Enable metrics sidecar",
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "port": {
+          "default": 9154,
+          "description": "Metrics port",
+          "required": [],
+          "title": "port",
+          "type": "integer"
+        },
+        "prometheusRules": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "description": "Enable Prometheus rules for Prometheus Operator",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "prometheusRules",
+          "type": "object"
+        },
+        "serviceMonitor": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "description": "Enable Service Monitor for Prometheus Operator",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "serviceMonitor",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "metrics",
+      "type": "object"
+    },
+    "nameOverride": {
+      "default": "",
+      "required": [],
+      "title": "nameOverride",
+      "type": "string"
+    },
+    "nodeSelector": {
+      "required": [],
+      "title": "nodeSelector",
+      "type": "object"
+    },
+    "persistence": {
+      "properties": {
+        "accessMode": {
+          "default": "ReadWriteOnce",
+          "required": [],
+          "title": "accessMode",
+          "type": "string"
+        },
+        "enabled": {
+          "default": false,
+          "description": "Enable mail queue persistence",
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "size": {
+          "default": "1Gi",
+          "description": "The storage space that should be claimed from the persistent volume",
+          "required": [],
+          "title": "size",
+          "type": "string"
+        },
+        "storageClass": {
+          "default": "",
+          "description": "If undefined (the default) the default StorageClass is used",
+          "required": [],
+          "title": "storageClass",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "podAnnotations": {
+      "required": [],
+      "title": "podAnnotations",
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "required": [],
+      "title": "podSecurityContext",
+      "type": "object"
+    },
+    "probes": {
+      "description": "configure probes",
+      "properties": {
+        "liveness": {
+          "properties": {
+            "enabled": {
+              "default": true,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "failureThreshold": {
+              "default": 3,
+              "required": [],
+              "title": "failureThreshold",
+              "type": "integer"
+            },
+            "initialDelaySeconds": {
+              "default": 0,
+              "required": [],
+              "title": "initialDelaySeconds",
+              "type": "integer"
+            },
+            "periodSeconds": {
+              "default": 10,
+              "required": [],
+              "title": "periodSeconds",
+              "type": "integer"
+            },
+            "timeoutSeconds": {
+              "default": 1,
+              "required": [],
+              "title": "timeoutSeconds",
+              "type": "integer"
+            }
+          },
+          "required": [],
+          "title": "liveness",
+          "type": "object"
+        },
+        "readiness": {
+          "properties": {
+            "enabled": {
+              "default": true,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "failureThreshold": {
+              "default": 3,
+              "required": [],
+              "title": "failureThreshold",
+              "type": "integer"
+            },
+            "initialDelaySeconds": {
+              "default": 0,
+              "required": [],
+              "title": "initialDelaySeconds",
+              "type": "integer"
+            },
+            "periodSeconds": {
+              "default": 10,
+              "required": [],
+              "title": "periodSeconds",
+              "type": "integer"
+            },
+            "timeoutSeconds": {
+              "default": 1,
+              "required": [],
+              "title": "timeoutSeconds",
+              "type": "integer"
+            }
+          },
+          "required": [],
+          "title": "readiness",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "probes",
+      "type": "object"
+    },
+    "replicaCount": {
+      "default": 1,
+      "description": "Number of replicas",
+      "required": [],
+      "title": "replicaCount",
+      "type": "integer"
+    },
+    "resources": {
+      "required": [],
+      "title": "resources",
+      "type": "object"
+    },
+    "securityContext": {
+      "required": [],
+      "title": "securityContext",
+      "type": "object"
+    },
+    "service": {
+      "description": "Configures service settings for the chart.",
+      "properties": {
+        "loadBalancerIP": {
+          "default": "",
+          "required": [],
+          "title": "loadBalancerIP",
+          "type": "string"
+        },
+        "port": {
+          "default": 25,
+          "required": [],
+          "title": "port",
+          "type": "integer"
+        },
+        "type": {
+          "default": "ClusterIP",
+          "required": [],
+          "title": "type",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    },
+    "serviceAccount": {
+      "properties": {
+        "annotations": {
+          "description": "Annotations to add to the service account",
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "create": {
+          "default": true,
+          "description": "Specifies whether a service account should be created",
+          "required": [],
+          "title": "create",
+          "type": "boolean"
+        },
+        "name": {
+          "default": "",
+          "description": "The name of the service account to use.",
+          "required": [],
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "serviceAccount",
+      "type": "object"
+    },
+    "smtp": {
+      "properties": {
+        "host": {
+          "default": "",
+          "description": "Hostname of upstream SMTP server",
+          "required": [],
+          "title": "host",
+          "type": "string"
+        },
+        "myhostname": {
+          "default": "",
+          "description": "Hostname of THIS relay SMTP server",
+          "required": [],
+          "title": "myhostname",
+          "type": "string"
+        },
+        "mynetworks": {
+          "description": "Networks to permit relaying from",
+          "items": {
+            "anyOf": [
+              {
+                "required": [],
+                "type": "string"
+              },
+              {
+                "required": [],
+                "type": "string"
+              }
+            ],
+            "required": []
+          },
+          "required": [],
+          "title": "mynetworks",
+          "type": "array"
+        },
+        "password": {
+          "default": "",
+          "description": "Password for upstream SMTP server",
+          "required": [],
+          "title": "password",
+          "type": "string"
+        },
+        "tls_security_level": {
+          "default": "",
+          "required": [],
+          "title": "tls_security_level",
+          "type": "string"
+        },
+        "tls_wrappermode": {
+          "default": "no",
+          "required": [],
+          "title": "tls_wrappermode",
+          "type": "string"
+        },
+        "username": {
+          "default": "",
+          "description": "Username for upstream SMTP server",
+          "required": [],
+          "title": "username",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "smtp",
+      "type": "object"
+    },
+    "tolerations": {
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "tolerations",
+      "type": "array"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

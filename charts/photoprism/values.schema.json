@@ -1,0 +1,313 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "env": {
+      "description": "environment variables. See [image docs](https://docs.photoprism.org/getting-started/config-options/) for more details.",
+      "properties": {
+        "GID": {
+          "default": "",
+          "description": "Sets GID Photoprism runs under.",
+          "required": [],
+          "title": "GID",
+          "type": "null"
+        },
+        "PHOTOPRISM_ADMIN_PASSWORD": {
+          "default": "please-change",
+          "description": "Initial admin password. **BE SURE TO CHANGE THIS!**",
+          "required": [],
+          "title": "PHOTOPRISM_ADMIN_PASSWORD",
+          "type": "string"
+        },
+        "PHOTOPRISM_DATABASE_DRIVER": {
+          "default": "sqlite",
+          "description": "Database driver (sqlite, mysql)",
+          "required": [],
+          "title": "PHOTOPRISM_DATABASE_DRIVER",
+          "type": "string"
+        },
+        "PHOTOPRISM_DATABASE_NAME": {
+          "default": "photoprism",
+          "description": "Database schema name",
+          "required": [],
+          "title": "PHOTOPRISM_DATABASE_NAME",
+          "type": "string"
+        },
+        "PHOTOPRISM_DATABASE_PASSWORD": {
+          "default": "photoprism",
+          "description": "Database user password",
+          "required": [],
+          "title": "PHOTOPRISM_DATABASE_PASSWORD",
+          "type": "string"
+        },
+        "PHOTOPRISM_DATABASE_SERVER": {
+          "default": "photoprism-mariadb:3306",
+          "description": "Database host incl. port",
+          "required": [],
+          "title": "PHOTOPRISM_DATABASE_SERVER",
+          "type": "string"
+        },
+        "PHOTOPRISM_DATABASE_USER": {
+          "default": "photoprism",
+          "description": "Database username",
+          "required": [],
+          "title": "PHOTOPRISM_DATABASE_USER",
+          "type": "string"
+        },
+        "PHOTOPRISM_ORIGINALS_PATH": {
+          "default": "/photoprism/originals",
+          "description": "Photoprism originals path",
+          "required": [],
+          "title": "PHOTOPRISM_ORIGINALS_PATH",
+          "type": "string"
+        },
+        "PHOTOPRISM_PUBLIC": {
+          "default": "false",
+          "description": "Disable authentication / password protection",
+          "required": [],
+          "title": "PHOTOPRISM_PUBLIC",
+          "type": "string"
+        },
+        "PHOTOPRISM_STORAGE_PATH": {
+          "default": "/photoprism/storage",
+          "description": "Photoprism storage path",
+          "required": [],
+          "title": "PHOTOPRISM_STORAGE_PATH",
+          "type": "string"
+        },
+        "TZ": {
+          "default": "UTC",
+          "description": "Set the container timezone",
+          "required": [],
+          "title": "TZ",
+          "type": "string"
+        },
+        "UID": {
+          "default": "",
+          "description": "Sets UID Photoprism runs under.",
+          "required": [],
+          "title": "UID",
+          "type": "null"
+        },
+        "UMASK": {
+          "default": "",
+          "description": "Sets UMASK.",
+          "required": [],
+          "title": "UMASK",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "env",
+      "type": "object"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "photoprism/photoprism",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "ingress": {
+      "properties": {
+        "main": {
+          "description": "Enable and configure ingress settings for the chart under this key.",
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "mariadb": {
+      "description": "Enable and configure mariadb database subchart under this key.\n   For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)",
+      "properties": {
+        "architecture": {
+          "default": "standalone",
+          "required": [],
+          "title": "architecture",
+          "type": "string"
+        },
+        "auth": {
+          "properties": {
+            "database": {
+              "default": "photoprism",
+              "required": [],
+              "title": "database",
+              "type": "string"
+            },
+            "password": {
+              "default": "photoprism",
+              "required": [],
+              "title": "password",
+              "type": "string"
+            },
+            "rootPassword": {
+              "default": "photoprism",
+              "required": [],
+              "title": "rootPassword",
+              "type": "string"
+            },
+            "username": {
+              "default": "photoprism",
+              "required": [],
+              "title": "username",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "auth",
+          "type": "object"
+        },
+        "enabled": {
+          "default": false,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "primary": {
+          "properties": {
+            "persistence": {
+              "properties": {
+                "enabled": {
+                  "default": false,
+                  "required": [],
+                  "title": "enabled",
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "title": "persistence",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "primary",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "mariadb",
+      "type": "object"
+    },
+    "persistence": {
+      "description": "Configure persistence settings for the chart under this key.",
+      "properties": {
+        "config": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "mountPath": {
+              "default": "/photoprism/storage",
+              "required": [],
+              "title": "mountPath",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "config",
+          "type": "object"
+        },
+        "originals": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "mountPath": {
+              "default": "/photoprism/originals",
+              "required": [],
+              "title": "mountPath",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "originals",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "service": {
+      "description": "Configures service settings for the chart.",
+      "properties": {
+        "main": {
+          "properties": {
+            "ports": {
+              "properties": {
+                "http": {
+                  "properties": {
+                    "port": {
+                      "default": 2342,
+                      "required": [],
+                      "title": "port",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [],
+                  "title": "http",
+                  "type": "object"
+                }
+              },
+              "required": [],
+              "title": "ports",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

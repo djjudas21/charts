@@ -1,0 +1,308 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "env": {
+      "description": "environment variables. See [webtrees-docker documentation](https://github.com/NathanVaughn/webtrees-docker#environment-variables) for more details.",
+      "properties": {
+        "BASE_URL": {
+          "default": "https://webtrees.example.com",
+          "description": "Base URL of the installation, with protocol. Must be in the form `http://webtrees.example.com`",
+          "required": [],
+          "title": "BASE_URL",
+          "type": "string"
+        },
+        "DB_HOST": {
+          "default": "",
+          "description": "Database hostname",
+          "required": [],
+          "title": "DB_HOST",
+          "type": "null"
+        },
+        "DB_NAME": {
+          "default": "",
+          "description": "Database to connect to",
+          "required": [],
+          "title": "DB_NAME",
+          "type": "null"
+        },
+        "DB_PASS": {
+          "default": "",
+          "description": "Database password",
+          "required": [],
+          "title": "DB_PASS",
+          "type": "null"
+        },
+        "DB_PORT": {
+          "default": "3306",
+          "description": "Database server port",
+          "required": [],
+          "title": "DB_PORT",
+          "type": "string"
+        },
+        "DB_PREFIX": {
+          "default": "wt_",
+          "description": "Prefix to give all tables in the database. Set this to a value of \"\" to have no table prefix.",
+          "required": [],
+          "title": "DB_PREFIX",
+          "type": "string"
+        },
+        "DB_TYPE": {
+          "default": "mysql",
+          "description": "Database server type",
+          "required": [],
+          "title": "DB_TYPE",
+          "type": "string"
+        },
+        "DB_USER": {
+          "default": "",
+          "description": "Database username",
+          "required": [],
+          "title": "DB_USER",
+          "type": "null"
+        },
+        "LANG": {
+          "default": "en-US",
+          "description": "webtrees localization setting",
+          "required": [],
+          "title": "LANG",
+          "type": "string"
+        },
+        "PRETTY_URLS": {
+          "default": "TRUE",
+          "description": "Enable pretty URLs",
+          "required": [],
+          "title": "PRETTY_URLS",
+          "type": "string"
+        },
+        "TZ": {
+          "default": "UTC",
+          "description": "Set the container timezone",
+          "required": [],
+          "title": "TZ",
+          "type": "string"
+        },
+        "WT_EMAIL": {
+          "default": "",
+          "description": "Admin account email",
+          "required": [],
+          "title": "WT_EMAIL",
+          "type": "null"
+        },
+        "WT_NAME": {
+          "default": "",
+          "description": "Admin account full name",
+          "required": [],
+          "title": "WT_NAME",
+          "type": "null"
+        },
+        "WT_PASS": {
+          "default": "",
+          "description": "Admin account password",
+          "required": [],
+          "title": "WT_PASS",
+          "type": "null"
+        },
+        "WT_USER": {
+          "default": "",
+          "description": "Admin account username",
+          "required": [],
+          "title": "WT_USER",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "env",
+      "type": "object"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "ghcr.io/nathanvaughn/webtrees",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "ingress": {
+      "properties": {
+        "main": {
+          "description": "Enable and configure ingress settings for the chart under this key.",
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "mariadb": {
+      "description": "Enable and configure mariadb database subchart under this key.\n   For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)",
+      "properties": {
+        "architecture": {
+          "default": "standalone",
+          "required": [],
+          "title": "architecture",
+          "type": "string"
+        },
+        "auth": {
+          "properties": {
+            "database": {
+              "default": "webtrees",
+              "required": [],
+              "title": "database",
+              "type": "string"
+            },
+            "password": {
+              "default": "webtreespass",
+              "required": [],
+              "title": "password",
+              "type": "string"
+            },
+            "rootPassword": {
+              "default": "webtreesrootpass",
+              "required": [],
+              "title": "rootPassword",
+              "type": "string"
+            },
+            "username": {
+              "default": "webtrees",
+              "required": [],
+              "title": "username",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "auth",
+          "type": "object"
+        },
+        "enabled": {
+          "default": false,
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "primary": {
+          "properties": {
+            "persistence": {
+              "properties": {
+                "enabled": {
+                  "default": false,
+                  "required": [],
+                  "title": "enabled",
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "title": "persistence",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "primary",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "mariadb",
+      "type": "object"
+    },
+    "persistence": {
+      "description": "Configure persistence settings for the chart under this key.",
+      "properties": {
+        "config": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "mountPath": {
+              "default": "/var/www/webtrees/data/",
+              "required": [],
+              "title": "mountPath",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "config",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "service": {
+      "description": "Configures service settings for the chart.",
+      "properties": {
+        "main": {
+          "properties": {
+            "ports": {
+              "properties": {
+                "http": {
+                  "properties": {
+                    "port": {
+                      "default": 80,
+                      "required": [],
+                      "title": "port",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [],
+                  "title": "http",
+                  "type": "object"
+                }
+              },
+              "required": [],
+              "title": "ports",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    }
+  },
+  "required": [],
+  "type": "object"
+}

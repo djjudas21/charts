@@ -1,0 +1,202 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "configmap": {
+      "properties": {
+        "config": {
+          "properties": {
+            "data": {
+              "description": "Homer configuration. See [image documentation](https://github.com/bastienwirtz/homer/blob/main/docs/configuration.md) for more information.",
+              "properties": {
+                "config.yml": {
+                  "default": "externalConfig: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/assets/config.yml.dist\n",
+                  "required": [],
+                  "title": "config.yml",
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "title": "data",
+              "type": "object"
+            },
+            "enabled": {
+              "default": false,
+              "description": "Store homer configuration as a ConfigMap",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "config",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "configmap",
+      "type": "object"
+    },
+    "env": {
+      "description": "environment variables.",
+      "properties": {
+        "TZ": {
+          "default": "UTC",
+          "description": "Set the container timezone",
+          "required": [],
+          "title": "TZ",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "env",
+      "type": "object"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "image pull policy",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        },
+        "repository": {
+          "default": "b4bz/homer",
+          "description": "image repository",
+          "required": [],
+          "title": "repository",
+          "type": "string"
+        },
+        "tag": {
+          "default": "",
+          "description": "image tag",
+          "required": [],
+          "title": "tag",
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "ingress": {
+      "properties": {
+        "main": {
+          "description": "Enable and configure ingress settings for the chart under this key.",
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "persistence": {
+      "description": "Configure persistence settings for the chart under this key.",
+      "properties": {
+        "config": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "mountPath": {
+              "default": "/www/assets",
+              "required": [],
+              "title": "mountPath",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "config",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "persistence",
+      "type": "object"
+    },
+    "securityContext": {
+      "properties": {
+        "runAsGroup": {
+          "default": 1000,
+          "description": "Specify the group ID the application will run as",
+          "required": [],
+          "title": "runAsGroup",
+          "type": "integer"
+        },
+        "runAsNonRoot": {
+          "default": true,
+          "description": "Enable validation that the container must run as non-root user",
+          "required": [],
+          "title": "runAsNonRoot",
+          "type": "boolean"
+        },
+        "runAsUser": {
+          "default": 1000,
+          "description": "Specify the user ID the application will run as",
+          "required": [],
+          "title": "runAsUser",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "securityContext",
+      "type": "object"
+    },
+    "service": {
+      "description": "Configures service settings for the chart.",
+      "properties": {
+        "main": {
+          "properties": {
+            "ports": {
+              "properties": {
+                "http": {
+                  "properties": {
+                    "port": {
+                      "default": 8080,
+                      "required": [],
+                      "title": "port",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [],
+                  "title": "http",
+                  "type": "object"
+                }
+              },
+              "required": [],
+              "title": "ports",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "main",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "service",
+      "type": "object"
+    }
+  },
+  "required": [],
+  "type": "object"
+}
