@@ -389,6 +389,34 @@ entries:
           description: Fix mmHg-hPa conversion
     apiVersion: v2
     appVersion: 0.6.1
+    created: "2024-09-29T19:18:45.743838195Z"
+    description: A Prometheus & InfluxDB exporter for Ecowitt weather stations
+    digest: c07f22bb3451c6de97cd8d7d390b0c9fc22d2b1ec090dd13f738de5d542c1855
+    home: https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: ecowitt-exporter
+    sources:
+    - https://github.com/djjudas21/ecowitt-exporter
+    - https://hub.docker.com/r/djjudas21/ecowitt-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/ecowitt-exporter-0.6.2/ecowitt-exporter-0.6.2.tgz
+    version: 0.6.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fix mmHg-hPa conversion
+    apiVersion: v2
+    appVersion: 0.6.1
     created: "2024-09-12T09:13:09.16335509Z"
     description: A Prometheus & InfluxDB exporter for Ecowitt weather stations
     digest: 697859c80f381b45845fd46e177751181ae895d9d127217c3af68cf863cbd375
@@ -2489,6 +2517,34 @@ entries:
           description: Update to Jellyfin v10.9.10
     apiVersion: v2
     appVersion: 10.9.10
+    created: "2024-09-29T19:18:45.829147031Z"
+    description: Your media, your server, your way
+    digest: e1c0f78bdc40a3797b5c85f138df60ecb67616999f84f6a7e267ebb0963545e0
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-3.1.7/jellyfin-3.1.7.tgz
+    version: 3.1.7
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jellyfin v10.9.10
+    apiVersion: v2
+    appVersion: 10.9.10
     created: "2024-08-25T21:10:36.616894021Z"
     description: Your media, your server, your way
     digest: 3d811e11467201d99d393997acd464e14e93cdd7e6ecc42b36bca9e29af38d0f
@@ -2755,6 +2811,39 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/jellyfin-3.0.0/jellyfin-3.0.0.tgz
     version: 3.0.0
   jellystat:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 1.1.0
+    created: "2024-09-29T19:18:45.932168204Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: 4332536541cf316a2fe3166c13caafc8e06a899c7a152bd1d13fc37ffb2f46da
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.2/jellystat-0.1.2.tgz
+    version: 0.1.2
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -4395,6 +4484,37 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.2/maian-music-0.2.2.tgz
     version: 0.2.2
   navidrome:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Navidrome v0.53.2
+    apiVersion: v2
+    appVersion: 0.53.2
+    created: "2024-09-29T19:18:46.02077525Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: c98ddcae8d24650cc2dc0c4d8bc40ba60f7c9bbe0426a9e0281457a53d5add61
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.6.13/navidrome-6.6.13.tgz
+    version: 6.6.13
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -7699,6 +7819,27 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/remote-wake-sleep-on-lan-0.1.1/remote-wake-sleep-on-lan-0.1.1.tgz
     version: 0.1.1
+  smokeping:
+  - apiVersion: v2
+    appVersion: 2.8.2
+    created: "2024-09-29T19:18:46.112912373Z"
+    description: SmokePing is a latency logging and graphing and alerting system
+    digest: 978130c3fc6ed05ee2b9b486756eba4fb2e34a72bce6be91daee0d60cb52834b
+    home: https://oss.oetiker.ch/smokeping/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/smokeping-logo.png
+    keywords:
+    - smokeping
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: smokeping
+    sources:
+    - https://github.com/oetiker/SmokePing
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/smokeping-0.1.0/smokeping-0.1.0.tgz
+    version: 0.1.0
   smtp-relay:
   - annotations:
       artifacthub.io/changes: |-
@@ -8698,6 +8839,38 @@ entries:
           description: Initial release
     apiVersion: v2
     appVersion: 4.2.0-beta.3
+    created: "2024-09-29T19:18:46.222147711Z"
+    description: Wizarr is an advanced user invitation and management system for Jellyfin,
+      Plex, Emby etc.
+    digest: fd78e43ad5ae7c4e0852fa4d60690ce84c23bf0f2b71559c3fae190f2bc8c3ab
+    home: https://github.com/wizarrrr/wizarr
+    icon: https://raw.githubusercontent.com/Wizarrrr/wizarr/master/apps/wizarr-frontend/src/assets/img/wizard.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    - jellyseerr
+    - overseerr
+    - ombi
+    - invite
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: wizarr
+    sources:
+    - https://github.com/wizarrrr/wizarr/pkgs/container/wizarr
+    - https://github.com/djjudas21/charts/tree/main/charts/wizarr
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.2/wizarr-0.1.2.tgz
+    version: 0.1.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 4.2.0-beta.3
     created: "2024-08-15T18:58:25.432370971Z"
     description: Wizarr is an advanced user invitation and management system for Jellyfin,
       Plex, Emby etc.
@@ -8756,4 +8929,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-24T19:49:30.79586183Z"
+generated: "2024-09-29T19:18:46.222879803Z"
