@@ -2,8 +2,8 @@ apiVersion: v2
 name: openssh-server
 description: Sandboxed environment that allows ssh access without giving keys to the entire server
 type: application
-version: 0.1.12
-appVersion: "9.6_p1-r0-ls149"
+version: 0.1.13
+appVersion: "9.7_p1-r4-ls171"
 
 home: https://github.com/djjudas21/charts
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png

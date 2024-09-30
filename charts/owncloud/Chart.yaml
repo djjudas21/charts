@@ -3,7 +3,7 @@ name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
   
-version: 0.3.14
+version: 0.3.15
 appVersion: "10.15.0"
 
 dependencies:
