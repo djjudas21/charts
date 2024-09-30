@@ -18,7 +18,7 @@
   ](LICENSE)
   <br/>
   ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
-  ![Version: 3.1.8](https://img.shields.io/badge/Version-3.1.8-informational?style=flat-square)
+  ![Version: 3.1.9](https://img.shields.io/badge/Version-3.1.9-informational?style=flat-square)
   ![AppVersion: 10.9.11](https://img.shields.io/badge/AppVersion-10.9.11-informational?style=flat-square)
 
 </div>
@@ -61,7 +61,7 @@ It was forked from [beluga-cloud/jellyfin](https://github.com/beluga-cloud/chart
 
 ## Prerequisites
 
-- Kubernetes >=1.20
+- Kubernetes >=1.20.0-0
 - Helm 3+
 
 ## Installing the Chart
