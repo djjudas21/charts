@@ -418,6 +418,34 @@ entries:
           description: Fix mmHg-hPa conversion
     apiVersion: v2
     appVersion: 0.6.1
+    created: "2024-09-30T21:20:49.800456696Z"
+    description: A Prometheus & InfluxDB exporter for Ecowitt weather stations
+    digest: 7b7bc164641152a4e9fe8eb3f5be3d48ac6495b6e744bde48e598e4265c0b773
+    home: https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: ecowitt-exporter
+    sources:
+    - https://github.com/djjudas21/ecowitt-exporter
+    - https://hub.docker.com/r/djjudas21/ecowitt-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/ecowitt-exporter-0.6.3/ecowitt-exporter-0.6.3.tgz
+    version: 0.6.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fix mmHg-hPa conversion
+    apiVersion: v2
+    appVersion: 0.6.1
     created: "2024-09-29T19:18:45.743838195Z"
     description: A Prometheus & InfluxDB exporter for Ecowitt weather stations
     digest: c07f22bb3451c6de97cd8d7d390b0c9fc22d2b1ec090dd13f738de5d542c1855
@@ -1605,6 +1633,32 @@ entries:
           description: Fix chart URL
     apiVersion: v2
     appVersion: v0.12.3
+    created: "2024-09-30T21:20:49.885022629Z"
+    description: A Prometheus exporter for metrics exported in the Graphite plaintext
+      protocol
+    digest: 6e181c6febdd06e213a43a11e2d1b31a6670393099fb6af75c7fcd323f8baa23
+    home: https://github.com/djjudas21/charts/tree/master/charts/graphite-exporter
+    icon: https://graphiteapp.org/img/apple-touch-icon-144x144.png
+    keywords:
+    - graphite
+    - prometheus
+    - monitoring
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: graphite-exporter
+    sources:
+    - https://github.com/prometheus/graphite_exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/graphite-exporter-0.1.8/graphite-exporter-0.1.8.tgz
+    version: 0.1.8
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fix chart URL
+    apiVersion: v2
+    appVersion: v0.12.3
     created: "2024-05-06T20:11:12.369113886Z"
     description: A Prometheus exporter for metrics exported in the Graphite plaintext
       protocol
@@ -1746,6 +1800,38 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/graphite-exporter-0.1.2/graphite-exporter-0.1.2.tgz
     version: 0.1.2
   hammond:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Hammond v0.0.24
+    apiVersion: v2
+    appVersion: v0.0.24
+    created: "2024-09-30T21:20:50.02900864Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Self-hosted vehicle expense tracking system with support for multiple
+      users
+    digest: a844fca0330b45ec089f1e11e3308a0232a032a2ec1a0b9ce881d8b7a588932c
+    home: https://github.com/alfhou/hammond
+    icon: https://github.com/alfhou/hammond/raw/master/ui/src/assets/images/logo.png
+    keywords:
+    - hammond
+    - car
+    - expense
+    - fuel
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: hammond
+    sources:
+    - https://github.com/alfhou/hammond
+    - https://hub.docker.com/r/alfhou/hammond
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/hammond-0.3.6/hammond-0.3.6.tgz
+    version: 0.3.6
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -2207,6 +2293,32 @@ entries:
           description: Revert to homer v23.10.1
     apiVersion: v2
     appVersion: v23.10.1
+    created: "2024-09-30T21:20:50.132471285Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: A dead simple static HOMepage for your servER to keep your services
+      on hand, from a simple yaml configuration file.
+    digest: a739915cf1806bc1b6bca1ddeb9e715574ada7107058fc26a00dde1f72569082
+    home: https://github.com/djjudas21/charts/tree/master/charts/homer
+    icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/homer-8.1.13/homer-8.1.13.tgz
+    version: 8.1.13
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Revert to homer v23.10.1
+    apiVersion: v2
+    appVersion: v23.10.1
     created: "2024-05-06T20:11:12.626362033Z"
     dependencies:
     - name: common
@@ -2546,6 +2658,34 @@ entries:
           description: Update to Jellyfin v10.9.11
     apiVersion: v2
     appVersion: 10.9.11
+    created: "2024-09-30T21:20:50.228895088Z"
+    description: Your media, your server, your way
+    digest: 63dd144e630904aa24db25a2c58145002e89fe1075fcdf86d7a1d59ec624c13d
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-3.1.10/jellyfin-3.1.10.tgz
+    version: 3.1.10
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jellyfin v10.9.11
+    apiVersion: v2
+    appVersion: 10.9.11
     created: "2024-09-29T20:31:56.214505213Z"
     description: Your media, your server, your way
     digest: b6462e5bf591e53a69c47aa97903b12e995ae074335d603d0c698867aae3c0e7
@@ -2874,6 +3014,39 @@ entries:
           description: Initial release
     apiVersion: v2
     appVersion: 1.1.0
+    created: "2024-09-30T21:20:50.318399297Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: 38d4e8203c2a42e40fbc2d60bbd32b55df5eeae3cf816f827d207cd8631b24f6
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.3/jellystat-0.1.3.tgz
+    version: 0.1.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 1.1.0
     created: "2024-09-29T19:18:45.932168204Z"
     dependencies:
     - condition: postgresql.enabled
@@ -2968,6 +3141,39 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.0/jellystat-0.1.0.tgz
     version: 0.1.0
   joplin-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Downgrade to bjw-s/common 0.2.0
+    apiVersion: v2
+    appVersion: 2.14.2-beta
+    created: "2024-09-30T21:20:50.408244606Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~11
+    description: This server allows you to sync any Joplin client
+    digest: 27c3929d7f27a2e11dcdd03089029ebf81c08bedf84241f9eb5174c6ca8cc437
+    home: https://github.com/djjudas21/charts/tree/master/charts/joplin-server
+    icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
+    keywords:
+    - joplin
+    - notes
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: joplin-server
+    sources:
+    - https://github.com/laurent22/joplin/tree/dev/packages/server
+    - https://github.com/laurent22/joplin
+    - https://hub.docker.com/r/joplin/server
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/joplin-server-5.5.2/joplin-server-5.5.2.tgz
+    version: 5.5.2
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -3167,6 +3373,54 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/joplin-server-5.4.0/joplin-server-5.4.0.tgz
     version: 5.4.0
   jump:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jump v1.4.1
+      artifacthub.io/screenshots: |
+        - title: Tag selection
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagselection.png
+        - title: Tag page
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagpage.png
+        - title: Search
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-search.png
+    apiVersion: v2
+    appVersion: v1.4.1
+    created: "2024-09-30T21:20:50.507422472Z"
+    description: Jump is a self-hosted startpage and real-time status page for your
+      server designed to be simple, stylish, fast and secure.
+    digest: efd5b92bdafeb3686a16f81f624b3a8a221dacf73c73798e5f83bcb7dc0ea7a4
+    home: https://github.com/djjudas21/charts/tree/master/charts/jump
+    icon: https://raw.githubusercontent.com/daledavies/jump/main/jumpapp/assets/images/favicon/icon.png
+    keywords:
+    - javascript
+    - docker
+    - php
+    - weather
+    - links
+    - dashboard
+    - home
+    - unsplash
+    - directory
+    - selfhosted
+    - homepage
+    - portal
+    - self-hosted
+    - startpage
+    - start
+    - status-page
+    - selfhosted-apps
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: jump
+    sources:
+    - https://github.com/daledavies/jump
+    - https://hub.docker.com/r/daledavies/jump
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jump-0.1.5/jump-0.1.5.tgz
+    version: 0.1.5
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -3454,6 +3708,34 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/littlelink-server-1.5.0/littlelink-server-1.5.0.tgz
     version: 1.5.0
   liturgical-colour:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to liturgical-colour-app 0.5.3
+    apiVersion: v2
+    appVersion: 0.5.3
+    created: "2024-09-30T21:20:50.605454516Z"
+    description: A simple app to display the current liturgical colour of the Church
+      of England
+    digest: 59efe2ad400b8acc4a315fc4b92d77228bd51ef798510c972a76035709ec4a3f
+    home: https://github.com/djjudas21/charts/tree/master/charts/liturgical-colour
+    icon: https://img.icons8.com/emoji/96/latin-cross-emoji.png
+    keywords:
+    - liturgical
+    - calendar
+    - church
+    - anglican
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: liturgical-colour
+    sources:
+    - https://github.com/djjudas21/liturgical-colour-app
+    - https://hub.docker.com/r/djjudas21/liturgical-colour-app
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/liturgical-colour-0.5.5/liturgical-colour-0.5.5.tgz
+    version: 0.5.5
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -3987,6 +4269,44 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/liturgical-colour-0.0.1/liturgical-colour-0.0.1.tgz
     version: 0.0.1
   lldap:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Add support for bootstrapping users
+    apiVersion: v2
+    appVersion: v0.5.0
+    created: "2024-09-30T21:20:50.706975816Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: e5ad6c9eefb61f34cb6676165566f9877a3121de37fc8ffb8c7a282d6d470805
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.3.7/lldap-0.3.7.tgz
+    version: 0.3.7
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -4541,6 +4861,37 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.2/maian-music-0.2.2.tgz
     version: 0.2.2
   navidrome:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Navidrome v0.53.2
+    apiVersion: v2
+    appVersion: 0.53.2
+    created: "2024-09-30T21:20:50.814669413Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 184f30378546d29d4c2c9a1455bd9b68ffeeec67d7ef0ca05bd6c2bff1862fc5
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.6.14/navidrome-6.6.14.tgz
+    version: 6.6.14
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -5106,6 +5457,33 @@ entries:
           description: Update to nova-exporter 0.0.8
     apiVersion: v2
     appVersion: 0.0.8
+    created: "2024-09-30T21:20:50.921929322Z"
+    description: A Prometheus exporter for Fairwinds Nova
+    digest: 5327f85aeb5130210c9d04e025d982cd2924b73823297e89db476f057153fbb4
+    home: https://github.com/djjudas21/charts/tree/master/charts/nova-exporter
+    icon: https://raw.githubusercontent.com/FairwindsOps/nova/master/img/logo.png
+    keywords:
+    - nova
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: nova-exporter
+    sources:
+    - https://github.com/djjudas21/nova-exporter
+    - https://hub.docker.com/r/djjudas21/nova-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.13/nova-exporter-0.1.13.tgz
+    version: 0.1.13
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to nova-exporter 0.0.8
+    apiVersion: v2
+    appVersion: 0.0.8
     created: "2024-08-15T08:06:23.863191587Z"
     description: A Prometheus exporter for Fairwinds Nova
     digest: be2abeaafcdfabd7754d8c488434cbdbbbcada28886a7acf361f9935f6682c16
@@ -5398,6 +5776,34 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.2/nova-exporter-0.1.2.tgz
     version: 0.1.2
   openssh-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update OpenSSH image
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 9.7_p1-r4-ls171
+    created: "2024-09-30T21:20:51.006990023Z"
+    description: Sandboxed environment that allows ssh access without giving keys
+      to the entire server
+    digest: 42c43d06325a7c0bb3b21cc41d471135a742d2262c82bff6ff3bc8064901acbb
+    home: https://github.com/djjudas21/charts
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png
+    keywords:
+    - ssh
+    - openssh
+    - bastion
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: openssh-server
+    sources:
+    - https://hub.docker.com/r/linuxserver/openssh-server
+    - https://github.com/linuxserver/docker-openssh-server
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.13/openssh-server-0.1.13.tgz
+    version: 0.1.13
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -5735,6 +6141,45 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.0/openssh-server-0.1.0.tgz
     version: 0.1.0
   owncloud:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update ownCloud to v10.15.0
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.15.0
+    created: "2024-09-30T21:20:51.150228801Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~19
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: 236279d67ef64aebb4aaa264b9b89be0500d6f253d57ada698acd7cf02a987fb
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.15/owncloud-0.3.15.tgz
+    version: 0.3.15
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -6528,6 +6973,42 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/paperless-9.2.0/paperless-9.2.0.tgz
     version: 9.2.0
   photoprism:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to PhotoPrism 240711-ce
+    apiVersion: v2
+    appVersion: 240711-ce
+    created: "2024-09-30T21:20:51.269110033Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: PhotoPrism® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: d7c8e9315f858e8ce62c8f6cb41debee30692ecb5547321b91f50cf22c42938c
+    home: https://github.com/djjudas21/charts/tree/master/charts/photoprism
+    icon: https://raw.githubusercontent.com/photoprism/photoprism/develop/assets/static/icons/app.svg
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/photoprism-7.4.16/photoprism-7.4.16.tgz
+    version: 7.4.16
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -7879,6 +8360,26 @@ entries:
   smokeping:
   - apiVersion: v2
     appVersion: 2.8.2
+    created: "2024-09-30T21:20:51.354903915Z"
+    description: SmokePing is a latency logging and graphing and alerting system
+    digest: f7fadd1cacdb2fae58a9590cb4110b271545333e013114ba8e4322b7f71bf66b
+    home: https://oss.oetiker.ch/smokeping/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/smokeping-logo.png
+    keywords:
+    - smokeping
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: smokeping
+    sources:
+    - https://github.com/oetiker/SmokePing
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/smokeping-0.1.1/smokeping-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 2.8.2
     created: "2024-09-29T19:18:46.112912373Z"
     description: SmokePing is a latency logging and graphing and alerting system
     digest: 978130c3fc6ed05ee2b9b486756eba4fb2e34a72bce6be91daee0d60cb52834b
@@ -7898,6 +8399,32 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/smokeping-0.1.0/smokeping-0.1.0.tgz
     version: 0.1.0
   smtp-relay:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Add support for persistence
+    apiVersion: v2
+    appVersion: 0.7.0
+    created: "2024-09-30T21:20:51.456735696Z"
+    description: An SMTP smarthost relay for Kubernetes
+    digest: 2a8dd9f1b067ac9ea1d399fc2e658d8523401a860fd50da5414665f7cfbf19e1
+    home: https://github.com/djjudas21/charts/tree/main/charts/smtp-relay
+    keywords:
+    - smtp
+    - relay
+    - smarthost
+    - postfix
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: smtp-relay
+    sources:
+    - https://github.com/djjudas21/smtp-relay
+    - https://hub.docker.com/r/djjudas21/smtp-relay
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/smtp-relay-0.5.2/smtp-relay-0.5.2.tgz
+    version: 0.5.2
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -8014,6 +8541,36 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/smtp-relay-0.3.1/smtp-relay-0.3.1.tgz
     version: 0.3.1
   uptime-kuma:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Uptime Kuma 1.23.12
+    apiVersion: v2
+    appVersion: 1.23.12
+    created: "2024-09-30T21:20:51.543284671Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 1.0.0
+    description: A fancy self-hosted monitoring tool for your websites and applications
+    digest: 9547e43afdd45d88bbe618a45edac2615d79f6115aa5a0e8db040730b41cc341
+    home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma
+    icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
+    keywords:
+    - uptime-kuma
+    - status
+    - status-page
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/uptime-kuma-1.5.14/uptime-kuma-1.5.14.tgz
+    version: 1.5.14
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -8489,6 +9046,40 @@ entries:
           description: Update to Webtrees 2.1.20
     apiVersion: v2
     appVersion: 2.1.20
+    created: "2024-09-30T21:20:51.639202693Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Open-source online collaborative genealogy application
+    digest: 73192f00b7a391b8bac47b753831a3f8e6c08bc62657f16e8d0e2ef4babfb57a
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.13/webtrees-2.2.13.tgz
+    version: 2.2.13
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Webtrees 2.1.20
+    apiVersion: v2
+    appVersion: 2.1.20
     created: "2024-05-06T20:11:14.073635031Z"
     dependencies:
     - name: common
@@ -8896,6 +9487,38 @@ entries:
           description: Initial release
     apiVersion: v2
     appVersion: 4.2.0-beta.3
+    created: "2024-09-30T21:20:51.735399614Z"
+    description: Wizarr is an advanced user invitation and management system for Jellyfin,
+      Plex, Emby etc.
+    digest: 3290929582660b3259b98b20fc5e171c945a1703809e4d42623da4088f7dac5a
+    home: https://github.com/wizarrrr/wizarr
+    icon: https://raw.githubusercontent.com/Wizarrrr/wizarr/master/apps/wizarr-frontend/src/assets/img/wizard.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    - jellyseerr
+    - overseerr
+    - ombi
+    - invite
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: wizarr
+    sources:
+    - https://github.com/wizarrrr/wizarr/pkgs/container/wizarr
+    - https://github.com/djjudas21/charts/tree/main/charts/wizarr
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.4/wizarr-0.1.4.tgz
+    version: 0.1.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 4.2.0-beta.3
     created: "2024-09-29T19:18:46.222147711Z"
     description: Wizarr is an advanced user invitation and management system for Jellyfin,
       Plex, Emby etc.
@@ -8986,4 +9609,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-30T20:55:37.807338775Z"
+generated: "2024-09-30T21:20:51.73707451Z"
