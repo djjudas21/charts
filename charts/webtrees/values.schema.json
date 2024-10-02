@@ -12,25 +12,25 @@
           "type": "string"
         },
         "DB_HOST": {
-          "default": "",
+          "default": "webtrees-mariadb",
           "description": "Database hostname",
           "required": [],
           "title": "DB_HOST",
-          "type": "null"
+          "type": "string"
         },
         "DB_NAME": {
-          "default": "",
+          "default": "webtrees",
           "description": "Database to connect to",
           "required": [],
           "title": "DB_NAME",
-          "type": "null"
+          "type": "string"
         },
         "DB_PASS": {
-          "default": "",
+          "default": "webtreespass",
           "description": "Database password",
           "required": [],
           "title": "DB_PASS",
-          "type": "null"
+          "type": "string"
         },
         "DB_PORT": {
           "default": "3306",
@@ -54,11 +54,11 @@
           "type": "string"
         },
         "DB_USER": {
-          "default": "",
+          "default": "webtrees",
           "description": "Database username",
           "required": [],
           "title": "DB_USER",
-          "type": "null"
+          "type": "string"
         },
         "LANG": {
           "default": "en-US",
@@ -82,32 +82,32 @@
           "type": "string"
         },
         "WT_EMAIL": {
-          "default": "",
+          "default": "admin@example.com",
           "description": "Admin account email",
           "required": [],
           "title": "WT_EMAIL",
-          "type": "null"
+          "type": "string"
         },
         "WT_NAME": {
-          "default": "",
+          "default": "Administrator",
           "description": "Admin account full name",
           "required": [],
           "title": "WT_NAME",
-          "type": "null"
+          "type": "string"
         },
         "WT_PASS": {
-          "default": "",
+          "default": "adminpass",
           "description": "Admin account password",
           "required": [],
           "title": "WT_PASS",
-          "type": "null"
+          "type": "string"
         },
         "WT_USER": {
-          "default": "",
+          "default": "admin",
           "description": "Admin account username",
           "required": [],
           "title": "WT_USER",
-          "type": "null"
+          "type": "string"
         }
       },
       "required": [],
