@@ -1,6 +1,6 @@
 # owncloud
 
-![Version: 0.3.14](https://img.shields.io/badge/Version-0.3.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.15.0](https://img.shields.io/badge/AppVersion-10.15.0-informational?style=flat-square)
+![Version: 0.3.16](https://img.shields.io/badge/Version-0.3.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.15.0](https://img.shields.io/badge/AppVersion-10.15.0-informational?style=flat-square)
 
 A file sharing server that puts the control and security of your own data back into your hands.
 
@@ -51,9 +51,9 @@ A file sharing server that puts the control and security of your own data back i
 | ownCloud.mail.fromAddress | string | `"owncloud"` |  |
 | ownCloud.mail.mode | string | `"smtp"` |  |
 | ownCloud.mail.smtp.auth | bool | `false` |  |
-| ownCloud.mail.smtp.host | string | `nil` |  |
+| ownCloud.mail.smtp.host | string | `""` |  |
 | ownCloud.mail.smtp.password | string | `""` |  |
-| ownCloud.mail.smtp.port | string | `nil` |  |
+| ownCloud.mail.smtp.port | string | `""` |  |
 | ownCloud.mail.smtp.secure | string | `nil` |  |
 | ownCloud.mail.smtp.username | string | `""` |  |
 | persistence.accessModes[0] | string | `"ReadWriteMany"` |  |
