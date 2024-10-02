@@ -1,6 +1,6 @@
 # wizarr
 
-![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.2.0-beta.3](https://img.shields.io/badge/AppVersion-4.2.0--beta.3-informational?style=flat-square)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.2.0-beta.3](https://img.shields.io/badge/AppVersion-4.2.0--beta.3-informational?style=flat-square)
 
 Wizarr is an advanced user invitation and management system for Jellyfin, Plex, Emby etc.
 

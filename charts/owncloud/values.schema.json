@@ -411,7 +411,7 @@
                   "default": "",
                   "required": [],
                   "title": "host",
-                  "type": "null"
+                  "type": "string"
                 },
                 "password": {
                   "default": "",
@@ -423,7 +423,7 @@
                   "default": "",
                   "required": [],
                   "title": "port",
-                  "type": "null"
+                  "type": "string"
                 },
                 "secure": {
                   "default": "",

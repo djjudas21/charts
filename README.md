@@ -44,6 +44,8 @@ nova find --format table --show-old
 ## Contributing
 
 To contribute code, fork this repo, submit a PR, and make sure the CI tests are passing.
+Values files should be commented in [helm-docs](https://github.com/norwoodj/helm-docs) format.
+The chart README and Values schema in JSON format will be auto generated upon pull request.
 
 I get through a lot of caffeine writing code. If my work is useful to you, please [buy me a coffee](https://www.buymeacoffee.com/jgazeley).
 

@@ -1,6 +1,6 @@
 # ecowitt-exporter
 
-![Version: 0.6.2](https://img.shields.io/badge/Version-0.6.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.1](https://img.shields.io/badge/AppVersion-0.6.1-informational?style=flat-square)
+![Version: 0.6.4](https://img.shields.io/badge/Version-0.6.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.1](https://img.shields.io/badge/AppVersion-0.6.1-informational?style=flat-square)
 
 A Prometheus & InfluxDB exporter for Ecowitt weather stations
 
@@ -27,7 +27,7 @@ A Prometheus & InfluxDB exporter for Ecowitt weather stations
 | env.influxdb | bool | `false` | enable push to InfluxDB |
 | env.influxdbBucket | string | `"default"` | InfluxDB bucket |
 | env.influxdbOrg | string | `"influxdata"` | InfluxDB organization |
-| env.influxdbToken | string | `nil` | InfluxDB token |
+| env.influxdbToken | string | `""` | InfluxDB token |
 | env.influxdbUrl | string | `"http://localhost:8086/"` | InfluxDB URL |
 | env.irradianceUnit | string | `"wm2"` | Irradiance in wm2 |
 | env.pressureUnit | string | `"hpa"` | Pressure in hpa or in |

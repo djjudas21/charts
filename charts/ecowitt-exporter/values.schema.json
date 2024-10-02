@@ -42,7 +42,7 @@
           "description": "InfluxDB token",
           "required": [],
           "title": "influxdbToken",
-          "type": "null"
+          "type": "string"
         },
         "influxdbUrl": {
           "default": "http://localhost:8086/",

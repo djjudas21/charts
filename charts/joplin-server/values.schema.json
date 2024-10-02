@@ -26,25 +26,25 @@
           "type": "null"
         },
         "POSTGRES_DATABASE": {
-          "default": "",
+          "default": "joplin",
           "description": "Postgres DB name",
           "required": [],
           "title": "POSTGRES_DATABASE",
-          "type": "null"
+          "type": "string"
         },
         "POSTGRES_HOST": {
-          "default": "",
+          "default": "joplin-postgresql",
           "description": "Postgres DB Host",
           "required": [],
           "title": "POSTGRES_HOST",
-          "type": "null"
+          "type": "string"
         },
         "POSTGRES_PASSWORD": {
-          "default": "",
+          "default": "joplin-pass",
           "description": "Postgres DB password",
           "required": [],
           "title": "POSTGRES_PASSWORD",
-          "type": "null"
+          "type": "string"
         },
         "POSTGRES_PORT": {
           "default": "",
@@ -54,11 +54,11 @@
           "type": "null"
         },
         "POSTGRES_USER": {
-          "default": "",
+          "default": "joplin",
           "description": "Postgres DB Username",
           "required": [],
           "title": "POSTGRES_USER",
-          "type": "null"
+          "type": "string"
         },
         "TZ": {
           "default": "UTC",

@@ -1,6 +1,6 @@
 # webtrees
 
-![Version: 2.2.12](https://img.shields.io/badge/Version-2.2.12-informational?style=flat-square) ![AppVersion: 2.1.20](https://img.shields.io/badge/AppVersion-2.1.20-informational?style=flat-square)
+![Version: 2.2.14](https://img.shields.io/badge/Version-2.2.14-informational?style=flat-square) ![AppVersion: 2.1.20](https://img.shields.io/badge/AppVersion-2.1.20-informational?style=flat-square)
 
 Open-source online collaborative genealogy application
 
@@ -32,20 +32,20 @@ Kubernetes: `>=1.16.0-0`
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [webtrees-docker documentation](https://github.com/NathanVaughn/webtrees-docker#environment-variables) for more details. |
 | env.BASE_URL | string | `"https://webtrees.example.com"` | Base URL of the installation, with protocol. Must be in the form `http://webtrees.example.com` |
-| env.DB_HOST | string | `nil` | Database hostname |
-| env.DB_NAME | string | `nil` | Database to connect to |
-| env.DB_PASS | string | `nil` | Database password |
+| env.DB_HOST | string | `"webtrees-mariadb"` | Database hostname |
+| env.DB_NAME | string | `"webtrees"` | Database to connect to |
+| env.DB_PASS | string | `"webtreespass"` | Database password |
 | env.DB_PORT | string | `"3306"` | Database server port |
 | env.DB_PREFIX | string | `"wt_"` | Prefix to give all tables in the database. Set this to a value of "" to have no table prefix. |
 | env.DB_TYPE | string | `"mysql"` | Database server type |
-| env.DB_USER | string | `nil` | Database username |
+| env.DB_USER | string | `"webtrees"` | Database username |
 | env.LANG | string | `"en-US"` | webtrees localization setting |
 | env.PRETTY_URLS | string | `"TRUE"` | Enable pretty URLs |
 | env.TZ | string | `"UTC"` | Set the container timezone |
-| env.WT_EMAIL | string | `nil` | Admin account email |
-| env.WT_NAME | string | `nil` | Admin account full name |
-| env.WT_PASS | string | `nil` | Admin account password |
-| env.WT_USER | string | `nil` | Admin account username |
+| env.WT_EMAIL | string | `"admin@example.com"` | Admin account email |
+| env.WT_NAME | string | `"Administrator"` | Admin account full name |
+| env.WT_PASS | string | `"adminpass"` | Admin account password |
+| env.WT_USER | string | `"admin"` | Admin account username |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/nathanvaughn/webtrees"` | image repository |
 | image.tag | string | chart.appVersion | image tag |

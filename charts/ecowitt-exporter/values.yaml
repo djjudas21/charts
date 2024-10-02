@@ -22,7 +22,7 @@ env:
   # -- enable push to InfluxDB
   influxdb: false
   # -- InfluxDB token
-  influxdbToken:
+  influxdbToken: ""
   # -- InfluxDB URL
   influxdbUrl: http://localhost:8086/
   # -- InfluxDB organization
