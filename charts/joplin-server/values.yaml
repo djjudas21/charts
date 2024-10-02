@@ -24,15 +24,15 @@ env:
   # -- Use pg for postgres
   DB_CLIENT:  # pg
   # -- Postgres DB Host
-  POSTGRES_HOST:  # joplin-postgresql
+  POSTGRES_HOST: joplin-postgresql
   # -- Postgres DB port
   POSTGRES_PORT:  # 5432
   # -- Postgres DB name
-  POSTGRES_DATABASE:  # joplin
+  POSTGRES_DATABASE: joplin
   # -- Postgres DB Username
-  POSTGRES_USER:  # joplin
+  POSTGRES_USER: joplin
   # -- Postgres DB password
-  POSTGRES_PASSWORD:  # joplin-pass
+  POSTGRES_PASSWORD: joplin-pass
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

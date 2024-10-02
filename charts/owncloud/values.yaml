@@ -13,8 +13,8 @@ ownCloud:
     fromAddress: owncloud
     mode: smtp
     smtp:
-      host:
-      port:
+      host: ""
+      port: ""
       secure:
       auth: false
       username: ""
