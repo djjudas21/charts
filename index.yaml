@@ -210,6 +210,35 @@ entries:
   dbdump:
   - apiVersion: v2
     appVersion: 0.0.9
+    created: "2024-10-08T17:54:20.786904747Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: A Helm chart to help backup SQL databases using mysqldump and pgdump
+    digest: 3d9a6b7d21ea9adf24e928d4eb38af5effef1dcd62044d47b8f86b2a268a39c0
+    home: https://github.com/djjudas21/dbdump
+    icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
+    keywords:
+    - mysql
+    - postgresql
+    - mysqldump
+    - pgdump
+    - backup
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: dbdump
+    sources:
+    - https://hub.docker.com/repository/docker/djjudas21/dbdump/general
+    - https://github.com/djjudas21/charts
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/dbdump-0.0.15/dbdump-0.0.15.tgz
+    version: 0.0.15
+  - apiVersion: v2
+    appVersion: 0.0.9
     created: "2024-09-30T20:55:37.806964774Z"
     dependencies:
     - condition: mariadb.enabled
@@ -9609,4 +9638,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-30T21:20:51.73707451Z"
+generated: "2024-10-08T17:54:20.787401055Z"
