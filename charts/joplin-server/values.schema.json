@@ -19,11 +19,11 @@
           "type": "integer"
         },
         "DB_CLIENT": {
-          "default": "",
+          "default": "pg",
           "description": "Use pg for postgres",
           "required": [],
           "title": "DB_CLIENT",
-          "type": "null"
+          "type": "string"
         },
         "POSTGRES_DATABASE": {
           "default": "joplin",
@@ -47,11 +47,11 @@
           "type": "string"
         },
         "POSTGRES_PORT": {
-          "default": "",
+          "default": "5432",
           "description": "Postgres DB port",
           "required": [],
           "title": "POSTGRES_PORT",
-          "type": "null"
+          "type": "string"
         },
         "POSTGRES_USER": {
           "default": "joplin",

@@ -22,11 +22,11 @@ env:
   # -- joplin-server listening port (same as Service port)
   APP_PORT: 22300
   # -- Use pg for postgres
-  DB_CLIENT:  # pg
+  DB_CLIENT: pg
   # -- Postgres DB Host
   POSTGRES_HOST: joplin-postgresql
   # -- Postgres DB port
-  POSTGRES_PORT:  # 5432
+  POSTGRES_PORT: "5432"
   # -- Postgres DB name
   POSTGRES_DATABASE: joplin
   # -- Postgres DB Username
