@@ -1,6 +1,6 @@
 # joplin-server
 
-![Version: 5.5.3](https://img.shields.io/badge/Version-5.5.3-informational?style=flat-square) ![AppVersion: 2.14.2-beta](https://img.shields.io/badge/AppVersion-2.14.2--beta-informational?style=flat-square)
+![Version: 5.5.4](https://img.shields.io/badge/Version-5.5.4-informational?style=flat-square) ![AppVersion: 2.14.2-beta](https://img.shields.io/badge/AppVersion-2.14.2--beta-informational?style=flat-square)
 
 This server allows you to sync any Joplin client
 
@@ -32,11 +32,11 @@ This server allows you to sync any Joplin client
 | env | object | See below | environment variables. See [image docs](https://github.com/laurent22/joplin) for more details. |
 | env.APP_BASE_URL | string | `"https://joplin.domain"` | joplin-server base URL |
 | env.APP_PORT | int | `22300` | joplin-server listening port (same as Service port) |
-| env.DB_CLIENT | string | `nil` | Use pg for postgres |
+| env.DB_CLIENT | string | `"pg"` | Use pg for postgres |
 | env.POSTGRES_DATABASE | string | `"joplin"` | Postgres DB name |
 | env.POSTGRES_HOST | string | `"joplin-postgresql"` | Postgres DB Host |
 | env.POSTGRES_PASSWORD | string | `"joplin-pass"` | Postgres DB password |
-| env.POSTGRES_PORT | string | `nil` | Postgres DB port |
+| env.POSTGRES_PORT | string | `"5432"` | Postgres DB port |
 | env.POSTGRES_USER | string | `"joplin"` | Postgres DB Username |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
