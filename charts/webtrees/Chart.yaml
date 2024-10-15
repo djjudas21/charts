@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 2.1.20
 description: Open-source online collaborative genealogy application
 name: webtrees
-version: 2.2.14
+version: 2.2.15
 kubeVersion: ">=1.16.0-0"
 keywords:
   - webtrees
