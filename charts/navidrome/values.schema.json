@@ -85,7 +85,7 @@
           "description": "image tag",
           "required": [],
           "title": "tag",
-          "type": "null"
+          "type": "string"
         }
       },
       "required": [],
