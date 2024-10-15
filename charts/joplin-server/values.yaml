@@ -8,7 +8,7 @@ image:
   repository: joplin/server
   # -- image tag
   # @default -- chart.appVersion
-  tag:
+  tag: ""
   # -- image pull policy
   pullPolicy: IfNotPresent
 
