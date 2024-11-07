@@ -124,11 +124,11 @@ spec:
             - name: ldap
               containerPort: {{ .Values.service.ldap.port }}
               protocol: TCP
-            {{ if $.Values.lldap.ldaps.enabled }}
+            {{- if $.Values.lldap.ldaps.enabled }}
             - name: ldaps
               containerPort: {{ .Values.service.ldaps.port }}
               protocol: TCP
-            {{ end }}
+            {{- end }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
