@@ -18,7 +18,6 @@ nameOverride: ""
 fullnameOverride: ""
 
 lldap:
-
   # -- Base DN for LDAP.
   # This is usually your domain name, and is used as a namespace for your users. The choice is
   # arbitrary, but will be needed to configure the LDAP integration with other services. The sample
@@ -111,6 +110,8 @@ serviceAccount:
 
 podAnnotations: {}
 podLabels: {}
+deploymentAnnotations: {}
+deploymentLabels: {}
 
 podSecurityContext: {}
   # fsGroup: 2000

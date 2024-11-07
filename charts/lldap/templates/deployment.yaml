@@ -4,6 +4,13 @@ metadata:
   name: {{ include "lldap.fullname" . }}
   labels:
     {{- include "lldap.labels" . | nindent 4 }}
+  {{- with .Values.deploymentLabels }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.deploymentAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
