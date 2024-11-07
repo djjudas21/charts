@@ -4419,6 +4419,44 @@ entries:
           description: Add support for bootstrapping users
     apiVersion: v2
     appVersion: v0.5.0
+    created: "2024-11-07T09:22:22.446956529Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: 3b9b95de7c0399772148a75d9d433196d2084f05819bdc56b45568a1d42b7896
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.3.8/lldap-0.3.8.tgz
+    version: 0.3.8
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Add support for bootstrapping users
+    apiVersion: v2
+    appVersion: v0.5.0
     created: "2024-09-30T21:20:50.706975816Z"
     dependencies:
     - condition: postgresql.enabled
@@ -9884,4 +9922,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-03T21:52:03.061845862Z"
+generated: "2024-11-07T09:22:22.447426579Z"
