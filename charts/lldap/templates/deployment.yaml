@@ -4,6 +4,13 @@ metadata:
   name: {{ include "lldap.fullname" . }}
   labels:
     {{- include "lldap.labels" . | nindent 4 }}
+  {{- with .Values.deploymentLabels }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.deploymentAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -117,11 +124,11 @@ spec:
             - name: ldap
               containerPort: {{ .Values.service.ldap.port }}
               protocol: TCP
-            {{ if $.Values.lldap.ldaps.enabled }}
+            {{- if $.Values.lldap.ldaps.enabled }}
             - name: ldaps
               containerPort: {{ .Values.service.ldaps.port }}
               protocol: TCP
-            {{ end }}
+            {{- end }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
