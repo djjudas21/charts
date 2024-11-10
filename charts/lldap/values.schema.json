@@ -133,6 +133,16 @@
       "title": "bootstrap",
       "type": "object"
     },
+    "deploymentAnnotations": {
+      "required": [],
+      "title": "deploymentAnnotations",
+      "type": "object"
+    },
+    "deploymentLabels": {
+      "required": [],
+      "title": "deploymentLabels",
+      "type": "object"
+    },
     "externalMariadb": {
       "description": "Enable and configure external mariadb database",
       "properties": {
