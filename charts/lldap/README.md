@@ -1,6 +1,6 @@
 # lldap
 
-![Version: 0.3.7](https://img.shields.io/badge/Version-0.3.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.0](https://img.shields.io/badge/AppVersion-v0.5.0-informational?style=flat-square)
+![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.0](https://img.shields.io/badge/AppVersion-v0.6.0-informational?style=flat-square)
 
 Light LDAP implementation
 
@@ -31,6 +31,8 @@ Light LDAP implementation
 | affinity | object | `{}` |  |
 | bootstrap | object | see below | Bootstrap (i.e. create) users and groups automatically. It is safe to run the bootstrap multiple times, however the one-shot Kubernetes job will be created on the first deployment, and the job will not be executed on subsequent deployments unless the job is deleted. |
 | bootstrap.cleanup | bool | `false` | Remove redundant users and groups which are not in the config below |
+| deploymentAnnotations | object | `{}` |  |
+| deploymentLabels | object | `{}` |  |
 | externalMariadb | object | `{"auth":{"database":"lldap","host":"","password":"","port":3306,"username":""},"enabled":false}` | Enable and configure external mariadb database |
 | externalPostgresql | object | `{"auth":{"database":"lldap","host":"","password":"","port":5432,"username":""},"enabled":false}` | - Enable and configure external postgresql database |
 | fullnameOverride | string | `""` |  |
