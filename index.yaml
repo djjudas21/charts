@@ -8689,6 +8689,32 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Improved support for SASL credentials
+    apiVersion: v2
+    appVersion: 0.9.3
+    created: "2024-11-11T17:22:49.333961726Z"
+    description: An SMTP smarthost relay for Kubernetes
+    digest: ad56e2db8948c2d22acdf80860056ba991a0d38a24040d86b043bce65e6597f9
+    home: https://github.com/djjudas21/charts/tree/main/charts/smtp-relay
+    keywords:
+    - smtp
+    - relay
+    - smarthost
+    - postfix
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: smtp-relay
+    sources:
+    - https://github.com/djjudas21/smtp-relay
+    - https://hub.docker.com/r/djjudas21/smtp-relay
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/smtp-relay-0.6.0/smtp-relay-0.6.0.tgz
+    version: 0.6.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Add support for persistence
     apiVersion: v2
     appVersion: 0.7.0
@@ -9960,4 +9986,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-10T20:50:34.303291092Z"
+generated: "2024-11-11T17:22:49.334524531Z"
