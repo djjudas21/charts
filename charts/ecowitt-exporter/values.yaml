@@ -81,6 +81,7 @@ service:
 # -- Enable and configure ingress settings for the chart under this key.
 # @default -- See values.yaml
 ingress:
+  # -- Enable ingress
   enabled: false
   className: ""
   annotations: {}
