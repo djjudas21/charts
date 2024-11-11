@@ -60,3 +60,10 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create SASL auth string
+*/}}
+{{- define "smtp-relay.saslPasswd" -}}
+{{ .Values.smtp.host }} {{ .Values.smtp.username }}:{{ .Values.smtp.password }}
+{{- end }}

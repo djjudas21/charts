@@ -30,8 +30,10 @@ spec:
         emptyDir: {}
       - name: log
         emptyDir: {}
+      - name: saslpasswd
+        emptyDir: {}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: postfix
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -45,6 +47,8 @@ spec:
             mountPath: /var/spool/postfix/public
           - name: log
             mountPath: /var/log
+          - name: saslpasswd
+            mountPath: /etc/postfix/sasl
           env:
             - name: SMTP_RELAY_HOST
               valueFrom:

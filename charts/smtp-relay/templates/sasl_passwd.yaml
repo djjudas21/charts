@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: saslpasswd
+data:
+  sasl_passwd: |
+    {{ include "smtp-relay.saslPasswd" . | b64enc }}
