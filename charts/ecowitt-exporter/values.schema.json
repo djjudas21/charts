@@ -162,6 +162,7 @@
         },
         "enabled": {
           "default": false,
+          "description": "Enable ingress",
           "required": [],
           "title": "enabled",
           "type": "boolean"
