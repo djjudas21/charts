@@ -41,21 +41,21 @@ A file sharing server that puts the control and security of your own data back i
 | mariadb | object | <https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml> | Enable and configure mariadb database subchart under this key.    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb) |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
-| ownCloud.adminPassword | string | `"admin"` |  |
-| ownCloud.adminUsername | string | `"admin"` |  |
+| ownCloud.adminPassword | string | `"admin"` | ownCloud admin password |
+| ownCloud.adminUsername | string | `"admin"` | ownCloud admin user |
 | ownCloud.externalDatabase.database | string | `"owncloud"` |  |
 | ownCloud.externalDatabase.host | string | `""` |  |
 | ownCloud.externalDatabase.password | string | `"owncloudsecretpassword"` |  |
 | ownCloud.externalDatabase.username | string | `"owncloud"` |  |
-| ownCloud.mail.domain | string | `"cluster.local"` |  |
-| ownCloud.mail.fromAddress | string | `"owncloud"` |  |
-| ownCloud.mail.mode | string | `"smtp"` |  |
-| ownCloud.mail.smtp.auth | bool | `false` |  |
-| ownCloud.mail.smtp.host | string | `""` |  |
-| ownCloud.mail.smtp.password | string | `""` |  |
-| ownCloud.mail.smtp.port | string | `""` |  |
+| ownCloud.mail.domain | string | `"cluster.local"` | SMTP domain |
+| ownCloud.mail.fromAddress | string | `"owncloud"` | SMTP sender |
+| ownCloud.mail.mode | string | `"smtp"` | Mail mode |
+| ownCloud.mail.smtp.auth | bool | `false` | Enable SMTP server auth |
+| ownCloud.mail.smtp.host | string | `""` | SMTP server hostname |
+| ownCloud.mail.smtp.password | string | `""` | SMTP server password |
+| ownCloud.mail.smtp.port | string | `""` | SMTP server port |
 | ownCloud.mail.smtp.secure | string | `nil` |  |
-| ownCloud.mail.smtp.username | string | `""` |  |
+| ownCloud.mail.smtp.username | string | `""` | SMTP server user |
 | persistence.accessModes[0] | string | `"ReadWriteMany"` |  |
 | persistence.enabled | bool | `true` |  |
 | persistence.size | string | `"8Gi"` |  |
