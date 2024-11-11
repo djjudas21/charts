@@ -6399,6 +6399,45 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 10.15.0
+    created: "2024-11-11T21:23:12.732235322Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~19
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: 31e494c4f96409ef17bd98aedae89e31786bf3695c94bbacdd483b4b793a374b
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.17/owncloud-0.3.17.tgz
+    version: 0.3.17
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update ownCloud to v10.15.0
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.15.0
     created: "2024-09-30T21:20:51.150228801Z"
     dependencies:
     - condition: mariadb.enabled
@@ -9986,4 +10025,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-11T17:22:49.334524531Z"
+generated: "2024-11-11T21:23:12.732632705Z"
