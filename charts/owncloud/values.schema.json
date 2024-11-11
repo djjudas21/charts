@@ -338,12 +338,14 @@
       "properties": {
         "adminPassword": {
           "default": "admin",
+          "description": "ownCloud admin password",
           "required": [],
           "title": "adminPassword",
           "type": "string"
         },
         "adminUsername": {
           "default": "admin",
+          "description": "ownCloud admin user",
           "required": [],
           "title": "adminUsername",
           "type": "string"
@@ -383,18 +385,21 @@
           "properties": {
             "domain": {
               "default": "cluster.local",
+              "description": "SMTP domain",
               "required": [],
               "title": "domain",
               "type": "string"
             },
             "fromAddress": {
               "default": "owncloud",
+              "description": "SMTP sender",
               "required": [],
               "title": "fromAddress",
               "type": "string"
             },
             "mode": {
               "default": "smtp",
+              "description": "Mail mode",
               "required": [],
               "title": "mode",
               "type": "string"
@@ -403,24 +408,28 @@
               "properties": {
                 "auth": {
                   "default": false,
+                  "description": "Enable SMTP server auth",
                   "required": [],
                   "title": "auth",
                   "type": "boolean"
                 },
                 "host": {
                   "default": "",
+                  "description": "SMTP server hostname",
                   "required": [],
                   "title": "host",
                   "type": "string"
                 },
                 "password": {
                   "default": "",
+                  "description": "SMTP server password",
                   "required": [],
                   "title": "password",
                   "type": "string"
                 },
                 "port": {
                   "default": "",
+                  "description": "SMTP server port",
                   "required": [],
                   "title": "port",
                   "type": "string"
@@ -433,6 +442,7 @@
                 },
                 "username": {
                   "default": "",
+                  "description": "SMTP server user",
                   "required": [],
                   "title": "username",
                   "type": "string"
