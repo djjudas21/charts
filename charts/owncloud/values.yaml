@@ -6,18 +6,28 @@ global:
   storageClass: ""
 
 ownCloud:
+  # -- ownCloud admin user
   adminUsername: "admin"
+  # -- ownCloud admin password
   adminPassword: "admin"
   mail:
+    # -- SMTP domain
     domain: "cluster.local"
+    # -- SMTP sender
     fromAddress: owncloud
+    # -- Mail mode
     mode: smtp
     smtp:
+      # -- SMTP server hostname
       host: ""
+      # -- SMTP server port
       port: ""
       secure:
+      # -- Enable SMTP server auth
       auth: false
+      # -- SMTP server user
       username: ""
+      # -- SMTP server password
       password: ""
   externalDatabase:
     host: ""
