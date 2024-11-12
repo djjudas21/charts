@@ -87,13 +87,13 @@ spec:
                   key: smtp-relay-password
           ports:
             - name: smtp
-              containerPort: 25
+              containerPort: 2525
               protocol: TCP
           {{- if .Values.probes.liveness.enabled }}
           livenessProbe:
             failureThreshold: {{ .Values.probes.liveness.failureThreshold }}
             tcpSocket:
-              port: 25
+              port: smtp
             initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
             timeoutSeconds: {{ .Values.probes.liveness.timeoutSeconds }}
@@ -102,7 +102,7 @@ spec:
           readinessProbe:
             failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
             tcpSocket:
-              port: 25
+              port: smtp
             initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
             timeoutSeconds: {{ .Values.probes.readiness.timeoutSeconds }}

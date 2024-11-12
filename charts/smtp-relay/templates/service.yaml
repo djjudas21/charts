@@ -11,7 +11,7 @@ spec:
   {{- end }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 25
+      targetPort: 2525
       protocol: TCP
       name: smtp
     - port: {{ .Values.metrics.port }}
