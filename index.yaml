@@ -85,6 +85,20 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/autonodelabel-0.0.6/autonodelabel-0.0.6.tgz
     version: 0.0.6
+  bearhugmugs:
+  - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2024-11-19T22:16:24.479617432Z"
+    description: A Helm chart for Kubernetes
+    digest: 91d55f34a41c8be907bd8753bb63a713adeb3372a90472f4d3a68beab6f59293
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: bearhugmugs
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/bearhugmugs-0.1.0/bearhugmugs-0.1.0.tgz
+    version: 0.1.0
   connectbox-exporter:
   - annotations:
       artifacthub.io/changes: |-
@@ -10135,4 +10149,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-19T20:48:15.271725748Z"
+generated: "2024-11-19T22:16:24.480049189Z"
