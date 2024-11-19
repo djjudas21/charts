@@ -4,6 +4,12 @@
 
 A Helm chart for Kubernetes
 
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| djjudas21 | <djjudas21@users.noreply.github.com> |  |
+
 ## Values
 
 | Key | Type | Default | Description |
