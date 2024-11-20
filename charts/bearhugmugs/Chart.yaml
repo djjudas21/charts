@@ -3,8 +3,8 @@ apiVersion: v2
 name: bearhugmugs
 description: A Helm chart for Kubernetes
 type: application
-version: 0.1.0
-appVersion: "0.1.1"
+version: 0.1.2
+appVersion: "0.1.2"
 maintainers:
   - name: djjudas21
     email: djjudas21@users.noreply.github.com
