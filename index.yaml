@@ -2361,6 +2361,32 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to homer v24.11.4
+    apiVersion: v2
+    appVersion: v24.11.4
+    created: "2024-11-21T20:26:14.944339086Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: A dead simple static HOMepage for your servER to keep your services
+      on hand, from a simple yaml configuration file.
+    digest: 1bb785dbe7d3fda8791d786f9b8438d69f00d0e433ff86666bd9f293aea54635
+    home: https://github.com/djjudas21/charts/tree/master/charts/homer
+    icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/homer-8.2.0/homer-8.2.0.tgz
+    version: 8.2.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Revert to homer v23.10.1
     apiVersion: v2
     appVersion: v23.10.1
@@ -10149,4 +10175,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-19T22:16:24.480049189Z"
+generated: "2024-11-21T20:26:14.94490733Z"
