@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 2.14.2-beta
 description: This server allows you to sync any Joplin client
 name: joplin-server
-version: 5.5.5
+version: 5.5.6
 keywords:
   - joplin
   - notes
@@ -27,4 +27,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Downgrade to bjw-s/common 0.2.0
+      description: Update refs to bjw-s/common
