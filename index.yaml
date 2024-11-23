@@ -2361,6 +2361,32 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to homer v24.11.5
+    apiVersion: v2
+    appVersion: v24.11.5
+    created: "2024-11-23T20:20:09.242261998Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: A dead simple static HOMepage for your servER to keep your services
+      on hand, from a simple yaml configuration file.
+    digest: 00d9f0f8543d4e7e3b537078c3ae036f62f0c14ad49c4639a64b01ad9aa03486
+    home: https://github.com/djjudas21/charts/tree/master/charts/homer
+    icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/homer-8.2.1/homer-8.2.1.tgz
+    version: 8.2.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to homer v24.11.4
     apiVersion: v2
     appVersion: v24.11.4
@@ -4537,6 +4563,44 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/liturgical-colour-0.0.1/liturgical-colour-0.0.1.tgz
     version: 0.0.1
   lldap:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to lldap v0.6.1
+    apiVersion: v2
+    appVersion: v0.6.1
+    created: "2024-11-23T20:20:09.420076055Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: dac81d6a914627e50f87a626c086ba6c29d8f817918a8cde7d6ae7c6f0e3393e
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.4.1/lldap-0.4.1.tgz
+    version: 0.4.1
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -9575,6 +9639,40 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Webtrees 2.1.21
+    apiVersion: v2
+    appVersion: 2.1.21
+    created: "2024-11-23T20:20:09.590924462Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Open-source online collaborative genealogy application
+    digest: 1c394f9239ca2b359f0ec1af90df7a1c1474532b27b2e7763036816a39a3595d
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.16/webtrees-2.2.16.tgz
+    version: 2.2.16
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Webtrees 2.1.20
     apiVersion: v2
     appVersion: 2.1.20
@@ -10175,4 +10273,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-21T20:26:14.94490733Z"
+generated: "2024-11-23T20:20:09.591537851Z"
