@@ -1,6 +1,6 @@
 # webtrees
 
-![Version: 2.2.15](https://img.shields.io/badge/Version-2.2.15-informational?style=flat-square) ![AppVersion: 2.1.20](https://img.shields.io/badge/AppVersion-2.1.20-informational?style=flat-square)
+![Version: 2.2.16](https://img.shields.io/badge/Version-2.2.16-informational?style=flat-square) ![AppVersion: 2.1.21](https://img.shields.io/badge/AppVersion-2.1.21-informational?style=flat-square)
 
 Open-source online collaborative genealogy application
 
