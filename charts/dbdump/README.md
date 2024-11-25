@@ -1,6 +1,6 @@
 # dbdump
 
-![Version: 0.0.15](https://img.shields.io/badge/Version-0.0.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
+![Version: 0.0.16](https://img.shields.io/badge/Version-0.0.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
 
 A Helm chart to help backup SQL databases using mysqldump and pgdump
 
@@ -54,8 +54,8 @@ A Helm chart to help backup SQL databases using mysqldump and pgdump
 | persistence.accessMode | string | `"ReadWriteMany"` | accessMode to use for PVC |
 | persistence.enabled | bool | `true` | create new PVC |
 | persistence.size | string | `"8Gi"` | size of PVC to create |
-| persistence.storageClass | string | `nil` | storage class to use for PVC |
-| persistence.subPath | string | `nil` | subPath for PVC |
+| persistence.storageClass | string | `""` | storage class to use for PVC |
+| persistence.subPath | string | `""` | subPath for PVC |
 | pgdumpOptions | string | `""` | options to pass to pgdump |
 | podAnnotations | object | `{}` |  |
 | resources | object | `{}` | resource definitions |

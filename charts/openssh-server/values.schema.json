@@ -28,28 +28,28 @@
           "description": "Optional ssh public key, which will automatically be added to authorized_keys.",
           "required": [],
           "title": "publicKey",
-          "type": "null"
+          "type": "string"
         },
         "publicKeyDir": {
           "default": "",
           "description": "Optionally specify a directory containing the public keys (works with docker secrets).",
           "required": [],
           "title": "publicKeyDir",
-          "type": "null"
+          "type": "string"
         },
         "publicKeyFile": {
           "default": "",
           "description": "Optionally specify a file containing the public key (works with docker secrets).",
           "required": [],
           "title": "publicKeyFile",
-          "type": "null"
+          "type": "string"
         },
         "publicKeyUrl": {
           "default": "",
           "description": "Optionally specify a URL containing the public key, e.g. \u003chttps://github.com/username.keys\u003e",
           "required": [],
           "title": "publicKeyUrl",
-          "type": "null"
+          "type": "string"
         },
         "puid": {
           "default": 1000,
@@ -77,21 +77,21 @@
           "description": "Optionally specify a user name (Default:linuxserver.io)",
           "required": [],
           "title": "userName",
-          "type": "null"
+          "type": "string"
         },
         "userPassword": {
           "default": "",
           "description": "Optionally set a sudo password for linuxserver.io, the ssh user. If this or USER_PASSWORD_FILE are not set but SUDO_ACCESS is set to true, the user will have passwordless sudo access.",
           "required": [],
           "title": "userPassword",
-          "type": "null"
+          "type": "string"
         },
         "userPasswordFile": {
           "default": "",
           "description": "Optionally specify a file that contains the password. This setting supersedes the USER_PASSWORD option (works with docker secrets).",
           "required": [],
           "title": "userPasswordFile",
-          "type": "null"
+          "type": "string"
         }
       },
       "required": [],

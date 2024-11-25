@@ -1,6 +1,6 @@
 # jump
 
-![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.1](https://img.shields.io/badge/AppVersion-v1.4.1-informational?style=flat-square)
+![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.1](https://img.shields.io/badge/AppVersion-v1.4.1-informational?style=flat-square)
 
 Jump is a self-hosted startpage and real-time status page for your server designed to be simple, stylish, fast and secure.
 
@@ -22,8 +22,8 @@ Jump is a self-hosted startpage and real-time status page for your server design
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| env | object | `{"ALTBGPROVIDER":null,"ALTLAYOUT":"true","AMPMCLOCK":"true","BGBLUR":50,"BGBRIGHT":90,"CACHEBYPASS":"false","CHECKSTATUS":"false","CUSTOMGREETING":"Some other greeting message","CUSTOMWIDTH":1000,"DEBUG":"false","LANGUAGE":"en","LATLONG":null,"METRICTEMP":"true","NOINDEX":"true","OWMAPIKEY":null,"SHOWCLOCK":"false","SHOWGREETING":"false","SHOWSEARCH":"false","STATUSCACHE":5,"UNSPLASHAPIKEY":null,"UNSPLASHCOLLECTIONS":null}` | Config values for Jump. Always check https://github.com/daledavies/jump for latest details of available options. |
-| env.ALTBGPROVIDER | string | `nil` | An alternative background provider url. |
+| env | object | `{"ALTBGPROVIDER":"","ALTLAYOUT":"true","AMPMCLOCK":"true","BGBLUR":50,"BGBRIGHT":90,"CACHEBYPASS":"false","CHECKSTATUS":"false","CUSTOMGREETING":"Some other greeting message","CUSTOMWIDTH":1000,"DEBUG":"false","LANGUAGE":"en","LATLONG":"","METRICTEMP":"true","NOINDEX":"true","OWMAPIKEY":"","SHOWCLOCK":"false","SHOWGREETING":"false","SHOWSEARCH":"false","STATUSCACHE":5,"UNSPLASHAPIKEY":"","UNSPLASHCOLLECTIONS":""}` | Config values for Jump. Always check https://github.com/daledavies/jump for latest details of available options. |
+| env.ALTBGPROVIDER | string | `""` | An alternative background provider url. |
 | env.ALTLAYOUT | string | `"true"` | Display list of sites using an alternative layout |
 | env.AMPMCLOCK | string | `"true"` | Show 12 hour clock format if true |
 | env.BGBLUR | int | `50` | Background image blur percentage |
@@ -34,16 +34,16 @@ Jump is a self-hosted startpage and real-time status page for your server design
 | env.CUSTOMWIDTH | int | `1000` | Set a custom with for the page container/site list |
 | env.DEBUG | string | `"false"` | Enable debug mode |
 | env.LANGUAGE | string | `"en"` | Set to your chosen language code. |
-| env.LATLONG | string | `nil` | A latitude and longitude for the default location (e.g. "51.509865,-0.118092"). |
+| env.LATLONG | string | `""` | A latitude and longitude for the default location (e.g. "51.509865,-0.118092"). |
 | env.METRICTEMP | string | `"true"` | Metric (C) or imperial (F) temperature units |
 | env.NOINDEX | string | `"true"` | Include a robots noindex meta tag in site header |
-| env.OWMAPIKEY | string | `nil` | An API key for Open Weather Map, LATLONG (below) must also be defined. |
+| env.OWMAPIKEY | string | `""` | An API key for Open Weather Map, LATLONG (below) must also be defined. |
 | env.SHOWCLOCK | string | `"false"` | Hide the clock |
 | env.SHOWGREETING | string | `"false"` | Show the label "#home" instead of a friendly greeting message |
 | env.SHOWSEARCH | string | `"false"` | Hide the search button (disable search) |
 | env.STATUSCACHE | int | `5` | Duration in minutes to cache site availability status |
-| env.UNSPLASHAPIKEY | string | `nil` | An API key for Unsplash, enables fetching random background images from Unsplash. |
-| env.UNSPLASHCOLLECTIONS | string | `nil` | List of Unsplash collection ID's (separated by commas) to select random images from. |
+| env.UNSPLASHAPIKEY | string | `""` | An API key for Unsplash, enables fetching random background images from Unsplash. |
+| env.UNSPLASHCOLLECTIONS | string | `""` | List of Unsplash collection ID's (separated by commas) to select random images from. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"daledavies/jump"` | image repository |

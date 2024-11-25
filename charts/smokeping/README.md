@@ -1,6 +1,6 @@
 # smokeping
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.8.2](https://img.shields.io/badge/AppVersion-2.8.2-informational?style=flat-square)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.8.2](https://img.shields.io/badge/AppVersion-2.8.2-informational?style=flat-square)
 
 SmokePing is a latency logging and graphing and alerting system
 
@@ -55,14 +55,14 @@ SmokePing is a latency logging and graphing and alerting system
 | smokeping.contact | string | `"admin@linuxserver.io"` |  |
 | smokeping.database.pings | int | `20` | How many pings to send for each test |
 | smokeping.database.step | int | `300` | How many seconds between tests |
-| smokeping.email.AuthPass | string | `nil` |  |
-| smokeping.email.AuthUser | string | `nil` |  |
+| smokeping.email.AuthPass | string | `""` |  |
+| smokeping.email.AuthUser | string | `""` |  |
 | smokeping.email.UseSTARTTLS | string | `"yes"` |  |
 | smokeping.email.from | string | `"smokealert@company.xy"` |  |
-| smokeping.email.hostname | string | `nil` | The full hostname |
+| smokeping.email.hostname | string | `""` | The full hostname |
 | smokeping.email.mailhub | string | `"smtp.gmail.com:587"` | The place where the mail goes. The actual machine name is required - no MX records are consulted. Commonly mailhosts are named mail.domain.com |
-| smokeping.email.rewriteDomain | string | `nil` | Where will the mail seem to come from? |
-| smokeping.email.root | string | `nil` | The person who gets all mail for userids < 1000. Make this empty to disable rewriting. |
+| smokeping.email.rewriteDomain | string | `""` | Where will the mail seem to come from? |
+| smokeping.email.root | string | `""` | The person who gets all mail for userids < 1000. Make this empty to disable rewriting. |
 | smokeping.email.to | string | `"alertee@address.somewhere"` |  |
 | smokeping.owner | string | `"LinuxServer.io"` |  |
 | smokeping.targets[0].hosts[0].host | string | `"192.168.0.1"` |  |

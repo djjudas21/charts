@@ -22,7 +22,7 @@ ownCloud:
       host: ""
       # -- SMTP server port
       port: ""
-      secure:
+      secure: ""
       # -- Enable SMTP server auth
       auth: false
       # -- SMTP server user

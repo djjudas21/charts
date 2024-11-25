@@ -3,7 +3,7 @@ apiVersion: v2
 name: smokeping
 description: SmokePing is a latency logging and graphing and alerting system
 type: application
-version: 0.1.2
+version: 0.1.3
 appVersion: "2.8.2"
 keywords:
   - smokeping

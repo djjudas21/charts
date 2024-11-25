@@ -223,14 +223,14 @@
           "description": "storage class to use for PVC",
           "required": [],
           "title": "storageClass",
-          "type": "null"
+          "type": "string"
         },
         "subPath": {
           "default": "",
           "description": "subPath for PVC",
           "required": [],
           "title": "subPath",
-          "type": "null"
+          "type": "string"
         }
       },
       "required": [],
