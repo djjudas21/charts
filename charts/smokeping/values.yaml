@@ -14,17 +14,17 @@ smokeping:
     to: alertee@address.somewhere
     from: smokealert@company.xy
     # -- The person who gets all mail for userids < 1000. Make this empty to disable rewriting.
-    root:
+    root: ""
     # -- The place where the mail goes. The actual machine name is required - no
     # MX records are consulted. Commonly mailhosts are named mail.domain.com
     mailhub: smtp.gmail.com:587
-    AuthUser:
-    AuthPass:
+    AuthUser: ""
+    AuthPass: ""
     UseSTARTTLS: "yes"
     # -- Where will the mail seem to come from?
-    rewriteDomain:
+    rewriteDomain: ""
     # -- The full hostname
-    hostname:
+    hostname: ""
   targets:
     - name: Internet
       menu: Internal Devices

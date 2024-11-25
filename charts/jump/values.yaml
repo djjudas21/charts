@@ -46,19 +46,19 @@ env:
   BGBRIGHT: 90
 
   # -- An API key for Unsplash, enables fetching random background images from Unsplash.
-  UNSPLASHAPIKEY:
+  UNSPLASHAPIKEY: ""
 
   # -- List of Unsplash collection ID's (separated by commas) to select random images from.
-  UNSPLASHCOLLECTIONS:
+  UNSPLASHCOLLECTIONS: ""
 
   # -- An alternative background provider url.
-  ALTBGPROVIDER:
+  ALTBGPROVIDER: ""
 
   # -- An API key for Open Weather Map, LATLONG (below) must also be defined.
-  OWMAPIKEY:
+  OWMAPIKEY: ""
 
   # -- A latitude and longitude for the default location (e.g. "51.509865,-0.118092").
-  LATLONG:
+  LATLONG: ""
 
   # -- Metric (C) or imperial (F) temperature units
   METRICTEMP: 'true'

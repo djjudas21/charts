@@ -66,9 +66,9 @@ persistence:
   # -- accessMode to use for PVC
   accessMode: ReadWriteMany
   # -- subPath for PVC
-  subPath:
+  subPath: ""
   # -- storage class to use for PVC
-  storageClass:
+  storageClass: ""
 
 # -- delete old backups
 housekeeping:

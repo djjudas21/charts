@@ -31,16 +31,16 @@ env:
   tz: Etc/UTC
 
   # -- Optional ssh public key, which will automatically be added to authorized_keys.
-  publicKey:
+  publicKey: ""
 
   # -- Optionally specify a file containing the public key (works with docker secrets).
-  publicKeyFile:
+  publicKeyFile: ""
 
   # -- Optionally specify a directory containing the public keys (works with docker secrets).
-  publicKeyDir:
+  publicKeyDir: ""
 
   # -- Optionally specify a URL containing the public key, e.g. <https://github.com/username.keys>
-  publicKeyUrl:
+  publicKeyUrl: ""
 
   # -- Set to true to allow linuxserver.io, the ssh user, sudo access. Without USER_PASSWORD set, this will allow passwordless sudo access.
   sudoAccess: false
@@ -49,13 +49,13 @@ env:
   passwordAccess: false
 
   # -- Optionally set a sudo password for linuxserver.io, the ssh user. If this or USER_PASSWORD_FILE are not set but SUDO_ACCESS is set to true, the user will have passwordless sudo access.
-  userPassword:
+  userPassword: ""
 
   # -- Optionally specify a file that contains the password. This setting supersedes the USER_PASSWORD option (works with docker secrets).
-  userPasswordFile:
+  userPasswordFile: ""
 
   # -- Optionally specify a user name (Default:linuxserver.io)
-  userName:
+  userName: ""
 
 # -- Alpine Packages to install via custom scripts on container startup
 # https://docs.linuxserver.io/general/container-customization#custom-scripts
