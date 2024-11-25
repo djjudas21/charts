@@ -224,6 +224,35 @@ entries:
   dbdump:
   - apiVersion: v2
     appVersion: 0.0.9
+    created: "2024-11-25T21:34:13.603186779Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: A Helm chart to help backup SQL databases using mysqldump and pgdump
+    digest: f81c004f3f9545de96449f6e3ce38c9789bf016a7e67f7e721b5135a609b3453
+    home: https://github.com/djjudas21/dbdump
+    icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
+    keywords:
+    - mysql
+    - postgresql
+    - mysqldump
+    - pgdump
+    - backup
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: dbdump
+    sources:
+    - https://hub.docker.com/repository/docker/djjudas21/dbdump/general
+    - https://github.com/djjudas21/charts
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/dbdump-0.0.16/dbdump-0.0.16.tgz
+    version: 0.0.16
+  - apiVersion: v2
+    appVersion: 0.0.9
     created: "2024-10-08T17:54:20.786904747Z"
     dependencies:
     - condition: mariadb.enabled
@@ -3771,6 +3800,54 @@ entries:
           url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-search.png
     apiVersion: v2
     appVersion: v1.4.1
+    created: "2024-11-25T21:34:13.800178052Z"
+    description: Jump is a self-hosted startpage and real-time status page for your
+      server designed to be simple, stylish, fast and secure.
+    digest: b4fa868d7a76b74f9606008021532b7d5e25e080d2624373b8cc6ba6d5a66636
+    home: https://github.com/djjudas21/charts/tree/master/charts/jump
+    icon: https://raw.githubusercontent.com/daledavies/jump/main/jumpapp/assets/images/favicon/icon.png
+    keywords:
+    - javascript
+    - docker
+    - php
+    - weather
+    - links
+    - dashboard
+    - home
+    - unsplash
+    - directory
+    - selfhosted
+    - homepage
+    - portal
+    - self-hosted
+    - startpage
+    - start
+    - status-page
+    - selfhosted-apps
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: jump
+    sources:
+    - https://github.com/daledavies/jump
+    - https://hub.docker.com/r/daledavies/jump
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jump-0.1.7/jump-0.1.7.tgz
+    version: 0.1.7
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jump v1.4.1
+      artifacthub.io/screenshots: |
+        - title: Tag selection
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagselection.png
+        - title: Tag page
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagpage.png
+        - title: Search
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-search.png
+    apiVersion: v2
+    appVersion: v1.4.1
     created: "2024-09-30T21:20:50.507422472Z"
     description: Jump is a self-hosted startpage and real-time status page for your
       server designed to be simple, stylish, fast and secure.
@@ -6344,6 +6421,34 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 9.7_p1-r4-ls171
+    created: "2024-11-25T21:34:13.986526629Z"
+    description: Sandboxed environment that allows ssh access without giving keys
+      to the entire server
+    digest: 11fa32610ba275e844de1be9ddfb810b89df064b13880a83d058969287556000
+    home: https://github.com/djjudas21/charts
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png
+    keywords:
+    - ssh
+    - openssh
+    - bastion
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: openssh-server
+    sources:
+    - https://hub.docker.com/r/linuxserver/openssh-server
+    - https://github.com/linuxserver/docker-openssh-server
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.14/openssh-server-0.1.14.tgz
+    version: 0.1.14
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update OpenSSH image
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 9.7_p1-r4-ls171
     created: "2024-09-30T21:20:51.006990023Z"
     description: Sandboxed environment that allows ssh access without giving keys
       to the entire server
@@ -6702,6 +6807,45 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.0/openssh-server-0.1.0.tgz
     version: 0.1.0
   owncloud:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update ownCloud to v10.15.0
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.15.0
+    created: "2024-11-25T21:34:14.162858091Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~19
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: a205e74092e0643cbb90c9f457c11ceb6623d4790ceec15260ed5438930e4edb
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.18/owncloud-0.3.18.tgz
+    version: 0.3.18
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -9032,6 +9176,26 @@ entries:
   smokeping:
   - apiVersion: v2
     appVersion: 2.8.2
+    created: "2024-11-25T21:34:14.360891111Z"
+    description: SmokePing is a latency logging and graphing and alerting system
+    digest: d4f7e59855c9f0f1a9340e4cb4f5343b7857d80f2ff597fb7109a6ef7b9fa93f
+    home: https://oss.oetiker.ch/smokeping/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/smokeping-logo.png
+    keywords:
+    - smokeping
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: smokeping
+    sources:
+    - https://github.com/oetiker/SmokePing
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/smokeping-0.1.3/smokeping-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 2.8.2
     created: "2024-09-30T21:20:51.354903915Z"
     description: SmokePing is a latency logging and graphing and alerting system
     digest: f7fadd1cacdb2fae58a9590cb4110b271545333e013114ba8e4322b7f71bf66b
@@ -10495,4 +10659,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-23T21:43:09.283338386Z"
+generated: "2024-11-25T21:34:14.361602576Z"
