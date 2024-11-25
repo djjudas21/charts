@@ -14,7 +14,7 @@
           "description": "An alternative background provider url.",
           "required": [],
           "title": "ALTBGPROVIDER",
-          "type": "null"
+          "type": "string"
         },
         "ALTLAYOUT": {
           "default": "true",
@@ -91,7 +91,7 @@
           "description": "A latitude and longitude for the default location (e.g. \"51.509865,-0.118092\").",
           "required": [],
           "title": "LATLONG",
-          "type": "null"
+          "type": "string"
         },
         "METRICTEMP": {
           "default": "true",
@@ -112,7 +112,7 @@
           "description": "An API key for Open Weather Map, LATLONG (below) must also be defined.",
           "required": [],
           "title": "OWMAPIKEY",
-          "type": "null"
+          "type": "string"
         },
         "SHOWCLOCK": {
           "default": "false",
@@ -147,14 +147,14 @@
           "description": "An API key for Unsplash, enables fetching random background images from Unsplash.",
           "required": [],
           "title": "UNSPLASHAPIKEY",
-          "type": "null"
+          "type": "string"
         },
         "UNSPLASHCOLLECTIONS": {
           "default": "",
           "description": "List of Unsplash collection ID's (separated by commas) to select random images from.",
           "required": [],
           "title": "UNSPLASHCOLLECTIONS",
-          "type": "null"
+          "type": "string"
         }
       },
       "required": [],

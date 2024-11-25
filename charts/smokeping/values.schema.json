@@ -378,13 +378,13 @@
               "default": "",
               "required": [],
               "title": "AuthPass",
-              "type": "null"
+              "type": "string"
             },
             "AuthUser": {
               "default": "",
               "required": [],
               "title": "AuthUser",
-              "type": "null"
+              "type": "string"
             },
             "UseSTARTTLS": {
               "default": "yes",
@@ -403,7 +403,7 @@
               "description": "The full hostname",
               "required": [],
               "title": "hostname",
-              "type": "null"
+              "type": "string"
             },
             "mailhub": {
               "default": "smtp.gmail.com:587",
@@ -417,14 +417,14 @@
               "description": "Where will the mail seem to come from?",
               "required": [],
               "title": "rewriteDomain",
-              "type": "null"
+              "type": "string"
             },
             "root": {
               "default": "",
               "description": "The person who gets all mail for userids \u003c 1000. Make this empty to disable rewriting.",
               "required": [],
               "title": "root",
-              "type": "null"
+              "type": "string"
             },
             "to": {
               "default": "alertee@address.somewhere",

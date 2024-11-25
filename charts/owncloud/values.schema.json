@@ -438,7 +438,7 @@
                   "default": "",
                   "required": [],
                   "title": "secure",
-                  "type": "null"
+                  "type": "string"
                 },
                 "username": {
                   "default": "",
