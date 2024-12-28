@@ -2422,6 +2422,32 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Homer v24.12.1
+    apiVersion: v2
+    appVersion: v24.12.1
+    created: "2024-12-28T18:19:23.496150519Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: A dead simple static HOMepage for your servER to keep your services
+      on hand, from a simple yaml configuration file.
+    digest: 3eb0ae7401e3eb05b9e1aac705b71e923c9db171b5680868607a53f3964b0400
+    home: https://github.com/djjudas21/charts/tree/master/charts/homer
+    icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/homer-8.2.3/homer-8.2.3.tgz
+    version: 8.2.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update refs to bjw-s/common
     apiVersion: v2
     appVersion: v24.11.5
@@ -5440,6 +5466,37 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Navidrome v0.54.2
+    apiVersion: v2
+    appVersion: 0.54.2
+    created: "2024-12-28T18:19:23.582792668Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: d55f1163f27db14d078d1436d0eba268e3406a014d2d1f37447866ce0eac37ea
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.6.18/navidrome-6.6.18.tgz
+    version: 6.6.18
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update refs to bjw-s/common
     apiVersion: v2
     appVersion: 0.53.2
@@ -6089,6 +6146,33 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/navidrome-6.5.0/navidrome-6.5.0.tgz
     version: 6.5.0
   nova-exporter:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to nova-exporter 0.0.9
+    apiVersion: v2
+    appVersion: 0.0.9
+    created: "2024-12-28T18:19:23.706103125Z"
+    description: A Prometheus exporter for Fairwinds Nova
+    digest: 594a898a705d351f9ecb9edcceda35b1f48bba0210c5dde276675237a89c5567
+    home: https://github.com/djjudas21/charts/tree/master/charts/nova-exporter
+    icon: https://raw.githubusercontent.com/FairwindsOps/nova/master/img/logo.png
+    keywords:
+    - nova
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: nova-exporter
+    sources:
+    - https://github.com/djjudas21/nova-exporter
+    - https://hub.docker.com/r/djjudas21/nova-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.15/nova-exporter-0.1.15.tgz
+    version: 0.1.15
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -9991,6 +10075,40 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Webtrees v2.1.22
+    apiVersion: v2
+    appVersion: 2.1.22
+    created: "2024-12-28T18:19:23.8377151Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Open-source online collaborative genealogy application
+    digest: 4c34711201e8c5065c10b4b39ef22bdff5f11a049954c7f9f7c800efcfa640ff
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.18/webtrees-2.2.18.tgz
+    version: 2.2.18
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update refs to bjw-s/common
     apiVersion: v2
     appVersion: 2.1.21
@@ -10659,4 +10777,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-25T21:34:14.361602576Z"
+generated: "2024-12-28T18:19:23.838291083Z"
