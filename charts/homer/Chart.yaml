@@ -1,11 +1,11 @@
 ---
 apiVersion: v2
-appVersion: v24.11.5
+appVersion: v24.12.1
 description: A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.
 icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
 home: https://github.com/djjudas21/charts/tree/master/charts/homer
 name: homer
-version: 8.2.2
+version: 8.2.3
 kubeVersion: ">=1.16.0-0"
 sources:
   - https://github.com/bastienwirtz/homer
@@ -19,4 +19,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update refs to bjw-s/common
+      description: Update to Homer v24.12.1
