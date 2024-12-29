@@ -5,18 +5,12 @@
       "description": "environment variables",
       "properties": {
         "JWT_SECRET": {
-          "default": "ChangeMe",
-          "description": "The secret used to sign the JWT token. It is important that you change it to something else",
           "required": [],
-          "title": "JWT_SECRET",
-          "type": "string"
+          "type": "object"
         },
         "TZ": {
-          "default": "UTC",
-          "description": "Application Timezone",
           "required": [],
-          "title": "TZ",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -32,25 +26,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "alfhou/hammond",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -60,7 +45,6 @@
     "ingress": {
       "properties": {
         "main": {
-          "description": "Enable and configure ingress settings for the chart under this key.",
           "properties": {
             "enabled": {
               "default": false,
@@ -70,7 +54,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },
@@ -97,7 +80,6 @@
             }
           },
           "required": [],
-          "title": "assets",
           "type": "object"
         },
         "config": {
@@ -116,7 +98,6 @@
             }
           },
           "required": [],
-          "title": "config",
           "type": "object"
         }
       },
@@ -141,7 +122,6 @@
                     }
                   },
                   "required": [],
-                  "title": "http",
                   "type": "object"
                 }
               },
@@ -151,7 +131,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },

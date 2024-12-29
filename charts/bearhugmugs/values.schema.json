@@ -22,24 +22,16 @@
       "description": "This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/",
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "This sets the pull policy for images.",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "djjudas21/bearhugmugs",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "Overrides the image tag whose default is the chart appVersion.",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -60,79 +52,23 @@
       "properties": {
         "annotations": {
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "className": {
-          "default": "",
           "required": [],
-          "title": "className",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "hosts": {
-          "description": "kubernetes.io/ingress.class: nginx\nkubernetes.io/tls-acme: \"true\"",
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "host": {
-                    "default": "chart-example.local",
-                    "required": [],
-                    "title": "host",
-                    "type": "string"
-                  },
-                  "paths": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "path": {
-                              "default": "/",
-                              "required": [],
-                              "title": "path",
-                              "type": "string"
-                            },
-                            "pathType": {
-                              "default": "ImplementationSpecific",
-                              "required": [],
-                              "title": "pathType",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "paths",
-                    "type": "array"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "hosts",
-          "type": "array"
+          "type": "object"
         },
         "tls": {
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "tls",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -158,7 +94,6 @@
             }
           },
           "required": [],
-          "title": "httpGet",
           "type": "object"
         }
       },
@@ -213,7 +148,6 @@
             }
           },
           "required": [],
-          "title": "httpGet",
           "type": "object"
         }
       },
@@ -242,18 +176,12 @@
       "description": "This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/",
       "properties": {
         "port": {
-          "default": 80,
-          "description": "This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports",
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
-          "description": "This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -264,31 +192,20 @@
       "description": "This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/",
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "automount": {
-          "default": true,
-          "description": "Automatically mount a ServiceAccount's API credentials?",
           "required": [],
-          "title": "automount",
-          "type": "boolean"
+          "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.\nIf not set and create is true, a name is generated using the fullname template",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],

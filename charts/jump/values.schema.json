@@ -10,151 +10,88 @@
       "description": "Config values for Jump. Always check https://github.com/daledavies/jump\nfor latest details of available options.",
       "properties": {
         "ALTBGPROVIDER": {
-          "default": "",
-          "description": "An alternative background provider url.",
           "required": [],
-          "title": "ALTBGPROVIDER",
-          "type": "string"
+          "type": "object"
         },
         "ALTLAYOUT": {
-          "default": "true",
-          "description": "Display list of sites using an alternative layout",
           "required": [],
-          "title": "ALTLAYOUT",
-          "type": "string"
+          "type": "object"
         },
         "AMPMCLOCK": {
-          "default": "true",
-          "description": "Show 12 hour clock format if true",
           "required": [],
-          "title": "AMPMCLOCK",
-          "type": "string"
+          "type": "object"
         },
         "BGBLUR": {
-          "default": 50,
-          "description": "Background image blur percentage",
           "required": [],
-          "title": "BGBLUR",
-          "type": "integer"
+          "type": "object"
         },
         "BGBRIGHT": {
-          "default": 90,
-          "description": "Background image brightness percentage",
           "required": [],
-          "title": "BGBRIGHT",
-          "type": "integer"
+          "type": "object"
         },
         "CACHEBYPASS": {
-          "default": "false",
-          "description": "Bypass all caches, useful for testing changes",
           "required": [],
-          "title": "CACHEBYPASS",
-          "type": "string"
+          "type": "object"
         },
         "CHECKSTATUS": {
-          "default": "false",
-          "description": "Disable checking site availability status",
           "required": [],
-          "title": "CHECKSTATUS",
-          "type": "string"
+          "type": "object"
         },
         "CUSTOMGREETING": {
-          "default": "Some other greeting message",
-          "description": "Show a custom greeting message instead",
           "required": [],
-          "title": "CUSTOMGREETING",
-          "type": "string"
+          "type": "object"
         },
         "CUSTOMWIDTH": {
-          "default": 1000,
-          "description": "Set a custom with for the page container/site list",
           "required": [],
-          "title": "CUSTOMWIDTH",
-          "type": "integer"
+          "type": "object"
         },
         "DEBUG": {
-          "default": "false",
-          "description": "Enable debug mode",
           "required": [],
-          "title": "DEBUG",
-          "type": "string"
+          "type": "object"
         },
         "LANGUAGE": {
-          "default": "en",
-          "description": "Set to your chosen language code.",
           "required": [],
-          "title": "LANGUAGE",
-          "type": "string"
+          "type": "object"
         },
         "LATLONG": {
-          "default": "",
-          "description": "A latitude and longitude for the default location (e.g. \"51.509865,-0.118092\").",
           "required": [],
-          "title": "LATLONG",
-          "type": "string"
+          "type": "object"
         },
         "METRICTEMP": {
-          "default": "true",
-          "description": "Metric (C) or imperial (F) temperature units",
           "required": [],
-          "title": "METRICTEMP",
-          "type": "string"
+          "type": "object"
         },
         "NOINDEX": {
-          "default": "true",
-          "description": "Include a robots noindex meta tag in site header",
           "required": [],
-          "title": "NOINDEX",
-          "type": "string"
+          "type": "object"
         },
         "OWMAPIKEY": {
-          "default": "",
-          "description": "An API key for Open Weather Map, LATLONG (below) must also be defined.",
           "required": [],
-          "title": "OWMAPIKEY",
-          "type": "string"
+          "type": "object"
         },
         "SHOWCLOCK": {
-          "default": "false",
-          "description": "Hide the clock",
           "required": [],
-          "title": "SHOWCLOCK",
-          "type": "string"
+          "type": "object"
         },
         "SHOWGREETING": {
-          "default": "false",
-          "description": "Show the label \"#home\" instead of a friendly greeting message",
           "required": [],
-          "title": "SHOWGREETING",
-          "type": "string"
+          "type": "object"
         },
         "SHOWSEARCH": {
-          "default": "false",
-          "description": "Hide the search button (disable search)",
           "required": [],
-          "title": "SHOWSEARCH",
-          "type": "string"
+          "type": "object"
         },
         "STATUSCACHE": {
-          "default": 5,
-          "description": "Duration in minutes to cache site availability status",
           "required": [],
-          "title": "STATUSCACHE",
-          "type": "integer"
+          "type": "object"
         },
         "UNSPLASHAPIKEY": {
-          "default": "",
-          "description": "An API key for Unsplash, enables fetching random background images from Unsplash.",
           "required": [],
-          "title": "UNSPLASHAPIKEY",
-          "type": "string"
+          "type": "object"
         },
         "UNSPLASHCOLLECTIONS": {
-          "default": "",
-          "description": "List of Unsplash collection ID's (separated by commas) to select random images from.",
           "required": [],
-          "title": "UNSPLASHCOLLECTIONS",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -176,25 +113,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "daledavies/jump",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -214,79 +142,23 @@
       "properties": {
         "annotations": {
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "className": {
-          "default": "",
           "required": [],
-          "title": "className",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "hosts": {
-          "description": "kubernetes.io/ingress.class: nginx\nkubernetes.io/tls-acme: \"true\"",
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "host": {
-                    "default": "chart-example.local",
-                    "required": [],
-                    "title": "host",
-                    "type": "string"
-                  },
-                  "paths": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "path": {
-                              "default": "/",
-                              "required": [],
-                              "title": "path",
-                              "type": "string"
-                            },
-                            "pathType": {
-                              "default": "ImplementationSpecific",
-                              "required": [],
-                              "title": "pathType",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "paths",
-                    "type": "array"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "hosts",
-          "type": "array"
+          "type": "object"
         },
         "tls": {
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "tls",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -311,7 +183,6 @@
             }
           },
           "required": [],
-          "title": "httpGet",
           "type": "object"
         }
       },
@@ -363,7 +234,6 @@
             }
           },
           "required": [],
-          "title": "httpGet",
           "type": "object"
         }
       },
@@ -457,16 +327,12 @@
       "description": "Configures service settings for the chart.",
       "properties": {
         "port": {
-          "default": 8080,
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -476,31 +342,20 @@
     "serviceAccount": {
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "automount": {
-          "default": true,
-          "description": "Automatically mount a ServiceAccount's API credentials?",
           "required": [],
-          "title": "automount",
-          "type": "boolean"
+          "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -510,7 +365,6 @@
     "sites": {
       "properties": {
         "default": {
-          "description": "Default settings for sites",
           "properties": {
             "icon": {
               "default": "my-default-icon.png",
@@ -532,240 +386,11 @@
             }
           },
           "required": [],
-          "title": "default",
           "type": "object"
         },
         "sites": {
-          "description": "List of sites to include, rendered as sites.json",
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "description": {
-                    "default": "This is an example description",
-                    "required": [],
-                    "title": "description",
-                    "type": "string"
-                  },
-                  "name": {
-                    "default": "Github",
-                    "required": [],
-                    "title": "name",
-                    "type": "string"
-                  },
-                  "newtab": {
-                    "default": true,
-                    "required": [],
-                    "title": "newtab",
-                    "type": "boolean"
-                  },
-                  "nofollow": {
-                    "default": false,
-                    "required": [],
-                    "title": "nofollow",
-                    "type": "boolean"
-                  },
-                  "url": {
-                    "default": "https://github.com/daledavies/jump",
-                    "required": [],
-                    "title": "url",
-                    "type": "string"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              },
-              {
-                "properties": {
-                  "name": {
-                    "default": "Docker Hub",
-                    "required": [],
-                    "title": "name",
-                    "type": "string"
-                  },
-                  "url": {
-                    "default": "https://hub.docker.com/r/daledavies/jump",
-                    "required": [],
-                    "title": "url",
-                    "type": "string"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              },
-              {
-                "properties": {
-                  "description": {
-                    "default": "This is another example of a site with a description",
-                    "required": [],
-                    "title": "description",
-                    "type": "string"
-                  },
-                  "icon": {
-                    "default": "bitwarden.png",
-                    "required": [],
-                    "title": "icon",
-                    "type": "string"
-                  },
-                  "name": {
-                    "default": "Bitwarden",
-                    "required": [],
-                    "title": "name",
-                    "type": "string"
-                  },
-                  "tags": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "required": [],
-                          "type": "string"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "tags",
-                    "type": "array"
-                  },
-                  "url": {
-                    "default": "https://bitwarden.com/",
-                    "required": [],
-                    "title": "url",
-                    "type": "string"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              },
-              {
-                "properties": {
-                  "icon": {
-                    "default": "nextcloud.png",
-                    "required": [],
-                    "title": "icon",
-                    "type": "string"
-                  },
-                  "name": {
-                    "default": "Nextcloud",
-                    "required": [],
-                    "title": "name",
-                    "type": "string"
-                  },
-                  "tags": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "required": [],
-                          "type": "string"
-                        },
-                        {
-                          "required": [],
-                          "type": "string"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "tags",
-                    "type": "array"
-                  },
-                  "url": {
-                    "default": "https://cloud.example.com",
-                    "required": [],
-                    "title": "url",
-                    "type": "string"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              },
-              {
-                "properties": {
-                  "name": {
-                    "default": "Teapot",
-                    "required": [],
-                    "title": "name",
-                    "type": "string"
-                  },
-                  "nofollow": {
-                    "default": false,
-                    "required": [],
-                    "title": "nofollow",
-                    "type": "boolean"
-                  },
-                  "status": {
-                    "properties": {
-                      "allowed_status_codes": {
-                        "items": {
-                          "anyOf": [
-                            {
-                              "required": [],
-                              "type": "integer"
-                            }
-                          ],
-                          "required": []
-                        },
-                        "required": [],
-                        "title": "allowed_status_codes",
-                        "type": "array"
-                      },
-                      "request_method": {
-                        "default": "GET",
-                        "required": [],
-                        "title": "request_method",
-                        "type": "string"
-                      },
-                      "url": {
-                        "default": "https://www.google.com/teapot",
-                        "required": [],
-                        "title": "url",
-                        "type": "string"
-                      },
-                      "verify_cert": {
-                        "default": false,
-                        "required": [],
-                        "title": "verify_cert",
-                        "type": "boolean"
-                      }
-                    },
-                    "required": [],
-                    "title": "status",
-                    "type": "object"
-                  },
-                  "tags": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "required": [],
-                          "type": "string"
-                        },
-                        {
-                          "required": [],
-                          "type": "string"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "tags",
-                    "type": "array"
-                  },
-                  "url": {
-                    "default": "https://www.google.com/pagedoesnotexist",
-                    "required": [],
-                    "title": "url",
-                    "type": "string"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "sites",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -884,10 +509,8 @@
               "emptyDir": {
                 "properties": {
                   "sizeLimit": {
-                    "default": "100Mi",
                     "required": [],
-                    "title": "sizeLimit",
-                    "type": "string"
+                    "type": "object"
                   }
                 },
                 "required": [],
@@ -909,10 +532,8 @@
               "emptyDir": {
                 "properties": {
                   "sizeLimit": {
-                    "default": "100Mi",
                     "required": [],
-                    "title": "sizeLimit",
-                    "type": "string"
+                    "type": "object"
                   }
                 },
                 "required": [],
@@ -934,10 +555,8 @@
               "emptyDir": {
                 "properties": {
                   "sizeLimit": {
-                    "default": "100Mi",
                     "required": [],
-                    "title": "sizeLimit",
-                    "type": "string"
+                    "type": "object"
                   }
                 },
                 "required": [],
@@ -959,10 +578,8 @@
               "emptyDir": {
                 "properties": {
                   "sizeLimit": {
-                    "default": "100Mi",
                     "required": [],
-                    "title": "sizeLimit",
-                    "type": "string"
+                    "type": "object"
                   }
                 },
                 "required": [],
@@ -984,10 +601,8 @@
               "configMap": {
                 "properties": {
                   "name": {
-                    "default": "sites-config",
                     "required": [],
-                    "title": "name",
-                    "type": "string"
+                    "type": "object"
                   }
                 },
                 "required": [],
@@ -1009,10 +624,8 @@
               "configMap": {
                 "properties": {
                   "name": {
-                    "default": "search-config",
                     "required": [],
-                    "title": "name",
-                    "type": "string"
+                    "type": "object"
                   }
                 },
                 "required": [],

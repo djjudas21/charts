@@ -21,25 +21,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "djjudas21/liturgical-colour-app",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -59,79 +50,23 @@
       "properties": {
         "annotations": {
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "className": {
-          "default": "",
           "required": [],
-          "title": "className",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "hosts": {
-          "description": "kubernetes.io/ingress.class: nginx\nkubernetes.io/tls-acme: \"true\"",
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "host": {
-                    "default": "chart-example.local",
-                    "required": [],
-                    "title": "host",
-                    "type": "string"
-                  },
-                  "paths": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "path": {
-                              "default": "/",
-                              "required": [],
-                              "title": "path",
-                              "type": "string"
-                            },
-                            "pathType": {
-                              "default": "ImplementationSpecific",
-                              "required": [],
-                              "title": "pathType",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "paths",
-                    "type": "array"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "hosts",
-          "type": "array"
+          "type": "object"
         },
         "tls": {
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "tls",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -196,26 +131,19 @@
             }
           },
           "required": [],
-          "title": "capabilities",
           "type": "object"
         },
         "readOnlyRootFilesystem": {
-          "default": true,
           "required": [],
-          "title": "readOnlyRootFilesystem",
-          "type": "boolean"
+          "type": "object"
         },
         "runAsNonRoot": {
-          "default": true,
           "required": [],
-          "title": "runAsNonRoot",
-          "type": "boolean"
+          "type": "object"
         },
         "runAsUser": {
-          "default": 1000,
           "required": [],
-          "title": "runAsUser",
-          "type": "integer"
+          "type": "object"
         }
       },
       "required": [],
@@ -226,16 +154,12 @@
       "description": "Configures service settings for the chart.",
       "properties": {
         "port": {
-          "default": 5000,
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -245,31 +169,20 @@
     "serviceAccount": {
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "automount": {
-          "default": false,
-          "description": "Automatically mount a ServiceAccount's API credentials?",
           "required": [],
-          "title": "automount",
-          "type": "boolean"
+          "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],

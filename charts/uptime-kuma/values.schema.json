@@ -5,18 +5,12 @@
       "description": "environment variables. See [application docs](https://github.com/louislam/uptime-kuma/wiki/Environment-Variables) for more details.",
       "properties": {
         "TZ": {
-          "default": "UTC",
-          "description": "Set the container timezone",
           "required": [],
-          "title": "TZ",
-          "type": "string"
+          "type": "object"
         },
         "UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN": {
-          "default": 0,
-          "description": "Set the custom ssl cert path (string)\nUPTIME_KUMA_SSL_CERT:\nSet the custom ssl key path (string)\nUPTIME_KUMA_SSL_KEY:\nSet the frame same-origin policy (int)",
           "required": [],
-          "title": "UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN",
-          "type": "integer"
+          "type": "object"
         }
       },
       "required": [],
@@ -32,25 +26,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "louislam/uptime-kuma",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -60,7 +45,6 @@
     "ingress": {
       "properties": {
         "main": {
-          "description": "Enable and configure ingress settings for the chart under this key.",
           "properties": {
             "enabled": {
               "default": false,
@@ -70,7 +54,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },
@@ -97,7 +80,6 @@
             }
           },
           "required": [],
-          "title": "data",
           "type": "object"
         }
       },
@@ -122,7 +104,6 @@
                     }
                   },
                   "required": [],
-                  "title": "http",
                   "type": "object"
                 }
               },
@@ -132,7 +113,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },

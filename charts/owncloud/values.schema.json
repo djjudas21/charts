@@ -15,24 +15,16 @@
     "global": {
       "properties": {
         "imagePullSecrets": {
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "imagePullSecrets",
-          "type": "array"
+          "type": "object"
         },
         "imageRegistry": {
-          "default": "",
           "required": [],
-          "title": "imageRegistry",
-          "type": "string"
+          "type": "object"
         },
         "storageClass": {
-          "default": "",
           "required": [],
-          "title": "storageClass",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -42,25 +34,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "owncloud/server",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -94,78 +77,23 @@
             }
           },
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "className": {
-          "default": "",
           "required": [],
-          "title": "className",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "hosts": {
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "host": {
-                    "default": "chart-example.local",
-                    "required": [],
-                    "title": "host",
-                    "type": "string"
-                  },
-                  "paths": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "path": {
-                              "default": "/",
-                              "required": [],
-                              "title": "path",
-                              "type": "string"
-                            },
-                            "pathType": {
-                              "default": "ImplementationSpecific",
-                              "required": [],
-                              "title": "pathType",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "paths",
-                    "type": "array"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "hosts",
-          "type": "array"
+          "type": "object"
         },
         "tls": {
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "tls",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -176,10 +104,8 @@
       "description": "Enable and configure mariadb database subchart under this key.\n   For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)",
       "properties": {
         "architecture": {
-          "default": "standalone",
           "required": [],
-          "title": "architecture",
-          "type": "string"
+          "type": "object"
         },
         "auth": {
           "properties": {
@@ -221,14 +147,11 @@
             }
           },
           "required": [],
-          "title": "auth",
           "type": "object"
         },
         "enabled": {
-          "default": true,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "metrics": {
           "properties": {
@@ -246,10 +169,8 @@
             "serviceMonitor": {
               "properties": {
                 "enabled": {
-                  "default": false,
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -258,7 +179,6 @@
             }
           },
           "required": [],
-          "title": "metrics",
           "type": "object"
         },
         "primary": {
@@ -266,36 +186,20 @@
             "persistence": {
               "properties": {
                 "accessModes": {
-                  "items": {
-                    "anyOf": [
-                      {
-                        "required": [],
-                        "type": "string"
-                      }
-                    ],
-                    "required": []
-                  },
                   "required": [],
-                  "title": "accessModes",
-                  "type": "array"
+                  "type": "object"
                 },
                 "enabled": {
-                  "default": true,
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 },
                 "size": {
-                  "default": "8Gi",
                   "required": [],
-                  "title": "size",
-                  "type": "string"
+                  "type": "object"
                 },
                 "storageClass": {
-                  "default": "",
                   "required": [],
-                  "title": "storageClass",
-                  "type": "string"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -315,7 +219,6 @@
             }
           },
           "required": [],
-          "title": "primary",
           "type": "object"
         }
       },
@@ -337,18 +240,12 @@
     "ownCloud": {
       "properties": {
         "adminPassword": {
-          "default": "admin",
-          "description": "ownCloud admin password",
           "required": [],
-          "title": "adminPassword",
-          "type": "string"
+          "type": "object"
         },
         "adminUsername": {
-          "default": "admin",
-          "description": "ownCloud admin user",
           "required": [],
-          "title": "adminUsername",
-          "type": "string"
+          "type": "object"
         },
         "externalDatabase": {
           "properties": {
@@ -378,7 +275,6 @@
             }
           },
           "required": [],
-          "title": "externalDatabase",
           "type": "object"
         },
         "mail": {
@@ -407,45 +303,28 @@
             "smtp": {
               "properties": {
                 "auth": {
-                  "default": false,
-                  "description": "Enable SMTP server auth",
                   "required": [],
-                  "title": "auth",
-                  "type": "boolean"
+                  "type": "object"
                 },
                 "host": {
-                  "default": "",
-                  "description": "SMTP server hostname",
                   "required": [],
-                  "title": "host",
-                  "type": "string"
+                  "type": "object"
                 },
                 "password": {
-                  "default": "",
-                  "description": "SMTP server password",
                   "required": [],
-                  "title": "password",
-                  "type": "string"
+                  "type": "object"
                 },
                 "port": {
-                  "default": "",
-                  "description": "SMTP server port",
                   "required": [],
-                  "title": "port",
-                  "type": "string"
+                  "type": "object"
                 },
                 "secure": {
-                  "default": "",
                   "required": [],
-                  "title": "secure",
-                  "type": "string"
+                  "type": "object"
                 },
                 "username": {
-                  "default": "",
-                  "description": "SMTP server user",
                   "required": [],
-                  "title": "username",
-                  "type": "string"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -454,7 +333,6 @@
             }
           },
           "required": [],
-          "title": "mail",
           "type": "object"
         }
       },
@@ -465,36 +343,20 @@
     "persistence": {
       "properties": {
         "accessModes": {
-          "items": {
-            "anyOf": [
-              {
-                "required": [],
-                "type": "string"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "accessModes",
-          "type": "array"
+          "type": "object"
         },
         "enabled": {
-          "default": true,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "size": {
-          "default": "8Gi",
           "required": [],
-          "title": "size",
-          "type": "string"
+          "type": "object"
         },
         "storageClass": {
-          "default": "",
           "required": [],
-          "title": "storageClass",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -516,10 +378,8 @@
       "description": "Enable and configure redis subchart under this key.\n   For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis)",
       "properties": {
         "architecture": {
-          "default": "standalone",
           "required": [],
-          "title": "architecture",
-          "type": "string"
+          "type": "object"
         },
         "auth": {
           "properties": {
@@ -561,7 +421,6 @@
             }
           },
           "required": [],
-          "title": "auth",
           "type": "object"
         },
         "master": {
@@ -569,36 +428,20 @@
             "persistence": {
               "properties": {
                 "accessModes": {
-                  "items": {
-                    "anyOf": [
-                      {
-                        "required": [],
-                        "type": "string"
-                      }
-                    ],
-                    "required": []
-                  },
                   "required": [],
-                  "title": "accessModes",
-                  "type": "array"
+                  "type": "object"
                 },
                 "enabled": {
-                  "default": true,
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 },
                 "size": {
-                  "default": "8Gi",
                   "required": [],
-                  "title": "size",
-                  "type": "string"
+                  "type": "object"
                 },
                 "storageClass": {
-                  "default": "",
                   "required": [],
-                  "title": "storageClass",
-                  "type": "string"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -618,7 +461,6 @@
             }
           },
           "required": [],
-          "title": "master",
           "type": "object"
         },
         "metrics": {
@@ -632,10 +474,8 @@
             "prometheusRule": {
               "properties": {
                 "enabled": {
-                  "default": false,
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -645,10 +485,8 @@
             "serviceMonitor": {
               "properties": {
                 "enabled": {
-                  "default": false,
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -657,7 +495,6 @@
             }
           },
           "required": [],
-          "title": "metrics",
           "type": "object"
         }
       },
@@ -681,16 +518,12 @@
       "description": "Configures service settings for the chart.",
       "properties": {
         "port": {
-          "default": 8080,
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -700,24 +533,16 @@
     "serviceAccount": {
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],

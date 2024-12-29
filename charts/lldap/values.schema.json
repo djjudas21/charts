@@ -10,123 +10,20 @@
       "description": "Bootstrap (i.e. create) users and groups automatically.\nIt is safe to run the bootstrap multiple times, however the one-shot\nKubernetes job will be created on the first deployment, and the job\nwill not be executed on subsequent deployments unless the job is deleted.",
       "properties": {
         "cleanup": {
-          "default": false,
-          "description": "Remove redundant users and groups which are not in the config below",
           "required": [],
-          "title": "cleanup",
-          "type": "boolean"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "groups": {
-          "items": {
-            "anyOf": [
-              {
-                "required": [],
-                "type": "string"
-              },
-              {
-                "required": [],
-                "type": "string"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "groups",
-          "type": "array"
+          "type": "object"
         },
         "users": {
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "avatar_url": {
-                    "default": "https://i.imgur.com/nbCxk3z.jpg",
-                    "required": [],
-                    "title": "avatar_url",
-                    "type": "string"
-                  },
-                  "displayName": {
-                    "default": "Display Name",
-                    "required": [],
-                    "title": "displayName",
-                    "type": "string"
-                  },
-                  "email": {
-                    "default": "username@example.com",
-                    "required": [],
-                    "title": "email",
-                    "type": "string"
-                  },
-                  "firstName": {
-                    "default": "First",
-                    "required": [],
-                    "title": "firstName",
-                    "type": "string"
-                  },
-                  "gravatar_avatar": {
-                    "default": "false",
-                    "required": [],
-                    "title": "gravatar_avatar",
-                    "type": "string"
-                  },
-                  "groups": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "required": [],
-                          "type": "string"
-                        },
-                        {
-                          "required": [],
-                          "type": "string"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "groups",
-                    "type": "array"
-                  },
-                  "id": {
-                    "default": "username",
-                    "required": [],
-                    "title": "id",
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "default": "Last",
-                    "required": [],
-                    "title": "lastName",
-                    "type": "string"
-                  },
-                  "password": {
-                    "default": "changeme",
-                    "required": [],
-                    "title": "password",
-                    "type": "string"
-                  },
-                  "weserv_avatar": {
-                    "default": "false",
-                    "required": [],
-                    "title": "weserv_avatar",
-                    "type": "string"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "users",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -180,14 +77,11 @@
             }
           },
           "required": [],
-          "title": "auth",
           "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],
@@ -231,14 +125,11 @@
             }
           },
           "required": [],
-          "title": "auth",
           "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],
@@ -260,25 +151,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "lldap/lldap",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -298,79 +180,23 @@
       "properties": {
         "annotations": {
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "className": {
-          "default": "",
           "required": [],
-          "title": "className",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "hosts": {
-          "description": "kubernetes.io/ingress.class: nginx\nkubernetes.io/tls-acme: \"true\"",
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "host": {
-                    "default": "chart-example.local",
-                    "required": [],
-                    "title": "host",
-                    "type": "string"
-                  },
-                  "paths": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "path": {
-                              "default": "/",
-                              "required": [],
-                              "title": "path",
-                              "type": "string"
-                            },
-                            "pathType": {
-                              "default": "ImplementationSpecific",
-                              "required": [],
-                              "title": "pathType",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "paths",
-                    "type": "array"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "hosts",
-          "type": "array"
+          "type": "object"
         },
         "tls": {
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "tls",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -395,7 +221,6 @@
             }
           },
           "required": [],
-          "title": "httpGet",
           "type": "object"
         }
       },
@@ -406,65 +231,38 @@
     "lldap": {
       "properties": {
         "baseDN": {
-          "default": "dc=example,dc=com",
-          "description": "Base DN for LDAP.\nThis is usually your domain name, and is used as a namespace for your users. The choice is\narbitrary, but will be needed to configure the LDAP integration with other services. The sample\nvalue is for \"example.com\", but you can extend it with as many \"dc\" as you want, and you don't\nactually need to own the domain name.",
           "required": [],
-          "title": "baseDN",
-          "type": "string"
+          "type": "object"
         },
         "extraVolumeMounts": {
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "extraVolumeMounts",
-          "type": "array"
+          "type": "object"
         },
         "extraVolumes": {
-          "description": "- define extra volumes and mounts for the ldap",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "extraVolumes",
-          "type": "array"
+          "type": "object"
         },
         "gid": {
-          "default": 1000,
           "required": [],
-          "title": "gid",
-          "type": "integer"
+          "type": "object"
         },
         "jwtSecret": {
-          "default": "REPLACE_WITH_RANDOM",
-          "description": "Random secret for JWT signature.\nThis secret should be random, and should be shared with application servers that need to\nconsume the JWTs. Changing this secret will invalidate all user sessions and require them\nto re-login. You can generate it with (on linux):\nLC_ALL=C tr -dc 'A-Za-z0-9!#%\u0026'\\''()*+,-./:;\u003c=\u003e?@[\\]^_{|}~' \u003c/dev/urandom | head -c 32; echo ''",
           "required": [],
-          "title": "jwtSecret",
-          "type": "string"
+          "type": "object"
         },
         "keySeed": {
-          "default": "REPLACE_WITH_RANDOM",
-          "description": "Seed to generate the server private key. This can be any random string, the recommendation\nis that it's at least 12 characters long.",
           "required": [],
-          "title": "keySeed",
-          "type": "string"
+          "type": "object"
         },
         "ldapUserDN": {
-          "default": "admin",
-          "description": "Admin username.\nFor the LDAP interface, a value of \"admin\" here will create the LDAP user\n\"cn=admin,ou=people,dc=example,dc=com\" (with the base DN above). For the administration\ninterface, this is the username.",
           "required": [],
-          "title": "ldapUserDN",
-          "type": "string"
+          "type": "object"
         },
         "ldapUserPass": {
-          "default": "REPLACE_WITH_RANDOM",
-          "description": "Admin password.\nPassword for the admin account, both for the LDAP bind and for the administration interface.\nIt is only used when initially creating the admin user. It should be minimum 8 characters long.\nNote: you can create another admin user for user administration, this is just the default one.",
           "required": [],
-          "title": "ldapUserPass",
-          "type": "string"
+          "type": "object"
         },
         "ldaps": {
-          "description": "Options to configure LDAPS",
           "properties": {
             "certFile": {
               "default": "/data/cert.pem",
@@ -489,11 +287,9 @@
             }
           },
           "required": [],
-          "title": "ldaps",
           "type": "object"
         },
         "smtp": {
-          "description": "Options to configure SMTP parameters, to send password reset emails.",
           "properties": {
             "enablePasswordReset": {
               "default": false,
@@ -553,27 +349,19 @@
             }
           },
           "required": [],
-          "title": "smtp",
           "type": "object"
         },
         "tz": {
-          "default": "Etc/UTC",
           "required": [],
-          "title": "tz",
-          "type": "string"
+          "type": "object"
         },
         "uid": {
-          "default": 1000,
           "required": [],
-          "title": "uid",
-          "type": "integer"
+          "type": "object"
         },
         "verbose": {
-          "default": false,
-          "description": "Tune the logging to be more verbose",
           "required": [],
-          "title": "verbose",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],
@@ -584,10 +372,8 @@
       "description": "Enable and configure mariadb database subchart under this key.\n   For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)",
       "properties": {
         "architecture": {
-          "default": "standalone",
           "required": [],
-          "title": "architecture",
-          "type": "string"
+          "type": "object"
         },
         "auth": {
           "properties": {
@@ -617,30 +403,23 @@
             }
           },
           "required": [],
-          "title": "auth",
           "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "primary": {
           "properties": {
             "persistence": {
               "properties": {
                 "enabled": {
-                  "default": false,
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 },
                 "size": {
-                  "default": "1Gi",
                   "required": [],
-                  "title": "size",
-                  "type": "string"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -654,7 +433,6 @@
             }
           },
           "required": [],
-          "title": "primary",
           "type": "object"
         }
       },
@@ -677,22 +455,16 @@
       "description": "Persistence is only required if you are using the SQLite database (default).\nYou can disable persistence if you select MariaDB or PostgreSQL.",
       "properties": {
         "accessMode": {
-          "default": "ReadWriteOnce",
           "required": [],
-          "title": "accessMode",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "size": {
-          "default": "100Mi",
           "required": [],
-          "title": "size",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -745,31 +517,23 @@
             }
           },
           "required": [],
-          "title": "auth",
           "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "primary": {
           "properties": {
             "persistence": {
               "properties": {
                 "enabled": {
-                  "default": false,
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 },
                 "size": {
-                  "default": "1Gi",
-                  "description": "storageClass: \"\"",
                   "required": [],
-                  "title": "size",
-                  "type": "string"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -783,7 +547,6 @@
             }
           },
           "required": [],
-          "title": "primary",
           "type": "object"
         }
       },
@@ -809,7 +572,6 @@
             }
           },
           "required": [],
-          "title": "httpGet",
           "type": "object"
         }
       },
@@ -853,7 +615,6 @@
             }
           },
           "required": [],
-          "title": "http",
           "type": "object"
         },
         "ldap": {
@@ -872,7 +633,6 @@
             }
           },
           "required": [],
-          "title": "ldap",
           "type": "object"
         },
         "ldaps": {
@@ -891,7 +651,6 @@
             }
           },
           "required": [],
-          "title": "ldaps",
           "type": "object"
         }
       },
@@ -902,31 +661,20 @@
     "serviceAccount": {
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "automount": {
-          "default": false,
-          "description": "Automatically mount a ServiceAccount's API credentials?",
           "required": [],
-          "title": "automount",
-          "type": "boolean"
+          "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],

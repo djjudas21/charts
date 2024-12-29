@@ -10,88 +10,52 @@
       "description": "environment variables",
       "properties": {
         "passwordAccess": {
-          "default": false,
-          "description": "Set to true to allow user/password ssh access. You will want to set USER_PASSWORD or USER_PASSWORD_FILE as well.",
           "required": [],
-          "title": "passwordAccess",
-          "type": "boolean"
+          "type": "object"
         },
         "pgid": {
-          "default": 1000,
-          "description": "GroupID",
           "required": [],
-          "title": "pgid",
-          "type": "integer"
+          "type": "object"
         },
         "publicKey": {
-          "default": "",
-          "description": "Optional ssh public key, which will automatically be added to authorized_keys.",
           "required": [],
-          "title": "publicKey",
-          "type": "string"
+          "type": "object"
         },
         "publicKeyDir": {
-          "default": "",
-          "description": "Optionally specify a directory containing the public keys (works with docker secrets).",
           "required": [],
-          "title": "publicKeyDir",
-          "type": "string"
+          "type": "object"
         },
         "publicKeyFile": {
-          "default": "",
-          "description": "Optionally specify a file containing the public key (works with docker secrets).",
           "required": [],
-          "title": "publicKeyFile",
-          "type": "string"
+          "type": "object"
         },
         "publicKeyUrl": {
-          "default": "",
-          "description": "Optionally specify a URL containing the public key, e.g. \u003chttps://github.com/username.keys\u003e",
           "required": [],
-          "title": "publicKeyUrl",
-          "type": "string"
+          "type": "object"
         },
         "puid": {
-          "default": 1000,
-          "description": "When using volumes (-v flags) permissions issues can arise between the host OS and the container, we avoid this issue by allowing you to specify the user PUID and group PGID.\nEnsure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.\nIn this instance PUID=1000 and PGID=1000, to find yours use id user as below:\nUserID:",
           "required": [],
-          "title": "puid",
-          "type": "integer"
+          "type": "object"
         },
         "sudoAccess": {
-          "default": false,
-          "description": "Set to true to allow linuxserver.io, the ssh user, sudo access. Without USER_PASSWORD set, this will allow passwordless sudo access.",
           "required": [],
-          "title": "sudoAccess",
-          "type": "boolean"
+          "type": "object"
         },
         "tz": {
-          "default": "Etc/UTC",
-          "description": "specify a timezone to use, see \u003chttps://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List\u003e",
           "required": [],
-          "title": "tz",
-          "type": "string"
+          "type": "object"
         },
         "userName": {
-          "default": "",
-          "description": "Optionally specify a user name (Default:linuxserver.io)",
           "required": [],
-          "title": "userName",
-          "type": "string"
+          "type": "object"
         },
         "userPassword": {
-          "default": "",
-          "description": "Optionally set a sudo password for linuxserver.io, the ssh user. If this or USER_PASSWORD_FILE are not set but SUDO_ACCESS is set to true, the user will have passwordless sudo access.",
           "required": [],
-          "title": "userPassword",
-          "type": "string"
+          "type": "object"
         },
         "userPasswordFile": {
-          "default": "",
-          "description": "Optionally specify a file that contains the password. This setting supersedes the USER_PASSWORD option (works with docker secrets).",
           "required": [],
-          "title": "userPasswordFile",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -113,25 +77,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "linuxserver/openssh-server",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -205,7 +160,6 @@
             }
           },
           "required": [],
-          "title": "config",
           "type": "object"
         },
         "home": {
@@ -244,7 +198,6 @@
             }
           },
           "required": [],
-          "title": "home",
           "type": "object"
         }
       },
@@ -283,22 +236,16 @@
       "description": "Configures service settings for the chart.",
       "properties": {
         "port": {
-          "default": 2222,
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "targetPort": {
-          "default": 2222,
           "required": [],
-          "title": "targetPort",
-          "type": "integer"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -308,24 +255,16 @@
     "serviceAccount": {
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],

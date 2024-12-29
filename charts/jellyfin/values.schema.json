@@ -11,10 +11,8 @@
       "description": "Security context for the jellyfin container\n   (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)",
       "properties": {
         "allowPrivilegeEscalation": {
-          "default": false,
           "required": [],
-          "title": "allowPrivilegeEscalation",
-          "type": "boolean"
+          "type": "object"
         },
         "capabilities": {
           "properties": {
@@ -34,32 +32,23 @@
             }
           },
           "required": [],
-          "title": "capabilities",
           "type": "object"
         },
         "readOnlyRootFilesystem": {
-          "default": true,
           "required": [],
-          "title": "readOnlyRootFilesystem",
-          "type": "boolean"
+          "type": "object"
         },
         "runAsGroup": {
-          "default": 64710,
           "required": [],
-          "title": "runAsGroup",
-          "type": "integer"
+          "type": "object"
         },
         "runAsNonRoot": {
-          "default": true,
           "required": [],
-          "title": "runAsNonRoot",
-          "type": "boolean"
+          "type": "object"
         },
         "runAsUser": {
-          "default": 64710,
           "required": [],
-          "title": "runAsUser",
-          "type": "integer"
+          "type": "object"
         }
       },
       "required": [],
@@ -77,33 +66,20 @@
       "description": "Default values for jellyfin",
       "properties": {
         "commonLabels": {
-          "description": "Labels to apply to all resources.",
           "required": [],
-          "title": "commonLabels",
           "type": "object"
         },
         "debug": {
-          "default": false,
-          "description": "Enable global debug mode",
           "required": [],
-          "title": "debug",
-          "type": "boolean"
+          "type": "object"
         },
         "imagePullSecrets": {
-          "description": "Reference to one or more secrets to be used when pulling images\n   (https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "imagePullSecrets",
-          "type": "array"
+          "type": "object"
         },
         "imageRegistry": {
-          "default": "",
-          "description": "Global Docker image registry",
           "required": [],
-          "title": "imageRegistry",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -151,7 +127,6 @@
             }
           },
           "required": [],
-          "title": "jellyfin",
           "type": "object"
         }
       },
@@ -162,88 +137,48 @@
     "ingress": {
       "properties": {
         "annotations": {
-          "description": "Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "enabled": {
-          "default": false,
-          "description": "Enable ingress resource",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "extraHosts": {
-          "description": "The list of additional hostnames to be covered with this ingress record.",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "extraHosts",
-          "type": "array"
+          "type": "object"
         },
         "extraPaths": {
-          "description": "Any additional paths that may need to be added to the ingress under the main host",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "extraPaths",
-          "type": "array"
+          "type": "object"
         },
         "extraRules": {
-          "description": "Additional rules to be covered with this ingress record",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "extraRules",
-          "type": "array"
+          "type": "object"
         },
         "extraTls": {
-          "description": "The tls configuration for additional hostnames to be covered with this ingress record.",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "extraTls",
-          "type": "array"
+          "type": "object"
         },
         "hostname": {
-          "default": "jellyfin.local",
-          "description": "Default host for the ingress resource",
           "required": [],
-          "title": "hostname",
-          "type": "string"
+          "type": "object"
         },
         "ingressClassName": {
-          "default": "",
-          "description": "IngressClass that will be used to implement the Ingress",
           "required": [],
-          "title": "ingressClassName",
-          "type": "string"
+          "type": "object"
         },
         "path": {
-          "default": "/",
-          "description": "The Path to jellyfin. You may need to set this to '/*' in order to use this with ALB ingress controllers.",
           "required": [],
-          "title": "path",
-          "type": "string"
+          "type": "object"
         },
         "pathType": {
-          "default": "ImplementationSpecific",
-          "description": "Ingress path type",
           "required": [],
-          "title": "pathType",
-          "type": "string"
+          "type": "object"
         },
         "tls": {
-          "default": true,
-          "description": "Enable TLS configuration for the hostname defined at apiIngress.hostname parameter",
           "required": [],
-          "title": "tls",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],
@@ -253,29 +188,16 @@
     "jellyfin": {
       "properties": {
         "extraDevices": {
-          "description": "Additional device like GPU to mount",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "extraDevices",
-          "type": "array"
+          "type": "object"
         },
         "mediaVolumes": {
-          "description": "The list of volumes that will be mounted inside jellyfin pod, to `/media`.",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "mediaVolumes",
-          "type": "array"
+          "type": "object"
         },
         "persistentTranscodes": {
-          "default": false,
-          "description": "Keep all transcoded files persistent.",
           "required": [],
-          "title": "persistentTranscodes",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],
@@ -292,43 +214,24 @@
     "networkPolicy": {
       "properties": {
         "allowAllOutbound": {
-          "default": true,
-          "description": "Whether to allow all outbound traffic by default.",
           "required": [],
-          "title": "allowAllOutbound",
-          "type": "boolean"
+          "type": "object"
         },
         "allowExternal": {
-          "default": true,
-          "description": "Don't require client label for connections",
           "required": [],
-          "title": "allowExternal",
-          "type": "boolean"
+          "type": "object"
         },
         "egress": {
-          "description": "Sets egress policy block. See NetworkPolicies documentation (https://kubernetes.io/docs/concepts/services-networking/network-policies/).",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "egress",
-          "type": "array"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
-          "description": "Enable the default NetworkPolicy policy",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "ingress": {
-          "description": "Sets ingress policy block. See NetworkPolicies documentation (https://kubernetes.io/docs/concepts/services-networking/network-policies/).",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "ingress",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -339,10 +242,8 @@
       "description": "Node labels for pod assignment",
       "properties": {
         "kubernetes.io/os": {
-          "default": "linux",
           "required": [],
-          "title": "kubernetes.io/os",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -364,28 +265,16 @@
               "description": "Claims that pods are allowed to reference (see\n   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaim-v1-core\n   for structural reference)",
               "properties": {
                 "accessModes": {
-                  "items": {
-                    "anyOf": [
-                      {
-                        "required": [],
-                        "type": "string"
-                      }
-                    ],
-                    "required": []
-                  },
                   "required": [],
-                  "title": "accessModes",
-                  "type": "array"
+                  "type": "object"
                 },
                 "resources": {
                   "properties": {
                     "requests": {
                       "properties": {
                         "storage": {
-                          "default": "2Gi",
                           "required": [],
-                          "title": "storage",
-                          "type": "string"
+                          "type": "object"
                         }
                       },
                       "required": [],
@@ -394,7 +283,6 @@
                     }
                   },
                   "required": [],
-                  "title": "resources",
                   "type": "object"
                 }
               },
@@ -404,7 +292,6 @@
             }
           },
           "required": [],
-          "title": "cache",
           "type": "object"
         },
         "config": {
@@ -420,28 +307,16 @@
               "description": "Claims that pods are allowed to reference (see\n   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#persistentvolumeclaim-v1-core\n   for structural reference)",
               "properties": {
                 "accessModes": {
-                  "items": {
-                    "anyOf": [
-                      {
-                        "required": [],
-                        "type": "string"
-                      }
-                    ],
-                    "required": []
-                  },
                   "required": [],
-                  "title": "accessModes",
-                  "type": "array"
+                  "type": "object"
                 },
                 "resources": {
                   "properties": {
                     "requests": {
                       "properties": {
                         "storage": {
-                          "default": "1Gi",
                           "required": [],
-                          "title": "storage",
-                          "type": "string"
+                          "type": "object"
                         }
                       },
                       "required": [],
@@ -450,7 +325,6 @@
                     }
                   },
                   "required": [],
-                  "title": "resources",
                   "type": "object"
                 }
               },
@@ -460,7 +334,6 @@
             }
           },
           "required": [],
-          "title": "config",
           "type": "object"
         }
       },
@@ -484,28 +357,20 @@
       "description": "Security context for the pod (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)",
       "properties": {
         "fsGroup": {
-          "default": 64710,
           "required": [],
-          "title": "fsGroup",
-          "type": "integer"
+          "type": "object"
         },
         "runAsGroup": {
-          "default": 64710,
           "required": [],
-          "title": "runAsGroup",
-          "type": "integer"
+          "type": "object"
         },
         "runAsNonRoot": {
-          "default": true,
           "required": [],
-          "title": "runAsNonRoot",
-          "type": "boolean"
+          "type": "object"
         },
         "runAsUser": {
-          "default": 64710,
           "required": [],
-          "title": "runAsUser",
-          "type": "integer"
+          "type": "object"
         },
         "seccompProfile": {
           "properties": {
@@ -517,7 +382,6 @@
             }
           },
           "required": [],
-          "title": "seccompProfile",
           "type": "object"
         }
       },
@@ -533,16 +397,12 @@
               "description": "The resources limits for the container",
               "properties": {
                 "cpu": {
-                  "default": "2",
                   "required": [],
-                  "title": "cpu",
-                  "type": "string"
+                  "type": "object"
                 },
                 "memory": {
-                  "default": "6Gi",
                   "required": [],
-                  "title": "memory",
-                  "type": "string"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -553,16 +413,12 @@
               "description": "The requested resources for the container",
               "properties": {
                 "cpu": {
-                  "default": "500m",
                   "required": [],
-                  "title": "cpu",
-                  "type": "string"
+                  "type": "object"
                 },
                 "memory": {
-                  "default": "512Mi",
                   "required": [],
-                  "title": "memory",
-                  "type": "string"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -571,7 +427,6 @@
             }
           },
           "required": [],
-          "title": "jellyfin",
           "type": "object"
         }
       },
@@ -582,47 +437,28 @@
     "service": {
       "properties": {
         "annotations": {
-          "description": "Additional annotations for the Service",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "clusterIP": {
-          "default": "",
-          "description": "Service Cluster IP",
           "required": [],
-          "title": "clusterIP",
-          "type": "string"
+          "type": "object"
         },
         "externalTrafficPolicy": {
-          "default": "Cluster",
-          "description": "Enable client source IP preservation",
           "required": [],
-          "title": "externalTrafficPolicy",
-          "type": "string"
+          "type": "object"
         },
         "loadBalancerIP": {
-          "default": "",
-          "description": "LoadBalancer IP if service type is `LoadBalancer` (optional, cloud specific)",
           "required": [],
-          "title": "loadBalancerIP",
-          "type": "string"
+          "type": "object"
         },
         "loadBalancerSourceRanges": {
-          "description": "Addresses that are allowed when service is `LoadBalancer`",
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "loadBalancerSourceRanges",
-          "type": "array"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
-          "description": "Service type",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         },
         "web": {
           "properties": {
@@ -642,7 +478,6 @@
             }
           },
           "required": [],
-          "title": "web",
           "type": "object"
         }
       },

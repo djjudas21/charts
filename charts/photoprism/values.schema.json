@@ -5,95 +5,56 @@
       "description": "environment variables. See [image docs](https://docs.photoprism.org/getting-started/config-options/) for more details.",
       "properties": {
         "GID": {
-          "default": "",
-          "description": "Sets GID Photoprism runs under.",
           "required": [],
-          "title": "GID",
-          "type": "null"
+          "type": "object"
         },
         "PHOTOPRISM_ADMIN_PASSWORD": {
-          "default": "please-change",
-          "description": "Initial admin password. **BE SURE TO CHANGE THIS!**",
           "required": [],
-          "title": "PHOTOPRISM_ADMIN_PASSWORD",
-          "type": "string"
+          "type": "object"
         },
         "PHOTOPRISM_DATABASE_DRIVER": {
-          "default": "sqlite",
-          "description": "Database driver (sqlite, mysql)",
           "required": [],
-          "title": "PHOTOPRISM_DATABASE_DRIVER",
-          "type": "string"
+          "type": "object"
         },
         "PHOTOPRISM_DATABASE_NAME": {
-          "default": "photoprism",
-          "description": "Database schema name",
           "required": [],
-          "title": "PHOTOPRISM_DATABASE_NAME",
-          "type": "string"
+          "type": "object"
         },
         "PHOTOPRISM_DATABASE_PASSWORD": {
-          "default": "photoprism",
-          "description": "Database user password",
           "required": [],
-          "title": "PHOTOPRISM_DATABASE_PASSWORD",
-          "type": "string"
+          "type": "object"
         },
         "PHOTOPRISM_DATABASE_SERVER": {
-          "default": "photoprism-mariadb:3306",
-          "description": "Database host incl. port",
           "required": [],
-          "title": "PHOTOPRISM_DATABASE_SERVER",
-          "type": "string"
+          "type": "object"
         },
         "PHOTOPRISM_DATABASE_USER": {
-          "default": "photoprism",
-          "description": "Database username",
           "required": [],
-          "title": "PHOTOPRISM_DATABASE_USER",
-          "type": "string"
+          "type": "object"
         },
         "PHOTOPRISM_ORIGINALS_PATH": {
-          "default": "/photoprism/originals",
-          "description": "Photoprism originals path",
           "required": [],
-          "title": "PHOTOPRISM_ORIGINALS_PATH",
-          "type": "string"
+          "type": "object"
         },
         "PHOTOPRISM_PUBLIC": {
-          "default": "false",
-          "description": "Disable authentication / password protection",
           "required": [],
-          "title": "PHOTOPRISM_PUBLIC",
-          "type": "string"
+          "type": "object"
         },
         "PHOTOPRISM_STORAGE_PATH": {
-          "default": "/photoprism/storage",
-          "description": "Photoprism storage path",
           "required": [],
-          "title": "PHOTOPRISM_STORAGE_PATH",
-          "type": "string"
+          "type": "object"
         },
         "TZ": {
-          "default": "UTC",
-          "description": "Set the container timezone",
           "required": [],
-          "title": "TZ",
-          "type": "string"
+          "type": "object"
         },
         "UID": {
-          "default": "",
-          "description": "Sets UID Photoprism runs under.",
           "required": [],
-          "title": "UID",
-          "type": "null"
+          "type": "object"
         },
         "UMASK": {
-          "default": "",
-          "description": "Sets UMASK.",
           "required": [],
-          "title": "UMASK",
-          "type": "null"
+          "type": "object"
         }
       },
       "required": [],
@@ -109,25 +70,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "photoprism/photoprism",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -137,7 +89,6 @@
     "ingress": {
       "properties": {
         "main": {
-          "description": "Enable and configure ingress settings for the chart under this key.",
           "properties": {
             "enabled": {
               "default": false,
@@ -147,7 +98,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },
@@ -159,10 +109,8 @@
       "description": "Enable and configure mariadb database subchart under this key.\n   For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)",
       "properties": {
         "architecture": {
-          "default": "standalone",
           "required": [],
-          "title": "architecture",
-          "type": "string"
+          "type": "object"
         },
         "auth": {
           "properties": {
@@ -192,24 +140,19 @@
             }
           },
           "required": [],
-          "title": "auth",
           "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "primary": {
           "properties": {
             "persistence": {
               "properties": {
                 "enabled": {
-                  "default": false,
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -218,7 +161,6 @@
             }
           },
           "required": [],
-          "title": "primary",
           "type": "object"
         }
       },
@@ -245,7 +187,6 @@
             }
           },
           "required": [],
-          "title": "config",
           "type": "object"
         },
         "originals": {
@@ -264,7 +205,6 @@
             }
           },
           "required": [],
-          "title": "originals",
           "type": "object"
         }
       },
@@ -289,7 +229,6 @@
                     }
                   },
                   "required": [],
-                  "title": "http",
                   "type": "object"
                 }
               },
@@ -299,7 +238,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },

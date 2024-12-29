@@ -5,109 +5,64 @@
       "description": "environment variables. See [webtrees-docker documentation](https://github.com/NathanVaughn/webtrees-docker#environment-variables) for more details.",
       "properties": {
         "BASE_URL": {
-          "default": "https://webtrees.example.com",
-          "description": "Base URL of the installation, with protocol. Must be in the form `http://webtrees.example.com`",
           "required": [],
-          "title": "BASE_URL",
-          "type": "string"
+          "type": "object"
         },
         "DB_HOST": {
-          "default": "webtrees-mariadb",
-          "description": "Database hostname",
           "required": [],
-          "title": "DB_HOST",
-          "type": "string"
+          "type": "object"
         },
         "DB_NAME": {
-          "default": "webtrees",
-          "description": "Database to connect to",
           "required": [],
-          "title": "DB_NAME",
-          "type": "string"
+          "type": "object"
         },
         "DB_PASS": {
-          "default": "webtreespass",
-          "description": "Database password",
           "required": [],
-          "title": "DB_PASS",
-          "type": "string"
+          "type": "object"
         },
         "DB_PORT": {
-          "default": "3306",
-          "description": "Database server port",
           "required": [],
-          "title": "DB_PORT",
-          "type": "string"
+          "type": "object"
         },
         "DB_PREFIX": {
-          "default": "wt_",
-          "description": "Prefix to give all tables in the database. Set this to a value of \"\" to have no table prefix.",
           "required": [],
-          "title": "DB_PREFIX",
-          "type": "string"
+          "type": "object"
         },
         "DB_TYPE": {
-          "default": "mysql",
-          "description": "Database server type",
           "required": [],
-          "title": "DB_TYPE",
-          "type": "string"
+          "type": "object"
         },
         "DB_USER": {
-          "default": "webtrees",
-          "description": "Database username",
           "required": [],
-          "title": "DB_USER",
-          "type": "string"
+          "type": "object"
         },
         "LANG": {
-          "default": "en-US",
-          "description": "webtrees localization setting",
           "required": [],
-          "title": "LANG",
-          "type": "string"
+          "type": "object"
         },
         "PRETTY_URLS": {
-          "default": "TRUE",
-          "description": "Enable pretty URLs",
           "required": [],
-          "title": "PRETTY_URLS",
-          "type": "string"
+          "type": "object"
         },
         "TZ": {
-          "default": "UTC",
-          "description": "Set the container timezone",
           "required": [],
-          "title": "TZ",
-          "type": "string"
+          "type": "object"
         },
         "WT_EMAIL": {
-          "default": "admin@example.com",
-          "description": "Admin account email",
           "required": [],
-          "title": "WT_EMAIL",
-          "type": "string"
+          "type": "object"
         },
         "WT_NAME": {
-          "default": "Administrator",
-          "description": "Admin account full name",
           "required": [],
-          "title": "WT_NAME",
-          "type": "string"
+          "type": "object"
         },
         "WT_PASS": {
-          "default": "adminpass",
-          "description": "Admin account password",
           "required": [],
-          "title": "WT_PASS",
-          "type": "string"
+          "type": "object"
         },
         "WT_USER": {
-          "default": "admin",
-          "description": "Admin account username",
           "required": [],
-          "title": "WT_USER",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -123,25 +78,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "ghcr.io/nathanvaughn/webtrees",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -151,7 +97,6 @@
     "ingress": {
       "properties": {
         "main": {
-          "description": "Enable and configure ingress settings for the chart under this key.",
           "properties": {
             "enabled": {
               "default": false,
@@ -161,7 +106,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },
@@ -173,10 +117,8 @@
       "description": "Enable and configure mariadb database subchart under this key.\n   For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)",
       "properties": {
         "architecture": {
-          "default": "standalone",
           "required": [],
-          "title": "architecture",
-          "type": "string"
+          "type": "object"
         },
         "auth": {
           "properties": {
@@ -206,24 +148,19 @@
             }
           },
           "required": [],
-          "title": "auth",
           "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "primary": {
           "properties": {
             "persistence": {
               "properties": {
                 "enabled": {
-                  "default": false,
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -232,7 +169,6 @@
             }
           },
           "required": [],
-          "title": "primary",
           "type": "object"
         }
       },
@@ -259,7 +195,6 @@
             }
           },
           "required": [],
-          "title": "config",
           "type": "object"
         }
       },
@@ -284,7 +219,6 @@
                     }
                   },
                   "required": [],
-                  "title": "http",
                   "type": "object"
                 }
               },
@@ -294,7 +228,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },

@@ -21,23 +21,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "linuxserver/smokeping",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "Overrides the image tag whose default is the chart appVersion.",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -56,79 +49,23 @@
       "properties": {
         "annotations": {
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "className": {
-          "default": "",
           "required": [],
-          "title": "className",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "hosts": {
-          "description": "kubernetes.io/ingress.class: nginx\nkubernetes.io/tls-acme: \"true\"",
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "host": {
-                    "default": "chart-example.local",
-                    "required": [],
-                    "title": "host",
-                    "type": "string"
-                  },
-                  "paths": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "path": {
-                              "default": "/",
-                              "required": [],
-                              "title": "path",
-                              "type": "string"
-                            },
-                            "pathType": {
-                              "default": "ImplementationSpecific",
-                              "required": [],
-                              "title": "pathType",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "paths",
-                    "type": "array"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "hosts",
-          "type": "array"
+          "type": "object"
         },
         "tls": {
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "tls",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -149,34 +86,24 @@
     "persistence": {
       "properties": {
         "accessMode": {
-          "default": "ReadWriteOnce",
           "required": [],
-          "title": "accessMode",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": true,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "mountPath": {
-          "default": "/data/",
           "required": [],
-          "title": "mountPath",
-          "type": "string"
+          "type": "object"
         },
         "size": {
-          "default": "5Gi",
           "required": [],
-          "title": "size",
-          "type": "string"
+          "type": "object"
         },
         "storageClass": {
-          "default": "",
           "required": [],
-          "title": "storageClass",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -235,7 +162,6 @@
             }
           },
           "required": [],
-          "title": "liveness",
           "type": "object"
         },
         "readiness": {
@@ -272,7 +198,6 @@
             }
           },
           "required": [],
-          "title": "readiness",
           "type": "object"
         }
       },
@@ -293,16 +218,12 @@
     "service": {
       "properties": {
         "port": {
-          "default": 80,
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -312,31 +233,20 @@
     "serviceAccount": {
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "automount": {
-          "default": false,
-          "description": "Automatically mount a ServiceAccount's API credentials?",
           "required": [],
-          "title": "automount",
-          "type": "boolean"
+          "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.\nIf not set and create is true, a name is generated using the fullname template",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -346,10 +256,8 @@
     "smokeping": {
       "properties": {
         "contact": {
-          "default": "admin@linuxserver.io",
           "required": [],
-          "title": "contact",
-          "type": "string"
+          "type": "object"
         },
         "database": {
           "properties": {
@@ -369,7 +277,6 @@
             }
           },
           "required": [],
-          "title": "database",
           "type": "object"
         },
         "email": {
@@ -434,312 +341,15 @@
             }
           },
           "required": [],
-          "title": "email",
           "type": "object"
         },
         "owner": {
-          "default": "LinuxServer.io",
           "required": [],
-          "title": "owner",
-          "type": "string"
+          "type": "object"
         },
         "targets": {
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "hosts": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "host": {
-                              "default": "192.168.0.1",
-                              "required": [],
-                              "title": "host",
-                              "type": "string"
-                            },
-                            "menu": {
-                              "default": "Router",
-                              "required": [],
-                              "title": "menu",
-                              "type": "string"
-                            },
-                            "name": {
-                              "default": "Router",
-                              "required": [],
-                              "title": "name",
-                              "type": "string"
-                            },
-                            "title": {
-                              "default": "Router",
-                              "required": [],
-                              "title": "title",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "hosts",
-                    "type": "array"
-                  },
-                  "menu": {
-                    "default": "Internal Devices",
-                    "required": [],
-                    "title": "menu",
-                    "type": "string"
-                  },
-                  "name": {
-                    "default": "Internet",
-                    "required": [],
-                    "title": "name",
-                    "type": "string"
-                  },
-                  "title": {
-                    "default": "Internal Devices",
-                    "required": [],
-                    "title": "title",
-                    "type": "string"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              },
-              {
-                "properties": {
-                  "hosts": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "host": {
-                              "default": "google.com",
-                              "required": [],
-                              "title": "host",
-                              "type": "string"
-                            },
-                            "menu": {
-                              "default": "Google",
-                              "required": [],
-                              "title": "menu",
-                              "type": "string"
-                            },
-                            "name": {
-                              "default": "GoogleSearch",
-                              "required": [],
-                              "title": "name",
-                              "type": "string"
-                            },
-                            "title": {
-                              "default": "google.com",
-                              "required": [],
-                              "title": "title",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "hosts",
-                    "type": "array"
-                  },
-                  "menu": {
-                    "default": "Internet Sites",
-                    "required": [],
-                    "title": "menu",
-                    "type": "string"
-                  },
-                  "name": {
-                    "default": "InternetSites",
-                    "required": [],
-                    "title": "name",
-                    "type": "string"
-                  },
-                  "title": {
-                    "default": "Internet Sites",
-                    "required": [],
-                    "title": "title",
-                    "type": "string"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              },
-              {
-                "properties": {
-                  "hosts": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "host": {
-                              "default": "8.8.8.8",
-                              "required": [],
-                              "title": "host",
-                              "type": "string"
-                            },
-                            "menu": {
-                              "default": "Google DNS 1",
-                              "required": [],
-                              "title": "menu",
-                              "type": "string"
-                            },
-                            "name": {
-                              "default": "GoogleDNS1",
-                              "required": [],
-                              "title": "name",
-                              "type": "string"
-                            },
-                            "title": {
-                              "default": "Google DNS 8.8.8.8",
-                              "required": [],
-                              "title": "title",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        },
-                        {
-                          "properties": {
-                            "host": {
-                              "default": "8.8.4.4",
-                              "required": [],
-                              "title": "host",
-                              "type": "string"
-                            },
-                            "menu": {
-                              "default": "Google DNS 2",
-                              "required": [],
-                              "title": "menu",
-                              "type": "string"
-                            },
-                            "name": {
-                              "default": "GoogleDNS2",
-                              "required": [],
-                              "title": "name",
-                              "type": "string"
-                            },
-                            "title": {
-                              "default": "Google DNS 8.8.4.4",
-                              "required": [],
-                              "title": "title",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        },
-                        {
-                          "properties": {
-                            "host": {
-                              "default": "1.1.1.1",
-                              "required": [],
-                              "title": "host",
-                              "type": "string"
-                            },
-                            "menu": {
-                              "default": "Cloudflare DNS 1",
-                              "required": [],
-                              "title": "menu",
-                              "type": "string"
-                            },
-                            "name": {
-                              "default": "CloudflareDNS1",
-                              "required": [],
-                              "title": "name",
-                              "type": "string"
-                            },
-                            "title": {
-                              "default": "Cloudflare DNS 1.1.1.1",
-                              "required": [],
-                              "title": "title",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        },
-                        {
-                          "properties": {
-                            "host": {
-                              "default": "1.0.0.1",
-                              "required": [],
-                              "title": "host",
-                              "type": "string"
-                            },
-                            "menu": {
-                              "default": "Cloudflare DNS 2",
-                              "required": [],
-                              "title": "menu",
-                              "type": "string"
-                            },
-                            "name": {
-                              "default": "CloudflareDNS2",
-                              "required": [],
-                              "title": "name",
-                              "type": "string"
-                            },
-                            "title": {
-                              "default": "Cloudflare DNS 1.0.0.1",
-                              "required": [],
-                              "title": "title",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "hosts",
-                    "type": "array"
-                  },
-                  "menu": {
-                    "default": "DNS Probes",
-                    "required": [],
-                    "title": "menu",
-                    "type": "string"
-                  },
-                  "name": {
-                    "default": "DNSProbes",
-                    "required": [],
-                    "title": "name",
-                    "type": "string"
-                  },
-                  "probe": {
-                    "default": "DNS",
-                    "required": [],
-                    "title": "probe",
-                    "type": "string"
-                  },
-                  "title": {
-                    "default": "DNS Probes",
-                    "required": [],
-                    "title": "title",
-                    "type": "string"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "targets",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],

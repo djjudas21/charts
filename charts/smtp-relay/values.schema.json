@@ -21,25 +21,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "djjudas21/smtp-relay",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -57,18 +48,12 @@
     "metrics": {
       "properties": {
         "enabled": {
-          "default": false,
-          "description": "Enable metrics sidecar",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "port": {
-          "default": 9154,
-          "description": "Metrics port",
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "prometheusRules": {
           "properties": {
@@ -81,7 +66,6 @@
             }
           },
           "required": [],
-          "title": "prometheusRules",
           "type": "object"
         },
         "serviceMonitor": {
@@ -95,7 +79,6 @@
             }
           },
           "required": [],
-          "title": "serviceMonitor",
           "type": "object"
         }
       },
@@ -117,31 +100,20 @@
     "persistence": {
       "properties": {
         "accessMode": {
-          "default": "ReadWriteOnce",
           "required": [],
-          "title": "accessMode",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
-          "description": "Enable mail queue persistence",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "size": {
-          "default": "1Gi",
-          "description": "The storage space that should be claimed from the persistent volume",
           "required": [],
-          "title": "size",
-          "type": "string"
+          "type": "object"
         },
         "storageClass": {
-          "default": "",
-          "description": "If undefined (the default) the default StorageClass is used",
           "required": [],
-          "title": "storageClass",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -195,7 +167,6 @@
             }
           },
           "required": [],
-          "title": "liveness",
           "type": "object"
         },
         "readiness": {
@@ -232,7 +203,6 @@
             }
           },
           "required": [],
-          "title": "readiness",
           "type": "object"
         }
       },
@@ -261,22 +231,16 @@
       "description": "Configures service settings for the chart.",
       "properties": {
         "loadBalancerIP": {
-          "default": "",
           "required": [],
-          "title": "loadBalancerIP",
-          "type": "string"
+          "type": "object"
         },
         "port": {
-          "default": 25,
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -286,24 +250,16 @@
     "serviceAccount": {
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -313,63 +269,32 @@
     "smtp": {
       "properties": {
         "host": {
-          "default": "",
-          "description": "Hostname of upstream SMTP server",
           "required": [],
-          "title": "host",
-          "type": "string"
+          "type": "object"
         },
         "myhostname": {
-          "default": "",
-          "description": "Hostname of THIS relay SMTP server",
           "required": [],
-          "title": "myhostname",
-          "type": "string"
+          "type": "object"
         },
         "mynetworks": {
-          "description": "Networks to permit relaying from",
-          "items": {
-            "anyOf": [
-              {
-                "required": [],
-                "type": "string"
-              },
-              {
-                "required": [],
-                "type": "string"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "mynetworks",
-          "type": "array"
+          "type": "object"
         },
         "password": {
-          "default": "",
-          "description": "Password for upstream SMTP server",
           "required": [],
-          "title": "password",
-          "type": "string"
+          "type": "object"
         },
         "tls_security_level": {
-          "default": "",
           "required": [],
-          "title": "tls_security_level",
-          "type": "string"
+          "type": "object"
         },
         "tls_wrappermode": {
-          "default": "no",
           "required": [],
-          "title": "tls_wrappermode",
-          "type": "string"
+          "type": "object"
         },
         "username": {
-          "default": "",
-          "description": "Username for upstream SMTP server",
           "required": [],
-          "title": "username",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],

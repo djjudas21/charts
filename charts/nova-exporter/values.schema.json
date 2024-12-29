@@ -21,24 +21,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "djjudas21/nova-exporter",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -77,11 +69,8 @@
     "prometheusRules": {
       "properties": {
         "enabled": {
-          "default": false,
-          "description": "Enable Prometheus rules for Prometheus Operator",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],
@@ -109,16 +98,12 @@
       "description": "Configures service settings for the chart.",
       "properties": {
         "port": {
-          "default": 8000,
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -128,24 +113,16 @@
     "serviceAccount": {
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -155,11 +132,8 @@
     "serviceMonitor": {
       "properties": {
         "enabled": {
-          "default": false,
-          "description": "Enable Service Monitor for Prometheus Operator",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],

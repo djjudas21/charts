@@ -5,67 +5,40 @@
       "description": "environment variables. See [image docs](https://github.com/laurent22/joplin) for more details.",
       "properties": {
         "APP_BASE_URL": {
-          "default": "https://joplin.domain",
-          "description": "joplin-server base URL",
           "required": [],
-          "title": "APP_BASE_URL",
-          "type": "string"
+          "type": "object"
         },
         "APP_PORT": {
-          "default": 22300,
-          "description": "joplin-server listening port (same as Service port)",
           "required": [],
-          "title": "APP_PORT",
-          "type": "integer"
+          "type": "object"
         },
         "DB_CLIENT": {
-          "default": "pg",
-          "description": "Use pg for postgres",
           "required": [],
-          "title": "DB_CLIENT",
-          "type": "string"
+          "type": "object"
         },
         "POSTGRES_DATABASE": {
-          "default": "joplin",
-          "description": "Postgres DB name",
           "required": [],
-          "title": "POSTGRES_DATABASE",
-          "type": "string"
+          "type": "object"
         },
         "POSTGRES_HOST": {
-          "default": "joplin-postgresql",
-          "description": "Postgres DB Host",
           "required": [],
-          "title": "POSTGRES_HOST",
-          "type": "string"
+          "type": "object"
         },
         "POSTGRES_PASSWORD": {
-          "default": "joplin-pass",
-          "description": "Postgres DB password",
           "required": [],
-          "title": "POSTGRES_PASSWORD",
-          "type": "string"
+          "type": "object"
         },
         "POSTGRES_PORT": {
-          "default": "5432",
-          "description": "Postgres DB port",
           "required": [],
-          "title": "POSTGRES_PORT",
-          "type": "string"
+          "type": "object"
         },
         "POSTGRES_USER": {
-          "default": "joplin",
-          "description": "Postgres DB Username",
           "required": [],
-          "title": "POSTGRES_USER",
-          "type": "string"
+          "type": "object"
         },
         "TZ": {
-          "default": "UTC",
-          "description": "Set the container timezone",
           "required": [],
-          "title": "TZ",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -81,25 +54,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "joplin/server",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -109,7 +73,6 @@
     "ingress": {
       "properties": {
         "main": {
-          "description": "Enable and configure ingress settings for the chart under this key.",
           "properties": {
             "enabled": {
               "default": false,
@@ -119,7 +82,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },
@@ -131,10 +93,8 @@
       "description": "Enable and configure postgresql database subchart under this key.\n   For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)",
       "properties": {
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "persistence": {
           "properties": {
@@ -146,26 +106,19 @@
             }
           },
           "required": [],
-          "title": "persistence",
           "type": "object"
         },
         "postgresqlDatabase": {
-          "default": "joplin",
           "required": [],
-          "title": "postgresqlDatabase",
-          "type": "string"
+          "type": "object"
         },
         "postgresqlPassword": {
-          "default": "joplin-pass",
           "required": [],
-          "title": "postgresqlPassword",
-          "type": "string"
+          "type": "object"
         },
         "postgresqlUsername": {
-          "default": "joplin",
           "required": [],
-          "title": "postgresqlUsername",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -189,7 +142,6 @@
                     }
                   },
                   "required": [],
-                  "title": "http",
                   "type": "object"
                 }
               },
@@ -199,7 +151,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },

@@ -10,88 +10,52 @@
       "description": "environment variables",
       "properties": {
         "debug": {
-          "default": false,
-          "description": "enable debug output",
           "required": [],
-          "title": "debug",
-          "type": "boolean"
+          "type": "object"
         },
         "influxdb": {
-          "default": false,
-          "description": "enable push to InfluxDB",
           "required": [],
-          "title": "influxdb",
-          "type": "boolean"
+          "type": "object"
         },
         "influxdbBucket": {
-          "default": "default",
-          "description": "InfluxDB bucket",
           "required": [],
-          "title": "influxdbBucket",
-          "type": "string"
+          "type": "object"
         },
         "influxdbOrg": {
-          "default": "influxdata",
-          "description": "InfluxDB organization",
           "required": [],
-          "title": "influxdbOrg",
-          "type": "string"
+          "type": "object"
         },
         "influxdbToken": {
-          "default": "",
-          "description": "InfluxDB token",
           "required": [],
-          "title": "influxdbToken",
-          "type": "string"
+          "type": "object"
         },
         "influxdbUrl": {
-          "default": "http://localhost:8086/",
-          "description": "InfluxDB URL",
           "required": [],
-          "title": "influxdbUrl",
-          "type": "string"
+          "type": "object"
         },
         "irradianceUnit": {
-          "default": "wm2",
-          "description": "Irradiance in wm2",
           "required": [],
-          "title": "irradianceUnit",
-          "type": "string"
+          "type": "object"
         },
         "pressureUnit": {
-          "default": "hpa",
-          "description": "Pressure in hpa or in",
           "required": [],
-          "title": "pressureUnit",
-          "type": "string"
+          "type": "object"
         },
         "prometheus": {
-          "default": true,
-          "description": "enable Prometheus exporter",
           "required": [],
-          "title": "prometheus",
-          "type": "boolean"
+          "type": "object"
         },
         "rainUnit": {
-          "default": "mm",
-          "description": "Rainfall in mm or in",
           "required": [],
-          "title": "rainUnit",
-          "type": "string"
+          "type": "object"
         },
         "temperatureUnit": {
-          "default": "c",
-          "description": "Temperature in c or f",
           "required": [],
-          "title": "temperatureUnit",
-          "type": "string"
+          "type": "object"
         },
         "windUnit": {
-          "default": "kmh",
-          "description": "Wind speed in kmh or mph",
           "required": [],
-          "title": "windUnit",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -113,25 +77,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "djjudas21/ecowitt-exporter",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -151,80 +106,23 @@
       "properties": {
         "annotations": {
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "className": {
-          "default": "",
           "required": [],
-          "title": "className",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": false,
-          "description": "Enable ingress",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "hosts": {
-          "description": "kubernetes.io/ingress.class: nginx\nkubernetes.io/tls-acme: \"true\"",
-          "items": {
-            "anyOf": [
-              {
-                "properties": {
-                  "host": {
-                    "default": "chart-example.local",
-                    "required": [],
-                    "title": "host",
-                    "type": "string"
-                  },
-                  "paths": {
-                    "items": {
-                      "anyOf": [
-                        {
-                          "properties": {
-                            "path": {
-                              "default": "/",
-                              "required": [],
-                              "title": "path",
-                              "type": "string"
-                            },
-                            "pathType": {
-                              "default": "Prefix",
-                              "required": [],
-                              "title": "pathType",
-                              "type": "string"
-                            }
-                          },
-                          "required": [],
-                          "type": "object"
-                        }
-                      ],
-                      "required": []
-                    },
-                    "required": [],
-                    "title": "paths",
-                    "type": "array"
-                  }
-                },
-                "required": [],
-                "type": "object"
-              }
-            ],
-            "required": []
-          },
           "required": [],
-          "title": "hosts",
-          "type": "array"
+          "type": "object"
         },
         "tls": {
-          "items": {
-            "required": []
-          },
           "required": [],
-          "title": "tls",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [],
@@ -255,11 +153,8 @@
     "prometheusRules": {
       "properties": {
         "enabled": {
-          "default": false,
-          "description": "Enable Prometheus rules for Prometheus Operator",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],
@@ -286,16 +181,12 @@
     "service": {
       "properties": {
         "port": {
-          "default": 8088,
           "required": [],
-          "title": "port",
-          "type": "integer"
+          "type": "object"
         },
         "type": {
-          "default": "ClusterIP",
           "required": [],
-          "title": "type",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -305,24 +196,16 @@
     "serviceAccount": {
       "properties": {
         "annotations": {
-          "description": "Annotations to add to the service account",
           "required": [],
-          "title": "annotations",
           "type": "object"
         },
         "create": {
-          "default": true,
-          "description": "Specifies whether a service account should be created",
           "required": [],
-          "title": "create",
-          "type": "boolean"
+          "type": "object"
         },
         "name": {
-          "default": "",
-          "description": "The name of the service account to use.",
           "required": [],
-          "title": "name",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -332,11 +215,8 @@
     "serviceMonitor": {
       "properties": {
         "enabled": {
-          "default": false,
-          "description": "Enable Service Monitor for Prometheus Operator",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],

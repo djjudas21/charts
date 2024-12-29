@@ -108,18 +108,12 @@
       "description": "delete old backups",
       "properties": {
         "enabled": {
-          "default": true,
-          "description": "delete old backups",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "keepDays": {
-          "default": 10,
-          "description": "backup retention period",
           "required": [],
-          "title": "keepDays",
-          "type": "integer"
+          "type": "object"
         }
       },
       "required": [],
@@ -129,25 +123,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "djjudas21/dbdump",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -166,10 +151,8 @@
       "description": "dependency chart for ci",
       "properties": {
         "enabled": {
-          "default": false,
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         }
       },
       "required": [],
@@ -198,39 +181,24 @@
     "persistence": {
       "properties": {
         "accessMode": {
-          "default": "ReadWriteMany",
-          "description": "accessMode to use for PVC",
           "required": [],
-          "title": "accessMode",
-          "type": "string"
+          "type": "object"
         },
         "enabled": {
-          "default": true,
-          "description": "create new PVC",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "size": {
-          "default": "8Gi",
-          "description": "size of PVC to create",
           "required": [],
-          "title": "size",
-          "type": "string"
+          "type": "object"
         },
         "storageClass": {
-          "default": "",
-          "description": "storage class to use for PVC",
           "required": [],
-          "title": "storageClass",
-          "type": "string"
+          "type": "object"
         },
         "subPath": {
-          "default": "",
-          "description": "subPath for PVC",
           "required": [],
-          "title": "subPath",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -267,25 +235,16 @@
       "description": "Pod Security Context",
       "properties": {
         "enabled": {
-          "default": false,
-          "description": "set true to change default security context of job/cronjob",
           "required": [],
-          "title": "enabled",
-          "type": "boolean"
+          "type": "object"
         },
         "fsGroup": {
-          "default": 999,
-          "description": "group ID to use",
           "required": [],
-          "title": "fsGroup",
-          "type": "integer"
+          "type": "object"
         },
         "runAsUser": {
-          "default": 999,
-          "description": "user ID to use",
           "required": [],
-          "title": "runAsUser",
-          "type": "integer"
+          "type": "object"
         }
       },
       "required": [],

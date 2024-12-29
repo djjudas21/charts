@@ -9,10 +9,8 @@
               "description": "Homer configuration. See [image documentation](https://github.com/bastienwirtz/homer/blob/main/docs/configuration.md) for more information.",
               "properties": {
                 "config.yml": {
-                  "default": "externalConfig: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/assets/config.yml.dist\n",
                   "required": [],
-                  "title": "config.yml",
-                  "type": "string"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -28,7 +26,6 @@
             }
           },
           "required": [],
-          "title": "config",
           "type": "object"
         }
       },
@@ -40,11 +37,8 @@
       "description": "environment variables.",
       "properties": {
         "TZ": {
-          "default": "UTC",
-          "description": "Set the container timezone",
           "required": [],
-          "title": "TZ",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -60,25 +54,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "b4bz/homer",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -88,7 +73,6 @@
     "ingress": {
       "properties": {
         "main": {
-          "description": "Enable and configure ingress settings for the chart under this key.",
           "properties": {
             "enabled": {
               "default": false,
@@ -98,7 +82,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },
@@ -125,7 +108,6 @@
             }
           },
           "required": [],
-          "title": "config",
           "type": "object"
         }
       },
@@ -136,25 +118,16 @@
     "securityContext": {
       "properties": {
         "runAsGroup": {
-          "default": 1000,
-          "description": "Specify the group ID the application will run as",
           "required": [],
-          "title": "runAsGroup",
-          "type": "integer"
+          "type": "object"
         },
         "runAsNonRoot": {
-          "default": true,
-          "description": "Enable validation that the container must run as non-root user",
           "required": [],
-          "title": "runAsNonRoot",
-          "type": "boolean"
+          "type": "object"
         },
         "runAsUser": {
-          "default": 1000,
-          "description": "Specify the user ID the application will run as",
           "required": [],
-          "title": "runAsUser",
-          "type": "integer"
+          "type": "object"
         }
       },
       "required": [],
@@ -178,7 +151,6 @@
                     }
                   },
                   "required": [],
-                  "title": "http",
                   "type": "object"
                 }
               },
@@ -188,7 +160,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },

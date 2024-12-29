@@ -5,53 +5,32 @@
       "description": "environment variables. See [navidrome docs](https://www.navidrome.org/docs/usage/configuration-options/#environment-variables) for more details.",
       "properties": {
         "ND_ENABLESHARING": {
-          "default": "false",
-          "description": "Enable sharing",
           "required": [],
-          "title": "ND_ENABLESHARING",
-          "type": "string"
+          "type": "object"
         },
         "ND_ENABLETRANSCODINGCONFIG": {
-          "default": "true",
-          "description": "Enables transcoding configuration in the UI",
           "required": [],
-          "title": "ND_ENABLETRANSCODINGCONFIG",
-          "type": "string"
+          "type": "object"
         },
         "ND_LOGLEVEL": {
-          "default": "info",
-          "description": "Log level. Useful for troubleshooting",
           "required": [],
-          "title": "ND_LOGLEVEL",
-          "type": "string"
+          "type": "object"
         },
         "ND_MUSICFOLDER": {
-          "default": "/music",
-          "description": "Folder where your music library is stored",
           "required": [],
-          "title": "ND_MUSICFOLDER",
-          "type": "string"
+          "type": "object"
         },
         "ND_PROMETHEUS_ENABLED": {
-          "default": "false",
-          "description": "Enable extra endpoint with Prometheus metrics",
           "required": [],
-          "title": "ND_PROMETHEUS_ENABLED",
-          "type": "string"
+          "type": "object"
         },
         "ND_SESSIONTIMEOUT": {
-          "default": "24h",
-          "description": "How long Navidrome will wait before closing web ui idle sessions",
           "required": [],
-          "title": "ND_SESSIONTIMEOUT",
-          "type": "string"
+          "type": "object"
         },
         "TZ": {
-          "default": "UTC",
-          "description": "Set the container timezone",
           "required": [],
-          "title": "TZ",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -67,25 +46,16 @@
     "image": {
       "properties": {
         "pullPolicy": {
-          "default": "IfNotPresent",
-          "description": "image pull policy",
           "required": [],
-          "title": "pullPolicy",
-          "type": "string"
+          "type": "object"
         },
         "repository": {
-          "default": "deluan/navidrome",
-          "description": "image repository",
           "required": [],
-          "title": "repository",
-          "type": "string"
+          "type": "object"
         },
         "tag": {
-          "default": "",
-          "description": "image tag",
           "required": [],
-          "title": "tag",
-          "type": "string"
+          "type": "object"
         }
       },
       "required": [],
@@ -95,15 +65,12 @@
     "ingress": {
       "properties": {
         "main": {
-          "description": "Enable and configure ingress settings for the chart under this key.",
           "properties": {
             "annotations": {
               "properties": {
                 "nginx.ingress.kubernetes.io/configuration-snippet": {
-                  "default": "location /metrics {\n  deny all;\n  return 403;\n}\n",
                   "required": [],
-                  "title": "nginx.ingress.kubernetes.io/configuration-snippet",
-                  "type": "string"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -118,7 +85,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },
@@ -145,7 +111,6 @@
             }
           },
           "required": [],
-          "title": "config",
           "type": "object"
         },
         "music": {
@@ -164,7 +129,6 @@
             }
           },
           "required": [],
-          "title": "music",
           "type": "object"
         }
       },
@@ -180,58 +144,12 @@
             "monitor": {
               "properties": {
                 "enabled": {
-                  "default": false,
-                  "description": "Enables or disables the serviceMonitor.",
                   "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
+                  "type": "object"
                 },
                 "endpoints": {
-                  "description": "Configures the endpoints for the serviceMonitor.",
-                  "items": {
-                    "anyOf": [
-                      {
-                        "properties": {
-                          "interval": {
-                            "default": "1m",
-                            "required": [],
-                            "title": "interval",
-                            "type": "string"
-                          },
-                          "path": {
-                            "default": "/metrics",
-                            "required": [],
-                            "title": "path",
-                            "type": "string"
-                          },
-                          "port": {
-                            "default": "http",
-                            "required": [],
-                            "title": "port",
-                            "type": "string"
-                          },
-                          "scheme": {
-                            "default": "http",
-                            "required": [],
-                            "title": "scheme",
-                            "type": "string"
-                          },
-                          "scrapeTimeout": {
-                            "default": "10s",
-                            "required": [],
-                            "title": "scrapeTimeout",
-                            "type": "string"
-                          }
-                        },
-                        "required": [],
-                        "type": "object"
-                      }
-                    ],
-                    "required": []
-                  },
                   "required": [],
-                  "title": "endpoints",
-                  "type": "array"
+                  "type": "object"
                 }
               },
               "required": [],
@@ -250,7 +168,6 @@
                     }
                   },
                   "required": [],
-                  "title": "http",
                   "type": "object"
                 }
               },
@@ -260,7 +177,6 @@
             }
           },
           "required": [],
-          "title": "main",
           "type": "object"
         }
       },
