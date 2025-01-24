@@ -2917,6 +2917,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Jellyfin v10.10.4
+    apiVersion: v2
+    appVersion: 10.10.4
+    created: "2025-01-24T21:56:31.985168044Z"
+    description: Your media, your server, your way
+    digest: 09a2511e726834ffff2ddb0fc08f007244f0d30686ad748dacff90803c594133
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-3.2.4/jellyfin-3.2.4.tgz
+    version: 3.2.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Jellyfin v10.10.3
     apiVersion: v2
     appVersion: 10.10.3
@@ -10838,4 +10866,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2025-01-14T15:24:20.28980584Z"
+generated: "2025-01-24T21:56:31.985727117Z"
