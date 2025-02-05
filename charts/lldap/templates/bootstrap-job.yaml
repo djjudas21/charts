@@ -14,7 +14,7 @@ spec:
       restartPolicy: OnFailure
       containers:
         - name: bootstrap
-          image: "{{ .Values.image.repository }}:2024-04-01"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           command:
             - ./bootstrap.sh
           env:
