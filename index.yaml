@@ -4877,6 +4877,44 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Fix bootstrap image tag
+    apiVersion: v2
+    appVersion: v0.6.1
+    created: "2025-02-05T09:13:30.733651566Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: 8c278f11ce9ff8d872fd667b399445a96e64467cc40d30769993d33203825d29
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.4.2/lldap-0.4.2.tgz
+    version: 0.4.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to lldap v0.6.1
     apiVersion: v2
     appVersion: v0.6.1
@@ -10894,4 +10932,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2025-01-25T21:24:29.940387047Z"
+generated: "2025-02-05T09:13:30.734159795Z"
