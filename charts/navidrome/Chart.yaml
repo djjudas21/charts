@@ -1,9 +1,9 @@
 ---
 apiVersion: v2
-appVersion: 0.54.2
+appVersion: 0.54.5
 description: Navidrome is an open source web-based music collection server and streamer
 name: navidrome
-version: 6.6.18
+version: 6.6.19
 kubeVersion: ">=1.16.0-0"
 keywords:
   - navidrome
@@ -24,4 +24,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to Navidrome v0.54.2
+      description: Update to Navidrome v0.54.5
