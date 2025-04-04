@@ -59,14 +59,14 @@ spec:
             - name: LLDAP_HTTP_PORT
               value: "{{ .Values.service.http.port }}"
             - name: LLDAP_JWT_SECRET
-              valueFrom: 
-                secretKeyRef: 
-                  name: {{ include "lldap.fullname" . }}-credentials
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "lldap.credentialsSecretName" . }}
                   key: jwtSecret
             - name: LLDAP_LDAP_USER_PASS
-              valueFrom: 
-                secretKeyRef: 
-                  name: {{ include "lldap.fullname" . }}-credentials
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "lldap.credentialsSecretName" . }}
                   key: ldapUserPass
             - name: LLDAP_DATABASE_URL
             {{- if .Values.postgresql.enabled }}
@@ -104,9 +104,9 @@ spec:
             - name: LLDAP_SMTP_OPTIONS__REPLY_TO
               value: "{{ .Values.lldap.smtp.replyTo }}"
             - name: LLDAP_SMTP_OPTIONS__PASSWORD
-              valueFrom: 
-                secretKeyRef: 
-                  name: {{ include "lldap.fullname" . }}-credentials
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "lldap.credentialsSecretName" . }}
                   key: smtpPassword
             {{- end }}
             {{- if $.Values.lldap.ldaps.enabled }}

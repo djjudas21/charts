@@ -25,12 +25,21 @@ lldap:
   # actually need to own the domain name.
   baseDN: "dc=example,dc=com"
 
+  # -- Name of the Kubernetes secret containing credentials.
+  # If this isn't specified, a secret will be generated with the credentials provided
+  # in the values file. If you want to provide an external secret, for instance when
+  # deploying with GitOps, specify its name here.
+  secretName: ~
+
   # -- Random secret for JWT signature.
   # This secret should be random, and should be shared with application servers that need to
   # consume the JWTs. Changing this secret will invalidate all user sessions and require them
   # to re-login. You can generate it with (on linux):
   # LC_ALL=C tr -dc 'A-Za-z0-9!#%&'\''()*+,-./:;<=>?@[\]^_{|}~' </dev/urandom | head -c 32; echo ''
   jwtSecret: REPLACE_WITH_RANDOM
+
+  # -- Name of the JWT signature key in the `.Values.lldap.secretName` Kubernetes secret.
+  jwtSecretKey: jwtSecret
 
   # -- Admin username.
   # For the LDAP interface, a value of "admin" here will create the LDAP user
@@ -43,6 +52,9 @@ lldap:
   # It is only used when initially creating the admin user. It should be minimum 8 characters long.
   # Note: you can create another admin user for user administration, this is just the default one.
   ldapUserPass: REPLACE_WITH_RANDOM
+
+  # -- Name of the LDAP admin password key in the `.Values.lldap.secretName` Kubernetes secret.
+  ldapUserPassKey: ldapUserPass
 
   # -- Seed to generate the server private key. This can be any random string, the recommendation
   # is that it's at least 12 characters long.
@@ -70,6 +82,9 @@ lldap:
     user: "sender@gmail.com"
     # -- The SMTP password.
     password: "password"
+    # -- Name of the SMTP password key in the `.Values.lldap.secretName` Kubernetes secret.
+    # Overrides the `.Values.lldap.smtp.password` if a custom secret is defined.
+    passwordKey: password
     # -- The header field: how the sender appears in the email. The first
     # is a free-form name, followed by an email between <>. Optional.
     from: "LLDAP Admin <sender@gmail.com>"

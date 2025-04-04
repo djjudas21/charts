@@ -435,11 +435,25 @@
           "title": "gid",
           "type": "integer"
         },
+        "secretName": {
+          "default": null,
+          "description": "Name of Kubernetes secret containing credentials",
+          "required": [],
+          "title": "secretName",
+          "type": "string"
+        },
         "jwtSecret": {
           "default": "REPLACE_WITH_RANDOM",
           "description": "Random secret for JWT signature.\nThis secret should be random, and should be shared with application servers that need to\nconsume the JWTs. Changing this secret will invalidate all user sessions and require them\nto re-login. You can generate it with (on linux):\nLC_ALL=C tr -dc 'A-Za-z0-9!#%\u0026'\\''()*+,-./:;\u003c=\u003e?@[\\]^_{|}~' \u003c/dev/urandom | head -c 32; echo ''",
           "required": [],
           "title": "jwtSecret",
+          "type": "string"
+        },
+        "jwtSecretKey": {
+          "default": "jwtSecret",
+          "description": "Name of the JWT signature key in the credentials secret",
+          "required": [],
+          "title": "jwtSecretKey",
           "type": "string"
         },
         "keySeed": {
@@ -461,6 +475,13 @@
           "description": "Admin password.\nPassword for the admin account, both for the LDAP bind and for the administration interface.\nIt is only used when initially creating the admin user. It should be minimum 8 characters long.\nNote: you can create another admin user for user administration, this is just the default one.",
           "required": [],
           "title": "ldapUserPass",
+          "type": "string"
+        },
+        "ldapUserPassKey": {
+          "default": "ldapUserPass",
+          "description": "Name of the LDAP admin password key in the credentials secret",
+          "required": [],
+          "title": "ldapUserPassKey",
           "type": "string"
         },
         "ldaps": {
@@ -514,6 +535,13 @@
               "description": "The SMTP password.",
               "required": [],
               "title": "password",
+              "type": "string"
+            },
+            "passwordKey": {
+              "default": "password",
+              "description": "Name of the SMTP password in the credentials secret",
+              "required": [],
+              "title": "passwordKey",
               "type": "string"
             },
             "port": {
