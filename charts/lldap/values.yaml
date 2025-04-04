@@ -229,6 +229,10 @@ postgresql:
 # --- Enable and configure external postgresql database
 externalPostgresql:
   enabled: false
+  # -- Name of the Kubernetes secret containing the database URI
+  # fromSecret:
+  # -- Name of the secret key containing the database URI
+  # uriKey:
   auth:
     host: ""
     port: 5432
@@ -259,6 +263,10 @@ mariadb:
 # -- Enable and configure external mariadb database
 externalMariadb:
   enabled: false
+  # -- Name of the Kubernetes secret containing the database URI
+  # fromSecret:
+  # -- Name of the secret key containing the database URI
+  # uriKey:
   auth:
     host: ""
     port: 3306

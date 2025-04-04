@@ -188,6 +188,20 @@
           "required": [],
           "title": "enabled",
           "type": "boolean"
+        },
+        "fromSecret": {
+          "default": null,
+          "description": "Name of the secret containing the database URI",
+          "required": [],
+          "title": "fromSecret",
+          "type": "string"
+        },
+        "uriKey": {
+          "default": null,
+          "description": "Name of the secret key containing the database URI",
+          "required": [],
+          "title": "uriKey",
+          "type": "string"
         }
       },
       "required": [],
@@ -239,6 +253,20 @@
           "required": [],
           "title": "enabled",
           "type": "boolean"
+        },
+        "fromSecret": {
+          "default": null,
+          "description": "Name of the secret containing the database URI",
+          "required": [],
+          "title": "fromSecret",
+          "type": "string"
+        },
+        "uriKey": {
+          "default": null,
+          "description": "Name of the secret key containing the database URI",
+          "required": [],
+          "title": "uriKey",
+          "type": "string"
         }
       },
       "required": [],

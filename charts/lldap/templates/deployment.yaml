@@ -71,10 +71,20 @@ spec:
             - name: LLDAP_DATABASE_URL
             {{- if .Values.postgresql.enabled }}
               value: {{ include "lldap.postgresConnectString" . | quote }}
+            {{- else if and .Values.externalPostgresql.enabled .Values.externalPostgresql.fromSecret }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.externalPostgresql.fromSecret }}
+                  key: {{ .Values.externalPostgresql.uriKey }}
             {{- else if .Values.externalPostgresql.enabled }}
               value: {{ include "lldap.externalPostgresConnectString" . | quote }}
             {{- else if .Values.mariadb.enabled }}
               value: {{ include "lldap.mariadbConnectString" . | quote }}
+            {{- else if and .Values.externalMariadb.enabled .Values.externalMariadb.fromSecret }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.externalMariadb.fromSecret }}
+                  key: {{ .Values.externalMariadb.uriKey }}
             {{- else if .Values.externalMariadb.enabled }}
               value: {{ include "lldap.externalMariadbConnectString" . | quote }}
             {{- else }}
