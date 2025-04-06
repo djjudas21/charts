@@ -491,6 +491,13 @@
           "title": "keySeed",
           "type": "string"
         },
+        "keySeedKey": {
+          "default": "keySeed",
+          "description": "Name of the key containing the private key seed in the credentials secret",
+          "required": [],
+          "title": "keySeedKey",
+          "type": "string"
+        },
         "ldapUserDN": {
           "default": "admin",
           "description": "Admin username.\nFor the LDAP interface, a value of \"admin\" here will create the LDAP user\n\"cn=admin,ou=people,dc=example,dc=com\" (with the base DN above). For the administration\ninterface, this is the username.",

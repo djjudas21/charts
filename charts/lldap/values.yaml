@@ -60,6 +60,9 @@ lldap:
   # is that it's at least 12 characters long.
   keySeed: REPLACE_WITH_RANDOM
 
+  # -- Name of the key holding the private key seed in the `.Values.lldap.secretName` Kubernetes secret.
+  keySeedKey: keySeed
+
   uid: 1000
   gid: 1000
   tz: "Etc/UTC"

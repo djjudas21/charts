@@ -97,6 +97,10 @@ spec:
             - name: LLDAP_VERBOSE
               value: "{{ .Values.lldap.verbose }}"
             - name: LLDAP_KEY_SEED
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "lldap.credentialsSecretName" . }}
+                  value: {{ .Values.lldap.keySeedKey }}
               value: "{{ .Values.lldap.keySeed }}"
             {{- if $.Values.lldap.smtp.enablePasswordReset }}
             - name: LLDAP_SMTP_OPTIONS__ENABLE_PASSWORD_RESET
