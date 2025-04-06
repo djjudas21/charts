@@ -87,7 +87,7 @@ lldap:
     password: "password"
     # -- Name of the SMTP password key in the `.Values.lldap.secretName` Kubernetes secret.
     # Overrides the `.Values.lldap.smtp.password` if a custom secret is defined.
-    passwordKey: password
+    passwordKey: smtpPassword
     # -- The header field: how the sender appears in the email. The first
     # is a free-form name, followed by an email between <>. Optional.
     from: "LLDAP Admin <sender@gmail.com>"

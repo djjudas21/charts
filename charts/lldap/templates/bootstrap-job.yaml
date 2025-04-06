@@ -26,7 +26,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ include "lldap.credentialsSecretName" . }}
-                  key: ldapUserPass
+                  key: {{ .Values.lldap.ldapUserPassKey }}
             - name: DO_CLEANUP
               value: "{{ .Values.bootstrap.cleanup }}"
           volumeMounts:

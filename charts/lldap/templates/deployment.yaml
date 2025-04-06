@@ -62,12 +62,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ include "lldap.credentialsSecretName" . }}
-                  key: jwtSecret
+                  key: {{ .Values.lldap.jwtSecretKey }}
             - name: LLDAP_LDAP_USER_PASS
               valueFrom:
                 secretKeyRef:
                   name: {{ include "lldap.credentialsSecretName" . }}
-                  key: ldapUserPass
+                  key: {{ .Values.lldap.ldapUserPassKey }}
             - name: LLDAP_DATABASE_URL
             {{- if .Values.postgresql.enabled }}
               value: {{ include "lldap.postgresConnectString" . | quote }}
@@ -121,7 +121,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ include "lldap.credentialsSecretName" . }}
-                  key: smtpPassword
+                  key: {{ .Values.lldap.smtp.passwordKey }}
             {{- end }}
             {{- if $.Values.lldap.ldaps.enabled }}
             - name: LLDAP_LDAPS_OPTIONS__ENABLED
