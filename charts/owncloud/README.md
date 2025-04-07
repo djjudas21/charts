@@ -1,6 +1,6 @@
 # owncloud
 
-![Version: 0.3.18](https://img.shields.io/badge/Version-0.3.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.15.0](https://img.shields.io/badge/AppVersion-10.15.0-informational?style=flat-square)
+![Version: 0.3.19](https://img.shields.io/badge/Version-0.3.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.15.2](https://img.shields.io/badge/AppVersion-10.15.2-informational?style=flat-square)
 
 A file sharing server that puts the control and security of your own data back into your hands.
 
