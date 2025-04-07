@@ -62,6 +62,13 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
+Create the name of the credentials secret
+*/}}
+{{- define "lldap.credentialsSecretName" -}}
+{{ .Values.lldap.secretName | default (printf "%s-credentials" (include "lldap.fullname" .)) }}
+{{- end }}
+
+{{/*
 Build database connection strings as templates
 */}}
 {{- define "lldap.postgresConnectString" -}}

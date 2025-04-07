@@ -5,7 +5,7 @@ metadata:
   name: {{ include "lldap.fullname" . }}-bootstrap
   # Next annotations are required if the job managed by Argo CD,
   # so Argo CD can relaunch the job on every app sync action
-  annotations: 
+  annotations:
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
@@ -23,10 +23,10 @@ spec:
             - name: LLDAP_ADMIN_USERNAME
               value: "{{ .Values.lldap.ldapUserDN }}"
             - name: LLDAP_ADMIN_PASSWORD
-              valueFrom: 
-                secretKeyRef: 
-                  name: {{ include "lldap.fullname" . }}-credentials
-                  key: ldapUserPass
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "lldap.credentialsSecretName" . }}
+                  key: {{ .Values.lldap.ldapUserPassKey }}
             - name: DO_CLEANUP
               value: "{{ .Values.bootstrap.cleanup }}"
           volumeMounts:

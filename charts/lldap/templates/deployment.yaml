@@ -59,22 +59,32 @@ spec:
             - name: LLDAP_HTTP_PORT
               value: "{{ .Values.service.http.port }}"
             - name: LLDAP_JWT_SECRET
-              valueFrom: 
-                secretKeyRef: 
-                  name: {{ include "lldap.fullname" . }}-credentials
-                  key: jwtSecret
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "lldap.credentialsSecretName" . }}
+                  key: {{ .Values.lldap.jwtSecretKey }}
             - name: LLDAP_LDAP_USER_PASS
-              valueFrom: 
-                secretKeyRef: 
-                  name: {{ include "lldap.fullname" . }}-credentials
-                  key: ldapUserPass
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "lldap.credentialsSecretName" . }}
+                  key: {{ .Values.lldap.ldapUserPassKey }}
             - name: LLDAP_DATABASE_URL
             {{- if .Values.postgresql.enabled }}
               value: {{ include "lldap.postgresConnectString" . | quote }}
+            {{- else if and .Values.externalPostgresql.enabled .Values.externalPostgresql.fromSecret }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.externalPostgresql.fromSecret }}
+                  key: {{ .Values.externalPostgresql.uriKey }}
             {{- else if .Values.externalPostgresql.enabled }}
               value: {{ include "lldap.externalPostgresConnectString" . | quote }}
             {{- else if .Values.mariadb.enabled }}
               value: {{ include "lldap.mariadbConnectString" . | quote }}
+            {{- else if and .Values.externalMariadb.enabled .Values.externalMariadb.fromSecret }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.externalMariadb.fromSecret }}
+                  key: {{ .Values.externalMariadb.uriKey }}
             {{- else if .Values.externalMariadb.enabled }}
               value: {{ include "lldap.externalMariadbConnectString" . | quote }}
             {{- else }}
@@ -87,7 +97,10 @@ spec:
             - name: LLDAP_VERBOSE
               value: "{{ .Values.lldap.verbose }}"
             - name: LLDAP_KEY_SEED
-              value: "{{ .Values.lldap.keySeed }}"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "lldap.credentialsSecretName" . }}
+                  key: {{ .Values.lldap.keySeedKey }}
             {{- if $.Values.lldap.smtp.enablePasswordReset }}
             - name: LLDAP_SMTP_OPTIONS__ENABLE_PASSWORD_RESET
               value: "{{ .Values.lldap.smtp.enablePasswordReset }}"
@@ -104,10 +117,10 @@ spec:
             - name: LLDAP_SMTP_OPTIONS__REPLY_TO
               value: "{{ .Values.lldap.smtp.replyTo }}"
             - name: LLDAP_SMTP_OPTIONS__PASSWORD
-              valueFrom: 
-                secretKeyRef: 
-                  name: {{ include "lldap.fullname" . }}-credentials
-                  key: smtpPassword
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "lldap.credentialsSecretName" . }}
+                  key: {{ .Values.lldap.smtp.passwordKey }}
             {{- end }}
             {{- if $.Values.lldap.ldaps.enabled }}
             - name: LLDAP_LDAPS_OPTIONS__ENABLED

@@ -188,6 +188,20 @@
           "required": [],
           "title": "enabled",
           "type": "boolean"
+        },
+        "fromSecret": {
+          "default": null,
+          "description": "Name of the secret containing the database URI",
+          "required": [],
+          "title": "fromSecret",
+          "type": "string"
+        },
+        "uriKey": {
+          "default": null,
+          "description": "Name of the secret key containing the database URI",
+          "required": [],
+          "title": "uriKey",
+          "type": "string"
         }
       },
       "required": [],
@@ -239,6 +253,20 @@
           "required": [],
           "title": "enabled",
           "type": "boolean"
+        },
+        "fromSecret": {
+          "default": null,
+          "description": "Name of the secret containing the database URI",
+          "required": [],
+          "title": "fromSecret",
+          "type": "string"
+        },
+        "uriKey": {
+          "default": null,
+          "description": "Name of the secret key containing the database URI",
+          "required": [],
+          "title": "uriKey",
+          "type": "string"
         }
       },
       "required": [],
@@ -435,6 +463,13 @@
           "title": "gid",
           "type": "integer"
         },
+        "secretName": {
+          "default": null,
+          "description": "Name of Kubernetes secret containing credentials",
+          "required": [],
+          "title": "secretName",
+          "type": "string"
+        },
         "jwtSecret": {
           "default": "REPLACE_WITH_RANDOM",
           "description": "Random secret for JWT signature.\nThis secret should be random, and should be shared with application servers that need to\nconsume the JWTs. Changing this secret will invalidate all user sessions and require them\nto re-login. You can generate it with (on linux):\nLC_ALL=C tr -dc 'A-Za-z0-9!#%\u0026'\\''()*+,-./:;\u003c=\u003e?@[\\]^_{|}~' \u003c/dev/urandom | head -c 32; echo ''",
@@ -442,11 +477,25 @@
           "title": "jwtSecret",
           "type": "string"
         },
+        "jwtSecretKey": {
+          "default": "jwtSecret",
+          "description": "Name of the JWT signature key in the credentials secret",
+          "required": [],
+          "title": "jwtSecretKey",
+          "type": "string"
+        },
         "keySeed": {
           "default": "REPLACE_WITH_RANDOM",
           "description": "Seed to generate the server private key. This can be any random string, the recommendation\nis that it's at least 12 characters long.",
           "required": [],
           "title": "keySeed",
+          "type": "string"
+        },
+        "keySeedKey": {
+          "default": "keySeed",
+          "description": "Name of the key containing the private key seed in the credentials secret",
+          "required": [],
+          "title": "keySeedKey",
           "type": "string"
         },
         "ldapUserDN": {
@@ -461,6 +510,13 @@
           "description": "Admin password.\nPassword for the admin account, both for the LDAP bind and for the administration interface.\nIt is only used when initially creating the admin user. It should be minimum 8 characters long.\nNote: you can create another admin user for user administration, this is just the default one.",
           "required": [],
           "title": "ldapUserPass",
+          "type": "string"
+        },
+        "ldapUserPassKey": {
+          "default": "ldapUserPass",
+          "description": "Name of the LDAP admin password key in the credentials secret",
+          "required": [],
+          "title": "ldapUserPassKey",
           "type": "string"
         },
         "ldaps": {
@@ -514,6 +570,13 @@
               "description": "The SMTP password.",
               "required": [],
               "title": "password",
+              "type": "string"
+            },
+            "passwordKey": {
+              "default": "password",
+              "description": "Name of the SMTP password in the credentials secret",
+              "required": [],
+              "title": "passwordKey",
               "type": "string"
             },
             "port": {
