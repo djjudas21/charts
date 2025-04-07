@@ -4936,6 +4936,44 @@ entries:
           description: Fix bootstrap image tag
     apiVersion: v2
     appVersion: v0.6.1
+    created: "2025-04-07T16:05:19.523446793Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: ae1445d9f52e2bb31db56991c74e4e5695888ad4b8c68d6e41344724351a6598
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.5.0/lldap-0.5.0.tgz
+    version: 0.5.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fix bootstrap image tag
+    apiVersion: v2
+    appVersion: v0.6.1
     created: "2025-03-27T08:03:11.762496495Z"
     dependencies:
     - condition: postgresql.enabled
@@ -5712,6 +5750,37 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.2/maian-music-0.2.2.tgz
     version: 0.2.2
   navidrome:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Navidrome v0.55.2
+    apiVersion: v2
+    appVersion: 0.55.2
+    created: "2025-04-07T16:05:19.675769641Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 00337ff1040ac85f90307351ccb6fa8bdb4861965ba0982349075eb7df113342
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.7.2/navidrome-6.7.2.tgz
+    version: 6.7.2
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -11088,4 +11157,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2025-03-27T08:03:11.762899627Z"
+generated: "2025-04-07T16:05:19.676331528Z"
