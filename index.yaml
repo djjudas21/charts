@@ -2917,6 +2917,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Jellyfin v10.10.7
+    apiVersion: v2
+    appVersion: 10.10.7
+    created: "2025-04-07T21:03:13.64832656Z"
+    description: Your media, your server, your way
+    digest: 5877381135cb60753a86ef81f9c67d1cd39cdef5df106827480ffd280f52ff7f
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-3.2.7/jellyfin-3.2.7.tgz
+    version: 3.2.7
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Jellyfin v10.10.6
     apiVersion: v2
     appVersion: 10.10.6
@@ -3466,6 +3494,39 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/jellyfin-3.0.0/jellyfin-3.0.0.tgz
     version: 3.0.0
   jellystat:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jellystat 1.1.4
+    apiVersion: v2
+    appVersion: 1.1.4
+    created: "2025-04-07T21:03:13.785585545Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: d133d07622d6ed92b398d7beaf522b0b889e0417563cb35193e8c806b69a04e9
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.6/jellystat-0.1.6.tgz
+    version: 0.1.6
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -7271,6 +7332,45 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.0/openssh-server-0.1.0.tgz
     version: 0.1.0
   owncloud:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update ownCloud to v10.15.2
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.15.2
+    created: "2025-04-07T21:03:13.920246245Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~19
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: 87ea54f6a792bb6c9fb1787701c15176f4b6a7424ff406ccbf6808693b8def38
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.19/owncloud-0.3.19.tgz
+    version: 0.3.19
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -11157,4 +11257,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-07T16:05:19.676331528Z"
+generated: "2025-04-07T21:03:13.920868024Z"
