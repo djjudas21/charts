@@ -54,13 +54,16 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.volumeMounts }}
+          {{- if .Values.persistence.enabled }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
+          - mountPath: /data
+            name: data
           {{- end }}
-      {{- with .Values.volumes }}
+      {{- if .Values.persistence.enabled }}
       volumes:
-        {{- toYaml . | nindent 8 }}
+      - name: data
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
