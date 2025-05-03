@@ -1,15 +1,17 @@
+{{- range $key, $value := .Values.service }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "warpgate.fullname" . }}
+  name: {{ include "warpgate.fullname" $ }}-{{ $key }}
   labels:
-    {{- include "warpgate.labels" . | nindent 4 }}
+    {{- include "warpgate.labels" $ | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - port: {{ .port }}
+      targetPort: {{ $key }}
       protocol: TCP
-      name: http
+      name: {{ $key }}
   selector:
-    {{- include "warpgate.selectorLabels" . | nindent 4 }}
+    {{- include "warpgate.selectorLabels" $ | nindent 4 }}
+{{- end }}   
