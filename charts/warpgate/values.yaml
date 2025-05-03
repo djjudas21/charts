@@ -64,7 +64,7 @@ service:
     type: ClusterIP
     # This sets the port
     port: 22
-  https:
+  http:
     # This sets the service type
     type: ClusterIP
     # This sets the port

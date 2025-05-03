@@ -35,9 +35,9 @@ spec:
             {{- end }}
             backend:
               service:
-                name: {{ include "warpgate.fullname" $ }}-https
+                name: {{ include "warpgate.fullname" $ }}-http
                 port:
-                  number: {{ $.Values.service.https.port }}
+                  number: {{ $.Values.service.http.port }}
           {{- end }}
     {{- end }}
 {{- end }}
