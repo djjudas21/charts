@@ -147,6 +147,7 @@
       "description": "Enable and configure external mariadb database",
       "properties": {
         "auth": {
+          "description": "Name of the Kubernetes secret containing the database URI\nfromSecret:\nName of the secret key containing the database URI\nuriKey:",
           "properties": {
             "database": {
               "default": "lldap",
@@ -188,20 +189,6 @@
           "required": [],
           "title": "enabled",
           "type": "boolean"
-        },
-        "fromSecret": {
-          "default": null,
-          "description": "Name of the secret containing the database URI",
-          "required": [],
-          "title": "fromSecret",
-          "type": "string"
-        },
-        "uriKey": {
-          "default": null,
-          "description": "Name of the secret key containing the database URI",
-          "required": [],
-          "title": "uriKey",
-          "type": "string"
         }
       },
       "required": [],
@@ -212,6 +199,7 @@
       "description": "- Enable and configure external postgresql database",
       "properties": {
         "auth": {
+          "description": "Name of the Kubernetes secret containing the database URI\nfromSecret:\nName of the secret key containing the database URI\nuriKey:",
           "properties": {
             "database": {
               "default": "lldap",
@@ -253,20 +241,6 @@
           "required": [],
           "title": "enabled",
           "type": "boolean"
-        },
-        "fromSecret": {
-          "default": null,
-          "description": "Name of the secret containing the database URI",
-          "required": [],
-          "title": "fromSecret",
-          "type": "string"
-        },
-        "uriKey": {
-          "default": null,
-          "description": "Name of the secret key containing the database URI",
-          "required": [],
-          "title": "uriKey",
-          "type": "string"
         }
       },
       "required": [],
@@ -463,13 +437,6 @@
           "title": "gid",
           "type": "integer"
         },
-        "secretName": {
-          "default": null,
-          "description": "Name of Kubernetes secret containing credentials",
-          "required": [],
-          "title": "secretName",
-          "type": "string"
-        },
         "jwtSecret": {
           "default": "REPLACE_WITH_RANDOM",
           "description": "Random secret for JWT signature.\nThis secret should be random, and should be shared with application servers that need to\nconsume the JWTs. Changing this secret will invalidate all user sessions and require them\nto re-login. You can generate it with (on linux):\nLC_ALL=C tr -dc 'A-Za-z0-9!#%\u0026'\\''()*+,-./:;\u003c=\u003e?@[\\]^_{|}~' \u003c/dev/urandom | head -c 32; echo ''",
@@ -479,7 +446,7 @@
         },
         "jwtSecretKey": {
           "default": "jwtSecret",
-          "description": "Name of the JWT signature key in the credentials secret",
+          "description": "Name of the JWT signature key in the `.Values.lldap.secretName` Kubernetes secret.",
           "required": [],
           "title": "jwtSecretKey",
           "type": "string"
@@ -493,7 +460,7 @@
         },
         "keySeedKey": {
           "default": "keySeed",
-          "description": "Name of the key containing the private key seed in the credentials secret",
+          "description": "Name of the key holding the private key seed in the `.Values.lldap.secretName` Kubernetes secret.",
           "required": [],
           "title": "keySeedKey",
           "type": "string"
@@ -514,7 +481,7 @@
         },
         "ldapUserPassKey": {
           "default": "ldapUserPass",
-          "description": "Name of the LDAP admin password key in the credentials secret",
+          "description": "Name of the LDAP admin password key in the `.Values.lldap.secretName` Kubernetes secret.",
           "required": [],
           "title": "ldapUserPassKey",
           "type": "string"
@@ -548,6 +515,13 @@
           "title": "ldaps",
           "type": "object"
         },
+        "secretName": {
+          "default": "",
+          "description": "Name of the Kubernetes secret containing credentials.\nIf this isn't specified, a secret will be generated with the credentials provided\nin the values file. If you want to provide an external secret, for instance when\ndeploying with GitOps, specify its name here.",
+          "required": [],
+          "title": "secretName",
+          "type": "string"
+        },
         "smtp": {
           "description": "Options to configure SMTP parameters, to send password reset emails.",
           "properties": {
@@ -573,8 +547,8 @@
               "type": "string"
             },
             "passwordKey": {
-              "default": "password",
-              "description": "Name of the SMTP password in the credentials secret",
+              "default": "smtpPassword",
+              "description": "Name of the SMTP password key in the `.Values.lldap.secretName` Kubernetes secret.\nOverrides the `.Values.lldap.smtp.password` if a custom secret is defined.",
               "required": [],
               "title": "passwordKey",
               "type": "string"
