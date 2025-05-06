@@ -3,7 +3,7 @@ apiVersion: v2
 name: ecowitt-exporter
 description: A Prometheus & InfluxDB exporter for Ecowitt weather stations
 type: application
-version: 0.7.0
+version: 0.7.1
 appVersion: "0.7.0"
 keywords:
   - ecowitt
@@ -22,4 +22,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to ecowitt-exporter v0.7.0
+      description: Improve ServiceMonitor and PrometheusRules

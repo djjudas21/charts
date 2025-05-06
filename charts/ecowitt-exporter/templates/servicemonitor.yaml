@@ -15,14 +15,10 @@ spec:
     relabelings:
       - action: labeldrop
         regex: pod
-        sourceLabels: []
       - action: labeldrop
         regex: namespace
-        sourceLabels: []
       - action: labeldrop
         regex: instance
-        sourceLabels: []
       - action: labeldrop
         regex: job
-        sourceLabels: []
 {{- end }}
