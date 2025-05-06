@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 0.55.2
 description: Navidrome is an open source web-based music collection server and streamer
 name: navidrome
-version: 6.7.2
+version: 6.7.3
 kubeVersion: ">=1.16.0-0"
 keywords:
   - navidrome
@@ -19,9 +19,9 @@ maintainers:
     email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
-    repository: http://bjw-s.github.io/helm-charts/
+    repository: http://bjw-s-labs.github.io/helm-charts/
     version: 0.2.0
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to Navidrome v0.55.2
+      description: Migrate to bjw-s-labs

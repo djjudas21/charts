@@ -22,7 +22,7 @@ This server allows you to sync any Joplin client
 
 | Repository | Name | Version |
 |------------|------|---------|
-| http://bjw-s.github.io/helm-charts/ | common | 0.2.0 |
+| http://bjw-s-labs.github.io/helm-charts/ | common | 0.2.0 |
 | https://charts.bitnami.com/bitnami | postgresql | ~11 |
 
 ## Values

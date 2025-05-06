@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 2.14.2-beta
 description: This server allows you to sync any Joplin client
 name: joplin-server
-version: 5.5.6
+version: 5.5.7
 keywords:
   - joplin
   - notes
@@ -18,7 +18,7 @@ maintainers:
     email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
-    repository: http://bjw-s.github.io/helm-charts/
+    repository: http://bjw-s-labs.github.io/helm-charts/
     version: 0.2.0
   - name: postgresql
     version: ~11
@@ -27,4 +27,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update refs to bjw-s/common
+      description: Migrate to bjw-s-labs
