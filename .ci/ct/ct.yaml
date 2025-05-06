@@ -11,5 +11,5 @@ chart-dirs:
 
 chart-repos:
   - bitnami=https://charts.bitnami.com/bitnami
-  - bjw-s=https://bjw-s.github.io/helm-charts
+  - bjw-s=https://bjw-s-labs.github.io/helm-charts
   - djjudas21=https://djjudas21.github.io/charts

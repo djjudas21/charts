@@ -1,6 +1,6 @@
 # navidrome
 
-![Version: 6.7.2](https://img.shields.io/badge/Version-6.7.2-informational?style=flat-square) ![AppVersion: 0.55.2](https://img.shields.io/badge/AppVersion-0.55.2-informational?style=flat-square)
+![Version: 6.7.3](https://img.shields.io/badge/Version-6.7.3-informational?style=flat-square) ![AppVersion: 0.55.2](https://img.shields.io/badge/AppVersion-0.55.2-informational?style=flat-square)
 
 Navidrome is an open source web-based music collection server and streamer
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| http://bjw-s.github.io/helm-charts/ | common | 0.2.0 |
+| http://bjw-s-labs.github.io/helm-charts/ | common | 0.2.0 |
 
 ## Values
 

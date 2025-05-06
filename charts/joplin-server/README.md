@@ -1,6 +1,6 @@
 # joplin-server
 
-![Version: 5.5.6](https://img.shields.io/badge/Version-5.5.6-informational?style=flat-square) ![AppVersion: 2.14.2-beta](https://img.shields.io/badge/AppVersion-2.14.2--beta-informational?style=flat-square)
+![Version: 5.5.7](https://img.shields.io/badge/Version-5.5.7-informational?style=flat-square) ![AppVersion: 2.14.2-beta](https://img.shields.io/badge/AppVersion-2.14.2--beta-informational?style=flat-square)
 
 This server allows you to sync any Joplin client
 
@@ -22,7 +22,7 @@ This server allows you to sync any Joplin client
 
 | Repository | Name | Version |
 |------------|------|---------|
-| http://bjw-s.github.io/helm-charts/ | common | 0.2.0 |
+| http://bjw-s-labs.github.io/helm-charts/ | common | 0.2.0 |
 | https://charts.bitnami.com/bitnami | postgresql | ~11 |
 
 ## Values

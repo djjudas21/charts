@@ -1,6 +1,6 @@
 # webtrees
 
-![Version: 2.2.18](https://img.shields.io/badge/Version-2.2.18-informational?style=flat-square) ![AppVersion: 2.1.22](https://img.shields.io/badge/AppVersion-2.1.22-informational?style=flat-square)
+![Version: 2.2.19](https://img.shields.io/badge/Version-2.2.19-informational?style=flat-square) ![AppVersion: 2.1.22](https://img.shields.io/badge/AppVersion-2.1.22-informational?style=flat-square)
 
 Open-source online collaborative genealogy application
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| http://bjw-s.github.io/helm-charts/ | common | 0.2.0 |
+| http://bjw-s-labs.github.io/helm-charts/ | common | 0.2.0 |
 | https://charts.bitnami.com/bitnami | mariadb | ~18 |
 
 ## Values

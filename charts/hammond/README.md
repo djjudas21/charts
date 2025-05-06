@@ -1,6 +1,6 @@
 # hammond
 
-![Version: 0.3.8](https://img.shields.io/badge/Version-0.3.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.0.24](https://img.shields.io/badge/AppVersion-v0.0.24-informational?style=flat-square)
+![Version: 0.3.9](https://img.shields.io/badge/Version-0.3.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.0.24](https://img.shields.io/badge/AppVersion-v0.0.24-informational?style=flat-square)
 
 Self-hosted vehicle expense tracking system with support for multiple users
 
@@ -21,7 +21,7 @@ Self-hosted vehicle expense tracking system with support for multiple users
 
 | Repository | Name | Version |
 |------------|------|---------|
-| http://bjw-s.github.io/helm-charts/ | common | 0.2.0 |
+| http://bjw-s-labs.github.io/helm-charts/ | common | 0.2.0 |
 
 ## Values
 

@@ -3,7 +3,7 @@ appVersion: v0.0.24
 description: Self-hosted vehicle expense tracking system with support for multiple users
 type: application
 name: hammond
-version: 0.3.8
+version: 0.3.9
 keywords:
 - hammond
 - car
@@ -19,9 +19,9 @@ maintainers:
   email: djjudas21@users.noreply.github.com
 dependencies:
 - name: common
-  repository: http://bjw-s.github.io/helm-charts/
+  repository: http://bjw-s-labs.github.io/helm-charts/
   version: 0.2.0
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update refs to bjw-s/common
+      description: Migrate to bjw-s-labs

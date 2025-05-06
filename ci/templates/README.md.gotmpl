@@ -77,7 +77,7 @@ The command removes all the Kubernetes components associated with the chart **in
 {{- define "custom.bjwsRef" -}}
 {{- $ref := "" -}}
 {{- range .Dependencies -}}
-{{- if and (eq .Repository "https://bjw-s.github.io/helm-charts") (eq .Name "common") (semverCompare "^1.x" .Version) -}}
+{{- if and (eq .Repository "https://bjw-s-labs.github.io/helm-charts") (eq .Name "common") (semverCompare "^1.x" .Version) -}}
 {{- $ref = "a081de5" -}}
 {{- end -}}
 {{- end -}}
