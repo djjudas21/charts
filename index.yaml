@@ -1903,6 +1903,38 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Migrate to bjw-s-labs
+    apiVersion: v2
+    appVersion: v0.0.24
+    created: "2025-05-06T15:38:10.186989632Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    description: Self-hosted vehicle expense tracking system with support for multiple
+      users
+    digest: 063b2324b547d70fc3306376520011d3bf58f515c5a4bf2051df6eb00648d6d7
+    home: https://github.com/alfhou/hammond
+    icon: https://github.com/alfhou/hammond/raw/master/ui/src/assets/images/logo.png
+    keywords:
+    - hammond
+    - car
+    - expense
+    - fuel
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: hammond
+    sources:
+    - https://github.com/alfhou/hammond
+    - https://hub.docker.com/r/alfhou/hammond
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/hammond-0.3.9/hammond-0.3.9.tgz
+    version: 0.3.9
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update refs to bjw-s/common
     apiVersion: v2
     appVersion: v0.0.24
@@ -2419,6 +2451,32 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/heimdall-8.5.0/heimdall-8.5.0.tgz
     version: 8.5.0
   homer:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Migrate to bjw-s-labs
+    apiVersion: v2
+    appVersion: v24.12.1
+    created: "2025-05-06T15:38:10.317868503Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    description: A dead simple static HOMepage for your servER to keep your services
+      on hand, from a simple yaml configuration file.
+    digest: 02877455afeb04e7478299360ff9b75673f401757300537a642e3d23692f2782
+    home: https://github.com/djjudas21/charts/tree/master/charts/homer
+    icon: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/logo.png
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/homer-8.2.4/homer-8.2.4.tgz
+    version: 8.2.4
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -3693,6 +3751,39 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.0/jellystat-0.1.0.tgz
     version: 0.1.0
   joplin-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Migrate to bjw-s-labs
+    apiVersion: v2
+    appVersion: 2.14.2-beta
+    created: "2025-05-06T15:38:10.451858747Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~11
+    description: This server allows you to sync any Joplin client
+    digest: 409ca4c63085c1d4eeb907e07b51cdfc581f1edea3a8f9390f10822a0ae14384
+    home: https://github.com/djjudas21/charts/tree/master/charts/joplin-server
+    icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
+    keywords:
+    - joplin
+    - notes
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: joplin-server
+    sources:
+    - https://github.com/laurent22/joplin/tree/dev/packages/server
+    - https://github.com/laurent22/joplin
+    - https://hub.docker.com/r/joplin/server
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/joplin-server-5.5.7/joplin-server-5.5.7.tgz
+    version: 5.5.7
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -4997,6 +5088,44 @@ entries:
           description: Fix bootstrap image tag
     apiVersion: v2
     appVersion: v0.6.1
+    created: "2025-05-06T15:38:10.581823071Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: 40c1878d268c5ffb126c94091c4c86628cf979ae8f45e05df4a85be6eea76bb5
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.5.3/lldap-0.5.3.tgz
+    version: 0.5.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fix bootstrap image tag
+    apiVersion: v2
+    appVersion: v0.6.1
     created: "2025-04-07T16:05:19.523446793Z"
     dependencies:
     - condition: postgresql.enabled
@@ -5811,6 +5940,37 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.2/maian-music-0.2.2.tgz
     version: 0.2.2
   navidrome:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Migrate to bjw-s-labs
+    apiVersion: v2
+    appVersion: 0.55.2
+    created: "2025-05-06T15:38:10.734187266Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 771f9839afcc00562a47e55bb74d87c50a03ad8bbe148c603f5a4cf4d523e288
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.7.3/navidrome-6.7.3.tgz
+    version: 6.7.3
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -8284,6 +8444,42 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Migrate to bjw-s-labs
+    apiVersion: v2
+    appVersion: 240711-ce
+    created: "2025-05-06T15:38:10.88670258Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: PhotoPrism® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: 727864365284ddd3e4a5a28995f675ca3f9de7fbaaf305d8b80544c30f9c9601
+    home: https://github.com/djjudas21/charts/tree/master/charts/photoprism
+    icon: https://raw.githubusercontent.com/photoprism/photoprism/develop/assets/static/icons/app.svg
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/photoprism-7.4.20/photoprism-7.4.20.tgz
+    version: 7.4.20
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update refs to bjw-s/common
     apiVersion: v2
     appVersion: 240711-ce
@@ -9996,6 +10192,36 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Migrate to bjw-s-labs
+    apiVersion: v2
+    appVersion: 1.23.12
+    created: "2025-05-06T15:38:11.017666265Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 1.0.0
+    description: A fancy self-hosted monitoring tool for your websites and applications
+    digest: 83735e9b365398b380e7f370ecae5fa25ec7f5cd986112218c47c03dc9800cfe
+    home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma
+    icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
+    keywords:
+    - uptime-kuma
+    - status
+    - status-page
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/uptime-kuma-1.5.18/uptime-kuma-1.5.18.tgz
+    version: 1.5.18
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update refs to bjw-s/common
     apiVersion: v2
     appVersion: 1.23.12
@@ -10552,6 +10778,40 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/vikunja-6.1.2/vikunja-6.1.2.tgz
     version: 6.1.2
   webtrees:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Migrate to bjw-s-labs
+    apiVersion: v2
+    appVersion: 2.1.22
+    created: "2025-05-06T15:38:11.198377583Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Open-source online collaborative genealogy application
+    digest: a0e071601f1204f617ae44ff1572ea50c1ad1dbf52c9d289a8150100cfebdd92
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.19/webtrees-2.2.19.tgz
+    version: 2.2.19
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -11257,4 +11517,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-07T21:03:13.920868024Z"
+generated: "2025-05-06T15:38:11.199256612Z"
