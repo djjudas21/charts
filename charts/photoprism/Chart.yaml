@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 240711-ce
 description: PhotoPrism® is a server-based application for browsing, organizing and sharing your personal photo collection
 name: photoprism
-version: 7.4.19
+version: 7.4.20
 kubeVersion: ">=1.16.0-0"
 keywords:
   - photos
@@ -20,7 +20,7 @@ maintainers:
     email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
-    repository: http://bjw-s.github.io/helm-charts/
+    repository: http://bjw-s-labs.github.io/helm-charts/
     version: 0.2.0
   - name: mariadb
     version: ~18
@@ -29,4 +29,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update refs to bjw-s/common
+      description: description: Update refs to bjw-s-labs
