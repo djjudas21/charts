@@ -487,6 +487,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to ecowitt-exporter v0.7.0
+    apiVersion: v2
+    appVersion: 0.7.0
+    created: "2025-05-06T15:44:02.382783817Z"
+    description: A Prometheus & InfluxDB exporter for Ecowitt weather stations
+    digest: 5aadbd58dd2184dbd2183eeec7d2a4667d0127058688587b9921b7290d882863
+    home: https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: ecowitt-exporter
+    sources:
+    - https://github.com/djjudas21/ecowitt-exporter
+    - https://hub.docker.com/r/djjudas21/ecowitt-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/ecowitt-exporter-0.7.0/ecowitt-exporter-0.7.0.tgz
+    version: 0.7.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Fix mmHg-hPa conversion
     apiVersion: v2
     appVersion: 0.6.1
@@ -11517,4 +11545,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-06T15:38:11.199256612Z"
+generated: "2025-05-06T15:44:02.383520099Z"
