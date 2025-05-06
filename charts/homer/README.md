@@ -1,6 +1,6 @@
 # homer
 
-![Version: 8.2.3](https://img.shields.io/badge/Version-8.2.3-informational?style=flat-square) ![AppVersion: v24.12.1](https://img.shields.io/badge/AppVersion-v24.12.1-informational?style=flat-square)
+![Version: 8.2.4](https://img.shields.io/badge/Version-8.2.4-informational?style=flat-square) ![AppVersion: v24.12.1](https://img.shields.io/badge/AppVersion-v24.12.1-informational?style=flat-square)
 
 A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.
 
