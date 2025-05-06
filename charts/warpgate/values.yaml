@@ -2,40 +2,37 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+# -- Number of application replicas
 replicaCount: 1
 
-# This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
+  # -- This sets the container image
   repository: ghcr.io/warp-tech/warpgate
-  # This sets the pull policy for images.
+  # --This sets the pull policy for images.
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-# This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+# -- Secrets for pulling an image from a private repository
 imagePullSecrets: []
-# This is to override the chart name.
+# -- Override the chart name.
 nameOverride: ""
 fullnameOverride: ""
 
-# This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Automatically mount a ServiceAccount's API credentials?
+  # -- Automatically mount a ServiceAccount's API credentials?
   automount: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use.
+  # -- If not set and create is true, a name is generated using the fullname template
   name: ""
 
-# This is for setting Kubernetes Annotations to a Pod.
-# For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+# -- This is for setting Kubernetes Annotations to a Pod.
 podAnnotations: {}
-# This is for setting Kubernetes Labels to a Pod.
-# For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+# -- This is for setting Kubernetes Labels to a Pod.
 podLabels: {}
 
 podSecurityContext: {}
@@ -49,7 +46,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-# -- Persist the config
+# -- Persistent storage for config
 persistence:
   enabled: false
   storageClass: ""
@@ -57,30 +54,26 @@ persistence:
     - ReadWriteMany
   size: 1Gi
 
-# This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
+# -- Set up services
 service:
   ssh:
-    # This sets the service type
     type: ClusterIP
-    # This sets the port
     port: 2222
+    targetPort: 2222
   http:
-    # This sets the service type
     type: ClusterIP
-    # This sets the port
     port: 8888
+    targetPort: 8888
   mysql:
-    # This sets the service type
     type: ClusterIP
-    # This sets the port
     port: 33306
+    targetPort: 33306
   postgresql:
-    # This sets the service type
     type: ClusterIP
-    # This sets the port
     port: 54432
+    targetPort: 54432
 
-# This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
+# Set up the ingress
 ingress:
   enabled: false
   className: ""
@@ -109,7 +102,7 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-# This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+# -- Liveness and readiness probes
 livenessProbe:
   httpGet:
     path: /
