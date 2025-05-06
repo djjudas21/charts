@@ -29,7 +29,8 @@ lldap:
   # If this isn't specified, a secret will be generated with the credentials provided
   # in the values file. If you want to provide an external secret, for instance when
   # deploying with GitOps, specify its name here.
-  secretName: ~
+  secretName: ""
+
 
   # -- Random secret for JWT signature.
   # This secret should be random, and should be shared with application servers that need to
