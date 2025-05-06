@@ -1,6 +1,6 @@
 # lldap
 
-![Version: 0.4.3](https://img.shields.io/badge/Version-0.4.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.1](https://img.shields.io/badge/AppVersion-v0.6.1-informational?style=flat-square)
+![Version: 0.5.3](https://img.shields.io/badge/Version-0.5.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.1](https://img.shields.io/badge/AppVersion-v0.6.1-informational?style=flat-square)
 
 Light LDAP implementation
 
@@ -34,7 +34,9 @@ Light LDAP implementation
 | deploymentAnnotations | object | `{}` |  |
 | deploymentLabels | object | `{}` |  |
 | externalMariadb | object | `{"auth":{"database":"lldap","host":"","password":"","port":3306,"username":""},"enabled":false}` | Enable and configure external mariadb database |
+| externalMariadb.auth | object | `{"database":"lldap","host":"","password":"","port":3306,"username":""}` | Name of the secret key containing the database URI uriKey: |
 | externalPostgresql | object | `{"auth":{"database":"lldap","host":"","password":"","port":5432,"username":""},"enabled":false}` | - Enable and configure external postgresql database |
+| externalPostgresql.auth | object | `{"database":"lldap","host":"","password":"","port":5432,"username":""}` | Name of the secret key containing the database URI uriKey: |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"lldap/lldap"` | image repository |
@@ -48,17 +50,22 @@ Light LDAP implementation
 | lldap.extraVolumes | list | `[]` | - define extra volumes and mounts for the ldap |
 | lldap.gid | int | `1000` |  |
 | lldap.jwtSecret | string | `"REPLACE_WITH_RANDOM"` | Random secret for JWT signature. This secret should be random, and should be shared with application servers that need to consume the JWTs. Changing this secret will invalidate all user sessions and require them to re-login. You can generate it with (on linux): LC_ALL=C tr -dc 'A-Za-z0-9!#%&'\''()*+,-./:;<=>?@[\]^_{|}~' </dev/urandom | head -c 32; echo '' |
+| lldap.jwtSecretKey | string | `"jwtSecret"` | Name of the JWT signature key in the `.Values.lldap.secretName` Kubernetes secret. |
 | lldap.keySeed | string | `"REPLACE_WITH_RANDOM"` | Seed to generate the server private key. This can be any random string, the recommendation is that it's at least 12 characters long. |
+| lldap.keySeedKey | string | `"keySeed"` | Name of the key holding the private key seed in the `.Values.lldap.secretName` Kubernetes secret. |
 | lldap.ldapUserDN | string | `"admin"` | Admin username. For the LDAP interface, a value of "admin" here will create the LDAP user "cn=admin,ou=people,dc=example,dc=com" (with the base DN above). For the administration interface, this is the username. |
 | lldap.ldapUserPass | string | `"REPLACE_WITH_RANDOM"` | Admin password. Password for the admin account, both for the LDAP bind and for the administration interface. It is only used when initially creating the admin user. It should be minimum 8 characters long. Note: you can create another admin user for user administration, this is just the default one. |
+| lldap.ldapUserPassKey | string | `"ldapUserPass"` | Name of the LDAP admin password key in the `.Values.lldap.secretName` Kubernetes secret. |
 | lldap.ldaps | object | see below | Options to configure LDAPS |
 | lldap.ldaps.certFile | string | `"/data/cert.pem"` | Certificate file. |
 | lldap.ldaps.enabled | string | `"false"` | Whether to enable LDAPS. |
 | lldap.ldaps.keyFile | string | `"/data/key.pem"` | Certificate key file. |
+| lldap.secretName | string | `""` | Name of the Kubernetes secret containing credentials. If this isn't specified, a secret will be generated with the credentials provided in the values file. If you want to provide an external secret, for instance when deploying with GitOps, specify its name here. |
 | lldap.smtp | object | see below | Options to configure SMTP parameters, to send password reset emails. |
 | lldap.smtp.enablePasswordReset | bool | `false` | Whether to enabled password reset via email, from LLDAP. |
 | lldap.smtp.from | string | `"LLDAP Admin <sender@gmail.com>"` | The header field: how the sender appears in the email. The first is a free-form name, followed by an email between <>. Optional. |
 | lldap.smtp.password | string | `"password"` | The SMTP password. |
+| lldap.smtp.passwordKey | string | `"smtpPassword"` | Name of the SMTP password key in the `.Values.lldap.secretName` Kubernetes secret. Overrides the `.Values.lldap.smtp.password` if a custom secret is defined. |
 | lldap.smtp.port | int | `587` | The SMTP port. |
 | lldap.smtp.replyTo | string | `"Do not reply <noreply@localhost>"` | Same for reply-to, optional. |
 | lldap.smtp.server | string | `"smtp.gmail.com"` | The SMTP server. |
