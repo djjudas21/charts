@@ -1,0 +1,24 @@
+{{- if .Values.rbac.enabled }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "warpgate.fullname" . }}
+rules:
+- apiGroups: ["batch"]
+  resources: ["jobs"]
+  verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "warpgate.fullname" . }}
+subjects:
+- kind: ServiceAccount
+  name: {{ include "warpgate.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: Role
+  name: {{ include "warpgate.fullname" . }}
+  apiGroup: rbac.authorization.k8s.io
+{{- end }}

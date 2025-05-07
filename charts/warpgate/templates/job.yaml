@@ -1,14 +1,10 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: {{ include "warpgate.fullname" . }}
+  name: {{ include "warpgate.fullname" . }}-unattended-setup
   labels:
     {{- include "warpgate.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.replicaCount }}
-  selector:
-    matchLabels:
-      {{- include "warpgate.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -30,13 +26,6 @@ spec:
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      initContainers:
-        - name: unattended-setup
-          image: ghcr.io/groundnuty/k8s-wait-for:latest
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args:
-            - "job"
-            - {{ include "warpgate.fullname" . }}-unattended-setup
       containers:
         - name: {{ .Chart.Name }}
           {{- with .Values.securityContext }}
@@ -44,29 +33,26 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: 
+            - "warpgate"
+            - "unattended-setup"
+            - "--data-path"
+            - "/data"
+            - "--admin-password"
+            - "{{ .Values.warpgate.adminPassword }}"
+            - "--http-port"
+            - "{{ .Values.service.https.port }}"
+            - "--ssh-port"
+            - "{{ .Values.service.ssh.port }}"
+            - "--mysql-port"
+            - "{{ .Values.service.mysql.port }}"
+            - "--postgres-port"
+            - "{{ .Values.service.postgresql.port }}"
+          {{- if .Values.warpgate.recordSessions }}
+            - "--record-sessions"
+          {{- end }}            
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: https
-              containerPort: {{ .Values.service.https.port }}
-              protocol: TCP
-            - name: ssh
-              containerPort: {{ .Values.service.ssh.port }}
-              protocol: TCP
-            - name: mysql
-              containerPort: {{ .Values.service.mysql.port }}
-              protocol: TCP
-            - name: postgresql
-              containerPort: {{ .Values.service.postgresql.port }}
-              protocol: TCP
           {{- with .Values.livenessProbe }}
-          livenessProbe:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-          {{- with .Values.readinessProbe }}
-          readinessProbe:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-          {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
@@ -74,7 +60,10 @@ spec:
           volumeMounts:
           - mountPath: /data
             name: data
+          - mountPath: /etc
+            name: data
           {{- end }}
+      restartPolicy: Never
       {{- if .Values.persistence.enabled }}
       volumes:
       - name: data

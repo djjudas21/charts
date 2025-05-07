@@ -13,6 +13,10 @@ image:
   # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+warpgate:
+  adminPassword: changeme
+  recordSessions: false
+
 # -- Secrets for pulling an image from a private repository
 imagePullSecrets: []
 # -- Override the chart name.
@@ -113,6 +117,10 @@ readinessProbe:
     path: /
     port: https
     scheme: HTTPS
+
+rbac:
+  # -- Create RBAC policies
+  enabled: true
 
 nodeSelector: {}
 
