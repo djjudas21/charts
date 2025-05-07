@@ -60,7 +60,7 @@ service:
     type: ClusterIP
     port: 2222
     targetPort: 2222
-  http:
+  https:
     type: ClusterIP
     port: 8888
     targetPort: 8888
@@ -106,11 +106,13 @@ resources: {}
 livenessProbe:
   httpGet:
     path: /
-    port: http
+    port: https
+    scheme: HTTPS
 readinessProbe:
   httpGet:
     path: /
-    port: http
+    port: https
+    scheme: HTTPS
 
 nodeSelector: {}
 
