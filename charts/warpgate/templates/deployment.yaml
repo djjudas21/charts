@@ -40,7 +40,16 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: {{ .Values.service.http.port }}
+              protocol: TCP
+            - name: ssh
+              containerPort: {{ .Values.service.ssh.port }}
+              protocol: TCP
+            - name: mysql
+              containerPort: {{ .Values.service.mysql.port }}
+              protocol: TCP
+            - name: postgresql
+              containerPort: {{ .Values.service.postgresql.port }}
               protocol: TCP
           {{- with .Values.livenessProbe }}
           livenessProbe:
