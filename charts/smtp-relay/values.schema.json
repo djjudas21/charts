@@ -260,6 +260,11 @@
     "service": {
       "description": "Configures service settings for the chart.",
       "properties": {
+        "annotations": {
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
         "loadBalancerIP": {
           "default": "",
           "required": [],
