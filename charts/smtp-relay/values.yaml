@@ -73,6 +73,7 @@ securityContext: {}
 # @default -- See values.yaml
 service:
   type: ClusterIP
+  annotations: {}
   loadBalancerIP: ""
   port: 25
 
