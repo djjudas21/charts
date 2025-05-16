@@ -113,7 +113,7 @@ spec:
         - name: metrics
           image: chatwork/kumina-postfix-exporter:edge
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args: ["--postfix.showq_path", "/var/spool/postfix/public/showq"]
+          args: ["--postfix.showq_path", "/var/spool/postfix/public/showq", "--postfix.logfile_path", "/dev/null"]
           ports:
             - name: metrics
               containerPort: 9154
