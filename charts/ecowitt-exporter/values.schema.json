@@ -9,6 +9,13 @@
     "env": {
       "description": "environment variables",
       "properties": {
+        "aqiStandard": {
+          "default": "uk",
+          "description": "AQI standard: uk, epa, mep, nepm",
+          "required": [],
+          "title": "aqiStandard",
+          "type": "string"
+        },
         "debug": {
           "default": false,
           "description": "enable debug output",
@@ -16,61 +23,33 @@
           "title": "debug",
           "type": "boolean"
         },
-        "influxdb": {
-          "default": false,
-          "description": "enable push to InfluxDB",
+        "distanceUnit": {
+          "default": "km",
+          "description": "Distance in km, mi",
           "required": [],
-          "title": "influxdb",
-          "type": "boolean"
-        },
-        "influxdbBucket": {
-          "default": "default",
-          "description": "InfluxDB bucket",
-          "required": [],
-          "title": "influxdbBucket",
-          "type": "string"
-        },
-        "influxdbOrg": {
-          "default": "influxdata",
-          "description": "InfluxDB organization",
-          "required": [],
-          "title": "influxdbOrg",
-          "type": "string"
-        },
-        "influxdbToken": {
-          "default": "",
-          "description": "InfluxDB token",
-          "required": [],
-          "title": "influxdbToken",
-          "type": "string"
-        },
-        "influxdbUrl": {
-          "default": "http://localhost:8086/",
-          "description": "InfluxDB URL",
-          "required": [],
-          "title": "influxdbUrl",
+          "title": "distanceUnit",
           "type": "string"
         },
         "irradianceUnit": {
           "default": "wm2",
-          "description": "Irradiance in wm2",
+          "description": "Irradiance in wm2, lx, fc",
           "required": [],
           "title": "irradianceUnit",
           "type": "string"
         },
+        "prefix": {
+          "default": "ecowitt_",
+          "description": "prefix to be prepended to all Prometheus metrics",
+          "required": [],
+          "title": "prefix",
+          "type": "string"
+        },
         "pressureUnit": {
           "default": "hpa",
-          "description": "Pressure in hpa or in",
+          "description": "Pressure in hpa, in or mmhg",
           "required": [],
           "title": "pressureUnit",
           "type": "string"
-        },
-        "prometheus": {
-          "default": true,
-          "description": "enable Prometheus exporter",
-          "required": [],
-          "title": "prometheus",
-          "type": "boolean"
         },
         "rainUnit": {
           "default": "mm",
@@ -81,14 +60,14 @@
         },
         "temperatureUnit": {
           "default": "c",
-          "description": "Temperature in c or f",
+          "description": "Temperature in c, f or k",
           "required": [],
           "title": "temperatureUnit",
           "type": "string"
         },
         "windUnit": {
           "default": "kmh",
-          "description": "Wind speed in kmh or mph",
+          "description": "Wind speed in kmh, mph, ms, knots, fps",
           "required": [],
           "title": "windUnit",
           "type": "string"
