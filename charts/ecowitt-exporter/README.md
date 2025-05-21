@@ -30,7 +30,7 @@ A Prometheus exporter for Ecowitt weather stations
 | env.prefix | string | `"ecowitt_"` | prefix to be prepended to all Prometheus metrics |
 | env.pressureUnit | string | `"hpa"` | Pressure in hpa, in or mmhg |
 | env.rainUnit | string | `"mm"` | Rainfall in mm or in |
-| env.temperatureUnit | string | `"c"` | Temperature in c, f or k |
+| env.temperatureUnit | string | `"c"` | Temperature in c, f or k @schema enum: [c,f,k] @schema |
 | env.windUnit | string | `"kmh"` | Wind speed in kmh, mph, ms, knots, fps |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
