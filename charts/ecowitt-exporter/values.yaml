@@ -24,6 +24,9 @@ env:
   # Apologies to scientists, for whom this will be a difficult time.
 
   # -- Temperature in c, f or k
+  # @schema
+  # enum: [c,f,k]
+  # @schema
   temperatureUnit: 'c'
 
   # -- Pressure in hpa, in or mmhg
