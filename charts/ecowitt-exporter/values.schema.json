@@ -12,9 +12,14 @@
         "aqiStandard": {
           "default": "uk",
           "description": "AQI standard: uk, epa, mep, nepm",
+          "enum": [
+            "uk",
+            "epa",
+            "mep",
+            "nepm"
+          ],
           "required": [],
-          "title": "aqiStandard",
-          "type": "string"
+          "title": "aqiStandard"
         },
         "debug": {
           "default": false,
@@ -26,16 +31,23 @@
         "distanceUnit": {
           "default": "km",
           "description": "Distance in km, mi",
+          "enum": [
+            "km",
+            "mi"
+          ],
           "required": [],
-          "title": "distanceUnit",
-          "type": "string"
+          "title": "distanceUnit"
         },
         "irradianceUnit": {
           "default": "wm2",
           "description": "Irradiance in wm2, lx, fc",
+          "enum": [
+            "wm2",
+            "lx",
+            "fc"
+          ],
           "required": [],
-          "title": "irradianceUnit",
-          "type": "string"
+          "title": "irradianceUnit"
         },
         "prefix": {
           "default": "ecowitt_",
@@ -47,16 +59,23 @@
         "pressureUnit": {
           "default": "hpa",
           "description": "Pressure in hpa, in or mmhg",
+          "enum": [
+            "hpa",
+            "in",
+            "mmhg"
+          ],
           "required": [],
-          "title": "pressureUnit",
-          "type": "string"
+          "title": "pressureUnit"
         },
         "rainUnit": {
           "default": "mm",
           "description": "Rainfall in mm or in",
+          "enum": [
+            "mm",
+            "in"
+          ],
           "required": [],
-          "title": "rainUnit",
-          "type": "string"
+          "title": "rainUnit"
         },
         "temperatureUnit": {
           "default": "c",
@@ -72,9 +91,15 @@
         "windUnit": {
           "default": "kmh",
           "description": "Wind speed in kmh, mph, ms, knots, fps",
+          "enum": [
+            "kmh",
+            "mph",
+            "ms",
+            "knots",
+            "fps"
+          ],
           "required": [],
-          "title": "windUnit",
-          "type": "string"
+          "title": "windUnit"
         }
       },
       "required": [],
