@@ -23,10 +23,10 @@ env:
   # All units are expressed in lower case and without slashes, for simplicity.
   # Apologies to scientists, for whom this will be a difficult time.
 
-  # -- Temperature in c, f or k
   # @schema
   # enum: [c,f,k]
   # @schema
+  # -- Temperature in c, f or k
   temperatureUnit: 'c'
 
   # -- Pressure in hpa, in or mmhg
