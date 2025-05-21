@@ -1,8 +1,8 @@
 # ecowitt-exporter
 
-![Version: 0.8.1](https://img.shields.io/badge/Version-0.8.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.8.1](https://img.shields.io/badge/AppVersion-0.8.1-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
-A Prometheus & InfluxDB exporter for Ecowitt weather stations
+A Prometheus exporter for Ecowitt weather stations
 
 **Homepage:** <https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter>
 
@@ -23,18 +23,15 @@ A Prometheus & InfluxDB exporter for Ecowitt weather stations
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | env | object | See below | environment variables |
+| env.aqiStandard | string | `"uk"` | AQI standard: uk, epa, mep, nepm |
 | env.debug | bool | `false` | enable debug output |
-| env.influxdb | bool | `false` | enable push to InfluxDB |
-| env.influxdbBucket | string | `"default"` | InfluxDB bucket |
-| env.influxdbOrg | string | `"influxdata"` | InfluxDB organization |
-| env.influxdbToken | string | `""` | InfluxDB token |
-| env.influxdbUrl | string | `"http://localhost:8086/"` | InfluxDB URL |
-| env.irradianceUnit | string | `"wm2"` | Irradiance in wm2 |
-| env.pressureUnit | string | `"hpa"` | Pressure in hpa or in |
-| env.prometheus | bool | `true` | enable Prometheus exporter |
+| env.distanceUnit | string | `"km"` | Distance in km, mi |
+| env.irradianceUnit | string | `"wm2"` | Irradiance in wm2, lx, fc |
+| env.prefix | string | `"ecowitt_"` | prefix to be prepended to all Prometheus metrics |
+| env.pressureUnit | string | `"hpa"` | Pressure in hpa, in or mmhg |
 | env.rainUnit | string | `"mm"` | Rainfall in mm or in |
-| env.temperatureUnit | string | `"c"` | Temperature in c or f |
-| env.windUnit | string | `"kmh"` | Wind speed in kmh or mph |
+| env.temperatureUnit | string | `"c"` | Temperature in c, f or k |
+| env.windUnit | string | `"kmh"` | Wind speed in kmh, mph, ms, knots, fps |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"djjudas21/ecowitt-exporter"` | image repository |
