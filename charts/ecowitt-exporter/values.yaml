@@ -17,36 +17,32 @@ image:
 env:
   # -- enable debug output
   debug: false
-  # -- enable Prometheus exporter
-  prometheus: true
-  # -- enable push to InfluxDB
-  influxdb: false
-  # -- InfluxDB token
-  influxdbToken: ""
-  # -- InfluxDB URL
-  influxdbUrl: http://localhost:8086/
-  # -- InfluxDB organization
-  influxdbOrg: influxdata
-  # -- InfluxDB bucket
-  influxdbBucket: default
+  # -- prefix to be prepended to all Prometheus metrics
+  prefix: "ecowitt_"
 
   # All units are expressed in lower case and without slashes, for simplicity.
   # Apologies to scientists, for whom this will be a difficult time.
 
-  # -- Temperature in c or f
+  # -- Temperature in c, f or k
   temperatureUnit: 'c'
 
-  # -- Pressure in hpa or in
+  # -- Pressure in hpa, in or mmhg
   pressureUnit: 'hpa'
 
-  # -- Wind speed in kmh or mph
+  # -- Wind speed in kmh, mph, ms, knots, fps
   windUnit: 'kmh'
 
   # -- Rainfall in mm or in
   rainUnit: 'mm'
 
-  # -- Irradiance in wm2
+  # -- Irradiance in wm2, lx, fc
   irradianceUnit: 'wm2'
+
+  # -- Distance in km, mi
+  distanceUnit: 'km'
+
+  # -- AQI standard: uk, epa, mep, nepm
+  aqiStandard: uk
 
 imagePullSecrets: []
 nameOverride: ""

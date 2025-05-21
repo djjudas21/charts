@@ -44,22 +44,12 @@ spec:
             value: {{ .Values.env.rainUnit }}
           - name: IRRADIANCE_UNIT
             value: {{ .Values.env.irradianceUnit }}
-          {{- if .Values.env.prometheus }}
-          - name: PROMETHEUS
-            value: "yes"
-          {{- end }}
-          {{- if .Values.env.influxdb }}
-          - name: INFLUXDB
-            value: "yes"
-          - name: INFLUXDB_TOKEN
-            value: {{ .Values.env.influxdbToken }}
-          - name: INFLUXDB_URL
-            value: {{ .Values.env.influxdbUrl }}
-          - name: INFLUXDB_ORG
-            value: {{ .Values.env.influxdbOrg }}
-          - name: INFLUXDB_BUCKET
-            value: {{ .Values.env.influxdbBucket }}
-          {{- end }}
+          - name: DISTANCE_UNIT
+            value: {{ .Values.env.distanceUnit }}
+          - name: AQI_STANDARD
+            value: {{ .Values.env.aqiStandard }}
+          - name: PREFIX
+            value: {{ .Values.env.prefix }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
