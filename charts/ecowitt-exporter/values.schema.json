@@ -61,9 +61,13 @@
         "temperatureUnit": {
           "default": "c",
           "description": "Temperature in c, f or k",
+          "enum": [
+            "c",
+            "f",
+            "k"
+          ],
           "required": [],
-          "title": "temperatureUnit",
-          "type": "string"
+          "title": "temperatureUnit"
         },
         "windUnit": {
           "default": "kmh",
