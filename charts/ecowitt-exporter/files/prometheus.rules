@@ -1,96 +1,67 @@
-    - alert: EcowittPM25Battery
-      expr: pm25batt<=2
+  groups:
+  - name: ecowitt-exporter.rules
+    rules:
+    - alert: EcowittBatteryLevel
+      expr: ecowitt_batterylevel <= 2
       for: 15m
       labels:
         severity: warning
       annotations:
-        summary: Ecowitt PM2.5 sensor battery low
-        description: "Ecowitt PM2.5 sensor battery level is {{ $value }}/5"
-    - alert: EcowittWH57Battery
-      expr: wh57batt<=2
-      for: 15m
-      labels:
-        severity: warning
-      annotations:
-        summary: Ecowitt WH57 sensor battery low
-        description: "Ecowitt lightning sensor battery level is {{ $value }}/5"
-    - alert: EcowittWH65Battery
-      expr: wh65batt != 0
+        summary: Ecowitt sensor battery low
+        description: "Ecowitt {{ $labels.sensor }} sensor battery level is {{ $value }}/5"
+    - alert: EcowittBatteryStatus
+      expr: ecowitt_batterystatus != 0
       for: 15m
       labels:
         severity: warning
       annotations:
         summary: Ecowitt WH65 sensor battery warning
-        description: "Ecowitt WH65 sensor array battery status is {{ $value }}"
-    - alert: EcowittWH25Battery
-      expr: wh25batt != 0
+        description: "Ecowitt {{ $labels.sensor }} sensor array battery status is {{ $value }}"
+    - alert: EcowittUVIndexVeryHigh
+      expr: ecowitt_uv >= 8
       for: 15m
       labels:
         severity: warning
       annotations:
-        summary: Ecowitt WH25 sensor battery warning
-        description: "Ecowitt WH25 sensor array battery status is {{ $value }}"
-    - alert: EcowittTemp1Battery
-      expr: batt1 != 0
+        summary: Ecowitt UV index is Very High
+        description: "Ecowitt UV index is {{ $value }}"
+    - alert: EcowittUVIndexExtreme
+      expr: ecowitt_uv >= 11
       for: 15m
       labels:
         severity: warning
       annotations:
-        summary: Ecowitt ch1 sensor battery warning
-        description: "Ecowitt Temperature channel 1 sensor battery status is {{ $value }}"
-    - alert: EcowittTemp2Battery
-      expr: batt2 != 0
+        summary: Ecowitt UV index is Extreme
+        description: "Ecowitt UV index is {{ $value }}"
+    - alert: EcowittHighTemperature
+      expr: ecowitt_temp_c{sensor='outdoor'} >= 40
       for: 15m
       labels:
         severity: warning
       annotations:
-        summary: Ecowitt ch2 sensor battery warning
-        description: "Ecowitt Temperature channel 2 sensor battery status is {{ $value }}"
-    - alert: EcowittTemp3Battery
-      expr: batt3 != 0
+        summary: Ecowitt outdoor temperature is high
+        description: "Ecowitt outdoor temperature is {{ $value }}"
+    - alert: EcowittHighWinds
+      expr: ecowitt_windspeed_mph{sensor='windspeed'} >= 50
       for: 15m
       labels:
         severity: warning
       annotations:
-        summary: Ecowitt ch3 sensor battery warning
-        description: "Ecowitt Temperature channel 3 sensor battery status is {{ $value }}"
-    - alert: EcowittTemp4Battery
-      expr: batt4 != 0
+        summary: Ecowitt wind speed is high
+        description: "Ecowitt wind speed is {{ $value }}"
+    - alert: EcowittPM25
+      expr: ecowitt_pm25{series='avg_24h'} >= 35
       for: 15m
       labels:
         severity: warning
       annotations:
-        summary: Ecowitt ch4 sensor battery warning
-        description: "Ecowitt Temperature channel 4 sensor battery status is {{ $value }}"
-    - alert: EcowittTemp5Battery
-      expr: batt5 != 0
+        summary: Ecowitt PM2.5 level is high
+        description: "Ecowitt PM2.5 level is {{ $value }}"
+    - alert: EcowittAirPollution
+      expr: ecowitt_aqi >= 7
       for: 15m
       labels:
         severity: warning
       annotations:
-        summary: Ecowitt ch5 sensor battery warning
-        description: "Ecowitt Temperature channel 5 sensor battery status is {{ $value }}"
-    - alert: EcowittTemp6Battery
-      expr: batt6 != 0
-      for: 15m
-      labels:
-        severity: warning
-      annotations:
-        summary: Ecowitt ch6 sensor battery warning
-        description: "Ecowitt Temperature channel 6 sensor battery status is {{ $value }}"
-    - alert: EcowittTemp7Battery
-      expr: batt7 != 0
-      for: 15m
-      labels:
-        severity: warning
-      annotations:
-        summary: Ecowitt ch7 sensor battery warning
-        description: "Ecowitt Temperature channel 7 sensor battery status is {{ $value }}"
-    - alert: EcowittTemp8Battery
-      expr: batt8 != 0
-      for: 15m
-      labels:
-        severity: warning
-      annotations:
-        summary: Ecowitt ch8 sensor battery warning
-        description: "Ecowitt Temperature channel 8 sensor battery status is {{ $value }}"
+        summary: Ecowitt air pollution is high
+        description: "Ecowitt air pollution index is {{ $value }}"
