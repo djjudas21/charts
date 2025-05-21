@@ -29,21 +29,39 @@ env:
   # -- Temperature in c, f or k
   temperatureUnit: 'c'
 
+  # @schema
+  # enum: [hpa,in,mmhg]
+  # @schema
   # -- Pressure in hpa, in or mmhg
   pressureUnit: 'hpa'
 
+  # @schema
+  # enum: [kmh,mph,ms,knots,fps]
+  # @schema
   # -- Wind speed in kmh, mph, ms, knots, fps
   windUnit: 'kmh'
 
+  # @schema
+  # enum: [mm,in]
+  # @schema
   # -- Rainfall in mm or in
   rainUnit: 'mm'
 
+  # @schema
+  # enum: [wm2,lx,fc]
+  # @schema
   # -- Irradiance in wm2, lx, fc
   irradianceUnit: 'wm2'
 
+  # @schema
+  # enum: [km,mi]
+  # @schema
   # -- Distance in km, mi
   distanceUnit: 'km'
 
+  # @schema
+  # enum: [uk, epa, mep, nepm]
+  # @schema
   # -- AQI standard: uk, epa, mep, nepm
   aqiStandard: uk
 
