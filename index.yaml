@@ -487,6 +487,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to ecowitt-exporter 1.0.3
+    apiVersion: v2
+    appVersion: 1.0.3
+    created: "2025-05-22T21:32:35.926660575Z"
+    description: A Prometheus exporter for Ecowitt weather stations
+    digest: 2db4742d273249bcaf38d2efb68030180f1f11d957486c72e4de40fda73c275e
+    home: https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: ecowitt-exporter
+    sources:
+    - https://github.com/djjudas21/ecowitt-exporter
+    - https://hub.docker.com/r/djjudas21/ecowitt-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/ecowitt-exporter-1.0.3/ecowitt-exporter-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to ecowitt-exporter 0.8.1
     apiVersion: v2
     appVersion: 0.8.1
@@ -11597,4 +11625,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-05-14T20:01:32.330602266Z"
+generated: "2025-05-22T21:32:35.927403441Z"
