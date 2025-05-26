@@ -135,3 +135,7 @@ serviceMonitor:
 prometheusRules:
   # -- Enable Prometheus rules for Prometheus Operator
   enabled: false
+  # -- Enable battery alerts
+  batteryAlerts: true
+  # -- Enable weather alerts
+  weatherAlerts: true

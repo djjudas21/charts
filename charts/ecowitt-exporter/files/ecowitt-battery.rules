@@ -1,0 +1,18 @@
+  - name: ecowitt-battery.rules
+    rules:
+    - alert: EcowittBatteryLevel
+      expr: ecowitt_batterylevel <= 2
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt sensor battery low
+        description: "Ecowitt {{ $labels.sensor }} sensor battery level is {{ $value }}/5"
+    - alert: EcowittBatteryStatus
+      expr: ecowitt_batterystatus != 0
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt WH65 sensor battery warning
+        description: "Ecowitt {{ $labels.sensor }} sensor array battery status is {{ $value }}"

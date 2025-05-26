@@ -7,5 +7,11 @@ metadata:
     role: alert-rules
   name: {{ include "ecowitt-exporter.fullname" . }}
 spec:
-{{ .Files.Get "files/prometheus.rules" }}
+  groups:
+{{- if .Values.prometheusRules.batteryAlerts }}
+{{ .Files.Get "files/ecowitt-battery.rules" }}
+{{- end }}
+{{- if .Values.prometheusRules.weatherAlerts }}
+{{ .Files.Get "files/ecowitt-weather.rules" }}
+{{- end }}
 {{- end }}
