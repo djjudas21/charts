@@ -262,11 +262,25 @@
     },
     "prometheusRules": {
       "properties": {
+        "batteryAlerts": {
+          "default": true,
+          "description": "Enable battery alerts",
+          "required": [],
+          "title": "batteryAlerts",
+          "type": "boolean"
+        },
         "enabled": {
           "default": false,
           "description": "Enable Prometheus rules for Prometheus Operator",
           "required": [],
           "title": "enabled",
+          "type": "boolean"
+        },
+        "weatherAlerts": {
+          "default": true,
+          "description": "Enable weather alerts",
+          "required": [],
+          "title": "weatherAlerts",
           "type": "boolean"
         }
       },
