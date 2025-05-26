@@ -1,6 +1,6 @@
 # ecowitt-exporter
 
-![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square)
+![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square)
 
 A Prometheus exporter for Ecowitt weather stations
 
@@ -43,7 +43,9 @@ A Prometheus exporter for Ecowitt weather stations
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
+| prometheusRules.batteryAlerts | bool | `true` | Enable battery alerts |
 | prometheusRules.enabled | bool | `false` | Enable Prometheus rules for Prometheus Operator |
+| prometheusRules.weatherAlerts | bool | `true` | Enable weather alerts |
 | replicaCount | int | `1` | Number of replicas |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
