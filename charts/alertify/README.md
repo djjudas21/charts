@@ -22,10 +22,10 @@ Bridge between Prometheus Alertmanager and Gotify
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| env.DELETE_ONRESOLVE | bool | `false` |  |
-| env.DISABLE_RESOLVED | bool | `false` |  |
-| env.GOTIFY_KEY_APP | string | `""` |  |
-| env.GOTIFY_KEY_CLIENT | string | `""` |  |
+| env.DELETE_ONRESOLVE | bool | `false` | Resolved alerts delete the original alert, if enabled |
+| env.DISABLE_RESOLVED | bool | `false` | Forwards resolved alerts, if not disabled |
+| env.GOTIFY_KEY_APP | string | `""` | Gotify app key to send alerts to Gotify |
+| env.GOTIFY_KEY_CLIENT | string | `""` | Gotify client key to delete original alert on resolution |
 | env.GOTIFY_URL_PREFIX | string | `"http://localhost"` |  |
 | env.VERBOSE | string | `"0"` |  |
 | fullnameOverride | string | `""` |  |
