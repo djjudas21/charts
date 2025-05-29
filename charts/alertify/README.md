@@ -33,17 +33,11 @@ Bridge between Prometheus Alertmanager and Gotify
 | image.repository | string | `"djjudas21/alertify"` |  |
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
-| livenessProbe.exec.command[0] | string | `"python"` |  |
-| livenessProbe.exec.command[1] | string | `"alertify.py"` |  |
-| livenessProbe.exec.command[2] | string | `"--healthcheck"` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
-| readinessProbe.exec.command[0] | string | `"python"` |  |
-| readinessProbe.exec.command[1] | string | `"alertify.py"` |  |
-| readinessProbe.exec.command[2] | string | `"--healthcheck"` |  |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
