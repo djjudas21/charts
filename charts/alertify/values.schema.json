@@ -10,24 +10,28 @@
       "properties": {
         "DELETE_ONRESOLVE": {
           "default": false,
+          "description": "Resolved alerts delete the original alert, if enabled",
           "required": [],
           "title": "DELETE_ONRESOLVE",
           "type": "boolean"
         },
         "DISABLE_RESOLVED": {
           "default": false,
+          "description": "Forwards resolved alerts, if not disabled",
           "required": [],
           "title": "DISABLE_RESOLVED",
           "type": "boolean"
         },
         "GOTIFY_KEY_APP": {
           "default": "",
+          "description": "Gotify app key to send alerts to Gotify",
           "required": [],
           "title": "GOTIFY_KEY_APP",
           "type": "string"
         },
         "GOTIFY_KEY_CLIENT": {
           "default": "",
+          "description": "Gotify client key to delete original alert on resolution",
           "required": [],
           "title": "GOTIFY_KEY_CLIENT",
           "type": "string"
