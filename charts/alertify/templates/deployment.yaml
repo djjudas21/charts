@@ -49,14 +49,12 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          {{- with .Values.livenessProbe }}
           livenessProbe:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-          {{- with .Values.readinessProbe }}
+            exec:
+              command: ["python", "alertify.py", "--healthcheck"]
           readinessProbe:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+            exec:
+              command: ["python", "alertify.py", "--healthcheck"]
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
