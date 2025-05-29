@@ -102,43 +102,6 @@
       "title": "imagePullSecrets",
       "type": "array"
     },
-    "livenessProbe": {
-      "description": "This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
-      "properties": {
-        "exec": {
-          "properties": {
-            "command": {
-              "items": {
-                "anyOf": [
-                  {
-                    "required": [],
-                    "type": "string"
-                  },
-                  {
-                    "required": [],
-                    "type": "string"
-                  },
-                  {
-                    "required": [],
-                    "type": "string"
-                  }
-                ],
-                "required": []
-              },
-              "required": [],
-              "title": "command",
-              "type": "array"
-            }
-          },
-          "required": [],
-          "title": "exec",
-          "type": "object"
-        }
-      },
-      "required": [],
-      "title": "livenessProbe",
-      "type": "object"
-    },
     "nameOverride": {
       "default": "",
       "description": "This is to override the chart name.",
@@ -166,42 +129,6 @@
     "podSecurityContext": {
       "required": [],
       "title": "podSecurityContext",
-      "type": "object"
-    },
-    "readinessProbe": {
-      "properties": {
-        "exec": {
-          "properties": {
-            "command": {
-              "items": {
-                "anyOf": [
-                  {
-                    "required": [],
-                    "type": "string"
-                  },
-                  {
-                    "required": [],
-                    "type": "string"
-                  },
-                  {
-                    "required": [],
-                    "type": "string"
-                  }
-                ],
-                "required": []
-              },
-              "required": [],
-              "title": "command",
-              "type": "array"
-            }
-          },
-          "required": [],
-          "title": "exec",
-          "type": "object"
-        }
-      },
-      "required": [],
-      "title": "readinessProbe",
       "type": "object"
     },
     "replicaCount": {
