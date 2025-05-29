@@ -14,9 +14,13 @@ image:
   tag: ""
 
 env:
+  # -- Resolved alerts delete the original alert, if enabled
   DELETE_ONRESOLVE: false
+  # -- Forwards resolved alerts, if not disabled
   DISABLE_RESOLVED: false
+  # -- Gotify app key to send alerts to Gotify
   GOTIFY_KEY_APP: ""
+  # -- Gotify client key to delete original alert on resolution
   GOTIFY_KEY_CLIENT: ""
   GOTIFY_URL_PREFIX: "http://localhost"
   VERBOSE: "0"
