@@ -17,8 +17,6 @@ image:
 env:
   # -- enable debug output
   debug: false
-  # -- prefix to be prepended to all Prometheus metrics
-  prefix: "ecowitt_"
 
   # All units are expressed in lower case and without slashes, for simplicity.
   # Apologies to scientists, for whom this will be a difficult time.
