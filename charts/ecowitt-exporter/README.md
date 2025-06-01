@@ -1,6 +1,6 @@
 # ecowitt-exporter
 
-![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square)
+![Version: 2.1.0](https://img.shields.io/badge/Version-2.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.0](https://img.shields.io/badge/AppVersion-2.1.0-informational?style=flat-square)
 
 A Prometheus exporter for Ecowitt weather stations
 
@@ -27,7 +27,6 @@ A Prometheus exporter for Ecowitt weather stations
 | env.debug | bool | `false` | enable debug output |
 | env.distanceUnit | string | `"km"` | Distance in km, mi |
 | env.irradianceUnit | string | `"wm2"` | Irradiance in wm2, lx, fc |
-| env.prefix | string | `"ecowitt_"` | prefix to be prepended to all Prometheus metrics |
 | env.pressureUnit | string | `"hpa"` | Pressure in hpa, in or mmhg |
 | env.rainUnit | string | `"mm"` | Rainfall in mm or in |
 | env.temperatureUnit | string | `"c"` | Temperature in c, f or k |
