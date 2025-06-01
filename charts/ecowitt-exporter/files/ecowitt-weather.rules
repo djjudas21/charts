@@ -17,7 +17,7 @@
         summary: Ecowitt UV index is Extreme
         description: "Ecowitt UV index is {{ $value }}"
     - alert: EcowittHighTemperature
-      expr: ecowitt_temp_c{sensor='outdoor'} >= 40
+      expr: ecowitt_temp{sensor='outdoor'} >= 40
       for: 15m
       labels:
         severity: warning
@@ -25,7 +25,7 @@
         summary: Ecowitt outdoor temperature is high
         description: "Ecowitt outdoor temperature is {{ $value }}"
     - alert: EcowittHighWinds
-      expr: ecowitt_windspeed_mph{sensor='windspeed'} >= 50
+      expr: ecowitt_windspeed{sensor='windspeed'} >= 50
       for: 15m
       labels:
         severity: warning

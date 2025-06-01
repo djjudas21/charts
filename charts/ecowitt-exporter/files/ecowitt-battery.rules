@@ -8,6 +8,14 @@
       annotations:
         summary: Ecowitt sensor battery low
         description: "Ecowitt {{ $labels.sensor }} sensor battery level is {{ $value }}/5"
+    - alert: EcowittBatteryVoltage
+      expr: ecowitt_batteryvoltage < 1.5
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt battery voltage low
+        description: "Ecowitt {{ $labels.sensor }} battery voltage is {{ $value }}V"
     - alert: EcowittBatteryStatus
       expr: ecowitt_batterystatus != 0
       for: 15m
