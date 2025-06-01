@@ -49,13 +49,6 @@
           "required": [],
           "title": "irradianceUnit"
         },
-        "prefix": {
-          "default": "ecowitt_",
-          "description": "prefix to be prepended to all Prometheus metrics",
-          "required": [],
-          "title": "prefix",
-          "type": "string"
-        },
         "pressureUnit": {
           "default": "hpa",
           "description": "Pressure in hpa, in or mmhg",
