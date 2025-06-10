@@ -9,9 +9,99 @@ metadata:
 spec:
   groups:
 {{- if .Values.prometheusRules.batteryAlerts }}
-{{ .Files.Get "files/ecowitt-battery.rules" }}
+  - name: ecowitt-battery.rules
+    rules:
+    - alert: EcowittBatteryLevel
+      expr: ecowitt_batterylevel <= 2
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt sensor battery low
+        description: "Ecowitt {{ "{{ $labels.sensor }}" }} sensor battery level is {{ "{{ $value }}" }}/5"
+
+    - alert: EcowittBatteryVoltage
+      expr: ecowitt_batteryvoltage < {{ .Values.prometheusRules.voltageWarning }}
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt battery voltage low
+        description: "Ecowitt {{ "{{ $labels.sensor }}" }} battery voltage is {{ "{{ $value }}" }}V"
+
+    - alert: EcowittBatteryStatus
+      expr: ecowitt_batterystatus != 0
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt WH65 sensor battery warning
+        description: "Ecowitt {{ "{{ $labels.sensor }}" }} sensor array battery status is {{ "{{ $value }}" }}"
 {{- end }}
 {{- if .Values.prometheusRules.weatherAlerts }}
-{{ .Files.Get "files/ecowitt-weather.rules" }}
+  - name: ecowitt-weather.rules
+    rules:
+    - alert: EcowittUVIndexVeryHigh
+      expr: ecowitt_uv >= {{ .Values.prometheusRules.uvHigh }}
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt UV index is Very High
+        description: "Ecowitt UV index is {{ "{{ $value }}" }}"
+
+    - alert: EcowittUVIndexExtreme
+      expr: ecowitt_uv >= {{ .Values.prometheusRules.uvExtreme }}
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt UV index is Extreme
+        description: "Ecowitt UV index is {{ "{{ $value }}" }}"
+
+    - alert: EcowittHighTemperature
+      expr: ecowitt_temp{sensor='outdoor'} >= {{ .Values.prometheusRules.tempHigh }}
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt outdoor temperature is high
+        description: "Ecowitt outdoor temperature is {{ "{{ $value }}" }}"
+
+    - alert: EcowittLowTemperature
+      expr: ecowitt_temp{sensor='outdoor'} <= {{ .Values.prometheusRules.tempLow }}
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt outdoor temperature is low
+        description: "Ecowitt outdoor temperature is {{ "{{ $value }}" }}"
+
+    - alert: EcowittHighWinds
+      expr: ecowitt_windspeed{sensor='windspeed'} >= {{ .Values.prometheusRules.windWarn }}
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt wind speed is high
+        description: "Ecowitt wind speed is {{ "{{ $value }}" }}"
+
+    - alert: EcowittPM25
+      expr: ecowitt_pm25{series='avg_24h'} >= {{ .Values.prometheusRules.pm25Warn }}
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt PM2.5 level is high
+        description: "Ecowitt PM2.5 level is {{ "{{ $value }}" }}"
+
+    - alert: EcowittAirPollution
+      expr: ecowitt_aqi >= {{ .Values.prometheusRules.aqiWarn }}
+      for: 15m
+      labels:
+        severity: warning
+      annotations:
+        summary: Ecowitt air pollution is high
+        description: "Ecowitt air pollution index is {{ "{{ $value }}" }}"
 {{- end }}
 {{- end }}
