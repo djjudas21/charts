@@ -1,6 +1,6 @@
 # ecowitt-exporter
 
-![Version: 2.1.2](https://img.shields.io/badge/Version-2.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.2](https://img.shields.io/badge/AppVersion-2.1.2-informational?style=flat-square)
+![Version: 2.2.0](https://img.shields.io/badge/Version-2.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.2](https://img.shields.io/badge/AppVersion-2.1.2-informational?style=flat-square)
 
 A Prometheus exporter for Ecowitt weather stations
 
@@ -42,9 +42,17 @@ A Prometheus exporter for Ecowitt weather stations
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
+| prometheusRules.aqiWarn | int | `7` | Warn when AQI exceeds this value, on whatever scale is set in aqiStandard |
 | prometheusRules.batteryAlerts | bool | `true` | Enable battery alerts |
 | prometheusRules.enabled | bool | `false` | Enable Prometheus rules for Prometheus Operator |
+| prometheusRules.pm25Warn | int | `30` | Warn when PM2.5 concentration exceeds this value, in µg/m³ |
+| prometheusRules.tempHigh | int | `40` | Warn when temperature exceeds this value, in whatever unit is set in tempUnit |
+| prometheusRules.tempLow | int | `0` | Warn when temperature falls below this value, in whatever unit is set in tempUnit |
+| prometheusRules.uvExtreme | int | `11` | Warn when UV index exceeds this Extreme value |
+| prometheusRules.uvHigh | int | `8` | Warn when UV index exceeds this High value |
+| prometheusRules.voltageWarning | float | `1.5` | Warn when battery voltage drops below this threshold, in volts |
 | prometheusRules.weatherAlerts | bool | `true` | Enable weather alerts |
+| prometheusRules.windWarn | int | `50` | Warn when wind speed exceeds this value, in whatever unit is set in windUnit |
 | replicaCount | int | `1` | Number of replicas |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
