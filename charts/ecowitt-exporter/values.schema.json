@@ -255,6 +255,13 @@
     },
     "prometheusRules": {
       "properties": {
+        "aqiWarn": {
+          "default": 7,
+          "description": "Warn when AQI exceeds this value, on whatever scale is set in aqiStandard",
+          "required": [],
+          "title": "aqiWarn",
+          "type": "integer"
+        },
         "batteryAlerts": {
           "default": true,
           "description": "Enable battery alerts",
@@ -269,12 +276,61 @@
           "title": "enabled",
           "type": "boolean"
         },
+        "pm25Warn": {
+          "default": 30,
+          "description": "Warn when PM2.5 concentration exceeds this value, in µg/m³",
+          "required": [],
+          "title": "pm25Warn",
+          "type": "integer"
+        },
+        "tempHigh": {
+          "default": 40,
+          "description": "Warn when temperature exceeds this value, in whatever unit is set in tempUnit",
+          "required": [],
+          "title": "tempHigh",
+          "type": "integer"
+        },
+        "tempLow": {
+          "default": 0,
+          "description": "Warn when temperature falls below this value, in whatever unit is set in tempUnit",
+          "required": [],
+          "title": "tempLow",
+          "type": "integer"
+        },
+        "uvExtreme": {
+          "default": 11,
+          "description": "Warn when UV index exceeds this Extreme value",
+          "required": [],
+          "title": "uvExtreme",
+          "type": "integer"
+        },
+        "uvHigh": {
+          "default": 8,
+          "description": "Warn when UV index exceeds this High value",
+          "required": [],
+          "title": "uvHigh",
+          "type": "integer"
+        },
+        "voltageWarning": {
+          "default": 1.5,
+          "description": "Warn when battery voltage drops below this threshold, in volts",
+          "required": [],
+          "title": "voltageWarning",
+          "type": "number"
+        },
         "weatherAlerts": {
           "default": true,
           "description": "Enable weather alerts",
           "required": [],
           "title": "weatherAlerts",
           "type": "boolean"
+        },
+        "windWarn": {
+          "default": 50,
+          "description": "Warn when wind speed exceeds this value, in whatever unit is set in windUnit",
+          "required": [],
+          "title": "windWarn",
+          "type": "integer"
         }
       },
       "required": [],
