@@ -408,6 +408,13 @@
           "required": [],
           "title": "enabled",
           "type": "boolean"
+        },
+        "interval": {
+          "default": "60s",
+          "description": "Metrics scrape interval. Should be the same as the Ecowitt gateway submission interval",
+          "required": [],
+          "title": "interval",
+          "type": "string"
         }
       },
       "required": [],
