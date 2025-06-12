@@ -129,6 +129,8 @@ affinity: {}
 serviceMonitor:
   # -- Enable Service Monitor for Prometheus Operator
   enabled: false
+  # -- Metrics scrape interval. Should be the same as the Ecowitt gateway submission interval
+  interval: 60s
 
 prometheusRules:
   # -- Enable Prometheus rules for Prometheus Operator

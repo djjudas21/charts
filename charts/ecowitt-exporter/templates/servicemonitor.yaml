@@ -11,7 +11,7 @@ spec:
       {{- include "ecowitt-exporter.labels" . | nindent 6 }}
   endpoints:
   - port: http
-    interval: 60s
+    interval: {{ .Values.serviceMonitor.interval }}
     relabelings:
       - action: labeldrop
         regex: pod
