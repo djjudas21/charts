@@ -1,6 +1,6 @@
 # ecowitt-exporter
 
-![Version: 2.2.0](https://img.shields.io/badge/Version-2.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.2](https://img.shields.io/badge/AppVersion-2.1.2-informational?style=flat-square)
+![Version: 2.2.1](https://img.shields.io/badge/Version-2.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.2](https://img.shields.io/badge/AppVersion-2.1.2-informational?style=flat-square)
 
 A Prometheus exporter for Ecowitt weather stations
 
@@ -62,6 +62,7 @@ A Prometheus exporter for Ecowitt weather stations
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | a name is generated using the fullname template | The name of the service account to use. |
 | serviceMonitor.enabled | bool | `false` | Enable Service Monitor for Prometheus Operator |
+| serviceMonitor.interval | string | `"60s"` | Metrics scrape interval. Should be the same as the Ecowitt gateway submission interval |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
