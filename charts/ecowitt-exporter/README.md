@@ -1,6 +1,6 @@
 # ecowitt-exporter
 
-![Version: 2.2.1](https://img.shields.io/badge/Version-2.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.2](https://img.shields.io/badge/AppVersion-2.1.2-informational?style=flat-square)
+![Version: 2.2.2](https://img.shields.io/badge/Version-2.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.0](https://img.shields.io/badge/AppVersion-2.2.0-informational?style=flat-square)
 
 A Prometheus exporter for Ecowitt weather stations
 
@@ -26,9 +26,19 @@ A Prometheus exporter for Ecowitt weather stations
 | env.aqiStandard | string | `"uk"` | AQI standard: uk, epa, mep, nepm |
 | env.debug | bool | `false` | enable debug output |
 | env.distanceUnit | string | `"km"` | Distance in km, mi |
+| env.indoorLocation | string | `""` | Physical location of indoor Ecowitt gateway |
 | env.irradianceUnit | string | `"wm2"` | Irradiance in wm2, lx, fc |
+| env.outdoorLocation | string | `""` | Physical location of outdoor Ecowitt sensor array |
 | env.pressureUnit | string | `"hpa"` | Pressure in hpa, in or mmhg |
 | env.rainUnit | string | `"mm"` | Rainfall in mm or in |
+| env.temp1Location | string | `""` | Physical location of Ecowitt channel 1 temperature sensor |
+| env.temp2Location | string | `""` | Physical location of Ecowitt channel 2 temperature sensor |
+| env.temp3Location | string | `""` | Physical location of Ecowitt channel 3 temperature sensor |
+| env.temp4Location | string | `""` | Physical location of Ecowitt channel 4 temperature sensor |
+| env.temp5Location | string | `""` | Physical location of Ecowitt channel 5 temperature sensor |
+| env.temp6Location | string | `""` | Physical location of Ecowitt channel 6 temperature sensor |
+| env.temp7Location | string | `""` | Physical location of Ecowitt channel 7 temperature sensor |
+| env.temp8Location | string | `""` | Physical location of Ecowitt channel 8 temperature sensor |
 | env.temperatureUnit | string | `"c"` | Temperature in c, f or k |
 | env.windUnit | string | `"kmh"` | Wind speed in kmh, mph, ms, knots, fps |
 | fullnameOverride | string | `""` |  |
