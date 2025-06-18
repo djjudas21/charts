@@ -50,6 +50,26 @@ spec:
             value: {{ .Values.env.aqiStandard }}
           - name: PREFIX
             value: {{ .Values.env.prefix }}
+          - name: OUTDOOR_LOCATION
+            value: {{ .Values.env.outdoorLocation }}
+          - name: INDOOR_LOCATION
+            value: {{ .Values.env.indoorLocation }}
+          - name: TEMP1_LOCATION
+            value: {{ .Values.env.temp1Location }}
+          - name: TEMP2_LOCATION
+            value: {{ .Values.env.temp2Location }}
+          - name: TEMP3_LOCATION
+            value: {{ .Values.env.temp3Location }}
+          - name: TEMP4_LOCATION
+            value: {{ .Values.env.temp4Location }}
+          - name: TEMP5_LOCATION
+            value: {{ .Values.env.temp5Location }}
+          - name: TEMP6_LOCATION
+            value: {{ .Values.env.temp6Location }}
+          - name: TEMP7_LOCATION
+            value: {{ .Values.env.temp7Location }}
+          - name: TEMP8_LOCATION
+            value: {{ .Values.env.temp8Location }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

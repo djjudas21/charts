@@ -63,6 +63,36 @@ env:
   # -- AQI standard: uk, epa, mep, nepm
   aqiStandard: uk
 
+  # -- Physical location of outdoor Ecowitt sensor array
+  outdoorLocation: ""
+
+  # -- Physical location of indoor Ecowitt gateway
+  indoorLocation: ""
+
+  # -- Physical location of Ecowitt channel 1 temperature sensor
+  temp1Location: ""
+
+  # -- Physical location of Ecowitt channel 2 temperature sensor
+  temp2Location: ""
+
+  # -- Physical location of Ecowitt channel 3 temperature sensor
+  temp3Location: ""
+
+  # -- Physical location of Ecowitt channel 4 temperature sensor
+  temp4Location: ""
+
+  # -- Physical location of Ecowitt channel 5 temperature sensor
+  temp5Location: ""
+
+  # -- Physical location of Ecowitt channel 6 temperature sensor
+  temp6Location: ""
+
+  # -- Physical location of Ecowitt channel 7 temperature sensor
+  temp7Location: ""
+
+  # -- Physical location of Ecowitt channel 8 temperature sensor
+  temp8Location: ""
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
