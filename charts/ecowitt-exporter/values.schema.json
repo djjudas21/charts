@@ -38,6 +38,13 @@
           "required": [],
           "title": "distanceUnit"
         },
+        "indoorLocation": {
+          "default": "",
+          "description": "Physical location of indoor Ecowitt gateway",
+          "required": [],
+          "title": "indoorLocation",
+          "type": "string"
+        },
         "irradianceUnit": {
           "default": "wm2",
           "description": "Irradiance in wm2, lx, fc",
@@ -48,6 +55,13 @@
           ],
           "required": [],
           "title": "irradianceUnit"
+        },
+        "outdoorLocation": {
+          "default": "",
+          "description": "Physical location of outdoor Ecowitt sensor array",
+          "required": [],
+          "title": "outdoorLocation",
+          "type": "string"
         },
         "pressureUnit": {
           "default": "hpa",
@@ -69,6 +83,62 @@
           ],
           "required": [],
           "title": "rainUnit"
+        },
+        "temp1Location": {
+          "default": "",
+          "description": "Physical location of Ecowitt channel 1 temperature sensor",
+          "required": [],
+          "title": "temp1Location",
+          "type": "string"
+        },
+        "temp2Location": {
+          "default": "",
+          "description": "Physical location of Ecowitt channel 2 temperature sensor",
+          "required": [],
+          "title": "temp2Location",
+          "type": "string"
+        },
+        "temp3Location": {
+          "default": "",
+          "description": "Physical location of Ecowitt channel 3 temperature sensor",
+          "required": [],
+          "title": "temp3Location",
+          "type": "string"
+        },
+        "temp4Location": {
+          "default": "",
+          "description": "Physical location of Ecowitt channel 4 temperature sensor",
+          "required": [],
+          "title": "temp4Location",
+          "type": "string"
+        },
+        "temp5Location": {
+          "default": "",
+          "description": "Physical location of Ecowitt channel 5 temperature sensor",
+          "required": [],
+          "title": "temp5Location",
+          "type": "string"
+        },
+        "temp6Location": {
+          "default": "",
+          "description": "Physical location of Ecowitt channel 6 temperature sensor",
+          "required": [],
+          "title": "temp6Location",
+          "type": "string"
+        },
+        "temp7Location": {
+          "default": "",
+          "description": "Physical location of Ecowitt channel 7 temperature sensor",
+          "required": [],
+          "title": "temp7Location",
+          "type": "string"
+        },
+        "temp8Location": {
+          "default": "",
+          "description": "Physical location of Ecowitt channel 8 temperature sensor",
+          "required": [],
+          "title": "temp8Location",
+          "type": "string"
         },
         "temperatureUnit": {
           "default": "c",
