@@ -511,6 +511,38 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/dbdump-0.0.8/dbdump-0.0.8.tgz
     version: 0.0.8
+  domainmod:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fix bootstrap image tag
+    apiVersion: v2
+    appVersion: 4.23.0
+    created: "2025-06-29T21:03:15.137152158Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~20
+    description: DomainMOD is a self-hosted open source application used to manage
+      your domains and other Internet assets in a central location
+    digest: 50f55817a94401b1f82919886b7606f71f32bb94937f2a46302be62995f86b9a
+    home: https://github.com/djjudas21/charts/tree/master/charts/domainmod
+    icon: https://domainmod.org/images/logo_share_fb.png
+    keywords:
+    - domainmod
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: domainmod
+    sources:
+    - https://github.com/domainmod/domainmod
+    - https://domainmod.org/
+    - https://hub.docker.com/r/domainmod/domainmod
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/domainmod-0.5.3/domainmod-0.5.3.tgz
+    version: 0.5.3
   ecowitt-exporter:
   - annotations:
       artifacthub.io/changes: |-
@@ -11849,4 +11881,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-06-18T20:49:29.4000474Z"
+generated: "2025-06-29T21:03:15.137675263Z"
