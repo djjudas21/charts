@@ -1,0 +1,39 @@
+---
+apiVersion: v2
+name: domainmod
+description: DomainMOD is a self-hosted open source application used to manage your domains and other Internet assets in a central location
+
+# A chart can be either an 'application' or a 'library' chart.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.5.3
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+# It is recommended to use it with quotes.
+appVersion: 4.23.0
+
+keywords:
+  - domainmod
+home: https://github.com/djjudas21/charts/tree/master/charts/domainmod
+icon: https://domainmod.org/images/logo_share_fb.png
+sources:
+  - https://github.com/domainmod/domainmod
+  - https://domainmod.org/
+  - https://hub.docker.com/r/domainmod/domainmod
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+dependencies:
+  - name: mariadb
+    version: ~20
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled
+annotations:
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Fix bootstrap image tag
