@@ -252,28 +252,30 @@
       "title": "resources",
       "type": "object"
     },
-    "securityContext": {
-      "required": [],
-      "title": "securityContext",
-      "type": "object"
-    },
     "secret": {
       "description": "Configures secret settings for the chart.",
       "properties": {
-        "create": {
-          "default": "true",
-          "required": [],
-          "title": "create",
-          "type": "boolean"
-        },
         "annotations": {
+          "description": "Additional annotations for the secret",
           "required": [],
           "title": "annotations",
           "type": "object"
+        },
+        "create": {
+          "default": true,
+          "description": "Create the secret containing the smtp-relay password",
+          "required": [],
+          "title": "create",
+          "type": "boolean"
         }
       },
       "required": [],
       "title": "secret",
+      "type": "object"
+    },
+    "securityContext": {
+      "required": [],
+      "title": "securityContext",
       "type": "object"
     },
     "service": {
