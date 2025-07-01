@@ -257,6 +257,25 @@
       "title": "securityContext",
       "type": "object"
     },
+    "secret": {
+      "description": "Configures secret settings for the chart.",
+      "properties": {
+        "create": {
+          "default": "true",
+          "required": [],
+          "title": "create",
+          "type": "boolean"
+        },
+        "annotations": {
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "secret",
+      "type": "object"
+    },
     "service": {
       "description": "Configures service settings for the chart.",
       "properties": {

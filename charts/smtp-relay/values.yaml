@@ -69,6 +69,14 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Configures secret settings for the chart.
+# @default -- See values.yaml
+secret:
+  # -- Create the secret containing the smtp-relay password
+  create: true
+  # -- Additional annotations for the secret
+  annotations: {}
+
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
 service:
