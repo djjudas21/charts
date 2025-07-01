@@ -10394,6 +10394,32 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Secrets management
+    apiVersion: v2
+    appVersion: 0.10.0
+    created: "2025-07-01T20:33:48.414315392Z"
+    description: An SMTP smarthost relay for Kubernetes
+    digest: e67194c95d1b7be3ba3bf6af27973acf8847278ef4efb4802ef765ae8a330c29
+    home: https://github.com/djjudas21/charts/tree/main/charts/smtp-relay
+    keywords:
+    - smtp
+    - relay
+    - smarthost
+    - postfix
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: smtp-relay
+    sources:
+    - https://github.com/djjudas21/smtp-relay
+    - https://hub.docker.com/r/djjudas21/smtp-relay
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/smtp-relay-0.6.2/smtp-relay-0.6.2.tgz
+    version: 0.6.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Run container on high port
     apiVersion: v2
     appVersion: 0.10.0
@@ -11881,4 +11907,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-06-29T21:03:15.137675263Z"
+generated: "2025-07-01T20:33:48.414943417Z"
