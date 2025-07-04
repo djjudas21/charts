@@ -1,6 +1,6 @@
 # alertmanager-ntfy
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.1](https://img.shields.io/badge/AppVersion-1.0.1-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.1](https://img.shields.io/badge/AppVersion-1.0.1-informational?style=flat-square)
 
 Service that forwards Prometheus Alertmanager notifications to ntfy.sh
 
@@ -27,22 +27,14 @@ named [wrenix/alertmanager-ntfy](https://codeberg.org/wrenix/helm-charts/src/bra
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| config.http.addr | string | `":8000"` |  |
-| config.http.auth.password | string | `"verysecure"` |  |
-| config.http.auth.username | string | `"alertmanager"` |  |
-| config.ntfy.auth.basic.password | string | `"verysecure"` |  |
-| config.ntfy.auth.basic.username | string | `"admin"` |  |
-| config.ntfy.auth.token | string | `"verysecureauthtoken"` |  |
-| config.ntfy.baseurl | string | `"https://ntfy.sh"` |  |
-| config.ntfy.notification.priority | string | `"status == \"firing\" ? \"urgent\" : \"default\"\n"` |  |
-| config.ntfy.notification.tags[0].condition | string | `"status == \"resolved\""` |  |
-| config.ntfy.notification.tags[0].tag | string | `"+1"` |  |
-| config.ntfy.notification.tags[1].condition | string | `"status == \"firing\""` |  |
-| config.ntfy.notification.tags[1].tag | string | `"rotating_light"` |  |
-| config.ntfy.notification.templates.description | string | `"{{ index .Annotations \"description\" }}\n"` |  |
-| config.ntfy.notification.templates.headers.X-Click | string | `"{{ .GeneratorURL }}\n"` |  |
-| config.ntfy.notification.templates.title | string | `"{{ if eq .Status \"resolved\" }}Resolved: {{ end }}{{ index .Annotations \"summary\" }}\n"` |  |
-| config.ntfy.notification.topic | string | `"alertmanager"` |  |
+| config | object | See https://github.com/alexbakker/alertmanager-ntfy | Contains config.yml for alertmanager-ntfy |
+| config.http.auth.password | string | `"verysecure"` | Password for Alertmanager to connect to Alertmanager-ntfy |
+| config.http.auth.username | string | `"alertmanager"` | Username for Alertmanager to connect to Alertmanager-ntfy |
+| config.ntfy.auth.basic.password | string | `"verysecure"` | Password for alertmanager-ntfy to connect to ntfy |
+| config.ntfy.auth.basic.username | string | `"admin"` | Username for alertmanager-ntfy to connect to ntfy |
+| config.ntfy.auth.token | string | `"verysecureauthtoken"` | Token for alertmanager-ntfy to connect to ntfy |
+| config.ntfy.baseurl | string | `"https://ntfy.sh"` | URL for ntfy service, if not using ntfy.sh |
+| config.ntfy.notification.topic | string | `"alertmanager"` | ntfy topic. Can either be a hardcoded string or a gval expression that evaluates to a string |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/alexbakker/alertmanager-ntfy"` |  |
