@@ -101,22 +101,30 @@ tolerations: []
 
 affinity: {}
 
+# -- Contains config.yml for alertmanager-ntfy
+# @default -- See https://github.com/alexbakker/alertmanager-ntfy
 config:
   http:
     addr: :8000
     auth:
+      # -- Username for Alertmanager to connect to Alertmanager-ntfy
       username: "alertmanager"
+      # -- Password for Alertmanager to connect to Alertmanager-ntfy
       password: "verysecure"
   ntfy:
+    # -- URL for ntfy service, if not using ntfy.sh
     baseurl: https://ntfy.sh
     auth:
       basic:
+        # -- Username for alertmanager-ntfy to connect to ntfy
         username: "admin"
+        # -- Password for alertmanager-ntfy to connect to ntfy
         password: "verysecure"
       # OR
+      # -- Token for alertmanager-ntfy to connect to ntfy
       token: "verysecureauthtoken"
     notification:
-      # The topic can either be a hardcoded string or a gval expression that evaluates to a string
+      # -- ntfy topic. Can either be a hardcoded string or a gval expression that evaluates to a string
       topic: alertmanager
       # Priority reference: https://docs.ntfy.sh/publish/#message-priority
       # Can either be a hardcoded string or a gval expression that evaluates to a string
