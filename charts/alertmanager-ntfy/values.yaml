@@ -95,21 +95,45 @@ readinessProbe:
     path: /
     port: http
 
-# Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
-
-# Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
-
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+
+config:
+  http:
+    addr: :8000
+    auth:
+      username: "alertmanager"
+      password: "verysecure"
+  ntfy:
+    baseurl: https://ntfy.sh
+    auth:
+      basic:
+        username: "admin"
+        password: "verysecure"
+      # OR
+      token: "verysecureauthtoken"
+    notification:
+      # The topic can either be a hardcoded string or a gval expression that evaluates to a string
+      topic: alertmanager
+      # Priority reference: https://docs.ntfy.sh/publish/#message-priority
+      # Can either be a hardcoded string or a gval expression that evaluates to a string
+      priority: |
+        status == "firing" ? "urgent" : "default"
+      tags:
+        # Tags with no condition are always included
+        # Emoji shortcode reference: https://docs.ntfy.sh/emojis/
+        - tag: "+1"
+          condition: status == "resolved"
+        - tag: rotating_light
+          condition: status == "firing"
+      templates:
+        title: |
+          {{ if eq .Status "resolved" }}Resolved: {{ end }}{{ index .Annotations "summary" }}
+        description: |
+          {{ index .Annotations "description" }}
+        headers:
+          X-Click: |
+            {{ .GeneratorURL }}
