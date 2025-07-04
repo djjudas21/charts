@@ -7,6 +7,7 @@
       "type": "object"
     },
     "config": {
+      "description": "Contains config.yml for alertmanager-ntfy",
       "properties": {
         "http": {
           "properties": {
@@ -20,12 +21,14 @@
               "properties": {
                 "password": {
                   "default": "verysecure",
+                  "description": "Password for Alertmanager to connect to Alertmanager-ntfy",
                   "required": [],
                   "title": "password",
                   "type": "string"
                 },
                 "username": {
                   "default": "alertmanager",
+                  "description": "Username for Alertmanager to connect to Alertmanager-ntfy",
                   "required": [],
                   "title": "username",
                   "type": "string"
@@ -48,12 +51,14 @@
                   "properties": {
                     "password": {
                       "default": "verysecure",
+                      "description": "Password for alertmanager-ntfy to connect to ntfy",
                       "required": [],
                       "title": "password",
                       "type": "string"
                     },
                     "username": {
                       "default": "admin",
+                      "description": "Username for alertmanager-ntfy to connect to ntfy",
                       "required": [],
                       "title": "username",
                       "type": "string"
@@ -65,7 +70,7 @@
                 },
                 "token": {
                   "default": "verysecureauthtoken",
-                  "description": "OR",
+                  "description": "OR\nToken for alertmanager-ntfy to connect to ntfy",
                   "required": [],
                   "title": "token",
                   "type": "string"
@@ -77,6 +82,7 @@
             },
             "baseurl": {
               "default": "https://ntfy.sh",
+              "description": "URL for ntfy service, if not using ntfy.sh",
               "required": [],
               "title": "baseurl",
               "type": "string"
@@ -170,7 +176,7 @@
                 },
                 "topic": {
                   "default": "alertmanager",
-                  "description": "The topic can either be a hardcoded string or a gval expression that evaluates to a string",
+                  "description": "ntfy topic. Can either be a hardcoded string or a gval expression that evaluates to a string",
                   "required": [],
                   "title": "topic",
                   "type": "string"
