@@ -28,6 +28,36 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/alertify-0.1.0/alertify-0.1.0.tgz
     version: 0.1.0
+  alertmanager-ntfy:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fixed RBAC
+    apiVersion: v2
+    appVersion: 1.0.1
+    created: "2025-07-04T15:10:51.111554919Z"
+    description: Service that forwards Prometheus Alertmanager notifications to ntfy.sh
+    digest: 813b3d1f7aa7357e63cfafab35435cfdda1e516e06b5979e88a28b3ef506f597
+    home: https://github.com/alexbakker/alertmanager-ntfy
+    icon: https://ntfy.sh/_next/static/media/logo.077f6a13.svg
+    keywords:
+    - prometheus
+    - alertmanager
+    - ntfy
+    - notification
+    - alert
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: alertmanager-ntfy
+    sources:
+    - https://github.com/djjudas21/charts/tree/main/charts/alertmanager-ntfy
+    - https://github.com/alexbakker/alertmanager-ntfy
+    - https://ghcr.io/alexbakker/alertmanager-ntfy
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/alertmanager-ntfy-0.1.0/alertmanager-ntfy-0.1.0.tgz
+    version: 0.1.0
   autonodelabel:
   - annotations:
       artifacthub.io/changes: |-
@@ -11938,4 +11968,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-07-02T13:36:29.134597912Z"
+generated: "2025-07-04T15:10:51.112099284Z"
