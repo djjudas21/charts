@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "alertify.fullname" . }}
+  name: {{ include "alertmanager-ntfy.fullname" . }}
   labels:
-    {{- include "alertify.labels" . | nindent 4 }}
+    {{- include "alertmanager-ntfy.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "alertify.selectorLabels" . | nindent 6 }}
+      {{- include "alertmanager-ntfy.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -16,7 +16,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "alertify.labels" . | nindent 8 }}
+        {{- include "alertmanager-ntfy.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -25,7 +25,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "alertify.serviceAccountName" . }}
+      serviceAccountName: {{ include "alertmanager-ntfy.serviceAccountName" . }}
       {{- with .Values.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}
@@ -38,27 +38,31 @@ spec:
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            - name: LISTEN_PORT
-              value: {{ .Values.service.port | quote }}
-            {{- range $key, $val := .Values.env }}
-            - name: {{ $key }}
-              value: {{ $val | quote }}
-            {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          {{- with .Values.livenessProbe }}
           livenessProbe:
-            exec:
-              command: ["python", "alertify.py", "--healthcheck"]
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.readinessProbe }}
           readinessProbe:
-            exec:
-              command: ["python", "alertify.py", "--healthcheck"]
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          volumeMounts:
+          - name: config
+            mountPath: /config.yml
+            subPath: config.yml
+            readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: {{ include "alertmanager-ntfy.fullname" . }}-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

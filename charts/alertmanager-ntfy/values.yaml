@@ -1,4 +1,4 @@
-# Default values for alertify.
+# Default values for alertmanager-ntfy.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -7,23 +7,11 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: djjudas21/alertify
+  repository: ghcr.io/alexbakker/alertmanager-ntfy
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
-
-env:
-  # -- Resolved alerts delete the original alert, if enabled
-  DELETE_ONRESOLVE: false
-  # -- Forwards resolved alerts, if not disabled
-  DISABLE_RESOLVED: false
-  # -- Gotify app key to send alerts to Gotify
-  GOTIFY_KEY_APP: ""
-  # -- Gotify client key to delete original alert on resolution
-  GOTIFY_KEY_CLIENT: ""
-  GOTIFY_URL_PREFIX: "http://localhost"
-  VERBOSE: "0"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
@@ -66,7 +54,24 @@ service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
-  port: 8080
+  port: 8000
+
+# This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -80,8 +85,55 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+# This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+livenessProbe:
+  httpGet:
+    path: /health
+    port: http
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
+
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+
+config:
+  http:
+    addr: :8000
+    auth:
+      username: "alertmanager"
+      password: "verysecure"
+  ntfy:
+    baseurl: https://ntfy.sh
+    auth:
+      basic:
+        username: "admin"
+        password: "verysecure"
+      # OR
+      token: "verysecureauthtoken"
+    notification:
+      # The topic can either be a hardcoded string or a gval expression that evaluates to a string
+      topic: alertmanager
+      # Priority reference: https://docs.ntfy.sh/publish/#message-priority
+      # Can either be a hardcoded string or a gval expression that evaluates to a string
+      priority: |
+        status == "firing" ? "urgent" : "default"
+      tags:
+        # Tags with no condition are always included
+        # Emoji shortcode reference: https://docs.ntfy.sh/emojis/
+        - tag: "+1"
+          condition: status == "resolved"
+        - tag: rotating_light
+          condition: status == "firing"
+      templates:
+        title: |
+          {{ if eq .Status "resolved" }}Resolved: {{ end }}{{ index .Annotations "summary" }}
+        description: |
+          {{ index .Annotations "description" }}
+        headers:
+          X-Click: |
+            {{ .GeneratorURL }}
