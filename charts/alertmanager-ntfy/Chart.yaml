@@ -22,3 +22,22 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "1.0.1"
+keywords:
+  - prometheus
+  - alertmanager
+  - ntfy
+  - notification
+  - alert
+home: https://github.com/alexbakker/alertmanager-ntfy
+icon: https://ntfy.sh/_next/static/media/logo.077f6a13.svg
+sources:
+  - https://github.com/djjudas21/charts/tree/main/charts/alertmanager-ntfy
+  - https://github.com/alexbakker/alertmanager-ntfy
+  - https://ghcr.io/alexbakker/alertmanager-ntfy
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+annotations:
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Fixed RBAC
