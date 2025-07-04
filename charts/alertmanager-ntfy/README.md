@@ -4,6 +4,10 @@
 
 Service that forwards Prometheus Alertmanager notifications to ntfy.sh
 
+This chart deploys [alexbakker/alertmanager-ntfy](https://github.com/alexbakker/alertmanager-ntfy), **not**
+[wrenix/ntfy-alertmanager](https://codeberg.org/wrenix/ntfy-alertmanager), which has a Helm chart confusingly
+named [wrenix/alertmanager-ntfy](https://codeberg.org/wrenix/helm-charts/src/branch/main/alertmanager-ntfy).
+
 **Homepage:** <https://github.com/alexbakker/alertmanager-ntfy>
 
 ## Maintainers
