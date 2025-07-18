@@ -7236,6 +7236,33 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to nova-exporter 0.0.10
+    apiVersion: v2
+    appVersion: 0.0.10
+    created: "2025-07-18T18:59:47.226492186Z"
+    description: A Prometheus exporter for Fairwinds Nova
+    digest: bc8cbfea53c97dbf718d2fd48a922575ebc8ccb8b3fa635b3996e4b6cef3658f
+    home: https://github.com/djjudas21/charts/tree/master/charts/nova-exporter
+    icon: https://raw.githubusercontent.com/FairwindsOps/nova/master/img/logo.png
+    keywords:
+    - nova
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: nova-exporter
+    sources:
+    - https://github.com/djjudas21/nova-exporter
+    - https://hub.docker.com/r/djjudas21/nova-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/nova-exporter-0.1.16/nova-exporter-0.1.16.tgz
+    version: 0.1.16
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to nova-exporter 0.0.9
     apiVersion: v2
     appVersion: 0.0.9
@@ -7978,6 +8005,45 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.0/openssh-server-0.1.0.tgz
     version: 0.1.0
   owncloud:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update ownCloud to v10.15.3
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.15.3
+    created: "2025-07-18T18:59:47.410376038Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~19
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: aed3c2dfdb1977e745c3b76f79cc03a50abec08bd9d5dba0906294b2a57c1576
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.20/owncloud-0.3.20.tgz
+    version: 0.3.20
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -11997,4 +12063,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-07-04T21:01:38.409725854Z"
+generated: "2025-07-18T18:59:47.410995214Z"
