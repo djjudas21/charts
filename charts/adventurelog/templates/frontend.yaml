@@ -49,10 +49,10 @@ spec:
           env:
             # Used by the frontend SSR server to connect to the backend
             - name: PUBLIC_SERVER_URL
-              value: "http://backend:8000"
+              value: http://{{ include "adventurelog.fullname" . }}-frontend:8000
             # Needed only if not using HTTPS. Set it to the domain or IP you'll use to access the frontend.
             - name: ORIGIN
-              value: "https://adventure.gazeley.uk:443"
+              value: https://{{ .Values.ingress.hosts.frontend }}
             - name: BODY_SIZE_LIMIT
               value: "Infinity"
           {{- with .Values.livenessProbe }}

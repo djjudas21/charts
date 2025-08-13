@@ -63,12 +63,12 @@ spec:
               value: adventure
             # Publicly accessible URL of the backend. Used for generating image URLs.
             - name: PUBLIC_URL
-              value: "https://adventure-backend.gazeley.uk"
+              value: https://{{ .Values.ingress.hosts.backend }}
             # URL to the frontend, used for email generation.
             - name: FRONTEND_URL
-              value: "https://adventure.gazeley.uk"
+              value: https://{{ .Values.ingress.hosts.frontend }}
             - name: CSRF_TRUSTED_ORIGINS
-              value: "https://adventure.gazeley.uk"
+              value: https://{{ .Values.ingress.hosts.frontend }}
             - name: DJANGO_ADMIN_USERNAME
               value: "admin"
             - name: DJANGO_ADMIN_PASSWORD
