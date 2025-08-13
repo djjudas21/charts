@@ -1,14 +1,17 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: {{ include "adventurelog.fullname" . }}
+  name: {{ include "adventurelog.fullname" . }}-backend
   labels:
     {{- include "adventurelog.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.backend.replicaCount }}
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       {{- include "adventurelog.selectorLabels" . | nindent 6 }}
+      component: postgis
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -30,18 +33,28 @@ spec:
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      restartPolicy: Always
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Chart.Name }}-db
           {{- with .Values.securityContext }}
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.postgis.image.repository }}:{{ .Values.postgis.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: {{ .Values.postgis.service.port }}
               protocol: TCP
+          env:
+            - name: POSTGRES_DB
+              value: database
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata/subdir
+            - name: POSTGRES_USER
+              value: adventure
+            - name: POSTGRES_PASSWORD
+              value: adventure
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
@@ -56,10 +69,15 @@ spec:
           {{- end }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
+            - name: adventure-journal-db
+              mountPath: /var/lib/postgresql/data
             {{- toYaml . | nindent 12 }}
           {{- end }}
       {{- with .Values.volumes }}
       volumes:
+        - name: adventure-journal-db
+          persistentVolumeClaim:
+            claimName: adventure-journal-db-pvc
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.nodeSelector }}
@@ -74,3 +92,12 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+  - metadata:
+      name: postgis
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "my-storage-class"
+      resources:
+        requests:
+          storage: 1Gi

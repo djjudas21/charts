@@ -1,0 +1,118 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "adventurelog.fullname" . }}-backend
+  labels:
+    {{- include "adventurelog.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.backend.replicaCount }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "adventurelog.selectorLabels" . | nindent 6 }}
+      component: backend
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "adventurelog.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "adventurelog.serviceAccountName" . }}
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      restartPolicy: Always
+      containers:
+        - name: {{ .Chart.Name }}
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.backend.service.port }}
+              protocol: TCP
+          env:
+            - name: PGHOST
+              value: "adventure-db-svc"
+            - name: PGDATABASE
+              value: "database"
+            - name: PGUSER
+              value: "adventure"
+            - name: PGPASSWORD
+              value: adventure
+              #valueFrom:
+              #  secretKeyRef:
+              #    name: adventurelog-secret
+              #    key: adventure-postgres-password
+            - name: SECRET_KEY
+              value: adventure
+            # Publicly accessible URL of the backend. Used for generating image URLs.
+            - name: PUBLIC_URL
+              value: "https://adventure-backend.gazeley.uk"
+            # URL to the frontend, used for email generation.
+            - name: FRONTEND_URL
+              value: "https://adventure.gazeley.uk"
+            - name: CSRF_TRUSTED_ORIGINS
+              value: "https://adventure.gazeley.uk"
+            - name: DJANGO_ADMIN_USERNAME
+              value: "admin"
+            - name: DJANGO_ADMIN_PASSWORD
+              value: "admin"
+            - name: DJANGO_ADMIN_EMAIL
+              value: "admin@example.com"
+            - name: DEBUG
+              value: "True"
+            - name: BACKEND_PORT
+              value: "8016"
+          {{- with .Values.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.volumeMounts }}
+          volumeMounts:
+            - name: adventure-journal
+              mountPath: /code/media
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.volumes }}
+      volumes:
+        - name: adventure-journal
+          persistentVolumeClaim:
+            claimName: adventure-journal-pvc
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
