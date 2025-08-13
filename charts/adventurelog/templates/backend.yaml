@@ -91,19 +91,13 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
             - name: adventure-journal
               mountPath: /code/media
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
       volumes:
         - name: adventure-journal
           persistentVolumeClaim:
-            claimName: adventure-journal-pvc
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+            claimName: {{ include "adventurelog.fullname" . }}-backend
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

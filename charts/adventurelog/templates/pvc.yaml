@@ -1,10 +1,12 @@
+{{- if .Values.backend.persistence.enabled -}}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: adventure-journal-pvc
+  name: {{ include "adventurelog.fullname" . }}-backend
 spec:
   accessModes:
-    - ReadWriteOnce
+    - {{ .Values.backend.accessMode }}
   resources:
     requests:
-      storage: 10Gi
+      storage: {{ .Values.backend.persistence.size }}
+{{- end }}

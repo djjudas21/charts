@@ -67,19 +67,13 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
             - name: adventure-journal-db
               mountPath: /var/lib/postgresql/data
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
       volumes:
         - name: adventure-journal-db
           persistentVolumeClaim:
             claimName: adventure-journal-db-pvc
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -96,8 +90,9 @@ spec:
   - metadata:
       name: postgis
     spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "my-storage-class"
+      accessModes:
+      - {{ .Values.postgis.persistence.accessMode }}
+      storageClassName: {{ .Values.postgis.persistence.storageClassName }}
       resources:
         requests:
-          storage: 1Gi
+          storage: {{ .Values.postgis.persistence.size }}

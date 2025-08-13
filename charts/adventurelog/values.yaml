@@ -46,6 +46,12 @@ backend:
     # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
     port: 8000
 
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    storageClassName: "my-storage-class"
+    size: 10Gi
+
 postgis:
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
@@ -59,6 +65,12 @@ postgis:
     type: ClusterIP
     # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
     port: 5432
+
+  persistence:
+    enabled: true
+    accessMode: "ReadWriteOnce"
+    storageClassName: "my-storage-class"
+    size: 1Gi
 
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
@@ -126,19 +138,6 @@ readinessProbe:
   httpGet:
     path: /
     port: http
-
-# Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
-
-# Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
 
 nodeSelector: {}
 
