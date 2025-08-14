@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "adventurelog.fullname" . }}-backend
+  name: {{ include "adventurelog.fullname" . }}-postgis
   labels:
     {{- include "adventurelog.labels" . | nindent 4 }}
 spec:
@@ -20,6 +20,7 @@ spec:
       {{- end }}
       labels:
         {{- include "adventurelog.labels" . | nindent 8 }}
+        component: postgis
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
