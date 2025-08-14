@@ -44,7 +44,7 @@ spec:
           image: "{{ .Values.postgis.image.repository }}:{{ .Values.postgis.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
+            - name: postgres
               containerPort: {{ .Values.postgis.service.port }}
               protocol: TCP
           env:

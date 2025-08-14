@@ -42,9 +42,9 @@ spec:
   type: {{ .Values.postgis.service.type }}
   ports:
     - port: {{ .Values.postgis.service.port }}
-      targetPort: pg
+      targetPort: postgres
       protocol: TCP
-      name: pg
+      name: postgres
   selector:
     {{- include "adventurelog.selectorLabels" . | nindent 4 }}
     component: postgis
