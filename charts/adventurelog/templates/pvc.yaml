@@ -5,7 +5,7 @@ metadata:
   name: {{ include "adventurelog.fullname" . }}-backend
 spec:
   accessModes:
-    - {{ .Values.backend.accessMode }}
+    - {{ .Values.backend.persistence.accessMode }}
   resources:
     requests:
       storage: {{ .Values.backend.persistence.size }}

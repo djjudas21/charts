@@ -69,12 +69,8 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           volumeMounts:
-            - name: adventure-journal-db
+            - name: postgis
               mountPath: /var/lib/postgresql/data
-      volumes:
-        - name: adventure-journal-db
-          persistentVolumeClaim:
-            claimName: adventure-journal-db-pvc
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
