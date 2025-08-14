@@ -49,13 +49,13 @@ spec:
               protocol: TCP
           env:
             - name: PGHOST
-              value: "adventure-db-svc"
+              value: {{ include "adventurelog.fullname" . }}-db
             - name: PGDATABASE
-              value: "database"
+              value: {{ .Values.postgis.database }}
             - name: PGUSER
-              value: "adventure"
+              value: {{ .Values.postgis.user }}
             - name: PGPASSWORD
-              value: adventure
+              value: {{ .Values.postgis.password }}
               #valueFrom:
               #  secretKeyRef:
               #    name: adventurelog-secret

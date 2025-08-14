@@ -49,21 +49,33 @@ spec:
               protocol: TCP
           env:
             - name: POSTGRES_DB
-              value: database
+              value: {{ .Values.postgis.database }}
             - name: PGDATA
               value: /var/lib/postgresql/data/pgdata/subdir
             - name: POSTGRES_USER
-              value: adventure
+              value: {{ .Values.postgis.user }}
             - name: POSTGRES_PASSWORD
-              value: adventure
-          {{- with .Values.livenessProbe }}
+              value: {{ .Values.postgis.password }}
           livenessProbe:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-          {{- with .Values.readinessProbe }}
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - exec pg_isready -U "{{ .Values.postgis.user }}" -d "dbname={{ .Values.postgis.database }}" -h 127.0.0.1 -p 5432
+            failureThreshold: 6
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
           readinessProbe:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - -e
+              - |
+                exec pg_isready -U "{{ .Values.postgis.user }}" -d "dbname={{ .Values.postgis.database }}" -h 127.0.0.1 -p 5432
+                [ -f /opt/bitnami/postgresql/tmp/.initialized ] || [ -f /bitnami/postgresql/.initialized ]
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
