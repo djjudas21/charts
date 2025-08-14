@@ -1,14 +1,15 @@
 ---
 apiVersion: v2
-appVersion: 2.1.22
+appVersion: 2.1.25
 description: Open-source online collaborative genealogy application
 name: webtrees
-version: 2.2.19
+version: 2.2.20
 kubeVersion: ">=1.16.0-0"
 keywords:
   - webtrees
   - genealogy
   - family-tree
+  - ancestry
 home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
 icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
 sources:
@@ -28,4 +29,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Migrate to bjw-s-labs
+      description: Update to Webtrees 2.1.25
