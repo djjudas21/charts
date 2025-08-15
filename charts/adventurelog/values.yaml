@@ -52,7 +52,7 @@ backend:
     # -- Overrides the image tag whose default is the chart appVersion.
     tag: ""
 
-    service:
+  service:
     # -- Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
     type: ClusterIP
     # -- Backend port
@@ -117,7 +117,7 @@ postgis:
     # -- Container image tag for the PostGIS database
     tag: "15-3.3"
 
-    service:
+  service:
     # -- Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
     type: ClusterIP
     # Database port
