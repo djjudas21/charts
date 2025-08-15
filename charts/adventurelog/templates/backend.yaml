@@ -69,7 +69,7 @@ spec:
             - name: FRONTEND_URL
               value: https://{{ .Values.ingress.hosts.frontend }}
             - name: CSRF_TRUSTED_ORIGINS
-              value: https://{{ .Values.ingress.hosts.frontend }}
+              value: "https://{{ .Values.ingress.hosts.frontend }}, https://{{ .Values.ingress.hosts.backend }}, http://{{ include "adventurelog.fullname" . }}-frontend:3000, http://{{ include "adventurelog.fullname" . }}-backend:8000"
             - name: DJANGO_ADMIN_USERNAME
               value: {{ .Values.backend.django.adminUsername }}
             - name: DJANGO_ADMIN_PASSWORD
