@@ -13,31 +13,32 @@ spec:
   {{- with .Values.ingress.className }}
   ingressClassName: {{ . }}
   {{- end }}
-  {{- if .Values.ingress.tls }}
+  {{- if .Values.ingress.tls.enabled }}
   tls:
-    - host: {{ .Values.ingress.hosts.frontend }}
-      secretName: {{ .secretName }}
-    - host: {{ .Values.ingress.hosts.backend }}
-      secretName: {{ .secretName }}
+    - hosts:
+      - {{ .Values.ingress.hosts.frontend }}
+      - {{ .Values.ingress.hosts.backend }}
+      secretName: {{ .Values.ingress.tls.secretName }}
   {{- end }}
   rules:
-    - host: {{ .Values.ingress.hosts.frontend }}
+  - host: {{ .Values.ingress.hosts.frontend }}
+    http:
       paths:
-        - path: /
-          pathType: ImplementationSpecific
-          backend:
-            service:
-              name: {{ include "adventurelog.fullname" . }}-frontend
-              port:
-                number: {{ .Values.frontend.service.port }}
-      secretName: {{ .secretName }}
-    - host: {{ .Values.ingress.hosts.backend }}
+      - backend:
+          service:
+            name: {{ include "adventurelog.fullname" . }}-frontend
+            port:
+              number: {{ .Values.frontend.service.port }}
+        path: /
+        pathType: Prefix
+  - host: {{ .Values.ingress.hosts.backend }}
+    http:
       paths:
-        - path: /
-          pathType: ImplementationSpecific
-          backend:
-            service:
-              name: {{ include "adventurelog.fullname" . }}-backend
-              port:
-                number: {{ $.Values.backend.service.port }}
+      - backend:
+          service:
+            name: {{ include "adventurelog.fullname" . }}-backend
+            port:
+              number: {{ .Values.backend.service.port }}
+        path: /
+        pathType: Prefix
 {{- end }}
