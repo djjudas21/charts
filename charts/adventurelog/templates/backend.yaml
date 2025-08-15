@@ -1,0 +1,139 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "adventurelog.fullname" . }}-backend
+  labels:
+    {{- include "adventurelog.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.backend.replicaCount }}
+  strategy:
+    type: {{ .Values.backend.strategy }}
+  selector:
+    matchLabels:
+      {{- include "adventurelog.selectorLabels" . | nindent 6 }}
+      component: backend
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "adventurelog.labels" . | nindent 8 }}
+        component: backend
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "adventurelog.serviceAccountName" . }}
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      restartPolicy: Always
+      containers:
+        - name: {{ .Chart.Name }}
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.backend.service.port }}
+              protocol: TCP
+          env:
+            - name: PGHOST
+              value: {{ include "adventurelog.fullname" . }}-db
+            - name: PGDATABASE
+              value: {{ .Values.postgis.database }}
+            - name: PGUSER
+              value: {{ .Values.postgis.user }}
+            - name: PGPASSWORD
+              value: {{ .Values.postgis.password }}
+              #valueFrom:
+              #  secretKeyRef:
+              #    name: adventurelog-secret
+              #    key: adventure-postgres-password
+            - name: SECRET_KEY
+              value: {{ .Values.backend.django.secretKey }}
+            # Publicly accessible URL of the backend. Used for generating image URLs.
+            - name: PUBLIC_URL
+              value: https://{{ .Values.ingress.hosts.backend }}
+            # URL to the frontend, used for email generation.
+            - name: FRONTEND_URL
+              value: https://{{ .Values.ingress.hosts.frontend }}
+            - name: CSRF_TRUSTED_ORIGINS
+              value: "https://{{ .Values.ingress.hosts.frontend }}, https://{{ .Values.ingress.hosts.backend }}, http://{{ include "adventurelog.fullname" . }}-frontend:3000, http://{{ include "adventurelog.fullname" . }}-backend:8000"
+            - name: DJANGO_ADMIN_USERNAME
+              value: {{ .Values.backend.django.adminUsername }}
+            - name: DJANGO_ADMIN_PASSWORD
+              value: {{ .Values.backend.django.adminPassword }}
+            - name: DJANGO_ADMIN_EMAIL
+              value: {{ .Values.backend.django.adminEmail }}
+            - name: DEBUG
+              value: {{ .Values.backend.django.debug | quote }}
+            - name: BACKEND_PORT
+              value: "8016"
+            {{ if .Values.backend.email.enabled }}
+            - name: EMAIL_BACKEND
+              value: email
+            - name: EMAIL_HOST
+              value: {{ .Values.backend.email.host }}
+            - name: EMAIL_USE_TLS
+              value: {{ .Values.backend.email.useTls | quote }}
+            - name: EMAIL_PORT
+              value: {{ .Values.backend.email.port | quote }}
+            - name: EMAIL_USE_SSL
+              value: {{ .Values.backend.email.useSsl | quote }}
+            - name: EMAIL_HOST_USER
+              value: {{ .Values.backend.email.user }}
+            - name: EMAIL_HOST_PASSWORD
+              value: {{ .Values.backend.email.password }}
+            - name: DEFAULT_FROM_EMAIL
+              value: {{ .Values.backend.email.from }}
+            {{- end }}
+            {{ if .Values.backend.disableRegistration }}
+            - name: DISABLE_REGISTRATION
+              value: "True"
+            {{- end }}
+          {{- with .Values.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.startupProbe }}
+          startupProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.backend.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          volumeMounts:
+            - name: adventure-journal
+              mountPath: /code/media
+      volumes:
+        - name: adventure-journal
+          persistentVolumeClaim:
+            claimName: {{ include "adventurelog.fullname" . }}-backend
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

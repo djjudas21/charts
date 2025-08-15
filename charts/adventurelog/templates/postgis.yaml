@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "adventurelog.fullname" . }}-postgis
+  labels:
+    {{- include "adventurelog.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.backend.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "adventurelog.selectorLabels" . | nindent 6 }}
+      component: postgis
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "adventurelog.labels" . | nindent 8 }}
+        component: postgis
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "adventurelog.serviceAccountName" . }}
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      restartPolicy: Always
+      containers:
+        - name: {{ .Chart.Name }}-db
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.postgis.image.repository }}:{{ .Values.postgis.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: postgres
+              containerPort: {{ .Values.postgis.service.port }}
+              protocol: TCP
+          env:
+            - name: POSTGRES_DB
+              value: {{ .Values.postgis.database }}
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata/subdir
+            - name: POSTGRES_USER
+              value: {{ .Values.postgis.user }}
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.postgis.password }}
+          livenessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - exec pg_isready -U "{{ .Values.postgis.user }}" -d "dbname={{ .Values.postgis.database }}" -h 127.0.0.1 -p 5432
+            failureThreshold: 6
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          readinessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - -e
+              - |
+                exec pg_isready -U "{{ .Values.postgis.user }}" -d "dbname={{ .Values.postgis.database }}" -h 127.0.0.1 -p 5432
+                [ -f /opt/bitnami/postgresql/tmp/.initialized ] || [ -f /bitnami/postgresql/.initialized ]
+          {{- with .Values.postgis.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          volumeMounts:
+            - name: postgis
+              mountPath: /var/lib/postgresql/data
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  volumeClaimTemplates:
+  - metadata:
+      name: postgis
+    spec:
+      accessModes:
+      - {{ .Values.postgis.persistence.accessMode }}
+      storageClassName: {{ .Values.postgis.persistence.storageClassName }}
+      resources:
+        requests:
+          storage: {{ .Values.postgis.persistence.size }}

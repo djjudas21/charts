@@ -1,0 +1,12 @@
+{{- if .Values.backend.persistence.enabled -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "adventurelog.fullname" . }}-backend
+spec:
+  accessModes:
+    - {{ .Values.backend.persistence.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.backend.persistence.size }}
+{{- end }}

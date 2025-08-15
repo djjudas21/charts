@@ -1,0 +1,687 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "affinity": {
+      "description": "Define pod affinity",
+      "required": [],
+      "title": "affinity",
+      "type": "object"
+    },
+    "backend": {
+      "properties": {
+        "disableRegistration": {
+          "default": false,
+          "description": "Disable registration of new accounts",
+          "required": [],
+          "title": "disableRegistration",
+          "type": "boolean"
+        },
+        "django": {
+          "properties": {
+            "adminEmail": {
+              "default": "admin@example.com",
+              "description": "Admin email for AdventureLog",
+              "required": [],
+              "title": "adminEmail",
+              "type": "string"
+            },
+            "adminPassword": {
+              "default": "admin",
+              "description": "Admin password for AdventureLog",
+              "required": [],
+              "title": "adminPassword",
+              "type": "string"
+            },
+            "adminUsername": {
+              "default": "admin",
+              "description": "Admin username for AdventureLog",
+              "required": [],
+              "title": "adminUsername",
+              "type": "string"
+            },
+            "debug": {
+              "default": "True",
+              "description": "Run in debug mode",
+              "required": [],
+              "title": "debug",
+              "type": "boolean"
+            },
+            "secretKey": {
+              "default": "adventure",
+              "description": "Secret key used for cookies",
+              "required": [],
+              "title": "secretKey",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "django",
+          "type": "object"
+        },
+        "email": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "description": "Enable sending email",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "from": {
+              "default": "user@example.com",
+              "description": "Email from address",
+              "required": [],
+              "title": "from",
+              "type": "string"
+            },
+            "host": {
+              "default": "smtp.gmail.com",
+              "description": "SMTP server hostname",
+              "required": [],
+              "title": "host",
+              "type": "string"
+            },
+            "password": {
+              "default": "password",
+              "description": "SMTP password",
+              "required": [],
+              "title": "password",
+              "type": "string"
+            },
+            "port": {
+              "default": 587,
+              "description": "SMTP server port",
+              "required": [],
+              "title": "port",
+              "type": "integer"
+            },
+            "useSsl": {
+              "default": false,
+              "description": "SMTP use SSL",
+              "required": [],
+              "title": "useSsl",
+              "type": "boolean"
+            },
+            "useTls": {
+              "default": false,
+              "description": "SMTP use TLS",
+              "required": [],
+              "title": "useTls",
+              "type": "boolean"
+            },
+            "user": {
+              "default": "user",
+              "description": "SMTP username",
+              "required": [],
+              "title": "user",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "email",
+          "type": "object"
+        },
+        "image": {
+          "properties": {
+            "repository": {
+              "default": "ghcr.io/seanmorley15/adventurelog-backend",
+              "description": "Container image for the frontend",
+              "required": [],
+              "title": "repository",
+              "type": "string"
+            },
+            "tag": {
+              "default": "",
+              "description": "Overrides the image tag whose default is the chart appVersion.",
+              "required": [],
+              "title": "tag",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "image",
+          "type": "object"
+        },
+        "persistence": {
+          "properties": {
+            "accessMode": {
+              "default": "ReadWriteOnce",
+              "description": "Access mode of persistent volume. Must be ReadWriteMany if replicaCount \u003e 1",
+              "required": [],
+              "title": "accessMode",
+              "type": "string"
+            },
+            "enabled": {
+              "default": true,
+              "description": "Enable persistent storage for the backend",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "size": {
+              "default": "10Gi",
+              "description": "Size of persistent volume to provision",
+              "required": [],
+              "title": "size",
+              "type": "string"
+            },
+            "storageClassName": {
+              "default": "",
+              "description": "Storage class to provision a persistent volume",
+              "required": [],
+              "title": "storageClassName",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "persistence",
+          "type": "object"
+        },
+        "replicaCount": {
+          "default": 1,
+          "description": "Number of backend replicas to run. Running \u003e1 replica requires RWX storage.",
+          "required": [],
+          "title": "replicaCount",
+          "type": "integer"
+        },
+        "resources": {
+          "description": "Resource requests \u0026 limits for the backend",
+          "required": [],
+          "title": "resources",
+          "type": "object"
+        },
+        "service": {
+          "properties": {
+            "port": {
+              "default": 8000,
+              "description": "Backend port",
+              "required": [],
+              "title": "port",
+              "type": "integer"
+            },
+            "type": {
+              "default": "ClusterIP",
+              "description": "Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
+              "required": [],
+              "title": "type",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "service",
+          "type": "object"
+        },
+        "strategy": {
+          "default": "Recreate",
+          "description": "Deployment strategy. Must be Recreate if persistence is RWO.",
+          "required": [],
+          "title": "strategy",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "backend",
+      "type": "object"
+    },
+    "frontend": {
+      "properties": {
+        "image": {
+          "properties": {
+            "repository": {
+              "default": "ghcr.io/seanmorley15/adventurelog-frontend",
+              "description": "Container image for the frontend",
+              "required": [],
+              "title": "repository",
+              "type": "string"
+            },
+            "tag": {
+              "default": "",
+              "description": "Overrides the image tag whose default is the chart appVersion.",
+              "required": [],
+              "title": "tag",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "image",
+          "type": "object"
+        },
+        "replicaCount": {
+          "default": 1,
+          "description": "Number of frontend replicas to run",
+          "required": [],
+          "title": "replicaCount",
+          "type": "integer"
+        },
+        "resources": {
+          "description": "Resource requests \u0026 limits for the frontend",
+          "required": [],
+          "title": "resources",
+          "type": "object"
+        },
+        "service": {
+          "properties": {
+            "port": {
+              "default": 3000,
+              "description": "Frontend port",
+              "required": [],
+              "title": "port",
+              "type": "integer"
+            },
+            "type": {
+              "default": "ClusterIP",
+              "description": "Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
+              "required": [],
+              "title": "type",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "service",
+          "type": "object"
+        },
+        "strategy": {
+          "default": "RollingUpdate",
+          "description": "Deployment strategy",
+          "required": [],
+          "title": "strategy",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "frontend",
+      "type": "object"
+    },
+    "fullnameOverride": {
+      "default": "",
+      "description": "Override the chart name",
+      "required": [],
+      "title": "fullnameOverride",
+      "type": "string"
+    },
+    "global": {
+      "description": "Global values are values that can be accessed from any chart or subchart by exactly the same name.",
+      "required": [],
+      "title": "global",
+      "type": "object"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "default": "IfNotPresent",
+          "description": "Sets the pull policy for images",
+          "required": [],
+          "title": "pullPolicy",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "image",
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "description": "Secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/",
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "imagePullSecrets",
+      "type": "array"
+    },
+    "ingress": {
+      "description": "This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/",
+      "properties": {
+        "annotations": {
+          "description": "Annotations to add to the Ingress",
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "className": {
+          "default": "",
+          "description": "The IngressClass to use",
+          "required": [],
+          "title": "className",
+          "type": "string"
+        },
+        "enabled": {
+          "default": false,
+          "description": "Create an Ingress resource",
+          "required": [],
+          "title": "enabled",
+          "type": "boolean"
+        },
+        "hosts": {
+          "description": "kubernetes.io/ingress.class: nginx\nkubernetes.io/tls-acme: \"true\"",
+          "properties": {
+            "backend": {
+              "default": "adventure-backend.example.com",
+              "description": "DNS name of the backend",
+              "required": [],
+              "title": "backend",
+              "type": "string"
+            },
+            "frontend": {
+              "default": "adventure.example.com",
+              "description": "DNS name of the frontend",
+              "required": [],
+              "title": "frontend",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "hosts",
+          "type": "object"
+        },
+        "tls": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "description": "Enable TLS for this Ingress",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "secretName": {
+              "default": "adventure-tls",
+              "description": "Secret to store TLS certs in",
+              "required": [],
+              "title": "secretName",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "tls",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "ingress",
+      "type": "object"
+    },
+    "livenessProbe": {
+      "description": "Define liveness probes for frontend \u0026 backend",
+      "properties": {
+        "httpGet": {
+          "properties": {
+            "path": {
+              "default": "/",
+              "required": [],
+              "title": "path",
+              "type": "string"
+            },
+            "port": {
+              "default": "http",
+              "required": [],
+              "title": "port",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "httpGet",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "livenessProbe",
+      "type": "object"
+    },
+    "nameOverride": {
+      "default": "",
+      "description": "Override the chart name",
+      "required": [],
+      "title": "nameOverride",
+      "type": "string"
+    },
+    "nodeSelector": {
+      "description": "Schedule pods on a specific node(s)",
+      "required": [],
+      "title": "nodeSelector",
+      "type": "object"
+    },
+    "podAnnotations": {
+      "description": "Add Annotations to Pods.\nFor more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/",
+      "required": [],
+      "title": "podAnnotations",
+      "type": "object"
+    },
+    "podLabels": {
+      "description": "Add Labels to Pods.\nFor more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/",
+      "required": [],
+      "title": "podLabels",
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "required": [],
+      "title": "podSecurityContext",
+      "type": "object"
+    },
+    "postgis": {
+      "properties": {
+        "database": {
+          "default": "adventure",
+          "description": "Name of database to create",
+          "required": [],
+          "title": "database",
+          "type": "string"
+        },
+        "image": {
+          "properties": {
+            "repository": {
+              "default": "postgis/postgis",
+              "description": "Container image for the PostGIS database",
+              "required": [],
+              "title": "repository",
+              "type": "string"
+            },
+            "tag": {
+              "default": "15-3.3",
+              "description": "Container image tag for the PostGIS database",
+              "required": [],
+              "title": "tag",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "image",
+          "type": "object"
+        },
+        "password": {
+          "default": "adventure",
+          "description": "Database password to set",
+          "required": [],
+          "title": "password",
+          "type": "string"
+        },
+        "persistence": {
+          "properties": {
+            "accessMode": {
+              "default": "ReadWriteOnce",
+              "description": "Access mode of persistent volume",
+              "required": [],
+              "title": "accessMode",
+              "type": "string"
+            },
+            "enabled": {
+              "default": true,
+              "description": "Enable persistent storage for the database",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "size": {
+              "default": "1Gi",
+              "description": "Size of persistent volume to provision",
+              "required": [],
+              "title": "size",
+              "type": "string"
+            },
+            "storageClassName": {
+              "default": "",
+              "description": "Storage class to provision a persistent volume",
+              "required": [],
+              "title": "storageClassName",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "persistence",
+          "type": "object"
+        },
+        "resources": {
+          "description": "Resource requests \u0026 limits for the database",
+          "required": [],
+          "title": "resources",
+          "type": "object"
+        },
+        "service": {
+          "properties": {
+            "port": {
+              "default": 5432,
+              "description": "Database port",
+              "required": [],
+              "title": "port",
+              "type": "integer"
+            },
+            "type": {
+              "default": "ClusterIP",
+              "description": "Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
+              "required": [],
+              "title": "type",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "service",
+          "type": "object"
+        },
+        "user": {
+          "default": "adventure",
+          "description": "Database user to create",
+          "required": [],
+          "title": "user",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "postgis",
+      "type": "object"
+    },
+    "readinessProbe": {
+      "description": "Define readiness probes for frontend \u0026 backend",
+      "properties": {
+        "httpGet": {
+          "properties": {
+            "path": {
+              "default": "/",
+              "required": [],
+              "title": "path",
+              "type": "string"
+            },
+            "port": {
+              "default": "http",
+              "required": [],
+              "title": "port",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "httpGet",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "readinessProbe",
+      "type": "object"
+    },
+    "securityContext": {
+      "required": [],
+      "title": "securityContext",
+      "type": "object"
+    },
+    "serviceAccount": {
+      "properties": {
+        "annotations": {
+          "description": "Annotations to add to the service account",
+          "required": [],
+          "title": "annotations",
+          "type": "object"
+        },
+        "automount": {
+          "default": true,
+          "description": "Automatically mount a ServiceAccount's API credentials?",
+          "required": [],
+          "title": "automount",
+          "type": "boolean"
+        },
+        "create": {
+          "default": true,
+          "description": "Specifies whether a service account should be created",
+          "required": [],
+          "title": "create",
+          "type": "boolean"
+        },
+        "name": {
+          "default": "",
+          "description": "The name of the service account to use.\nIf not set and create is true, a name is generated using the fullname template",
+          "required": [],
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "serviceAccount",
+      "type": "object"
+    },
+    "startupProbe": {
+      "description": "Define startup probes for backend only",
+      "properties": {
+        "failureThreshold": {
+          "default": 30,
+          "required": [],
+          "title": "failureThreshold",
+          "type": "integer"
+        },
+        "httpGet": {
+          "properties": {
+            "path": {
+              "default": "/",
+              "required": [],
+              "title": "path",
+              "type": "string"
+            },
+            "port": {
+              "default": "http",
+              "required": [],
+              "title": "port",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "httpGet",
+          "type": "object"
+        },
+        "periodSeconds": {
+          "default": 10,
+          "required": [],
+          "title": "periodSeconds",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "startupProbe",
+      "type": "object"
+    },
+    "tolerations": {
+      "description": "Add tolerations to pods",
+      "items": {
+        "required": []
+      },
+      "required": [],
+      "title": "tolerations",
+      "type": "array"
+    }
+  },
+  "required": [],
+  "type": "object"
+}
