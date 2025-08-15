@@ -59,6 +59,16 @@ backend:
     debug: True
     secretKey: adventure
 
+  email:
+    enabled: false
+    host: smtp.gmail.com
+    useTls: false
+    useSsl: false
+    port: 587
+    user: user
+    password: password
+    from: user@example.com
+
 postgis:
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:

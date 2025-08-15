@@ -80,6 +80,24 @@ spec:
               value: {{ .Values.backend.django.debug }}
             - name: BACKEND_PORT
               value: "8016"
+            {{ if .Values.backend.email.enabled }}
+            - name: EMAIL_BACKEND
+              value: email
+            - name: EMAIL_HOST
+              value: {{ .Values.backend.email.host }}
+            - name: EMAIL_USE_TLS
+              value: {{ .Values.backend.email.useTls }}
+            - name: EMAIL_PORT
+              value: {{ .Values.backend.email.port }}
+            - name: EMAIL_USE_SSL
+              value: {{ .Values.backend.email.useSsl }}
+            - name: EMAIL_HOST_USER
+              value: {{ .Values.backend.email.user }}
+            - name: EMAIL_HOST_PASSWORD
+              value: {{ .Values.backend.email.password }}
+            - name: DEFAULT_FROM_EMAIL
+              value: {{ .Values.backend.email.from }}
+            {{- end }}
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
