@@ -309,7 +309,7 @@
       "properties": {
         "pullPolicy": {
           "default": "IfNotPresent",
-          "description": "Aets the pull policy for images.",
+          "description": "Sets the pull policy for images",
           "required": [],
           "title": "pullPolicy",
           "type": "string"
