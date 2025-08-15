@@ -88,7 +88,7 @@ spec:
             - name: EMAIL_USE_TLS
               value: {{ .Values.backend.email.useTls | quote }}
             - name: EMAIL_PORT
-              value: {{ .Values.backend.email.port }}
+              value: {{ .Values.backend.email.port | quote }}
             - name: EMAIL_USE_SSL
               value: {{ .Values.backend.email.useSsl | quote }}
             - name: EMAIL_HOST_USER
