@@ -98,6 +98,10 @@ spec:
             - name: DEFAULT_FROM_EMAIL
               value: {{ .Values.backend.email.from }}
             {{- end }}
+            {{ if .Values.backend.disableRegistration }}
+            - name: DISABLE_REGISTRATION
+              value: "True"
+            {{- end }}
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}

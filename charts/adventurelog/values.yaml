@@ -69,6 +69,9 @@ backend:
     password: password
     from: user@example.com
 
+  # -- Disable registration of new accounts
+  disableRegistration: false
+
 postgis:
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
