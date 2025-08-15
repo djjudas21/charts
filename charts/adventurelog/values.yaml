@@ -52,6 +52,13 @@ backend:
     storageClassName: "my-storage-class"
     size: 10Gi
 
+  django:
+    adminUsername: admin
+    adminPassword: admin
+    adminEmail: admin@example.com
+    debug: True
+    secretKey: adventure
+
 postgis:
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:

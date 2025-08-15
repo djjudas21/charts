@@ -61,7 +61,7 @@ spec:
               #    name: adventurelog-secret
               #    key: adventure-postgres-password
             - name: SECRET_KEY
-              value: adventure
+              value: {{ .Values.backend.django.secretKey }}
             # Publicly accessible URL of the backend. Used for generating image URLs.
             - name: PUBLIC_URL
               value: https://{{ .Values.ingress.hosts.backend }}
@@ -71,13 +71,13 @@ spec:
             - name: CSRF_TRUSTED_ORIGINS
               value: https://{{ .Values.ingress.hosts.frontend }}
             - name: DJANGO_ADMIN_USERNAME
-              value: "admin"
+              value: {{ .Values.backend.django.adminUsername }}
             - name: DJANGO_ADMIN_PASSWORD
-              value: "admin"
+              value: {{ .Values.backend.django.adminPassword }}
             - name: DJANGO_ADMIN_EMAIL
-              value: "admin@example.com"
+              value: {{ .Values.backend.django.adminEmail }}
             - name: DEBUG
-              value: "True"
+              value: {{ .Values.backend.django.debug }}
             - name: BACKEND_PORT
               value: "8016"
           {{- with .Values.livenessProbe }}
