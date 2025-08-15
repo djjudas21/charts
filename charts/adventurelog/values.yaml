@@ -10,7 +10,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 image:
-  # Aets the pull policy for images.
+  # Sets the pull policy for images
   pullPolicy: IfNotPresent
 
 frontend:
