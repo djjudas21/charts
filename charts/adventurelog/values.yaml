@@ -16,6 +16,8 @@ image:
 frontend:
   # -- Number of frontend replicas to run
   replicaCount: 1
+  # -- Deployment strategy
+  strategy: RollingUpdate
 
   image:
     # -- Container image for the frontend
@@ -41,6 +43,8 @@ frontend:
 backend:
   # -- Number of backend replicas to run. Running >1 replica requires RWX storage.
   replicaCount: 1
+  # -- Deployment strategy. Must be Recreate if persistence is RWO.
+  strategy: Recreate
 
   image:
     # -- Container image for the frontend

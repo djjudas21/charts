@@ -7,7 +7,7 @@ metadata:
 spec:
   replicas: {{ .Values.frontend.replicaCount }}
   strategy:
-    type: Recreate
+    type: {{ .Values.frontend.strategy}}
   selector:
     matchLabels:
       {{- include "adventurelog.selectorLabels" . | nindent 6 }}
