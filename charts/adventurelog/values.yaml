@@ -2,33 +2,34 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+# -- Secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
-# This is to override the chart name.
+# -- Override the chart name
 nameOverride: ""
+# -- Override the chart name
 fullnameOverride: ""
 
 image:
-  # This sets the pull policy for images.
+  # Aets the pull policy for images.
   pullPolicy: IfNotPresent
 
 frontend:
-  # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+  # -- Number of frontend replicas to run
   replicaCount: 1
 
-  # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
+    # -- Container image for the frontend
     repository: ghcr.io/seanmorley15/adventurelog-frontend
-    # Overrides the image tag whose default is the chart appVersion.
+    # -- Overrides the image tag whose default is the chart appVersion.
     tag: ""
 
-  # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
   service:
-    # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+    # -- Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
     type: ClusterIP
-    # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
+    # -- Frontend port
     port: 3000
 
+  # -- Resource requests & limits for the frontend
   resources: {}
     # limits:
     #   cpu: 100m
@@ -38,48 +39,65 @@ frontend:
     #   memory: 128Mi
 
 backend:
-  # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+  # -- Number of backend replicas to run. Running >1 replica requires RWX storage.
   replicaCount: 1
 
-  # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
+    # -- Container image for the frontend
     repository: ghcr.io/seanmorley15/adventurelog-backend
-    # Overrides the image tag whose default is the chart appVersion.
+    # -- Overrides the image tag whose default is the chart appVersion.
     tag: ""
 
-  # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
-  service:
-    # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+    service:
+    # -- Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
     type: ClusterIP
-    # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
+    # -- Backend port
     port: 8000
 
   persistence:
+    # -- Enable persistent storage for the backend
     enabled: true
+    # -- Access mode of persistent volume. Must be ReadWriteMany if replicaCount > 1
     accessMode: ReadWriteOnce
-    storageClassName: "my-storage-class"
+    # -- Storage class to provision a persistent volume
+    storageClassName: ""
+    # -- Size of persistent volume to provision
     size: 10Gi
 
   django:
+    # -- Admin username for AdventureLog
     adminUsername: admin
+    # -- Admin password for AdventureLog
     adminPassword: admin
+    # -- Admin email for AdventureLog
     adminEmail: admin@example.com
+    # -- Run in debug mode
     debug: True
+    # -- Secret key used for cookies
     secretKey: adventure
 
   email:
+    # -- Enable sending email
     enabled: false
+    # -- SMTP server hostname
     host: smtp.gmail.com
+    # -- SMTP use TLS
     useTls: false
+    # -- SMTP use SSL
     useSsl: false
+    # -- SMTP server port
     port: 587
+    # -- SMTP username
     user: user
+    # -- SMTP password
     password: password
+    # -- Email from address
     from: user@example.com
 
   # -- Disable registration of new accounts
   disableRegistration: false
 
+  # -- Resource requests & limits for the backend
   resources: {}
     # limits:
     #   cpu: 100m
@@ -89,25 +107,29 @@ backend:
     #   memory: 128Mi
 
 postgis:
-  # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
+    # -- Container image for the PostGIS database
     repository: postgis/postgis
-    # Overrides the image tag whose default is the chart appVersion.
+    # -- Container image tag for the PostGIS database
     tag: "15-3.3"
 
-  # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
-  service:
-    # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+    service:
+    # -- Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
     type: ClusterIP
-    # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
+    # Database port
     port: 5432
 
   persistence:
+    # -- Enable persistent storage for the database
     enabled: true
-    accessMode: "ReadWriteOnce"
-    storageClassName: "my-storage-class"
+    # -- Access mode of persistent volume
+    accessMode: ReadWriteOnce
+    # -- Storage class to provision a persistent volume
+    storageClassName: ""
+    # -- Size of persistent volume to provision
     size: 1Gi
 
+  # -- Resource requests & limits for the database
   resources: {}
     # limits:
     #   cpu: 100m
@@ -116,26 +138,28 @@ postgis:
     #   cpu: 100m
     #   memory: 128Mi
 
+  # -- Name of database to create
   database: adventure
+  # -- Database user to create
   user: adventure
+  # -- Database password to set
   password: adventure
 
-# This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Automatically mount a ServiceAccount's API credentials?
+  # -- Automatically mount a ServiceAccount's API credentials?
   automount: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
+  # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-# This is for setting Kubernetes Annotations to a Pod.
+# -- Add Annotations to Pods.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
 podAnnotations: {}
-# This is for setting Kubernetes Labels to a Pod.
+# -- Add Labels to Pods.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 podLabels: {}
 
@@ -153,27 +177,36 @@ securityContext: {}
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
+  # -- Create an Ingress resource
   enabled: false
+  # -- The IngressClass to use
   className: ""
+  # -- Annotations to add to the Ingress
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
+    # -- DNS name of the frontend
     frontend: adventure.example.com
+    # -- DNS name of the backend
     backend: adventure-backend.example.com
   tls:
+    # -- Enable TLS for this Ingress
     enabled: false
-    secretName: chart-example-tls
+    # -- Secret to store TLS certs in
+    secretName: adventure-tls
 
-# This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+# -- Define liveness probes for frontend & backend
 livenessProbe:
   httpGet:
     path: /
     port: http
+# -- Define readiness probes for frontend & backend
 readinessProbe:
   httpGet:
     path: /
     port: http
+# -- Define startup probes for backend only
 startupProbe:
   httpGet:
     path: /
@@ -181,8 +214,11 @@ startupProbe:
   failureThreshold: 30
   periodSeconds: 10
 
+# -- Schedule pods on a specific node(s)
 nodeSelector: {}
 
+# -- Add tolerations to pods
 tolerations: []
 
+# -- Define pod affinity
 affinity: {}
