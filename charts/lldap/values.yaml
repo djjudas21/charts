@@ -5,13 +5,15 @@
 replicaCount: 1
 
 image:
-  # -- image repository
+  # -- Image repository
   repository: lldap/lldap
-  # -- image pull policy
+  # -- Image pull policy
   pullPolicy: IfNotPresent
-  # -- image tag
+  # -- Image tag
   # @default -- chart.appVersion
   tag: ""
+  # -- Image variant. Leave blank for default image.
+  variant: "-debian-rootless"
 
 imagePullSecrets: []
 nameOverride: ""

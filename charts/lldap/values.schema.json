@@ -263,23 +263,30 @@
       "properties": {
         "pullPolicy": {
           "default": "IfNotPresent",
-          "description": "image pull policy",
+          "description": "Image pull policy",
           "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "lldap/lldap",
-          "description": "image repository",
+          "description": "Image repository",
           "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
-          "description": "image tag",
+          "description": "Image tag",
           "required": [],
           "title": "tag",
+          "type": "string"
+        },
+        "variant": {
+          "default": "-debian-rootless",
+          "description": "Image variant. Leave blank for default image.",
+          "required": [],
+          "title": "variant",
           "type": "string"
         }
       },

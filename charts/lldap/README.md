@@ -1,6 +1,6 @@
 # lldap
 
-![Version: 0.5.3](https://img.shields.io/badge/Version-0.5.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.1](https://img.shields.io/badge/AppVersion-v0.6.1-informational?style=flat-square)
+![Version: 0.5.5](https://img.shields.io/badge/Version-0.5.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.2](https://img.shields.io/badge/AppVersion-v0.6.2-informational?style=flat-square)
 
 Light LDAP implementation
 
@@ -38,9 +38,10 @@ Light LDAP implementation
 | externalPostgresql | object | `{"auth":{"database":"lldap","host":"","password":"","port":5432,"username":""},"enabled":false}` | - Enable and configure external postgresql database |
 | externalPostgresql.auth | object | `{"database":"lldap","host":"","password":"","port":5432,"username":""}` | Name of the secret key containing the database URI uriKey: |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"lldap/lldap"` | image repository |
-| image.tag | string | chart.appVersion | image tag |
+| image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
+| image.repository | string | `"lldap/lldap"` | Image repository |
+| image.tag | string | chart.appVersion | Image tag |
+| image.variant | string | `"-debian-rootless"` | Image variant. Leave blank for default image. |
 | imagePullSecrets | list | `[]` |  |
 | ingress | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | livenessProbe.httpGet.path | string | `"/"` |  |
