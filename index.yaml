@@ -4950,6 +4950,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to liturgical-colour-app 0.7.2
+    apiVersion: v2
+    appVersion: 0.7.2
+    created: "2025-08-24T20:19:17.154886356Z"
+    description: A simple app to display the current liturgical colour of the Church
+      of England
+    digest: 877457b4c43136579cb8f1080aba249b3bb7801d26148e8247b18ee4d347a87b
+    home: https://github.com/djjudas21/charts/tree/master/charts/liturgical-colour
+    icon: https://img.icons8.com/emoji/96/latin-cross-emoji.png
+    keywords:
+    - liturgical
+    - calendar
+    - church
+    - anglican
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: liturgical-colour
+    sources:
+    - https://github.com/djjudas21/liturgical-colour-app
+    - https://hub.docker.com/r/djjudas21/liturgical-colour-app
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/liturgical-colour-0.7.2/liturgical-colour-0.7.2.tgz
+    version: 0.7.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to liturgical-colour-app 0.7.1
     apiVersion: v2
     appVersion: 0.7.1
@@ -12163,4 +12191,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-08-22T13:31:54.392817963Z"
+generated: "2025-08-24T20:19:17.15559303Z"
