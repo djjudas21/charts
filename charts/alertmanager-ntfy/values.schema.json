@@ -196,6 +196,21 @@
       "title": "config",
       "type": "object"
     },
+    "configMap": {
+      "description": "ConfigMap configuration",
+      "properties": {
+        "existingConfigMap": {
+          "default": "",
+          "description": "Name of an existing ConfigMap containing the alertmanager-ntfy configuration. When set, the chart will not create a ConfigMap and will use this instead. The ConfigMap must contain a key named 'config.yml'",
+          "required": [],
+          "title": "existingConfigMap",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "configMap",
+      "type": "object"
+    },
     "fullnameOverride": {
       "default": "",
       "required": [],

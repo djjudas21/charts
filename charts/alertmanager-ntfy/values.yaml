@@ -101,6 +101,13 @@ tolerations: []
 
 affinity: {}
 
+# ConfigMap configuration
+configMap:
+  # -- Name of an existing ConfigMap containing the alertmanager-ntfy configuration.
+  # When set, the chart will not create a ConfigMap and will use this instead.
+  # The ConfigMap must contain a key named 'config.yml'
+  existingConfigMap: ""
+
 # -- Contains config.yml for alertmanager-ntfy
 # @default -- See https://github.com/alexbakker/alertmanager-ntfy
 config:

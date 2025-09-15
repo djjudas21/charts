@@ -60,3 +60,14 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Return the name of the ConfigMap to use
+*/}}
+{{- define "alertmanager-ntfy.configMapName" -}}
+{{- if .Values.configMap.existingConfigMap }}
+{{- .Values.configMap.existingConfigMap }}
+{{- else }}
+{{- printf "%s-config" (include "alertmanager-ntfy.fullname" .) }}
+{{- end }}
+{{- end }}

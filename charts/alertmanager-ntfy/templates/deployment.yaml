@@ -62,7 +62,7 @@ spec:
       volumes:
       - name: config
         configMap:
-          name: {{ include "alertmanager-ntfy.fullname" . }}-config
+          name: {{ include "alertmanager-ntfy.configMapName" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
