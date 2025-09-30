@@ -5652,6 +5652,44 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Add IPv6 support
+    apiVersion: v2
+    appVersion: v0.6.2
+    created: "2025-09-30T13:52:17.099679102Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: 58e6d6067dadc647fe90f0dfea6fa2d8154376dc59a8f8b6fe5f9131c6851de6
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.6.0/lldap-0.6.0.tgz
+    version: 0.6.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to LLDAP v0.6.2 with rootless image by default
     apiVersion: v2
     appVersion: v0.6.2
@@ -12279,4 +12317,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-09-15T07:46:30.878131138Z"
+generated: "2025-09-30T13:52:17.100210101Z"
