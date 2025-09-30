@@ -66,6 +66,12 @@ lldap:
   # -- Name of the key holding the private key seed in the `.Values.lldap.secretName` Kubernetes secret.
   keySeedKey: keySeed
 
+  # -- LDAP host. To enable IPv6 listening, change to `::`
+  ldapHost: 0.0.0.0
+
+  # -- HTTP API host. To enable IPv6 listening, change to `::`
+  httpHost: 0.0.0.0
+
   uid: 1000
   gid: 1000
   tz: "Etc/UTC"

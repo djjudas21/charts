@@ -54,6 +54,10 @@ spec:
               value: http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .host }}{{- with (first .paths) }}{{ .path }}{{- end }}
             {{- end }}
             {{- end }}
+            - name: LLDAP_LDAP_HOST
+              value: "{{ .Values.lldap.ldapHost }}"
+            - name: LLDAP_HTTP_HOST
+              value: "{{ .Values.lldap.httpHost }}"
             - name: LLDAP_LDAP_PORT
               value: "{{ .Values.service.ldap.port }}"
             - name: LLDAP_HTTP_PORT
