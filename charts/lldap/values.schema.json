@@ -444,6 +444,13 @@
           "title": "gid",
           "type": "integer"
         },
+        "httpHost": {
+          "default": "0.0.0.0",
+          "description": "HTTP API host. To enable IPv6 listening, change to `::`",
+          "required": [],
+          "title": "httpHost",
+          "type": "string"
+        },
         "jwtSecret": {
           "default": "REPLACE_WITH_RANDOM",
           "description": "Random secret for JWT signature.\nThis secret should be random, and should be shared with application servers that need to\nconsume the JWTs. Changing this secret will invalidate all user sessions and require them\nto re-login. You can generate it with (on linux):\nLC_ALL=C tr -dc 'A-Za-z0-9!#%\u0026'\\''()*+,-./:;\u003c=\u003e?@[\\]^_{|}~' \u003c/dev/urandom | head -c 32; echo ''",
@@ -470,6 +477,13 @@
           "description": "Name of the key holding the private key seed in the `.Values.lldap.secretName` Kubernetes secret.",
           "required": [],
           "title": "keySeedKey",
+          "type": "string"
+        },
+        "ldapHost": {
+          "default": "0.0.0.0",
+          "description": "LDAP host. To enable IPv6 listening, change to `::`",
+          "required": [],
+          "title": "ldapHost",
           "type": "string"
         },
         "ldapUserDN": {

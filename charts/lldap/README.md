@@ -1,6 +1,6 @@
 # lldap
 
-![Version: 0.5.5](https://img.shields.io/badge/Version-0.5.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.2](https://img.shields.io/badge/AppVersion-v0.6.2-informational?style=flat-square)
+![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.2](https://img.shields.io/badge/AppVersion-v0.6.2-informational?style=flat-square)
 
 Light LDAP implementation
 
@@ -50,10 +50,12 @@ Light LDAP implementation
 | lldap.extraVolumeMounts | list | `[]` |  |
 | lldap.extraVolumes | list | `[]` | - define extra volumes and mounts for the ldap |
 | lldap.gid | int | `1000` |  |
+| lldap.httpHost | string | `"0.0.0.0"` | HTTP API host. To enable IPv6 listening, change to `::` |
 | lldap.jwtSecret | string | `"REPLACE_WITH_RANDOM"` | Random secret for JWT signature. This secret should be random, and should be shared with application servers that need to consume the JWTs. Changing this secret will invalidate all user sessions and require them to re-login. You can generate it with (on linux): LC_ALL=C tr -dc 'A-Za-z0-9!#%&'\''()*+,-./:;<=>?@[\]^_{|}~' </dev/urandom | head -c 32; echo '' |
 | lldap.jwtSecretKey | string | `"jwtSecret"` | Name of the JWT signature key in the `.Values.lldap.secretName` Kubernetes secret. |
 | lldap.keySeed | string | `"REPLACE_WITH_RANDOM"` | Seed to generate the server private key. This can be any random string, the recommendation is that it's at least 12 characters long. |
 | lldap.keySeedKey | string | `"keySeed"` | Name of the key holding the private key seed in the `.Values.lldap.secretName` Kubernetes secret. |
+| lldap.ldapHost | string | `"0.0.0.0"` | LDAP host. To enable IPv6 listening, change to `::` |
 | lldap.ldapUserDN | string | `"admin"` | Admin username. For the LDAP interface, a value of "admin" here will create the LDAP user "cn=admin,ou=people,dc=example,dc=com" (with the base DN above). For the administration interface, this is the username. |
 | lldap.ldapUserPass | string | `"REPLACE_WITH_RANDOM"` | Admin password. Password for the admin account, both for the LDAP bind and for the administration interface. It is only used when initially creating the admin user. It should be minimum 8 characters long. Note: you can create another admin user for user administration, this is just the default one. |
 | lldap.ldapUserPassKey | string | `"ldapUserPass"` | Name of the LDAP admin password key in the `.Values.lldap.secretName` Kubernetes secret. |
