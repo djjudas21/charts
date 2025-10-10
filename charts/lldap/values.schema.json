@@ -897,6 +897,11 @@
       "properties": {
         "http": {
           "properties": {
+            "annotations": {
+              "required": [],
+              "title": "annotations",
+              "type": "object"
+            },
             "port": {
               "default": 17170,
               "required": [],
@@ -916,6 +921,11 @@
         },
         "ldap": {
           "properties": {
+            "annotations": {
+              "required": [],
+              "title": "annotations",
+              "type": "object"
+            },
             "port": {
               "default": 3890,
               "required": [],

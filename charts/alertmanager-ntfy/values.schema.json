@@ -201,7 +201,7 @@
       "properties": {
         "existingConfigMap": {
           "default": "",
-          "description": "Name of an existing ConfigMap containing the alertmanager-ntfy configuration. When set, the chart will not create a ConfigMap and will use this instead. The ConfigMap must contain a key named 'config.yml'",
+          "description": "Name of an existing ConfigMap containing the alertmanager-ntfy configuration.\nWhen set, the chart will not create a ConfigMap and will use this instead.\nThe ConfigMap must contain a key named 'config.yml'",
           "required": [],
           "title": "existingConfigMap",
           "type": "string"
