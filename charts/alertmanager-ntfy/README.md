@@ -1,6 +1,6 @@
 # alertmanager-ntfy
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.1](https://img.shields.io/badge/AppVersion-1.0.1-informational?style=flat-square)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.1](https://img.shields.io/badge/AppVersion-1.0.1-informational?style=flat-square)
 
 Service that forwards Prometheus Alertmanager notifications to ntfy.sh
 
@@ -35,6 +35,7 @@ named [wrenix/alertmanager-ntfy](https://codeberg.org/wrenix/helm-charts/src/bra
 | config.ntfy.auth.token | string | `"verysecureauthtoken"` | Token for alertmanager-ntfy to connect to ntfy |
 | config.ntfy.baseurl | string | `"https://ntfy.sh"` | URL for ntfy service, if not using ntfy.sh |
 | config.ntfy.notification.topic | string | `"alertmanager"` | ntfy topic. Can either be a hardcoded string or a gval expression that evaluates to a string |
+| configMap.existingConfigMap | string | `""` | Name of an existing ConfigMap containing the alertmanager-ntfy configuration. When set, the chart will not create a ConfigMap and will use this instead. The ConfigMap must contain a key named 'config.yml' |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/alexbakker/alertmanager-ntfy"` |  |
