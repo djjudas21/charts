@@ -157,9 +157,11 @@ service:
   http:
     type: ClusterIP
     port: 17170
+    annotations: {}
   ldap:
     type: ClusterIP
     port: 3890
+    annotations: {}
   ldaps:
     type: ClusterIP
     port: 6360
