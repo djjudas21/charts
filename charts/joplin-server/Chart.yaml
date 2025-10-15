@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 2.14.2-beta
 description: This server allows you to sync any Joplin client
 name: joplin-server
-version: 5.5.7
+version: 5.5.8
 keywords:
   - joplin
   - notes
@@ -27,4 +27,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Migrate to bjw-s-labs
+      description: Switch to bitnamilegacy image as a stopgap

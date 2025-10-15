@@ -227,6 +227,8 @@ affinity: {}
 # @default -- https://github.com/bitnami/charts/blob/master/bitnami/postgresql/values.yaml
 postgresql:
   enabled: false
+  image:
+    repository: bitnamilegacy/postgresql
   auth:
     postgresPassword:	lldapadminpw
     username:	lldap
@@ -260,6 +262,8 @@ externalPostgresql:
 # @default -- https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
 mariadb:
   enabled: false
+  image:
+    repository: bitnamilegacy/mariadb
   architecture: standalone
   auth:
     database: lldap

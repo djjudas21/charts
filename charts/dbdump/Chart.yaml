@@ -1,5 +1,5 @@
 apiVersion: v2
-version: 0.0.16
+version: 0.0.17
 appVersion: 0.0.9
 description: A Helm chart to help backup SQL databases using mysqldump and pgdump
 name: dbdump
@@ -18,8 +18,3 @@ maintainers:
   - name: djjudas21
     email: djjudas21@users.noreply.github.com
 type: application
-dependencies:
-  - name: mariadb
-    version: ~18
-    repository: "https://charts.bitnami.com/bitnami"
-    condition: mariadb.enabled

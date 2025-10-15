@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 240711-ce
 description: PhotoPrism® is a server-based application for browsing, organizing and sharing your personal photo collection
 name: photoprism
-version: 7.4.20
+version: 99.99.99
 kubeVersion: ">=1.16.0-0"
 keywords:
   - photos
@@ -28,5 +28,5 @@ dependencies:
     condition: mariadb.enabled
 annotations:
   artifacthub.io/changes: |-
-    - kind: changed
-      description: Migrate to bjw-s-labs
+    - kind: deprecated
+      description: Deprecate PhotoPrism chart
