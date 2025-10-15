@@ -101,7 +101,3 @@ securityContext:
   fsGroup: 999
   # -- user ID to use
   runAsUser: 999
-
-# -- dependency chart for ci
-mariadb:
-  enabled: false
