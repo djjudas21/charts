@@ -1,6 +1,6 @@
 # dbdump
 
-![Version: 0.0.16](https://img.shields.io/badge/Version-0.0.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
+![Version: 0.0.17](https://img.shields.io/badge/Version-0.0.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
 
 A Helm chart to help backup SQL databases using mysqldump and pgdump
 
@@ -16,12 +16,6 @@ A Helm chart to help backup SQL databases using mysqldump and pgdump
 
 * <https://hub.docker.com/repository/docker/djjudas21/dbdump/general>
 * <https://github.com/djjudas21/charts>
-
-## Requirements
-
-| Repository | Name | Version |
-|------------|------|---------|
-| https://charts.bitnami.com/bitnami | mariadb | ~18 |
 
 ## Values
 
@@ -47,7 +41,6 @@ A Helm chart to help backup SQL databases using mysqldump and pgdump
 | image.repository | string | `"djjudas21/dbdump"` | image repository |
 | image.tag | string | chart.appVersion | image tag |
 | imagePullSecrets | list | `[]` |  |
-| mariadb | object | `{"enabled":false}` | dependency chart for ci |
 | mysqldumpOptions | string | `"--single-transaction"` | options to pass to mysqldump |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` | resource definitions |
