@@ -3,7 +3,7 @@ name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
   
-version: 0.3.20
+version: 0.3.21
 appVersion: "10.15.3"
 
 dependencies:
@@ -34,4 +34,4 @@ annotations:
   category: Infrastructure
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update ownCloud to v10.15.3
+      description: Switch to bitnamilegacy image as a stopgap

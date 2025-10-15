@@ -53,6 +53,8 @@ ingress:
 # @default -- https://github.com/bitnami/charts/blob/master/bitnami/postgresql/values.yaml
 postgresql:
   enabled: false
+  image:
+    repository: bitnamilegacy/postgresql
   postgresqlUsername: joplin
   postgresqlPassword: joplin-pass
   postgresqlDatabase: joplin

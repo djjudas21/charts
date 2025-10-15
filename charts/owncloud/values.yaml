@@ -114,6 +114,8 @@ affinity: {}
 # @default -- <https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml>
 mariadb:
   enabled: true
+  image:
+    repository: bitnamilegacy/mariadb
   architecture: standalone
   auth:
     rootPassword: "owncloud"
@@ -142,6 +144,8 @@ mariadb:
 # @default -- <https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml>
 redis:
   architecture: standalone
+  image:
+    repository: bitnamilegacy/redis
   auth:
     enabled: false
     sentinel: true

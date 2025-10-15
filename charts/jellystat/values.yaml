@@ -113,6 +113,8 @@ affinity: {}
 # @default -- https://github.com/bitnami/charts/blob/master/bitnami/postgresql/values.yaml
 postgresql:
   enabled: false
+  image:
+    repository: bitnamilegacy/postgresql
   auth:
     postgresPassword: jellystat
     username: jellystat

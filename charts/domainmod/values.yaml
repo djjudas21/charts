@@ -111,6 +111,8 @@ affinity: {}
 # @default -- https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
 mariadb:
   enabled: false
+  image:
+    repository: bitnamilegacy/mariadb
   architecture: standalone
   auth:
     # -- Database name
