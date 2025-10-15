@@ -162,20 +162,6 @@
       "title": "imagePullSecrets",
       "type": "array"
     },
-    "mariadb": {
-      "description": "dependency chart for ci",
-      "properties": {
-        "enabled": {
-          "default": false,
-          "required": [],
-          "title": "enabled",
-          "type": "boolean"
-        }
-      },
-      "required": [],
-      "title": "mariadb",
-      "type": "object"
-    },
     "mysqldumpOptions": {
       "default": "--single-transaction",
       "description": "options to pass to mysqldump",

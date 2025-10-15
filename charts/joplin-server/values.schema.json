@@ -136,6 +136,19 @@
           "title": "enabled",
           "type": "boolean"
         },
+        "image": {
+          "properties": {
+            "repository": {
+              "default": "bitnamilegacy/postgresql",
+              "required": [],
+              "title": "repository",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "image",
+          "type": "object"
+        },
         "persistence": {
           "properties": {
             "enabled": {

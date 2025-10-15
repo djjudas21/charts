@@ -230,6 +230,19 @@
           "title": "enabled",
           "type": "boolean"
         },
+        "image": {
+          "properties": {
+            "repository": {
+              "default": "bitnamilegacy/mariadb",
+              "required": [],
+              "title": "repository",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "image",
+          "type": "object"
+        },
         "metrics": {
           "properties": {
             "enabled": {
@@ -562,6 +575,19 @@
           },
           "required": [],
           "title": "auth",
+          "type": "object"
+        },
+        "image": {
+          "properties": {
+            "repository": {
+              "default": "bitnamilegacy/redis",
+              "required": [],
+              "title": "repository",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "image",
           "type": "object"
         },
         "master": {
