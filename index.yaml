@@ -367,6 +367,30 @@ entries:
   dbdump:
   - apiVersion: v2
     appVersion: 0.0.9
+    created: "2025-10-15T21:38:46.649392569Z"
+    description: A Helm chart to help backup SQL databases using mysqldump and pgdump
+    digest: c56b54cf8d4dfab80eddcd208e4674b056c2a2f61f6bb8087212263ec032128d
+    home: https://github.com/djjudas21/dbdump
+    icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
+    keywords:
+    - mysql
+    - postgresql
+    - mysqldump
+    - pgdump
+    - backup
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: dbdump
+    sources:
+    - https://hub.docker.com/repository/docker/djjudas21/dbdump/general
+    - https://github.com/djjudas21/charts
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/dbdump-0.0.17/dbdump-0.0.17.tgz
+    version: 0.0.17
+  - apiVersion: v2
+    appVersion: 0.0.9
     created: "2024-11-25T21:34:13.603186779Z"
     dependencies:
     - condition: mariadb.enabled
@@ -627,6 +651,37 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/dbdump-0.0.8/dbdump-0.0.8.tgz
     version: 0.0.8
   domainmod:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Switch to bitnamilegacy image as a stopgap
+    apiVersion: v2
+    appVersion: 4.23.0
+    created: "2025-10-15T21:38:46.837398782Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~20
+    description: DomainMOD is a self-hosted open source application used to manage
+      your domains and other Internet assets in a central location
+    digest: ac41d4c19769559ec97a010c19ce87c1a8b9cea0bf426fa10828cba0c5f629fb
+    home: https://github.com/djjudas21/charts/tree/master/charts/domainmod
+    icon: https://domainmod.org/images/logo_share_fb.png
+    keywords:
+    - domainmod
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: domainmod
+    sources:
+    - https://github.com/domainmod/domainmod
+    - https://domainmod.org/
+    - https://hub.docker.com/r/domainmod/domainmod
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/domainmod-0.5.4/domainmod-0.5.4.tgz
+    version: 0.5.4
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -4066,6 +4121,39 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Switch to bitnamilegacy image as a stopgap
+    apiVersion: v2
+    appVersion: 1.1.6
+    created: "2025-10-15T21:38:47.210831496Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: 68998e6adf074581c043e41b4b0973a29d813fc1155974658227fca3a52b58d2
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.8/jellystat-0.1.8.tgz
+    version: 0.1.8
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Jellystat 1.1.6
     apiVersion: v2
     appVersion: 1.1.6
@@ -4262,6 +4350,39 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.1/jellystat-0.1.1.tgz
     version: 0.1.1
   joplin-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Switch to bitnamilegacy image as a stopgap
+    apiVersion: v2
+    appVersion: 2.14.2-beta
+    created: "2025-10-15T21:38:47.417269196Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~11
+    description: This server allows you to sync any Joplin client
+    digest: 028de5bd7ea95dd1828688623318139e99a7f03dc9dc74a8b34590342cace3a8
+    home: https://github.com/djjudas21/charts/tree/master/charts/joplin-server
+    icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
+    keywords:
+    - joplin
+    - notes
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: joplin-server
+    sources:
+    - https://github.com/laurent22/joplin/tree/dev/packages/server
+    - https://github.com/laurent22/joplin
+    - https://hub.docker.com/r/joplin/server
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/joplin-server-5.5.8/joplin-server-5.5.8.tgz
+    version: 5.5.8
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -5649,6 +5770,44 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/liturgical-colour-0.0.1/liturgical-colour-0.0.1.tgz
     version: 0.0.1
   lldap:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Switch to bitnamilegacy image as a stopgap
+    apiVersion: v2
+    appVersion: v0.6.2
+    created: "2025-10-15T21:38:47.654143768Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: 8c82007e7639d5494c998d4286a36d6d8be8212fc6f33608af6a50a8f1e5a5f8
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.6.2/lldap-0.6.2.tgz
+    version: 0.6.2
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -8265,6 +8424,45 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Switch to bitnamilegacy image as a stopgap
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.15.3
+    created: "2025-10-15T21:38:48.067752996Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~19
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: a32347e6500d802b11545122f45e4b487f9895480a14549df26b7eccda283490
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.21/owncloud-0.3.21.tgz
+    version: 0.3.21
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update ownCloud to v10.15.3
       category: Infrastructure
     apiVersion: v2
@@ -9250,6 +9448,42 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/paperless-9.2.0/paperless-9.2.0.tgz
     version: 9.2.0
   photoprism:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: deprecated
+          description: Deprecate PhotoPrism chart
+    apiVersion: v2
+    appVersion: 240711-ce
+    created: "2025-10-15T21:38:48.256280995Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: PhotoPrism® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: 52639dfa2026c6a9cec580104f5aab2dad474edd6054772e5bc02ea2b7a49d68
+    home: https://github.com/djjudas21/charts/tree/master/charts/photoprism
+    icon: https://raw.githubusercontent.com/photoprism/photoprism/develop/assets/static/icons/app.svg
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/photoprism-99.99.99/photoprism-99.99.99.tgz
+    version: 99.99.99
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -11616,6 +11850,41 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Switch to bitnamilegacy image as a stopgap
+    apiVersion: v2
+    appVersion: 2.1.25
+    created: "2025-10-15T21:38:48.480834231Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Open-source online collaborative genealogy application
+    digest: 21119294038d0c6108a0e46d7eb15ff9fd8b724f6a200200589d53992f6e7727
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    - ancestry
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.21/webtrees-2.2.21.tgz
+    version: 2.2.21
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Webtrees 2.1.25
     apiVersion: v2
     appVersion: 2.1.25
@@ -12355,4 +12624,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-10-10T09:20:39.577936297Z"
+generated: "2025-10-15T21:38:48.48170622Z"
