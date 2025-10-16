@@ -8428,6 +8428,45 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 10.15.3
+    created: "2025-10-16T21:26:04.805659709Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: valkey
+      repository: https://valkey.io/valkey-helm/
+      version: ~0.7
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: 2aa3fc0543e07094dc8bf374a7884f1d7c8f7ecfdd40a69f784b427904d346d2
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.22/owncloud-0.3.22.tgz
+    version: 0.3.22
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Switch to bitnamilegacy image as a stopgap
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.15.3
     created: "2025-10-15T21:38:48.067752996Z"
     dependencies:
     - condition: mariadb.enabled
@@ -12624,4 +12663,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-10-15T21:38:48.48170622Z"
+generated: "2025-10-16T21:26:04.806159905Z"
