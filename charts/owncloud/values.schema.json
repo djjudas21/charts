@@ -525,172 +525,6 @@
       "title": "priorityClassName",
       "type": "string"
     },
-    "redis": {
-      "description": "Enable and configure redis subchart under this key.\n   For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis)",
-      "properties": {
-        "architecture": {
-          "default": "standalone",
-          "required": [],
-          "title": "architecture",
-          "type": "string"
-        },
-        "auth": {
-          "properties": {
-            "enabled": {
-              "default": false,
-              "required": [],
-              "title": "enabled",
-              "type": "boolean"
-            },
-            "existingSecret": {
-              "default": "",
-              "required": [],
-              "title": "existingSecret",
-              "type": "string"
-            },
-            "existingSecretPasswordKey": {
-              "default": "",
-              "required": [],
-              "title": "existingSecretPasswordKey",
-              "type": "string"
-            },
-            "password": {
-              "default": "redis",
-              "required": [],
-              "title": "password",
-              "type": "string"
-            },
-            "sentinel": {
-              "default": true,
-              "required": [],
-              "title": "sentinel",
-              "type": "boolean"
-            },
-            "usePasswordFiles": {
-              "default": false,
-              "required": [],
-              "title": "usePasswordFiles",
-              "type": "boolean"
-            }
-          },
-          "required": [],
-          "title": "auth",
-          "type": "object"
-        },
-        "image": {
-          "properties": {
-            "repository": {
-              "default": "bitnamilegacy/redis",
-              "required": [],
-              "title": "repository",
-              "type": "string"
-            }
-          },
-          "required": [],
-          "title": "image",
-          "type": "object"
-        },
-        "master": {
-          "properties": {
-            "persistence": {
-              "properties": {
-                "accessModes": {
-                  "items": {
-                    "anyOf": [
-                      {
-                        "required": [],
-                        "type": "string"
-                      }
-                    ],
-                    "required": []
-                  },
-                  "required": [],
-                  "title": "accessModes",
-                  "type": "array"
-                },
-                "enabled": {
-                  "default": true,
-                  "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
-                },
-                "size": {
-                  "default": "8Gi",
-                  "required": [],
-                  "title": "size",
-                  "type": "string"
-                },
-                "storageClass": {
-                  "default": "",
-                  "required": [],
-                  "title": "storageClass",
-                  "type": "string"
-                }
-              },
-              "required": [],
-              "title": "persistence",
-              "type": "object"
-            },
-            "priorityClassName": {
-              "default": "",
-              "required": [],
-              "title": "priorityClassName",
-              "type": "string"
-            },
-            "resources": {
-              "required": [],
-              "title": "resources",
-              "type": "object"
-            }
-          },
-          "required": [],
-          "title": "master",
-          "type": "object"
-        },
-        "metrics": {
-          "properties": {
-            "enabled": {
-              "default": false,
-              "required": [],
-              "title": "enabled",
-              "type": "boolean"
-            },
-            "prometheusRule": {
-              "properties": {
-                "enabled": {
-                  "default": false,
-                  "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
-                }
-              },
-              "required": [],
-              "title": "prometheusRule",
-              "type": "object"
-            },
-            "serviceMonitor": {
-              "properties": {
-                "enabled": {
-                  "default": false,
-                  "required": [],
-                  "title": "enabled",
-                  "type": "boolean"
-                }
-              },
-              "required": [],
-              "title": "serviceMonitor",
-              "type": "object"
-            }
-          },
-          "required": [],
-          "title": "metrics",
-          "type": "object"
-        }
-      },
-      "required": [],
-      "title": "redis",
-      "type": "object"
-    },
     "replicaCount": {
       "default": 1,
       "description": "Number of replicas",
@@ -757,6 +591,143 @@
       "required": [],
       "title": "tolerations",
       "type": "array"
+    },
+    "valkey": {
+      "description": "Enable and configure valkey subchart under this key.\n   For more options see [valkey chart documentation](https://github.com/valkey-io/valkey-helm/tree/main/valkey)",
+      "properties": {
+        "auth": {
+          "properties": {
+            "aclConfig": {
+              "default": "# Users and permissions can be defined here\n# Example:\n# user default off\n# user default on \u003edefaultpassword ~*  \u0026* +@all \n",
+              "description": "Default ACL rules (used only if auth.enabled is true)",
+              "required": [],
+              "title": "aclConfig",
+              "type": "string"
+            },
+            "enabled": {
+              "default": false,
+              "description": "Enable ACL-based authentication",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "title": "auth",
+          "type": "object"
+        },
+        "dataStorage": {
+          "description": "Persistent storage configuration",
+          "properties": {
+            "accessModes": {
+              "description": "Access modes for the PVC (e.g., ReadWriteOnce, ReadWriteMany)",
+              "items": {
+                "anyOf": [
+                  {
+                    "required": [],
+                    "type": "string"
+                  }
+                ],
+                "required": []
+              },
+              "required": [],
+              "title": "accessModes",
+              "type": "array"
+            },
+            "className": {
+              "default": "",
+              "description": "Name of the storage class to use",
+              "required": [],
+              "title": "className",
+              "type": "string"
+            },
+            "enabled": {
+              "default": false,
+              "description": "Enable persistent volume claim creation",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "persistentVolumeClaimName": {
+              "default": "",
+              "description": "Use existing PVC by name (skip dynamic provisioning if set)",
+              "required": [],
+              "title": "persistentVolumeClaimName",
+              "type": "string"
+            },
+            "requestedSize": {
+              "default": "8Gi",
+              "description": "Request size (e.g. 5Gi) for dynamically provisioned volume",
+              "required": [],
+              "title": "requestedSize",
+              "type": "string"
+            },
+            "volumeName": {
+              "default": "valkey-data",
+              "description": "Name of the volume (referenced in deployment)",
+              "required": [],
+              "title": "volumeName",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "title": "dataStorage",
+          "type": "object"
+        },
+        "metrics": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "description": "Enable Prometheus exporter sidecar",
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "exporter": {
+              "properties": {
+                "extraExporterSecrets": {
+                  "description": "Additional secrets to mount for metrics exporter",
+                  "items": {
+                    "required": []
+                  },
+                  "required": [],
+                  "title": "extraExporterSecrets",
+                  "type": "array"
+                }
+              },
+              "required": [],
+              "title": "exporter",
+              "type": "object"
+            }
+          },
+          "required": [],
+          "title": "metrics",
+          "type": "object"
+        },
+        "replicaCount": {
+          "default": 1,
+          "description": "Number of Valkey pods to run",
+          "required": [],
+          "title": "replicaCount",
+          "type": "integer"
+        },
+        "resources": {
+          "description": "Resource limits/requests for the main Valkey container",
+          "required": [],
+          "title": "resources",
+          "type": "object"
+        },
+        "valkeyLogLevel": {
+          "default": "notice",
+          "description": "Valkey logging level: debug, verbose, notice, warning",
+          "required": [],
+          "title": "valkeyLogLevel",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "valkey",
+      "type": "object"
     }
   },
   "required": [],

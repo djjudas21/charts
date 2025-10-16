@@ -1,9 +1,9 @@
 dependencies:
 - name: mariadb
   repository: https://charts.bitnami.com/bitnami
-  version: 18.0.1
-- name: redis
-  repository: https://charts.bitnami.com/bitnami
-  version: 19.0.2
-digest: sha256:1ce6e9b42351a2d2b3bfe39683f62d7e1040cc4a7b94796ff4e4199b9ae62bc2
-generated: "2024-04-03T09:31:15.042882512+01:00"
+  version: 18.2.6
+- name: valkey
+  repository: https://valkey.io/valkey-helm/
+  version: 0.7.5
+digest: sha256:84263a3de841980eb561ea5c883bff223dcf725847d9c9eea1cfeae5c386f9f7
+generated: "2025-10-16T22:14:24.325171183+01:00"

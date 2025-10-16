@@ -3,7 +3,7 @@ name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
   
-version: 0.3.21
+version: 0.3.22
 appVersion: "10.15.3"
 
 dependencies:
@@ -11,9 +11,9 @@ dependencies:
   condition: mariadb.enabled
   version: ~18
   repository: "https://charts.bitnami.com/bitnami"
-- name: redis
-  version: ~19
-  repository: "https://charts.bitnami.com/bitnami"
+- name: valkey
+  version: ~0.7
+  repository: "https://valkey.io/valkey-helm/"
 
 home: https://github.com/djjudas21/owncloud-helm
 icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
