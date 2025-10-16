@@ -139,32 +139,62 @@ mariadb:
     serviceMonitor:
       enabled: false
 
-# -- Enable and configure redis subchart under this key.
-#    For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis)
-# @default -- <https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml>
-redis:
-  architecture: standalone
-  image:
-    repository: bitnamilegacy/redis
+# -- Enable and configure valkey subchart under this key.
+#    For more options see [valkey chart documentation](https://github.com/valkey-io/valkey-helm/tree/main/valkey)
+# @default -- <https://github.com/valkey-io/valkey-helm/blob/main/valkey/values.yaml>
+valkey:
+  # Number of Valkey pods to run
+  replicaCount: 1
+
+  # Resource limits/requests for the main Valkey container
+  resources: {}
+    # Example:
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  # Persistent storage configuration
+  dataStorage:
+    # Enable persistent volume claim creation
+    enabled: false
+
+    # Use existing PVC by name (skip dynamic provisioning if set)
+    persistentVolumeClaimName: ""
+
+    # Name of the volume (referenced in deployment)
+    volumeName: "valkey-data"
+
+    # Request size (e.g. 5Gi) for dynamically provisioned volume
+    requestedSize: 8Gi
+
+    # Name of the storage class to use
+    className: ""
+
+    # Access modes for the PVC (e.g., ReadWriteOnce, ReadWriteMany)
+    accessModes:
+      - ReadWriteOnce
+
   auth:
+    # Enable ACL-based authentication
     enabled: false
-    sentinel: true
-    password: "redis"
-    existingSecret: ""
-    existingSecretPasswordKey: ""
-    usePasswordFiles: false
-  master:
-    resources: {}
-    priorityClassName: ""
-    persistence:
-      enabled: true
-      storageClass: ""
-      accessModes:
-        - ReadWriteOnce
-      size: 8Gi
+
+    # Default ACL rules (used only if auth.enabled is true)
+    aclConfig: |
+      # Users and permissions can be defined here
+      # Example:
+      # user default off
+      # user default on >defaultpassword ~*  &* +@all 
+
+  # Valkey logging level: debug, verbose, notice, warning
+  valkeyLogLevel: "notice"
+
   metrics:
+    # Enable Prometheus exporter sidecar
     enabled: false
-    serviceMonitor:
-      enabled: false
-    prometheusRule:
-      enabled: false
+
+    exporter:
+      # Additional secrets to mount for metrics exporter
+      extraExporterSecrets: []
