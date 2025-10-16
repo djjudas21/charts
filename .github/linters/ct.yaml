@@ -6,6 +6,7 @@ chart-dirs:
 chart-repos:
   - bitnami=https://charts.bitnami.com/bitnami
   - bjw-s=http://bjw-s-labs.github.io/helm-charts/
+  - valkey=https://valkey.io/valkey-helm/
 helm-extra-args: --timeout 600s
 excluded-charts:
   - graphite-exporter
