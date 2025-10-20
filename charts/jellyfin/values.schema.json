@@ -525,6 +525,125 @@
       "title": "podSecurityContext",
       "type": "object"
     },
+    "probes": {
+      "description": "Health probes for the pod (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)",
+      "properties": {
+        "livenessProbe": {
+          "properties": {
+            "enabled": {
+              "default": true,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "failureThreshold": {
+              "default": 3,
+              "required": [],
+              "title": "failureThreshold",
+              "type": "integer"
+            },
+            "initialDelaySeconds": {
+              "default": 30,
+              "required": [],
+              "title": "initialDelaySeconds",
+              "type": "integer"
+            },
+            "periodSeconds": {
+              "default": 10,
+              "required": [],
+              "title": "periodSeconds",
+              "type": "integer"
+            },
+            "timeoutSeconds": {
+              "default": 1,
+              "required": [],
+              "title": "timeoutSeconds",
+              "type": "integer"
+            }
+          },
+          "required": [],
+          "title": "livenessProbe",
+          "type": "object"
+        },
+        "readinessProbe": {
+          "properties": {
+            "enabled": {
+              "default": true,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "failureThreshold": {
+              "default": 3,
+              "required": [],
+              "title": "failureThreshold",
+              "type": "integer"
+            },
+            "initialDelaySeconds": {
+              "default": 0,
+              "required": [],
+              "title": "initialDelaySeconds",
+              "type": "integer"
+            },
+            "periodSeconds": {
+              "default": 10,
+              "required": [],
+              "title": "periodSeconds",
+              "type": "integer"
+            },
+            "timeoutSeconds": {
+              "default": 1,
+              "required": [],
+              "title": "timeoutSeconds",
+              "type": "integer"
+            }
+          },
+          "required": [],
+          "title": "readinessProbe",
+          "type": "object"
+        },
+        "startupProbe": {
+          "properties": {
+            "enabled": {
+              "default": false,
+              "required": [],
+              "title": "enabled",
+              "type": "boolean"
+            },
+            "failureThreshold": {
+              "default": 30,
+              "required": [],
+              "title": "failureThreshold",
+              "type": "integer"
+            },
+            "periodSeconds": {
+              "default": 10,
+              "required": [],
+              "title": "periodSeconds",
+              "type": "integer"
+            },
+            "successThreshold": {
+              "default": 1,
+              "required": [],
+              "title": "successThreshold",
+              "type": "integer"
+            },
+            "timeoutSeconds": {
+              "default": 1,
+              "required": [],
+              "title": "timeoutSeconds",
+              "type": "integer"
+            }
+          },
+          "required": [],
+          "title": "startupProbe",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "probes",
+      "type": "object"
+    },
     "resources": {
       "properties": {
         "jellyfin": {
