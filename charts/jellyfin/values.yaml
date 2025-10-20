@@ -102,6 +102,27 @@ resources:
       cpu: '2'
       memory: 6Gi
 
+# -- Health probes for the pod (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+probes:
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 30
+    failureThreshold: 3
+    periodSeconds: 10
+    timeoutSeconds: 1
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 0
+    failureThreshold: 3
+    periodSeconds: 10
+    timeoutSeconds: 1
+  startupProbe:
+    enabled: false
+    periodSeconds: 10
+    timeoutSeconds: 1
+    successThreshold: 1
+    failureThreshold: 30
+
 # -- Security context for the pod (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
 podSecurityContext:
   runAsGroup: 64710

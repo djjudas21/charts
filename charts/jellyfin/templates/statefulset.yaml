@@ -40,17 +40,36 @@ spec:
             - name: web
               containerPort: 8096
               protocol: TCP
+          {{- if .Values.probes.livenessProbe.enabled }}
           livenessProbe:
-            httpGet: &httpProbe
+            httpGet:
               port: web
               path: /health
-            initialDelaySeconds: 30
-            periodSeconds: 30
-            timeoutSeconds: 10
+            initialDelaySeconds: {{ .Values.probes.livenessProbe.initialDelaySeconds }}
+            failureThreshold: {{ .Values.probes.livenessProbe.failureThreshold }}
+            periodSeconds: {{ .Values.probes.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.probes.livenessProbe.timeoutSeconds }}
+          {{- end }}
+          {{- if .Values.probes.readinessProbe.enabled }}
           readinessProbe:
-            httpGet: *httpProbe
-            periodSeconds: 10
-            timeoutSeconds: 10
+            httpGet:
+              port: web
+              path: /health
+            initialDelaySeconds: {{ .Values.probes.readinessProbe.initialDelaySeconds }}
+            failureThreshold: {{ .Values.probes.readinessProbe.failureThreshold }}
+            periodSeconds: {{ .Values.probes.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.probes.readinessProbe.timeoutSeconds }}
+          {{- end }}
+          {{- if .Values.probes.startupProbe.enabled }}
+          startupProbe:
+            httpGet:
+              port: web
+              path: /health
+            successThreshold: {{ .Values.probes.startupProbe.successThreshold }}
+            failureThreshold: {{ .Values.probes.startupProbe.failureThreshold }}
+            periodSeconds: {{ .Values.probes.startupProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.probes.startupProbe.timeoutSeconds }}
+          {{- end }}
           resources: {{- toYaml .Values.resources.jellyfin | nindent 12 }}
           volumeMounts:
             - name: config
