@@ -18,8 +18,8 @@
   ](LICENSE)
   <br/>
   ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
-  ![Version: 3.2.7](https://img.shields.io/badge/Version-3.2.7-informational?style=flat-square)
-  ![AppVersion: 10.10.7](https://img.shields.io/badge/AppVersion-10.10.7-informational?style=flat-square)
+  ![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square)
+  ![AppVersion: 10.11.0](https://img.shields.io/badge/AppVersion-10.11.0-informational?style=flat-square)
 
 </div>
 
@@ -183,6 +183,11 @@ The command removes all the Kubernetes components associated with the chart and 
 
 | Key | Description | Default |
 |-----|-------------|---------|
+### Other parameters
+
+| Key | Description | Default |
+|-----|-------------|---------|
+| `probes` | Health probes for the pod ([kubernetes.io/docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)) | `{"livenessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":30,"periodSeconds":10,"timeoutSeconds":1},"readinessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":0,"periodSeconds":10,"timeoutSeconds":1},"startupProbe":{"enabled":false,"failureThreshold":30,"periodSeconds":10,"successThreshold":1,"timeoutSeconds":1}}` |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
