@@ -3541,6 +3541,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Jellyfin v10.11.0 and add health probes
+    apiVersion: v2
+    appVersion: 10.11.0
+    created: "2025-10-20T11:53:24.284919166Z"
+    description: Your media, your server, your way
+    digest: 300f54965c63e8d5f3af4019179f9fb70e8e66d1600d4400e37d16ba1b2ef4dd
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-4.0.0/jellyfin-4.0.0.tgz
+    version: 4.0.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Jellyfin v10.10.7
     apiVersion: v2
     appVersion: 10.10.7
@@ -12663,4 +12691,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-10-16T21:26:04.806159905Z"
+generated: "2025-10-20T11:53:24.285465669Z"
