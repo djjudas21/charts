@@ -150,6 +150,34 @@ entries:
           description: Fixed RBAC
     apiVersion: v2
     appVersion: 0.0.6
+    created: "2025-11-10T10:46:32.885619675Z"
+    description: Automatically label Kubernetes nodes based on their hardware
+    digest: b38c795c0f706abd3366697ccb20ff4c31d0519271a7292a1767f089c5f1df40
+    home: https://github.com/djjudas21/charts/tree/master/charts/autonodelabel
+    icon: https://raw.githubusercontent.com/kubernetes/community/master/icons/png/infrastructure_components/labeled/node-128.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: autonodelabel
+    sources:
+    - https://github.com/djjudas21/autonodelabel
+    - https://hub.docker.com/r/djjudas21/autonodelabel
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/autonodelabel-0.0.10/autonodelabel-0.0.10.tgz
+    version: 0.0.10
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fixed RBAC
+    apiVersion: v2
+    appVersion: 0.0.6
     created: "2024-05-22T13:43:57.039449535Z"
     description: Automatically label Kubernetes nodes based on their hardware
     digest: eb0dd0701de4d73a0622a82666a49ac2437168597c2dfb0558bd2daf7fd3b5f9
@@ -12434,6 +12462,38 @@ entries:
           description: Initial release
     apiVersion: v2
     appVersion: 4.2.0-beta.3
+    created: "2025-11-10T10:46:36.905167923Z"
+    description: Wizarr is an advanced user invitation and management system for Jellyfin,
+      Plex, Emby etc.
+    digest: 45ad244c64c8e9ef2837a1492b59c797c3f51f07f8c247135b1a5ff5b4a26432
+    home: https://github.com/wizarrrr/wizarr
+    icon: https://raw.githubusercontent.com/Wizarrrr/wizarr/master/apps/wizarr-frontend/src/assets/img/wizard.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    - jellyseerr
+    - overseerr
+    - ombi
+    - invite
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: wizarr
+    sources:
+    - https://github.com/wizarrrr/wizarr/pkgs/container/wizarr
+    - https://github.com/djjudas21/charts/tree/main/charts/wizarr
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.5/wizarr-0.1.5.tgz
+    version: 0.1.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 4.2.0-beta.3
     created: "2024-09-30T21:20:51.735399614Z"
     description: Wizarr is an advanced user invitation and management system for Jellyfin,
       Plex, Emby etc.
@@ -12524,4 +12584,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-10-20T12:05:34.442578563Z"
+generated: "2025-11-10T10:46:36.905858994Z"
