@@ -13,7 +13,6 @@
           "properties": {
             "addr": {
               "default": ":8000",
-              "required": [],
               "title": "addr",
               "type": "string"
             },
@@ -22,14 +21,12 @@
                 "password": {
                   "default": "verysecure",
                   "description": "Password for Alertmanager to connect to Alertmanager-ntfy",
-                  "required": [],
                   "title": "password",
                   "type": "string"
                 },
                 "username": {
                   "default": "alertmanager",
                   "description": "Username for Alertmanager to connect to Alertmanager-ntfy",
-                  "required": [],
                   "title": "username",
                   "type": "string"
                 }
@@ -52,14 +49,12 @@
                     "password": {
                       "default": "verysecure",
                       "description": "Password for alertmanager-ntfy to connect to ntfy",
-                      "required": [],
                       "title": "password",
                       "type": "string"
                     },
                     "username": {
                       "default": "admin",
                       "description": "Username for alertmanager-ntfy to connect to ntfy",
-                      "required": [],
                       "title": "username",
                       "type": "string"
                     }
@@ -71,7 +66,6 @@
                 "token": {
                   "default": "verysecureauthtoken",
                   "description": "OR\nToken for alertmanager-ntfy to connect to ntfy",
-                  "required": [],
                   "title": "token",
                   "type": "string"
                 }
@@ -83,7 +77,6 @@
             "baseurl": {
               "default": "https://ntfy.sh",
               "description": "URL for ntfy service, if not using ntfy.sh",
-              "required": [],
               "title": "baseurl",
               "type": "string"
             },
@@ -92,7 +85,6 @@
                 "priority": {
                   "default": "status == \"firing\" ? \"urgent\" : \"default\"\n",
                   "description": "Priority reference: https://docs.ntfy.sh/publish/#message-priority\nCan either be a hardcoded string or a gval expression that evaluates to a string",
-                  "required": [],
                   "title": "priority",
                   "type": "string"
                 },
@@ -103,13 +95,11 @@
                         "properties": {
                           "condition": {
                             "default": "status == \"resolved\"",
-                            "required": [],
                             "title": "condition",
                             "type": "string"
                           },
                           "tag": {
                             "default": "+1",
-                            "required": [],
                             "title": "tag",
                             "type": "string"
                           }
@@ -121,13 +111,11 @@
                         "properties": {
                           "condition": {
                             "default": "status == \"firing\"",
-                            "required": [],
                             "title": "condition",
                             "type": "string"
                           },
                           "tag": {
                             "default": "rotating_light",
-                            "required": [],
                             "title": "tag",
                             "type": "string"
                           }
@@ -138,7 +126,6 @@
                     ],
                     "required": []
                   },
-                  "required": [],
                   "title": "tags",
                   "type": "array"
                 },
@@ -146,7 +133,6 @@
                   "properties": {
                     "description": {
                       "default": "{{ index .Annotations \"description\" }}\n",
-                      "required": [],
                       "title": "description",
                       "type": "string"
                     },
@@ -154,7 +140,6 @@
                       "properties": {
                         "X-Click": {
                           "default": "{{ .GeneratorURL }}\n",
-                          "required": [],
                           "title": "X-Click",
                           "type": "string"
                         }
@@ -165,7 +150,6 @@
                     },
                     "title": {
                       "default": "{{ if eq .Status \"resolved\" }}Resolved: {{ end }}{{ index .Annotations \"summary\" }}\n",
-                      "required": [],
                       "title": "title",
                       "type": "string"
                     }
@@ -177,7 +161,6 @@
                 "topic": {
                   "default": "alertmanager",
                   "description": "ntfy topic. Can either be a hardcoded string or a gval expression that evaluates to a string",
-                  "required": [],
                   "title": "topic",
                   "type": "string"
                 }
@@ -202,7 +185,6 @@
         "existingConfigMap": {
           "default": "",
           "description": "Name of an existing ConfigMap containing the alertmanager-ntfy configuration.\nWhen set, the chart will not create a ConfigMap and will use this instead.\nThe ConfigMap must contain a key named 'config.yml'",
-          "required": [],
           "title": "existingConfigMap",
           "type": "string"
         }
@@ -213,7 +195,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -229,20 +210,17 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "This sets the pull policy for images.",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "ghcr.io/alexbakker/alertmanager-ntfy",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "Overrides the image tag whose default is the chart appVersion.",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -256,7 +234,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -270,13 +247,11 @@
         },
         "className": {
           "default": "",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -288,7 +263,6 @@
                 "properties": {
                   "host": {
                     "default": "chart-example.local",
-                    "required": [],
                     "title": "host",
                     "type": "string"
                   },
@@ -299,13 +273,11 @@
                           "properties": {
                             "path": {
                               "default": "/",
-                              "required": [],
                               "title": "path",
                               "type": "string"
                             },
                             "pathType": {
                               "default": "ImplementationSpecific",
-                              "required": [],
                               "title": "pathType",
                               "type": "string"
                             }
@@ -316,7 +288,6 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "paths",
                     "type": "array"
                   }
@@ -327,7 +298,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "hosts",
           "type": "array"
         },
@@ -335,7 +305,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "tls",
           "type": "array"
         }
@@ -351,13 +320,11 @@
           "properties": {
             "path": {
               "default": "/health",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -374,7 +341,6 @@
     "nameOverride": {
       "default": "",
       "description": "This is to override the chart name.",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -406,13 +372,11 @@
           "properties": {
             "path": {
               "default": "/health",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -429,7 +393,6 @@
     "replicaCount": {
       "default": 1,
       "description": "This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -449,14 +412,12 @@
         "port": {
           "default": 8000,
           "description": "This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports",
-          "required": [],
           "title": "port",
           "type": "integer"
         },
         "type": {
           "default": "ClusterIP",
           "description": "This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
-          "required": [],
           "title": "type",
           "type": "string"
         }
@@ -477,21 +438,18 @@
         "automount": {
           "default": true,
           "description": "Automatically mount a ServiceAccount's API credentials?",
-          "required": [],
           "title": "automount",
           "type": "boolean"
         },
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.\nIf not set and create is true, a name is generated using the fullname template",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -504,7 +462,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     }

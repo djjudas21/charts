@@ -8,7 +8,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -23,21 +22,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "djjudas21/liturgical-colour-app",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -50,7 +46,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -64,13 +59,11 @@
         },
         "className": {
           "default": "",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -82,7 +75,6 @@
                 "properties": {
                   "host": {
                     "default": "chart-example.local",
-                    "required": [],
                     "title": "host",
                     "type": "string"
                   },
@@ -93,13 +85,11 @@
                           "properties": {
                             "path": {
                               "default": "/",
-                              "required": [],
                               "title": "path",
                               "type": "string"
                             },
                             "pathType": {
                               "default": "ImplementationSpecific",
-                              "required": [],
                               "title": "pathType",
                               "type": "string"
                             }
@@ -110,7 +100,6 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "paths",
                     "type": "array"
                   }
@@ -121,7 +110,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "hosts",
           "type": "array"
         },
@@ -129,7 +117,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "tls",
           "type": "array"
         }
@@ -140,7 +127,6 @@
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -167,7 +153,6 @@
     "replicaCount": {
       "default": 1,
       "description": "Number of replicas",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -184,13 +169,11 @@
               "items": {
                 "anyOf": [
                   {
-                    "required": [],
                     "type": "string"
                   }
                 ],
                 "required": []
               },
-              "required": [],
               "title": "drop",
               "type": "array"
             }
@@ -201,19 +184,16 @@
         },
         "readOnlyRootFilesystem": {
           "default": true,
-          "required": [],
           "title": "readOnlyRootFilesystem",
           "type": "boolean"
         },
         "runAsNonRoot": {
           "default": true,
-          "required": [],
           "title": "runAsNonRoot",
           "type": "boolean"
         },
         "runAsUser": {
           "default": 1000,
-          "required": [],
           "title": "runAsUser",
           "type": "integer"
         }
@@ -227,13 +207,11 @@
       "properties": {
         "port": {
           "default": 5000,
-          "required": [],
           "title": "port",
           "type": "integer"
         },
         "type": {
           "default": "ClusterIP",
-          "required": [],
           "title": "type",
           "type": "string"
         }
@@ -253,21 +231,18 @@
         "automount": {
           "default": false,
           "description": "Automatically mount a ServiceAccount's API credentials?",
-          "required": [],
           "title": "automount",
           "type": "boolean"
         },
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -280,7 +255,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     }

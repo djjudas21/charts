@@ -12,7 +12,6 @@
       "properties": {
         "allowPrivilegeEscalation": {
           "default": false,
-          "required": [],
           "title": "allowPrivilegeEscalation",
           "type": "boolean"
         },
@@ -22,13 +21,11 @@
               "items": {
                 "anyOf": [
                   {
-                    "required": [],
                     "type": "string"
                   }
                 ],
                 "required": []
               },
-              "required": [],
               "title": "drop",
               "type": "array"
             }
@@ -39,25 +36,21 @@
         },
         "readOnlyRootFilesystem": {
           "default": true,
-          "required": [],
           "title": "readOnlyRootFilesystem",
           "type": "boolean"
         },
         "runAsGroup": {
           "default": 64710,
-          "required": [],
           "title": "runAsGroup",
           "type": "integer"
         },
         "runAsNonRoot": {
           "default": true,
-          "required": [],
           "title": "runAsNonRoot",
           "type": "boolean"
         },
         "runAsUser": {
           "default": 64710,
-          "required": [],
           "title": "runAsUser",
           "type": "integer"
         }
@@ -69,7 +62,6 @@
     "fullnameOverride": {
       "default": "",
       "description": "String to fully override `common.names.fullname` template",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -85,7 +77,6 @@
         "debug": {
           "default": false,
           "description": "Enable global debug mode",
-          "required": [],
           "title": "debug",
           "type": "boolean"
         },
@@ -94,14 +85,12 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "imagePullSecrets",
           "type": "array"
         },
         "imageRegistry": {
           "default": "",
           "description": "Global Docker image registry",
-          "required": [],
           "title": "imageRegistry",
           "type": "string"
         }
@@ -117,35 +106,30 @@
             "digest": {
               "default": "",
               "description": "jellyfin image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag",
-              "required": [],
               "title": "digest",
               "type": "string"
             },
             "pullPolicy": {
               "default": "IfNotPresent",
               "description": "jellyfin image pull policy",
-              "required": [],
               "title": "pullPolicy",
               "type": "string"
             },
             "registry": {
               "default": "",
               "description": "jellyfin image registry (optional)",
-              "required": [],
               "title": "registry",
               "type": "string"
             },
             "repository": {
               "default": "jellyfin/jellyfin",
               "description": "jellyfin image repository",
-              "required": [],
               "title": "repository",
               "type": "string"
             },
             "tag": {
               "default": "",
               "description": "jellyfin image tag (immutable tags are recommended)",
-              "required": [],
               "title": "tag",
               "type": "string"
             }
@@ -170,7 +154,6 @@
         "enabled": {
           "default": false,
           "description": "Enable ingress resource",
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -179,7 +162,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "extraHosts",
           "type": "array"
         },
@@ -188,7 +170,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "extraPaths",
           "type": "array"
         },
@@ -197,7 +178,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "extraRules",
           "type": "array"
         },
@@ -206,42 +186,36 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "extraTls",
           "type": "array"
         },
         "hostname": {
           "default": "jellyfin.local",
           "description": "Default host for the ingress resource",
-          "required": [],
           "title": "hostname",
           "type": "string"
         },
         "ingressClassName": {
           "default": "",
           "description": "IngressClass that will be used to implement the Ingress",
-          "required": [],
           "title": "ingressClassName",
           "type": "string"
         },
         "path": {
           "default": "/",
           "description": "The Path to jellyfin. You may need to set this to '/*' in order to use this with ALB ingress controllers.",
-          "required": [],
           "title": "path",
           "type": "string"
         },
         "pathType": {
           "default": "ImplementationSpecific",
           "description": "Ingress path type",
-          "required": [],
           "title": "pathType",
           "type": "string"
         },
         "tls": {
           "default": true,
           "description": "Enable TLS configuration for the hostname defined at apiIngress.hostname parameter",
-          "required": [],
           "title": "tls",
           "type": "boolean"
         }
@@ -257,7 +231,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "extraDevices",
           "type": "array"
         },
@@ -266,14 +239,12 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "mediaVolumes",
           "type": "array"
         },
         "persistentTranscodes": {
           "default": false,
           "description": "Keep all transcoded files persistent.",
-          "required": [],
           "title": "persistentTranscodes",
           "type": "boolean"
         }
@@ -285,7 +256,6 @@
     "nameOverride": {
       "default": "",
       "description": "String to partially override `common.names.fullname` template (will maintain the release name)",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -294,14 +264,12 @@
         "allowAllOutbound": {
           "default": true,
           "description": "Whether to allow all outbound traffic by default.",
-          "required": [],
           "title": "allowAllOutbound",
           "type": "boolean"
         },
         "allowExternal": {
           "default": true,
           "description": "Don't require client label for connections",
-          "required": [],
           "title": "allowExternal",
           "type": "boolean"
         },
@@ -310,14 +278,12 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "egress",
           "type": "array"
         },
         "enabled": {
           "default": false,
           "description": "Enable the default NetworkPolicy policy",
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -326,7 +292,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "ingress",
           "type": "array"
         }
@@ -340,7 +305,6 @@
       "properties": {
         "kubernetes.io/os": {
           "default": "linux",
-          "required": [],
           "title": "kubernetes.io/os",
           "type": "string"
         }
@@ -356,7 +320,6 @@
             "enabled": {
               "default": true,
               "description": "Enable cache persistence using `PVC`. If false, use emptyDir",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
@@ -367,13 +330,11 @@
                   "items": {
                     "anyOf": [
                       {
-                        "required": [],
                         "type": "string"
                       }
                     ],
                     "required": []
                   },
-                  "required": [],
                   "title": "accessModes",
                   "type": "array"
                 },
@@ -383,7 +344,6 @@
                       "properties": {
                         "storage": {
                           "default": "2Gi",
-                          "required": [],
                           "title": "storage",
                           "type": "string"
                         }
@@ -412,7 +372,6 @@
             "enabled": {
               "default": true,
               "description": "Enable configuration persistence using `PVC`. If false, use emptyDir",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
@@ -423,13 +382,11 @@
                   "items": {
                     "anyOf": [
                       {
-                        "required": [],
                         "type": "string"
                       }
                     ],
                     "required": []
                   },
-                  "required": [],
                   "title": "accessModes",
                   "type": "array"
                 },
@@ -439,7 +396,6 @@
                       "properties": {
                         "storage": {
                           "default": "1Gi",
-                          "required": [],
                           "title": "storage",
                           "type": "string"
                         }
@@ -485,25 +441,21 @@
       "properties": {
         "fsGroup": {
           "default": 64710,
-          "required": [],
           "title": "fsGroup",
           "type": "integer"
         },
         "runAsGroup": {
           "default": 64710,
-          "required": [],
           "title": "runAsGroup",
           "type": "integer"
         },
         "runAsNonRoot": {
           "default": true,
-          "required": [],
           "title": "runAsNonRoot",
           "type": "boolean"
         },
         "runAsUser": {
           "default": 64710,
-          "required": [],
           "title": "runAsUser",
           "type": "integer"
         },
@@ -511,7 +463,6 @@
           "properties": {
             "type": {
               "default": "RuntimeDefault",
-              "required": [],
               "title": "type",
               "type": "string"
             }
@@ -532,31 +483,26 @@
           "properties": {
             "enabled": {
               "default": true,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "failureThreshold": {
               "default": 3,
-              "required": [],
               "title": "failureThreshold",
               "type": "integer"
             },
             "initialDelaySeconds": {
               "default": 30,
-              "required": [],
               "title": "initialDelaySeconds",
               "type": "integer"
             },
             "periodSeconds": {
               "default": 10,
-              "required": [],
               "title": "periodSeconds",
               "type": "integer"
             },
             "timeoutSeconds": {
               "default": 1,
-              "required": [],
               "title": "timeoutSeconds",
               "type": "integer"
             }
@@ -569,31 +515,26 @@
           "properties": {
             "enabled": {
               "default": true,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "failureThreshold": {
               "default": 3,
-              "required": [],
               "title": "failureThreshold",
               "type": "integer"
             },
             "initialDelaySeconds": {
               "default": 0,
-              "required": [],
               "title": "initialDelaySeconds",
               "type": "integer"
             },
             "periodSeconds": {
               "default": 10,
-              "required": [],
               "title": "periodSeconds",
               "type": "integer"
             },
             "timeoutSeconds": {
               "default": 1,
-              "required": [],
               "title": "timeoutSeconds",
               "type": "integer"
             }
@@ -606,31 +547,26 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "failureThreshold": {
               "default": 30,
-              "required": [],
               "title": "failureThreshold",
               "type": "integer"
             },
             "periodSeconds": {
               "default": 10,
-              "required": [],
               "title": "periodSeconds",
               "type": "integer"
             },
             "successThreshold": {
               "default": 1,
-              "required": [],
               "title": "successThreshold",
               "type": "integer"
             },
             "timeoutSeconds": {
               "default": 1,
-              "required": [],
               "title": "timeoutSeconds",
               "type": "integer"
             }
@@ -653,13 +589,11 @@
               "properties": {
                 "cpu": {
                   "default": "2",
-                  "required": [],
                   "title": "cpu",
                   "type": "string"
                 },
                 "memory": {
                   "default": "6Gi",
-                  "required": [],
                   "title": "memory",
                   "type": "string"
                 }
@@ -673,13 +607,11 @@
               "properties": {
                 "cpu": {
                   "default": "500m",
-                  "required": [],
                   "title": "cpu",
                   "type": "string"
                 },
                 "memory": {
                   "default": "512Mi",
-                  "required": [],
                   "title": "memory",
                   "type": "string"
                 }
@@ -709,21 +641,18 @@
         "clusterIP": {
           "default": "",
           "description": "Service Cluster IP",
-          "required": [],
           "title": "clusterIP",
           "type": "string"
         },
         "externalTrafficPolicy": {
           "default": "Cluster",
           "description": "Enable client source IP preservation",
-          "required": [],
           "title": "externalTrafficPolicy",
           "type": "string"
         },
         "loadBalancerIP": {
           "default": "",
           "description": "LoadBalancer IP if service type is `LoadBalancer` (optional, cloud specific)",
-          "required": [],
           "title": "loadBalancerIP",
           "type": "string"
         },
@@ -732,14 +661,12 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "loadBalancerSourceRanges",
           "type": "array"
         },
         "type": {
           "default": "ClusterIP",
           "description": "Service type",
-          "required": [],
           "title": "type",
           "type": "string"
         },
@@ -748,14 +675,12 @@
             "nodePort": {
               "default": 0,
               "description": "Specify the nodePort value for the `LoadBalancer` and `NodePort` service types",
-              "required": [],
               "title": "nodePort",
               "type": "integer"
             },
             "port": {
               "default": 8096,
               "description": "`web` service port",
-              "required": [],
               "title": "port",
               "type": "integer"
             }
@@ -780,7 +705,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     },
@@ -789,7 +713,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "topologySpreadConstraints",
       "type": "array"
     }

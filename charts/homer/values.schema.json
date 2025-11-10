@@ -10,7 +10,6 @@
               "properties": {
                 "config.yml": {
                   "default": "externalConfig: https://raw.githubusercontent.com/bastienwirtz/homer/main/public/assets/config.yml.dist\n",
-                  "required": [],
                   "title": "config.yml",
                   "type": "string"
                 }
@@ -22,7 +21,6 @@
             "enabled": {
               "default": false,
               "description": "Store homer configuration as a ConfigMap",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -42,7 +40,6 @@
         "TZ": {
           "default": "UTC",
           "description": "Set the container timezone",
-          "required": [],
           "title": "TZ",
           "type": "string"
         }
@@ -62,21 +59,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "b4bz/homer",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -92,7 +86,6 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -113,13 +106,11 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "mountPath": {
               "default": "/www/assets",
-              "required": [],
               "title": "mountPath",
               "type": "string"
             }
@@ -138,21 +129,18 @@
         "runAsGroup": {
           "default": 1000,
           "description": "Specify the group ID the application will run as",
-          "required": [],
           "title": "runAsGroup",
           "type": "integer"
         },
         "runAsNonRoot": {
           "default": true,
           "description": "Enable validation that the container must run as non-root user",
-          "required": [],
           "title": "runAsNonRoot",
           "type": "boolean"
         },
         "runAsUser": {
           "default": 1000,
           "description": "Specify the user ID the application will run as",
-          "required": [],
           "title": "runAsUser",
           "type": "integer"
         }
@@ -172,7 +160,6 @@
                   "properties": {
                     "port": {
                       "default": 8080,
-                      "required": [],
                       "title": "port",
                       "type": "integer"
                     }

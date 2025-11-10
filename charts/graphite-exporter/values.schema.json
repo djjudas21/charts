@@ -8,7 +8,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -28,21 +27,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "prom/graphite-exporter",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -55,13 +51,11 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -83,7 +77,6 @@
     "replicaCount": {
       "default": 1,
       "description": "Number of replicas",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -109,19 +102,16 @@
             },
             "loadBalancerIP": {
               "default": "",
-              "required": [],
               "title": "loadBalancerIP",
               "type": "string"
             },
             "port": {
               "default": 9109,
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "type": {
               "default": "ClusterIP",
-              "required": [],
               "title": "type",
               "type": "string"
             }
@@ -134,13 +124,11 @@
           "properties": {
             "port": {
               "default": 9108,
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "type": {
               "default": "ClusterIP",
-              "required": [],
               "title": "type",
               "type": "string"
             }
@@ -165,14 +153,12 @@
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -186,7 +172,6 @@
         "enabled": {
           "default": false,
           "description": "Enable Service Monitor for Prometheus Operator",
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         }
@@ -199,7 +184,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     }

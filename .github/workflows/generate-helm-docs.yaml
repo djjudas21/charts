@@ -17,7 +17,7 @@ jobs:
         GOBIN=$PWD GO111MODULE=on go install github.com/dadav/helm-schema/cmd/helm-schema@latest
     - name: Run dadav/helm-schema
       run: |
-        ./helm-schema --chart-search-root=${GITHUB_WORKSPACE}/charts -n -k required,additionalProperties
+        ./helm-schema --chart-search-root=${GITHUB_WORKSPACE}/charts -r -n -k required,additionalProperties
     - uses: stefanzweifel/git-auto-commit-action@v7
       id: commit
       with:

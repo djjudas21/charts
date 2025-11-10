@@ -22,42 +22,36 @@
         "DOMAINMOD_DATABASE": {
           "default": "domainmod",
           "description": "The name of the database. Set this to whatever you want, but it should match the database name in your database container.",
-          "required": [],
           "title": "DOMAINMOD_DATABASE",
           "type": "string"
         },
         "DOMAINMOD_DATABASE_HOST": {
           "default": "domainmod-mariadb",
           "description": "The database hostname that DomainMOD should connect to. This needs to be the same name as the datbase container.",
-          "required": [],
           "title": "DOMAINMOD_DATABASE_HOST",
           "type": "string"
         },
         "DOMAINMOD_PASSWORD": {
           "default": "domainmod",
           "description": "The password for DOMAINMOD_USER. Set this to whatever you want, but it should match the database password in your database container.",
-          "required": [],
           "title": "DOMAINMOD_PASSWORD",
           "type": "string"
         },
         "DOMAINMOD_USER": {
           "default": "domainmod",
           "description": "The name of the database user. Set this to whatever you want, but it should match the database user in your database container.",
-          "required": [],
           "title": "DOMAINMOD_USER",
           "type": "string"
         },
         "DOMAINMOD_WEB_ROOT": {
           "default": "",
           "description": "Set this if you plan on running DomainMOD in a subdirectory, otherwise leave it blank.",
-          "required": [],
           "title": "DOMAINMOD_WEB_ROOT",
           "type": "null"
         },
         "TZ": {
           "default": "UTC",
           "description": "Container timezone",
-          "required": [],
           "title": "TZ",
           "type": "string"
         }
@@ -74,31 +68,26 @@
           "properties": {
             "database": {
               "default": "domainmod",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "host": {
               "default": "",
-              "required": [],
               "title": "host",
               "type": "string"
             },
             "password": {
               "default": "",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "port": {
               "default": 3306,
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "username": {
               "default": "",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -109,7 +98,6 @@
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         }
@@ -120,7 +108,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -135,21 +122,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "domainmod/domainmod",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -162,7 +146,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -176,13 +159,11 @@
         },
         "className": {
           "default": "",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -194,7 +175,6 @@
                 "properties": {
                   "host": {
                     "default": "chart-example.local",
-                    "required": [],
                     "title": "host",
                     "type": "string"
                   },
@@ -205,13 +185,11 @@
                           "properties": {
                             "path": {
                               "default": "/",
-                              "required": [],
                               "title": "path",
                               "type": "string"
                             },
                             "pathType": {
                               "default": "ImplementationSpecific",
-                              "required": [],
                               "title": "pathType",
                               "type": "string"
                             }
@@ -222,7 +200,6 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "paths",
                     "type": "array"
                   }
@@ -233,7 +210,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "hosts",
           "type": "array"
         },
@@ -241,7 +217,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "tls",
           "type": "array"
         }
@@ -256,13 +231,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -281,7 +254,6 @@
       "properties": {
         "architecture": {
           "default": "standalone",
-          "required": [],
           "title": "architecture",
           "type": "string"
         },
@@ -290,28 +262,24 @@
             "database": {
               "default": "domainmod",
               "description": "Database name",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "password": {
               "default": "domainmod",
               "description": "Database password",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "rootPassword": {
               "default": "domainmodadminpw",
               "description": "Database root password",
-              "required": [],
               "title": "rootPassword",
               "type": "string"
             },
             "username": {
               "default": "domainmod",
               "description": "Database user",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -322,7 +290,6 @@
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -330,7 +297,6 @@
           "properties": {
             "repository": {
               "default": "bitnamilegacy/mariadb",
-              "required": [],
               "title": "repository",
               "type": "string"
             }
@@ -345,13 +311,11 @@
               "properties": {
                 "enabled": {
                   "default": false,
-                  "required": [],
                   "title": "enabled",
                   "type": "boolean"
                 },
                 "size": {
                   "default": "1Gi",
-                  "required": [],
                   "title": "size",
                   "type": "string"
                 }
@@ -377,7 +341,6 @@
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -407,13 +370,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -430,7 +391,6 @@
     "replicaCount": {
       "default": 1,
       "description": "Number of domainmod replicas.",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -449,13 +409,11 @@
       "properties": {
         "port": {
           "default": 80,
-          "required": [],
           "title": "port",
           "type": "integer"
         },
         "type": {
           "default": "ClusterIP",
-          "required": [],
           "title": "type",
           "type": "string"
         }
@@ -475,21 +433,18 @@
         "automount": {
           "default": false,
           "description": "Automatically mount a ServiceAccount's API credentials?",
-          "required": [],
           "title": "automount",
           "type": "boolean"
         },
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -502,7 +457,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     }

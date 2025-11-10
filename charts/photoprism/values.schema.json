@@ -7,91 +7,78 @@
         "GID": {
           "default": "",
           "description": "Sets GID Photoprism runs under.",
-          "required": [],
           "title": "GID",
           "type": "null"
         },
         "PHOTOPRISM_ADMIN_PASSWORD": {
           "default": "please-change",
           "description": "Initial admin password. **BE SURE TO CHANGE THIS!**",
-          "required": [],
           "title": "PHOTOPRISM_ADMIN_PASSWORD",
           "type": "string"
         },
         "PHOTOPRISM_DATABASE_DRIVER": {
           "default": "sqlite",
           "description": "Database driver (sqlite, mysql)",
-          "required": [],
           "title": "PHOTOPRISM_DATABASE_DRIVER",
           "type": "string"
         },
         "PHOTOPRISM_DATABASE_NAME": {
           "default": "photoprism",
           "description": "Database schema name",
-          "required": [],
           "title": "PHOTOPRISM_DATABASE_NAME",
           "type": "string"
         },
         "PHOTOPRISM_DATABASE_PASSWORD": {
           "default": "photoprism",
           "description": "Database user password",
-          "required": [],
           "title": "PHOTOPRISM_DATABASE_PASSWORD",
           "type": "string"
         },
         "PHOTOPRISM_DATABASE_SERVER": {
           "default": "photoprism-mariadb:3306",
           "description": "Database host incl. port",
-          "required": [],
           "title": "PHOTOPRISM_DATABASE_SERVER",
           "type": "string"
         },
         "PHOTOPRISM_DATABASE_USER": {
           "default": "photoprism",
           "description": "Database username",
-          "required": [],
           "title": "PHOTOPRISM_DATABASE_USER",
           "type": "string"
         },
         "PHOTOPRISM_ORIGINALS_PATH": {
           "default": "/photoprism/originals",
           "description": "Photoprism originals path",
-          "required": [],
           "title": "PHOTOPRISM_ORIGINALS_PATH",
           "type": "string"
         },
         "PHOTOPRISM_PUBLIC": {
           "default": "false",
           "description": "Disable authentication / password protection",
-          "required": [],
           "title": "PHOTOPRISM_PUBLIC",
           "type": "string"
         },
         "PHOTOPRISM_STORAGE_PATH": {
           "default": "/photoprism/storage",
           "description": "Photoprism storage path",
-          "required": [],
           "title": "PHOTOPRISM_STORAGE_PATH",
           "type": "string"
         },
         "TZ": {
           "default": "UTC",
           "description": "Set the container timezone",
-          "required": [],
           "title": "TZ",
           "type": "string"
         },
         "UID": {
           "default": "",
           "description": "Sets UID Photoprism runs under.",
-          "required": [],
           "title": "UID",
           "type": "null"
         },
         "UMASK": {
           "default": "",
           "description": "Sets UMASK.",
-          "required": [],
           "title": "UMASK",
           "type": "null"
         }
@@ -111,21 +98,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "photoprism/photoprism",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -141,7 +125,6 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -160,7 +143,6 @@
       "properties": {
         "architecture": {
           "default": "standalone",
-          "required": [],
           "title": "architecture",
           "type": "string"
         },
@@ -168,25 +150,21 @@
           "properties": {
             "database": {
               "default": "photoprism",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "password": {
               "default": "photoprism",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "rootPassword": {
               "default": "photoprism",
-              "required": [],
               "title": "rootPassword",
               "type": "string"
             },
             "username": {
               "default": "photoprism",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -197,7 +175,6 @@
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -207,7 +184,6 @@
               "properties": {
                 "enabled": {
                   "default": false,
-                  "required": [],
                   "title": "enabled",
                   "type": "boolean"
                 }
@@ -233,13 +209,11 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "mountPath": {
               "default": "/photoprism/storage",
-              "required": [],
               "title": "mountPath",
               "type": "string"
             }
@@ -252,13 +226,11 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "mountPath": {
               "default": "/photoprism/originals",
-              "required": [],
               "title": "mountPath",
               "type": "string"
             }
@@ -283,7 +255,6 @@
                   "properties": {
                     "port": {
                       "default": 2342,
-                      "required": [],
                       "title": "port",
                       "type": "integer"
                     }

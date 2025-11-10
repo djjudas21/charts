@@ -7,49 +7,42 @@
         "ND_ENABLESHARING": {
           "default": "false",
           "description": "Enable sharing",
-          "required": [],
           "title": "ND_ENABLESHARING",
           "type": "string"
         },
         "ND_ENABLETRANSCODINGCONFIG": {
           "default": "true",
           "description": "Enables transcoding configuration in the UI",
-          "required": [],
           "title": "ND_ENABLETRANSCODINGCONFIG",
           "type": "string"
         },
         "ND_LOGLEVEL": {
           "default": "info",
           "description": "Log level. Useful for troubleshooting",
-          "required": [],
           "title": "ND_LOGLEVEL",
           "type": "string"
         },
         "ND_MUSICFOLDER": {
           "default": "/music",
           "description": "Folder where your music library is stored",
-          "required": [],
           "title": "ND_MUSICFOLDER",
           "type": "string"
         },
         "ND_PROMETHEUS_ENABLED": {
           "default": "false",
           "description": "Enable extra endpoint with Prometheus metrics",
-          "required": [],
           "title": "ND_PROMETHEUS_ENABLED",
           "type": "string"
         },
         "ND_SESSIONTIMEOUT": {
           "default": "24h",
           "description": "How long Navidrome will wait before closing web ui idle sessions",
-          "required": [],
           "title": "ND_SESSIONTIMEOUT",
           "type": "string"
         },
         "TZ": {
           "default": "UTC",
           "description": "Set the container timezone",
-          "required": [],
           "title": "TZ",
           "type": "string"
         }
@@ -69,21 +62,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "deluan/navidrome",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -101,7 +91,6 @@
               "properties": {
                 "nginx.ingress.kubernetes.io/configuration-snippet": {
                   "default": "location /metrics {\n  deny all;\n  return 403;\n}\n",
-                  "required": [],
                   "title": "nginx.ingress.kubernetes.io/configuration-snippet",
                   "type": "string"
                 }
@@ -112,7 +101,6 @@
             },
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -133,13 +121,11 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "mountPath": {
               "default": "/data",
-              "required": [],
               "title": "mountPath",
               "type": "string"
             }
@@ -152,13 +138,11 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "mountPath": {
               "default": "/music",
-              "required": [],
               "title": "mountPath",
               "type": "string"
             }
@@ -182,7 +166,6 @@
                 "enabled": {
                   "default": false,
                   "description": "Enables or disables the serviceMonitor.",
-                  "required": [],
                   "title": "enabled",
                   "type": "boolean"
                 },
@@ -194,31 +177,26 @@
                         "properties": {
                           "interval": {
                             "default": "1m",
-                            "required": [],
                             "title": "interval",
                             "type": "string"
                           },
                           "path": {
                             "default": "/metrics",
-                            "required": [],
                             "title": "path",
                             "type": "string"
                           },
                           "port": {
                             "default": "http",
-                            "required": [],
                             "title": "port",
                             "type": "string"
                           },
                           "scheme": {
                             "default": "http",
-                            "required": [],
                             "title": "scheme",
                             "type": "string"
                           },
                           "scrapeTimeout": {
                             "default": "10s",
-                            "required": [],
                             "title": "scrapeTimeout",
                             "type": "string"
                           }
@@ -229,7 +207,6 @@
                     ],
                     "required": []
                   },
-                  "required": [],
                   "title": "endpoints",
                   "type": "array"
                 }
@@ -244,7 +221,6 @@
                   "properties": {
                     "port": {
                       "default": 4533,
-                      "required": [],
                       "title": "port",
                       "type": "integer"
                     }

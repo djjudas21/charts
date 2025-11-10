@@ -7,105 +7,90 @@
         "BASE_URL": {
           "default": "https://webtrees.example.com",
           "description": "Base URL of the installation, with protocol. Must be in the form `http://webtrees.example.com`",
-          "required": [],
           "title": "BASE_URL",
           "type": "string"
         },
         "DB_HOST": {
           "default": "webtrees-mariadb",
           "description": "Database hostname",
-          "required": [],
           "title": "DB_HOST",
           "type": "string"
         },
         "DB_NAME": {
           "default": "webtrees",
           "description": "Database to connect to",
-          "required": [],
           "title": "DB_NAME",
           "type": "string"
         },
         "DB_PASS": {
           "default": "webtreespass",
           "description": "Database password",
-          "required": [],
           "title": "DB_PASS",
           "type": "string"
         },
         "DB_PORT": {
           "default": "3306",
           "description": "Database server port",
-          "required": [],
           "title": "DB_PORT",
           "type": "string"
         },
         "DB_PREFIX": {
           "default": "wt_",
           "description": "Prefix to give all tables in the database. Set this to a value of \"\" to have no table prefix.",
-          "required": [],
           "title": "DB_PREFIX",
           "type": "string"
         },
         "DB_TYPE": {
           "default": "mysql",
           "description": "Database server type",
-          "required": [],
           "title": "DB_TYPE",
           "type": "string"
         },
         "DB_USER": {
           "default": "webtrees",
           "description": "Database username",
-          "required": [],
           "title": "DB_USER",
           "type": "string"
         },
         "LANG": {
           "default": "en-US",
           "description": "webtrees localization setting",
-          "required": [],
           "title": "LANG",
           "type": "string"
         },
         "PRETTY_URLS": {
           "default": "TRUE",
           "description": "Enable pretty URLs",
-          "required": [],
           "title": "PRETTY_URLS",
           "type": "string"
         },
         "TZ": {
           "default": "UTC",
           "description": "Set the container timezone",
-          "required": [],
           "title": "TZ",
           "type": "string"
         },
         "WT_EMAIL": {
           "default": "admin@example.com",
           "description": "Admin account email",
-          "required": [],
           "title": "WT_EMAIL",
           "type": "string"
         },
         "WT_NAME": {
           "default": "Administrator",
           "description": "Admin account full name",
-          "required": [],
           "title": "WT_NAME",
           "type": "string"
         },
         "WT_PASS": {
           "default": "adminpass",
           "description": "Admin account password",
-          "required": [],
           "title": "WT_PASS",
           "type": "string"
         },
         "WT_USER": {
           "default": "admin",
           "description": "Admin account username",
-          "required": [],
           "title": "WT_USER",
           "type": "string"
         }
@@ -125,21 +110,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "ghcr.io/nathanvaughn/webtrees",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -155,7 +137,6 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -174,7 +155,6 @@
       "properties": {
         "architecture": {
           "default": "standalone",
-          "required": [],
           "title": "architecture",
           "type": "string"
         },
@@ -182,25 +162,21 @@
           "properties": {
             "database": {
               "default": "webtrees",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "password": {
               "default": "webtreespass",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "rootPassword": {
               "default": "webtreesrootpass",
-              "required": [],
               "title": "rootPassword",
               "type": "string"
             },
             "username": {
               "default": "webtrees",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -211,7 +187,6 @@
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -219,7 +194,6 @@
           "properties": {
             "repository": {
               "default": "bitnamilegacy/mariadb",
-              "required": [],
               "title": "repository",
               "type": "string"
             }
@@ -234,7 +208,6 @@
               "properties": {
                 "enabled": {
                   "default": false,
-                  "required": [],
                   "title": "enabled",
                   "type": "boolean"
                 }
@@ -260,13 +233,11 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "mountPath": {
               "default": "/var/www/webtrees/data/",
-              "required": [],
               "title": "mountPath",
               "type": "string"
             }
@@ -291,7 +262,6 @@
                   "properties": {
                     "port": {
                       "default": 80,
-                      "required": [],
                       "title": "port",
                       "type": "integer"
                     }

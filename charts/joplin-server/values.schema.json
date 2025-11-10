@@ -7,63 +7,54 @@
         "APP_BASE_URL": {
           "default": "https://joplin.domain",
           "description": "joplin-server base URL",
-          "required": [],
           "title": "APP_BASE_URL",
           "type": "string"
         },
         "APP_PORT": {
           "default": 22300,
           "description": "joplin-server listening port (same as Service port)",
-          "required": [],
           "title": "APP_PORT",
           "type": "integer"
         },
         "DB_CLIENT": {
           "default": "pg",
           "description": "Use pg for postgres",
-          "required": [],
           "title": "DB_CLIENT",
           "type": "string"
         },
         "POSTGRES_DATABASE": {
           "default": "joplin",
           "description": "Postgres DB name",
-          "required": [],
           "title": "POSTGRES_DATABASE",
           "type": "string"
         },
         "POSTGRES_HOST": {
           "default": "joplin-postgresql",
           "description": "Postgres DB Host",
-          "required": [],
           "title": "POSTGRES_HOST",
           "type": "string"
         },
         "POSTGRES_PASSWORD": {
           "default": "joplin-pass",
           "description": "Postgres DB password",
-          "required": [],
           "title": "POSTGRES_PASSWORD",
           "type": "string"
         },
         "POSTGRES_PORT": {
           "default": "5432",
           "description": "Postgres DB port",
-          "required": [],
           "title": "POSTGRES_PORT",
           "type": "string"
         },
         "POSTGRES_USER": {
           "default": "joplin",
           "description": "Postgres DB Username",
-          "required": [],
           "title": "POSTGRES_USER",
           "type": "string"
         },
         "TZ": {
           "default": "UTC",
           "description": "Set the container timezone",
-          "required": [],
           "title": "TZ",
           "type": "string"
         }
@@ -83,21 +74,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "joplin/server",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -113,7 +101,6 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -132,7 +119,6 @@
       "properties": {
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -140,7 +126,6 @@
           "properties": {
             "repository": {
               "default": "bitnamilegacy/postgresql",
-              "required": [],
               "title": "repository",
               "type": "string"
             }
@@ -153,7 +138,6 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -164,19 +148,16 @@
         },
         "postgresqlDatabase": {
           "default": "joplin",
-          "required": [],
           "title": "postgresqlDatabase",
           "type": "string"
         },
         "postgresqlPassword": {
           "default": "joplin-pass",
-          "required": [],
           "title": "postgresqlPassword",
           "type": "string"
         },
         "postgresqlUsername": {
           "default": "joplin",
-          "required": [],
           "title": "postgresqlUsername",
           "type": "string"
         }
@@ -196,7 +177,6 @@
                   "properties": {
                     "port": {
                       "default": 22300,
-                      "required": [],
                       "title": "port",
                       "type": "integer"
                     }
