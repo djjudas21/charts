@@ -12,13 +12,11 @@
         "cleanup": {
           "default": false,
           "description": "Remove redundant users and groups which are not in the config below",
-          "required": [],
           "title": "cleanup",
           "type": "boolean"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -26,17 +24,14 @@
           "items": {
             "anyOf": [
               {
-                "required": [],
                 "type": "string"
               },
               {
-                "required": [],
                 "type": "string"
               }
             ],
             "required": []
           },
-          "required": [],
           "title": "groups",
           "type": "array"
         },
@@ -47,31 +42,26 @@
                 "properties": {
                   "avatar_url": {
                     "default": "https://i.imgur.com/nbCxk3z.jpg",
-                    "required": [],
                     "title": "avatar_url",
                     "type": "string"
                   },
                   "displayName": {
                     "default": "Display Name",
-                    "required": [],
                     "title": "displayName",
                     "type": "string"
                   },
                   "email": {
                     "default": "username@example.com",
-                    "required": [],
                     "title": "email",
                     "type": "string"
                   },
                   "firstName": {
                     "default": "First",
-                    "required": [],
                     "title": "firstName",
                     "type": "string"
                   },
                   "gravatar_avatar": {
                     "default": "false",
-                    "required": [],
                     "title": "gravatar_avatar",
                     "type": "string"
                   },
@@ -79,41 +69,34 @@
                     "items": {
                       "anyOf": [
                         {
-                          "required": [],
                           "type": "string"
                         },
                         {
-                          "required": [],
                           "type": "string"
                         }
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "groups",
                     "type": "array"
                   },
                   "id": {
                     "default": "username",
-                    "required": [],
                     "title": "id",
                     "type": "string"
                   },
                   "lastName": {
                     "default": "Last",
-                    "required": [],
                     "title": "lastName",
                     "type": "string"
                   },
                   "password": {
                     "default": "changeme",
-                    "required": [],
                     "title": "password",
                     "type": "string"
                   },
                   "weserv_avatar": {
                     "default": "false",
-                    "required": [],
                     "title": "weserv_avatar",
                     "type": "string"
                   }
@@ -124,7 +107,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "users",
           "type": "array"
         }
@@ -151,31 +133,26 @@
           "properties": {
             "database": {
               "default": "lldap",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "host": {
               "default": "",
-              "required": [],
               "title": "host",
               "type": "string"
             },
             "password": {
               "default": "",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "port": {
               "default": 3306,
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "username": {
               "default": "",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -186,7 +163,6 @@
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         }
@@ -203,31 +179,26 @@
           "properties": {
             "database": {
               "default": "lldap",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "host": {
               "default": "",
-              "required": [],
               "title": "host",
               "type": "string"
             },
             "password": {
               "default": "",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "port": {
               "default": 5432,
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "username": {
               "default": "",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -238,7 +209,6 @@
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         }
@@ -249,7 +219,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -264,28 +233,24 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "Image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "lldap/lldap",
           "description": "Image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "Image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         },
         "variant": {
           "default": "-debian-rootless",
           "description": "Image variant. Leave blank for default image.",
-          "required": [],
           "title": "variant",
           "type": "string"
         }
@@ -298,7 +263,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -312,13 +276,11 @@
         },
         "className": {
           "default": "",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -330,7 +292,6 @@
                 "properties": {
                   "host": {
                     "default": "chart-example.local",
-                    "required": [],
                     "title": "host",
                     "type": "string"
                   },
@@ -341,13 +302,11 @@
                           "properties": {
                             "path": {
                               "default": "/",
-                              "required": [],
                               "title": "path",
                               "type": "string"
                             },
                             "pathType": {
                               "default": "ImplementationSpecific",
-                              "required": [],
                               "title": "pathType",
                               "type": "string"
                             }
@@ -358,7 +317,6 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "paths",
                     "type": "array"
                   }
@@ -369,7 +327,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "hosts",
           "type": "array"
         },
@@ -377,7 +334,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "tls",
           "type": "array"
         }
@@ -392,13 +348,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -417,7 +371,6 @@
         "baseDN": {
           "default": "dc=example,dc=com",
           "description": "Base DN for LDAP.\nThis is usually your domain name, and is used as a namespace for your users. The choice is\narbitrary, but will be needed to configure the LDAP integration with other services. The sample\nvalue is for \"example.com\", but you can extend it with as many \"dc\" as you want, and you don't\nactually need to own the domain name.",
-          "required": [],
           "title": "baseDN",
           "type": "string"
         },
@@ -425,7 +378,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "extraVolumeMounts",
           "type": "array"
         },
@@ -434,76 +386,65 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "extraVolumes",
           "type": "array"
         },
         "gid": {
           "default": 1000,
-          "required": [],
           "title": "gid",
           "type": "integer"
         },
         "httpHost": {
           "default": "0.0.0.0",
           "description": "HTTP API host. To enable IPv6 listening, change to `::`",
-          "required": [],
           "title": "httpHost",
           "type": "string"
         },
         "jwtSecret": {
           "default": "REPLACE_WITH_RANDOM",
           "description": "Random secret for JWT signature.\nThis secret should be random, and should be shared with application servers that need to\nconsume the JWTs. Changing this secret will invalidate all user sessions and require them\nto re-login. You can generate it with (on linux):\nLC_ALL=C tr -dc 'A-Za-z0-9!#%\u0026'\\''()*+,-./:;\u003c=\u003e?@[\\]^_{|}~' \u003c/dev/urandom | head -c 32; echo ''",
-          "required": [],
           "title": "jwtSecret",
           "type": "string"
         },
         "jwtSecretKey": {
           "default": "jwtSecret",
           "description": "Name of the JWT signature key in the `.Values.lldap.secretName` Kubernetes secret.",
-          "required": [],
           "title": "jwtSecretKey",
           "type": "string"
         },
         "keySeed": {
           "default": "REPLACE_WITH_RANDOM",
           "description": "Seed to generate the server private key. This can be any random string, the recommendation\nis that it's at least 12 characters long.",
-          "required": [],
           "title": "keySeed",
           "type": "string"
         },
         "keySeedKey": {
           "default": "keySeed",
           "description": "Name of the key holding the private key seed in the `.Values.lldap.secretName` Kubernetes secret.",
-          "required": [],
           "title": "keySeedKey",
           "type": "string"
         },
         "ldapHost": {
           "default": "0.0.0.0",
           "description": "LDAP host. To enable IPv6 listening, change to `::`",
-          "required": [],
           "title": "ldapHost",
           "type": "string"
         },
         "ldapUserDN": {
           "default": "admin",
           "description": "Admin username.\nFor the LDAP interface, a value of \"admin\" here will create the LDAP user\n\"cn=admin,ou=people,dc=example,dc=com\" (with the base DN above). For the administration\ninterface, this is the username.",
-          "required": [],
           "title": "ldapUserDN",
           "type": "string"
         },
         "ldapUserPass": {
           "default": "REPLACE_WITH_RANDOM",
           "description": "Admin password.\nPassword for the admin account, both for the LDAP bind and for the administration interface.\nIt is only used when initially creating the admin user. It should be minimum 8 characters long.\nNote: you can create another admin user for user administration, this is just the default one.",
-          "required": [],
           "title": "ldapUserPass",
           "type": "string"
         },
         "ldapUserPassKey": {
           "default": "ldapUserPass",
           "description": "Name of the LDAP admin password key in the `.Values.lldap.secretName` Kubernetes secret.",
-          "required": [],
           "title": "ldapUserPassKey",
           "type": "string"
         },
@@ -513,21 +454,18 @@
             "certFile": {
               "default": "/data/cert.pem",
               "description": "Certificate file.",
-              "required": [],
               "title": "certFile",
               "type": "string"
             },
             "enabled": {
               "default": "false",
               "description": "Whether to enable LDAPS.",
-              "required": [],
               "title": "enabled",
               "type": "string"
             },
             "keyFile": {
               "default": "/data/key.pem",
               "description": "Certificate key file.",
-              "required": [],
               "title": "keyFile",
               "type": "string"
             }
@@ -539,7 +477,6 @@
         "secretName": {
           "default": "",
           "description": "Name of the Kubernetes secret containing credentials.\nIf this isn't specified, a secret will be generated with the credentials provided\nin the values file. If you want to provide an external secret, for instance when\ndeploying with GitOps, specify its name here.",
-          "required": [],
           "title": "secretName",
           "type": "string"
         },
@@ -549,63 +486,54 @@
             "enablePasswordReset": {
               "default": false,
               "description": "Whether to enabled password reset via email, from LLDAP.",
-              "required": [],
               "title": "enablePasswordReset",
               "type": "boolean"
             },
             "from": {
               "default": "LLDAP Admin \u003csender@gmail.com\u003e",
               "description": "The header field: how the sender appears in the email. The first\nis a free-form name, followed by an email between \u003c\u003e. Optional.",
-              "required": [],
               "title": "from",
               "type": "string"
             },
             "password": {
               "default": "password",
               "description": "The SMTP password.",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "passwordKey": {
               "default": "smtpPassword",
               "description": "Name of the SMTP password key in the `.Values.lldap.secretName` Kubernetes secret.\nOverrides the `.Values.lldap.smtp.password` if a custom secret is defined.",
-              "required": [],
               "title": "passwordKey",
               "type": "string"
             },
             "port": {
               "default": 587,
               "description": "The SMTP port.",
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "replyTo": {
               "default": "Do not reply \u003cnoreply@localhost\u003e",
               "description": "Same for reply-to, optional.",
-              "required": [],
               "title": "replyTo",
               "type": "string"
             },
             "server": {
               "default": "smtp.gmail.com",
               "description": "The SMTP server.",
-              "required": [],
               "title": "server",
               "type": "string"
             },
             "smtpEncryption": {
               "default": "TLS",
               "description": "How the connection is encrypted, either \"NONE\" (no encryption), \"TLS\" or \"STARTTLS\".",
-              "required": [],
               "title": "smtpEncryption",
               "type": "string"
             },
             "user": {
               "default": "sender@gmail.com",
               "description": "The SMTP user, usually your email address.",
-              "required": [],
               "title": "user",
               "type": "string"
             }
@@ -616,20 +544,17 @@
         },
         "tz": {
           "default": "Etc/UTC",
-          "required": [],
           "title": "tz",
           "type": "string"
         },
         "uid": {
           "default": 1000,
-          "required": [],
           "title": "uid",
           "type": "integer"
         },
         "verbose": {
           "default": false,
           "description": "Tune the logging to be more verbose",
-          "required": [],
           "title": "verbose",
           "type": "boolean"
         }
@@ -643,7 +568,6 @@
       "properties": {
         "architecture": {
           "default": "standalone",
-          "required": [],
           "title": "architecture",
           "type": "string"
         },
@@ -651,25 +575,21 @@
           "properties": {
             "database": {
               "default": "lldap",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "password": {
               "default": "lldap",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "rootPassword": {
               "default": "lldapadminpw",
-              "required": [],
               "title": "rootPassword",
               "type": "string"
             },
             "username": {
               "default": "lldap",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -680,7 +600,6 @@
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -688,7 +607,6 @@
           "properties": {
             "repository": {
               "default": "bitnamilegacy/mariadb",
-              "required": [],
               "title": "repository",
               "type": "string"
             }
@@ -703,13 +621,11 @@
               "properties": {
                 "enabled": {
                   "default": false,
-                  "required": [],
                   "title": "enabled",
                   "type": "boolean"
                 },
                 "size": {
                   "default": "1Gi",
-                  "required": [],
                   "title": "size",
                   "type": "string"
                 }
@@ -735,7 +651,6 @@
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -749,19 +664,16 @@
       "properties": {
         "accessMode": {
           "default": "ReadWriteOnce",
-          "required": [],
           "title": "accessMode",
           "type": "string"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
         "size": {
           "default": "100Mi",
-          "required": [],
           "title": "size",
           "type": "string"
         }
@@ -792,25 +704,21 @@
           "properties": {
             "database": {
               "default": "lldap",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "password": {
               "default": "lldap",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "postgresPassword": {
               "default": "lldapadminpw",
-              "required": [],
               "title": "postgresPassword",
               "type": "string"
             },
             "username": {
               "default": "lldap",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -821,7 +729,6 @@
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -829,7 +736,6 @@
           "properties": {
             "repository": {
               "default": "bitnamilegacy/postgresql",
-              "required": [],
               "title": "repository",
               "type": "string"
             }
@@ -844,14 +750,12 @@
               "properties": {
                 "enabled": {
                   "default": false,
-                  "required": [],
                   "title": "enabled",
                   "type": "boolean"
                 },
                 "size": {
                   "default": "1Gi",
                   "description": "storageClass: \"\"",
-                  "required": [],
                   "title": "size",
                   "type": "string"
                 }
@@ -881,13 +785,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -904,7 +806,6 @@
     "replicaCount": {
       "default": 1,
       "description": "Number of lldap replicas.\nDo not increase this above 1 if you are using the SQLite backend.",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -930,13 +831,11 @@
             },
             "port": {
               "default": 17170,
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "type": {
               "default": "ClusterIP",
-              "required": [],
               "title": "type",
               "type": "string"
             }
@@ -954,13 +853,11 @@
             },
             "port": {
               "default": 3890,
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "type": {
               "default": "ClusterIP",
-              "required": [],
               "title": "type",
               "type": "string"
             }
@@ -973,13 +870,11 @@
           "properties": {
             "port": {
               "default": 6360,
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "type": {
               "default": "ClusterIP",
-              "required": [],
               "title": "type",
               "type": "string"
             }
@@ -1004,21 +899,18 @@
         "automount": {
           "default": false,
           "description": "Automatically mount a ServiceAccount's API credentials?",
-          "required": [],
           "title": "automount",
           "type": "boolean"
         },
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -1031,7 +923,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     }

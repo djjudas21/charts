@@ -12,147 +12,126 @@
         "ALTBGPROVIDER": {
           "default": "",
           "description": "An alternative background provider url.",
-          "required": [],
           "title": "ALTBGPROVIDER",
           "type": "string"
         },
         "ALTLAYOUT": {
           "default": "true",
           "description": "Display list of sites using an alternative layout",
-          "required": [],
           "title": "ALTLAYOUT",
           "type": "string"
         },
         "AMPMCLOCK": {
           "default": "true",
           "description": "Show 12 hour clock format if true",
-          "required": [],
           "title": "AMPMCLOCK",
           "type": "string"
         },
         "BGBLUR": {
           "default": 50,
           "description": "Background image blur percentage",
-          "required": [],
           "title": "BGBLUR",
           "type": "integer"
         },
         "BGBRIGHT": {
           "default": 90,
           "description": "Background image brightness percentage",
-          "required": [],
           "title": "BGBRIGHT",
           "type": "integer"
         },
         "CACHEBYPASS": {
           "default": "false",
           "description": "Bypass all caches, useful for testing changes",
-          "required": [],
           "title": "CACHEBYPASS",
           "type": "string"
         },
         "CHECKSTATUS": {
           "default": "false",
           "description": "Disable checking site availability status",
-          "required": [],
           "title": "CHECKSTATUS",
           "type": "string"
         },
         "CUSTOMGREETING": {
           "default": "Some other greeting message",
           "description": "Show a custom greeting message instead",
-          "required": [],
           "title": "CUSTOMGREETING",
           "type": "string"
         },
         "CUSTOMWIDTH": {
           "default": 1000,
           "description": "Set a custom with for the page container/site list",
-          "required": [],
           "title": "CUSTOMWIDTH",
           "type": "integer"
         },
         "DEBUG": {
           "default": "false",
           "description": "Enable debug mode",
-          "required": [],
           "title": "DEBUG",
           "type": "string"
         },
         "LANGUAGE": {
           "default": "en",
           "description": "Set to your chosen language code.",
-          "required": [],
           "title": "LANGUAGE",
           "type": "string"
         },
         "LATLONG": {
           "default": "",
           "description": "A latitude and longitude for the default location (e.g. \"51.509865,-0.118092\").",
-          "required": [],
           "title": "LATLONG",
           "type": "string"
         },
         "METRICTEMP": {
           "default": "true",
           "description": "Metric (C) or imperial (F) temperature units",
-          "required": [],
           "title": "METRICTEMP",
           "type": "string"
         },
         "NOINDEX": {
           "default": "true",
           "description": "Include a robots noindex meta tag in site header",
-          "required": [],
           "title": "NOINDEX",
           "type": "string"
         },
         "OWMAPIKEY": {
           "default": "",
           "description": "An API key for Open Weather Map, LATLONG (below) must also be defined.",
-          "required": [],
           "title": "OWMAPIKEY",
           "type": "string"
         },
         "SHOWCLOCK": {
           "default": "false",
           "description": "Hide the clock",
-          "required": [],
           "title": "SHOWCLOCK",
           "type": "string"
         },
         "SHOWGREETING": {
           "default": "false",
           "description": "Show the label \"#home\" instead of a friendly greeting message",
-          "required": [],
           "title": "SHOWGREETING",
           "type": "string"
         },
         "SHOWSEARCH": {
           "default": "false",
           "description": "Hide the search button (disable search)",
-          "required": [],
           "title": "SHOWSEARCH",
           "type": "string"
         },
         "STATUSCACHE": {
           "default": 5,
           "description": "Duration in minutes to cache site availability status",
-          "required": [],
           "title": "STATUSCACHE",
           "type": "integer"
         },
         "UNSPLASHAPIKEY": {
           "default": "",
           "description": "An API key for Unsplash, enables fetching random background images from Unsplash.",
-          "required": [],
           "title": "UNSPLASHAPIKEY",
           "type": "string"
         },
         "UNSPLASHCOLLECTIONS": {
           "default": "",
           "description": "List of Unsplash collection ID's (separated by commas) to select random images from.",
-          "required": [],
           "title": "UNSPLASHCOLLECTIONS",
           "type": "string"
         }
@@ -163,7 +142,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -178,21 +156,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "daledavies/jump",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -205,7 +180,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -219,13 +193,11 @@
         },
         "className": {
           "default": "",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -237,7 +209,6 @@
                 "properties": {
                   "host": {
                     "default": "chart-example.local",
-                    "required": [],
                     "title": "host",
                     "type": "string"
                   },
@@ -248,13 +219,11 @@
                           "properties": {
                             "path": {
                               "default": "/",
-                              "required": [],
                               "title": "path",
                               "type": "string"
                             },
                             "pathType": {
                               "default": "ImplementationSpecific",
-                              "required": [],
                               "title": "pathType",
                               "type": "string"
                             }
@@ -265,7 +234,6 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "paths",
                     "type": "array"
                   }
@@ -276,7 +244,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "hosts",
           "type": "array"
         },
@@ -284,7 +251,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "tls",
           "type": "array"
         }
@@ -299,13 +265,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -321,7 +285,6 @@
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -351,13 +314,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -374,7 +335,6 @@
     "replicaCount": {
       "default": 1,
       "description": "Number of replicas",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -391,13 +351,11 @@
             "properties": {
               "name": {
                 "default": "Google",
-                "required": [],
                 "title": "name",
                 "type": "string"
               },
               "url": {
                 "default": "https://www.google.co.uk/search?q=",
-                "required": [],
                 "title": "url",
                 "type": "string"
               }
@@ -409,13 +367,11 @@
             "properties": {
               "name": {
                 "default": "DuckDuckGo",
-                "required": [],
                 "title": "name",
                 "type": "string"
               },
               "url": {
                 "default": "https://duckduckgo.com/?q=",
-                "required": [],
                 "title": "url",
                 "type": "string"
               }
@@ -427,13 +383,11 @@
             "properties": {
               "name": {
                 "default": "Bing",
-                "required": [],
                 "title": "name",
                 "type": "string"
               },
               "url": {
                 "default": "https://www.bing.com/search?q=",
-                "required": [],
                 "title": "url",
                 "type": "string"
               }
@@ -444,7 +398,6 @@
         ],
         "required": []
       },
-      "required": [],
       "title": "search",
       "type": "array"
     },
@@ -458,13 +411,11 @@
       "properties": {
         "port": {
           "default": 8080,
-          "required": [],
           "title": "port",
           "type": "integer"
         },
         "type": {
           "default": "ClusterIP",
-          "required": [],
           "title": "type",
           "type": "string"
         }
@@ -484,21 +435,18 @@
         "automount": {
           "default": true,
           "description": "Automatically mount a ServiceAccount's API credentials?",
-          "required": [],
           "title": "automount",
           "type": "boolean"
         },
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -514,19 +462,16 @@
           "properties": {
             "icon": {
               "default": "my-default-icon.png",
-              "required": [],
               "title": "icon",
               "type": "string"
             },
             "newtab": {
               "default": false,
-              "required": [],
               "title": "newtab",
               "type": "boolean"
             },
             "nofollow": {
               "default": true,
-              "required": [],
               "title": "nofollow",
               "type": "boolean"
             }
@@ -543,31 +488,26 @@
                 "properties": {
                   "description": {
                     "default": "This is an example description",
-                    "required": [],
                     "title": "description",
                     "type": "string"
                   },
                   "name": {
                     "default": "Github",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   },
                   "newtab": {
                     "default": true,
-                    "required": [],
                     "title": "newtab",
                     "type": "boolean"
                   },
                   "nofollow": {
                     "default": false,
-                    "required": [],
                     "title": "nofollow",
                     "type": "boolean"
                   },
                   "url": {
                     "default": "https://github.com/daledavies/jump",
-                    "required": [],
                     "title": "url",
                     "type": "string"
                   }
@@ -579,13 +519,11 @@
                 "properties": {
                   "name": {
                     "default": "Docker Hub",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   },
                   "url": {
                     "default": "https://hub.docker.com/r/daledavies/jump",
-                    "required": [],
                     "title": "url",
                     "type": "string"
                   }
@@ -597,19 +535,16 @@
                 "properties": {
                   "description": {
                     "default": "This is another example of a site with a description",
-                    "required": [],
                     "title": "description",
                     "type": "string"
                   },
                   "icon": {
                     "default": "bitwarden.png",
-                    "required": [],
                     "title": "icon",
                     "type": "string"
                   },
                   "name": {
                     "default": "Bitwarden",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   },
@@ -617,19 +552,16 @@
                     "items": {
                       "anyOf": [
                         {
-                          "required": [],
                           "type": "string"
                         }
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "tags",
                     "type": "array"
                   },
                   "url": {
                     "default": "https://bitwarden.com/",
-                    "required": [],
                     "title": "url",
                     "type": "string"
                   }
@@ -641,13 +573,11 @@
                 "properties": {
                   "icon": {
                     "default": "nextcloud.png",
-                    "required": [],
                     "title": "icon",
                     "type": "string"
                   },
                   "name": {
                     "default": "Nextcloud",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   },
@@ -655,23 +585,19 @@
                     "items": {
                       "anyOf": [
                         {
-                          "required": [],
                           "type": "string"
                         },
                         {
-                          "required": [],
                           "type": "string"
                         }
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "tags",
                     "type": "array"
                   },
                   "url": {
                     "default": "https://cloud.example.com",
-                    "required": [],
                     "title": "url",
                     "type": "string"
                   }
@@ -683,13 +609,11 @@
                 "properties": {
                   "name": {
                     "default": "Teapot",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   },
                   "nofollow": {
                     "default": false,
-                    "required": [],
                     "title": "nofollow",
                     "type": "boolean"
                   },
@@ -699,31 +623,26 @@
                         "items": {
                           "anyOf": [
                             {
-                              "required": [],
                               "type": "integer"
                             }
                           ],
                           "required": []
                         },
-                        "required": [],
                         "title": "allowed_status_codes",
                         "type": "array"
                       },
                       "request_method": {
                         "default": "GET",
-                        "required": [],
                         "title": "request_method",
                         "type": "string"
                       },
                       "url": {
                         "default": "https://www.google.com/teapot",
-                        "required": [],
                         "title": "url",
                         "type": "string"
                       },
                       "verify_cert": {
                         "default": false,
-                        "required": [],
                         "title": "verify_cert",
                         "type": "boolean"
                       }
@@ -736,23 +655,19 @@
                     "items": {
                       "anyOf": [
                         {
-                          "required": [],
                           "type": "string"
                         },
                         {
-                          "required": [],
                           "type": "string"
                         }
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "tags",
                     "type": "array"
                   },
                   "url": {
                     "default": "https://www.google.com/pagedoesnotexist",
-                    "required": [],
                     "title": "url",
                     "type": "string"
                   }
@@ -763,7 +678,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "sites",
           "type": "array"
         }
@@ -776,7 +690,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     },
@@ -788,13 +701,11 @@
             "properties": {
               "mountPath": {
                 "default": "/backgrounds",
-                "required": [],
                 "title": "mountPath",
                 "type": "string"
               },
               "name": {
                 "default": "backgrounds",
-                "required": [],
                 "title": "name",
                 "type": "string"
               }
@@ -806,13 +717,11 @@
             "properties": {
               "mountPath": {
                 "default": "/favicon",
-                "required": [],
                 "title": "mountPath",
                 "type": "string"
               },
               "name": {
                 "default": "favicon",
-                "required": [],
                 "title": "name",
                 "type": "string"
               }
@@ -824,19 +733,16 @@
             "properties": {
               "mountPath": {
                 "default": "/sites/sites.json",
-                "required": [],
                 "title": "mountPath",
                 "type": "string"
               },
               "name": {
                 "default": "sites-config",
-                "required": [],
                 "title": "name",
                 "type": "string"
               },
               "subPath": {
                 "default": "sites.json",
-                "required": [],
                 "title": "subPath",
                 "type": "string"
               }
@@ -848,19 +754,16 @@
             "properties": {
               "mountPath": {
                 "default": "/search/searchengines.json",
-                "required": [],
                 "title": "mountPath",
                 "type": "string"
               },
               "name": {
                 "default": "search-config",
-                "required": [],
                 "title": "name",
                 "type": "string"
               },
               "subPath": {
                 "default": "searchengines.json",
-                "required": [],
                 "title": "subPath",
                 "type": "string"
               }
@@ -871,7 +774,6 @@
         ],
         "required": []
       },
-      "required": [],
       "title": "volumeMounts",
       "type": "array"
     },
@@ -885,7 +787,6 @@
                 "properties": {
                   "sizeLimit": {
                     "default": "100Mi",
-                    "required": [],
                     "title": "sizeLimit",
                     "type": "string"
                   }
@@ -896,7 +797,6 @@
               },
               "name": {
                 "default": "backgrounds",
-                "required": [],
                 "title": "name",
                 "type": "string"
               }
@@ -910,7 +810,6 @@
                 "properties": {
                   "sizeLimit": {
                     "default": "100Mi",
-                    "required": [],
                     "title": "sizeLimit",
                     "type": "string"
                   }
@@ -921,7 +820,6 @@
               },
               "name": {
                 "default": "favicon",
-                "required": [],
                 "title": "name",
                 "type": "string"
               }
@@ -935,7 +833,6 @@
                 "properties": {
                   "sizeLimit": {
                     "default": "100Mi",
-                    "required": [],
                     "title": "sizeLimit",
                     "type": "string"
                   }
@@ -946,7 +843,6 @@
               },
               "name": {
                 "default": "search",
-                "required": [],
                 "title": "name",
                 "type": "string"
               }
@@ -960,7 +856,6 @@
                 "properties": {
                   "sizeLimit": {
                     "default": "100Mi",
-                    "required": [],
                     "title": "sizeLimit",
                     "type": "string"
                   }
@@ -971,7 +866,6 @@
               },
               "name": {
                 "default": "sites",
-                "required": [],
                 "title": "name",
                 "type": "string"
               }
@@ -985,7 +879,6 @@
                 "properties": {
                   "name": {
                     "default": "sites-config",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   }
@@ -996,7 +889,6 @@
               },
               "name": {
                 "default": "sites-config",
-                "required": [],
                 "title": "name",
                 "type": "string"
               }
@@ -1010,7 +902,6 @@
                 "properties": {
                   "name": {
                     "default": "search-config",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   }
@@ -1021,7 +912,6 @@
               },
               "name": {
                 "default": "search-config",
-                "required": [],
                 "title": "name",
                 "type": "string"
               }
@@ -1032,7 +922,6 @@
         ],
         "required": []
       },
-      "required": [],
       "title": "volumes",
       "type": "array"
     }

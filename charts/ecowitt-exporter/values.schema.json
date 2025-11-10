@@ -24,7 +24,6 @@
         "debug": {
           "default": false,
           "description": "enable debug output",
-          "required": [],
           "title": "debug",
           "type": "boolean"
         },
@@ -41,7 +40,6 @@
         "indoorLocation": {
           "default": "",
           "description": "Physical location of indoor Ecowitt gateway",
-          "required": [],
           "title": "indoorLocation",
           "type": "string"
         },
@@ -59,7 +57,6 @@
         "outdoorLocation": {
           "default": "",
           "description": "Physical location of outdoor Ecowitt sensor array",
-          "required": [],
           "title": "outdoorLocation",
           "type": "string"
         },
@@ -87,56 +84,48 @@
         "temp1Location": {
           "default": "",
           "description": "Physical location of Ecowitt channel 1 temperature sensor",
-          "required": [],
           "title": "temp1Location",
           "type": "string"
         },
         "temp2Location": {
           "default": "",
           "description": "Physical location of Ecowitt channel 2 temperature sensor",
-          "required": [],
           "title": "temp2Location",
           "type": "string"
         },
         "temp3Location": {
           "default": "",
           "description": "Physical location of Ecowitt channel 3 temperature sensor",
-          "required": [],
           "title": "temp3Location",
           "type": "string"
         },
         "temp4Location": {
           "default": "",
           "description": "Physical location of Ecowitt channel 4 temperature sensor",
-          "required": [],
           "title": "temp4Location",
           "type": "string"
         },
         "temp5Location": {
           "default": "",
           "description": "Physical location of Ecowitt channel 5 temperature sensor",
-          "required": [],
           "title": "temp5Location",
           "type": "string"
         },
         "temp6Location": {
           "default": "",
           "description": "Physical location of Ecowitt channel 6 temperature sensor",
-          "required": [],
           "title": "temp6Location",
           "type": "string"
         },
         "temp7Location": {
           "default": "",
           "description": "Physical location of Ecowitt channel 7 temperature sensor",
-          "required": [],
           "title": "temp7Location",
           "type": "string"
         },
         "temp8Location": {
           "default": "",
           "description": "Physical location of Ecowitt channel 8 temperature sensor",
-          "required": [],
           "title": "temp8Location",
           "type": "string"
         },
@@ -171,7 +160,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -186,21 +174,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "djjudas21/ecowitt-exporter",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -213,7 +198,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -227,14 +211,12 @@
         },
         "className": {
           "default": "",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
           "description": "Enable ingress",
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -246,7 +228,6 @@
                 "properties": {
                   "host": {
                     "default": "chart-example.local",
-                    "required": [],
                     "title": "host",
                     "type": "string"
                   },
@@ -257,13 +238,11 @@
                           "properties": {
                             "path": {
                               "default": "/",
-                              "required": [],
                               "title": "path",
                               "type": "string"
                             },
                             "pathType": {
                               "default": "Prefix",
-                              "required": [],
                               "title": "pathType",
                               "type": "string"
                             }
@@ -274,7 +253,6 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "paths",
                     "type": "array"
                   }
@@ -285,7 +263,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "hosts",
           "type": "array"
         },
@@ -293,7 +270,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "tls",
           "type": "array"
         }
@@ -304,7 +280,6 @@
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -328,77 +303,66 @@
         "aqiWarn": {
           "default": 7,
           "description": "Warn when AQI exceeds this value, on whatever scale is set in aqiStandard",
-          "required": [],
           "title": "aqiWarn",
           "type": "integer"
         },
         "batteryAlerts": {
           "default": true,
           "description": "Enable battery alerts",
-          "required": [],
           "title": "batteryAlerts",
           "type": "boolean"
         },
         "enabled": {
           "default": false,
           "description": "Enable Prometheus rules for Prometheus Operator",
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
         "pm25Warn": {
           "default": 30,
           "description": "Warn when PM2.5 concentration exceeds this value, in µg/m³",
-          "required": [],
           "title": "pm25Warn",
           "type": "integer"
         },
         "tempHigh": {
           "default": 40,
           "description": "Warn when temperature exceeds this value, in whatever unit is set in tempUnit",
-          "required": [],
           "title": "tempHigh",
           "type": "integer"
         },
         "tempLow": {
           "default": 0,
           "description": "Warn when temperature falls below this value, in whatever unit is set in tempUnit",
-          "required": [],
           "title": "tempLow",
           "type": "integer"
         },
         "uvExtreme": {
           "default": 11,
           "description": "Warn when UV index exceeds this Extreme value",
-          "required": [],
           "title": "uvExtreme",
           "type": "integer"
         },
         "uvHigh": {
           "default": 8,
           "description": "Warn when UV index exceeds this High value",
-          "required": [],
           "title": "uvHigh",
           "type": "integer"
         },
         "voltageWarning": {
           "default": 1.5,
           "description": "Warn when battery voltage drops below this threshold, in volts",
-          "required": [],
           "title": "voltageWarning",
           "type": "number"
         },
         "weatherAlerts": {
           "default": true,
           "description": "Enable weather alerts",
-          "required": [],
           "title": "weatherAlerts",
           "type": "boolean"
         },
         "windWarn": {
           "default": 50,
           "description": "Warn when wind speed exceeds this value, in whatever unit is set in windUnit",
-          "required": [],
           "title": "windWarn",
           "type": "integer"
         }
@@ -410,7 +374,6 @@
     "replicaCount": {
       "default": 1,
       "description": "Number of replicas",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -428,13 +391,11 @@
       "properties": {
         "port": {
           "default": 8088,
-          "required": [],
           "title": "port",
           "type": "integer"
         },
         "type": {
           "default": "ClusterIP",
-          "required": [],
           "title": "type",
           "type": "string"
         }
@@ -454,14 +415,12 @@
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -475,14 +434,12 @@
         "enabled": {
           "default": false,
           "description": "Enable Service Monitor for Prometheus Operator",
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
         "interval": {
           "default": "60s",
           "description": "Metrics scrape interval. Should be the same as the Ecowitt gateway submission interval",
-          "required": [],
           "title": "interval",
           "type": "string"
         }
@@ -495,7 +452,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     }

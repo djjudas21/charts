@@ -12,7 +12,6 @@
         "disableRegistration": {
           "default": false,
           "description": "Disable registration of new accounts",
-          "required": [],
           "title": "disableRegistration",
           "type": "boolean"
         },
@@ -21,35 +20,30 @@
             "adminEmail": {
               "default": "admin@example.com",
               "description": "Admin email for AdventureLog",
-              "required": [],
               "title": "adminEmail",
               "type": "string"
             },
             "adminPassword": {
               "default": "admin",
               "description": "Admin password for AdventureLog",
-              "required": [],
               "title": "adminPassword",
               "type": "string"
             },
             "adminUsername": {
               "default": "admin",
               "description": "Admin username for AdventureLog",
-              "required": [],
               "title": "adminUsername",
               "type": "string"
             },
             "debug": {
               "default": "True",
               "description": "Run in debug mode",
-              "required": [],
               "title": "debug",
               "type": "boolean"
             },
             "secretKey": {
               "default": "adventure",
               "description": "Secret key used for cookies",
-              "required": [],
               "title": "secretKey",
               "type": "string"
             }
@@ -63,56 +57,48 @@
             "enabled": {
               "default": false,
               "description": "Enable sending email",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "from": {
               "default": "user@example.com",
               "description": "Email from address",
-              "required": [],
               "title": "from",
               "type": "string"
             },
             "host": {
               "default": "smtp.gmail.com",
               "description": "SMTP server hostname",
-              "required": [],
               "title": "host",
               "type": "string"
             },
             "password": {
               "default": "password",
               "description": "SMTP password",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "port": {
               "default": 587,
               "description": "SMTP server port",
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "useSsl": {
               "default": false,
               "description": "SMTP use SSL",
-              "required": [],
               "title": "useSsl",
               "type": "boolean"
             },
             "useTls": {
               "default": false,
               "description": "SMTP use TLS",
-              "required": [],
               "title": "useTls",
               "type": "boolean"
             },
             "user": {
               "default": "user",
               "description": "SMTP username",
-              "required": [],
               "title": "user",
               "type": "string"
             }
@@ -126,14 +112,12 @@
             "repository": {
               "default": "ghcr.io/seanmorley15/adventurelog-backend",
               "description": "Container image for the frontend",
-              "required": [],
               "title": "repository",
               "type": "string"
             },
             "tag": {
               "default": "",
               "description": "Overrides the image tag whose default is the chart appVersion.",
-              "required": [],
               "title": "tag",
               "type": "string"
             }
@@ -147,28 +131,24 @@
             "accessMode": {
               "default": "ReadWriteOnce",
               "description": "Access mode of persistent volume. Must be ReadWriteMany if replicaCount \u003e 1",
-              "required": [],
               "title": "accessMode",
               "type": "string"
             },
             "enabled": {
               "default": true,
               "description": "Enable persistent storage for the backend",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "size": {
               "default": "10Gi",
               "description": "Size of persistent volume to provision",
-              "required": [],
               "title": "size",
               "type": "string"
             },
             "storageClassName": {
               "default": "",
               "description": "Storage class to provision a persistent volume",
-              "required": [],
               "title": "storageClassName",
               "type": "string"
             }
@@ -180,7 +160,6 @@
         "replicaCount": {
           "default": 1,
           "description": "Number of backend replicas to run. Running \u003e1 replica requires RWX storage.",
-          "required": [],
           "title": "replicaCount",
           "type": "integer"
         },
@@ -195,14 +174,12 @@
             "port": {
               "default": 8000,
               "description": "Backend port",
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "type": {
               "default": "ClusterIP",
               "description": "Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
-              "required": [],
               "title": "type",
               "type": "string"
             }
@@ -214,7 +191,6 @@
         "strategy": {
           "default": "Recreate",
           "description": "Deployment strategy. Must be Recreate if persistence is RWO.",
-          "required": [],
           "title": "strategy",
           "type": "string"
         }
@@ -230,14 +206,12 @@
             "repository": {
               "default": "ghcr.io/seanmorley15/adventurelog-frontend",
               "description": "Container image for the frontend",
-              "required": [],
               "title": "repository",
               "type": "string"
             },
             "tag": {
               "default": "",
               "description": "Overrides the image tag whose default is the chart appVersion.",
-              "required": [],
               "title": "tag",
               "type": "string"
             }
@@ -249,7 +223,6 @@
         "replicaCount": {
           "default": 1,
           "description": "Number of frontend replicas to run",
-          "required": [],
           "title": "replicaCount",
           "type": "integer"
         },
@@ -264,14 +237,12 @@
             "port": {
               "default": 3000,
               "description": "Frontend port",
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "type": {
               "default": "ClusterIP",
               "description": "Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
-              "required": [],
               "title": "type",
               "type": "string"
             }
@@ -283,7 +254,6 @@
         "strategy": {
           "default": "RollingUpdate",
           "description": "Deployment strategy",
-          "required": [],
           "title": "strategy",
           "type": "string"
         }
@@ -295,7 +265,6 @@
     "fullnameOverride": {
       "default": "",
       "description": "Override the chart name",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -310,7 +279,6 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "Sets the pull policy for images",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         }
@@ -324,7 +292,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -340,14 +307,12 @@
         "className": {
           "default": "",
           "description": "The IngressClass to use",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
           "description": "Create an Ingress resource",
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -357,14 +322,12 @@
             "backend": {
               "default": "adventure-backend.example.com",
               "description": "DNS name of the backend",
-              "required": [],
               "title": "backend",
               "type": "string"
             },
             "frontend": {
               "default": "adventure.example.com",
               "description": "DNS name of the frontend",
-              "required": [],
               "title": "frontend",
               "type": "string"
             }
@@ -378,14 +341,12 @@
             "enabled": {
               "default": false,
               "description": "Enable TLS for this Ingress",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "secretName": {
               "default": "adventure-tls",
               "description": "Secret to store TLS certs in",
-              "required": [],
               "title": "secretName",
               "type": "string"
             }
@@ -406,13 +367,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -429,7 +388,6 @@
     "nameOverride": {
       "default": "",
       "description": "Override the chart name",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -461,7 +419,6 @@
         "database": {
           "default": "adventure",
           "description": "Name of database to create",
-          "required": [],
           "title": "database",
           "type": "string"
         },
@@ -470,14 +427,12 @@
             "repository": {
               "default": "postgis/postgis",
               "description": "Container image for the PostGIS database",
-              "required": [],
               "title": "repository",
               "type": "string"
             },
             "tag": {
               "default": "15-3.3",
               "description": "Container image tag for the PostGIS database",
-              "required": [],
               "title": "tag",
               "type": "string"
             }
@@ -489,7 +444,6 @@
         "password": {
           "default": "adventure",
           "description": "Database password to set",
-          "required": [],
           "title": "password",
           "type": "string"
         },
@@ -498,28 +452,24 @@
             "accessMode": {
               "default": "ReadWriteOnce",
               "description": "Access mode of persistent volume",
-              "required": [],
               "title": "accessMode",
               "type": "string"
             },
             "enabled": {
               "default": true,
               "description": "Enable persistent storage for the database",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "size": {
               "default": "1Gi",
               "description": "Size of persistent volume to provision",
-              "required": [],
               "title": "size",
               "type": "string"
             },
             "storageClassName": {
               "default": "",
               "description": "Storage class to provision a persistent volume",
-              "required": [],
               "title": "storageClassName",
               "type": "string"
             }
@@ -539,14 +489,12 @@
             "port": {
               "default": 5432,
               "description": "Database port",
-              "required": [],
               "title": "port",
               "type": "integer"
             },
             "type": {
               "default": "ClusterIP",
               "description": "Set the service type. More information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
-              "required": [],
               "title": "type",
               "type": "string"
             }
@@ -558,7 +506,6 @@
         "user": {
           "default": "adventure",
           "description": "Database user to create",
-          "required": [],
           "title": "user",
           "type": "string"
         }
@@ -574,13 +521,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -610,21 +555,18 @@
         "automount": {
           "default": true,
           "description": "Automatically mount a ServiceAccount's API credentials?",
-          "required": [],
           "title": "automount",
           "type": "boolean"
         },
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.\nIf not set and create is true, a name is generated using the fullname template",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -638,7 +580,6 @@
       "properties": {
         "failureThreshold": {
           "default": 30,
-          "required": [],
           "title": "failureThreshold",
           "type": "integer"
         },
@@ -646,13 +587,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -663,7 +602,6 @@
         },
         "periodSeconds": {
           "default": 10,
-          "required": [],
           "title": "periodSeconds",
           "type": "integer"
         }
@@ -677,7 +615,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     }

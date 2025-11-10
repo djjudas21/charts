@@ -8,7 +8,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -23,21 +22,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "cyfershepard/jellystat",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -50,7 +46,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -64,13 +59,11 @@
         },
         "className": {
           "default": "",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -82,7 +75,6 @@
                 "properties": {
                   "host": {
                     "default": "chart-example.local",
-                    "required": [],
                     "title": "host",
                     "type": "string"
                   },
@@ -93,13 +85,11 @@
                           "properties": {
                             "path": {
                               "default": "/",
-                              "required": [],
                               "title": "path",
                               "type": "string"
                             },
                             "pathType": {
                               "default": "ImplementationSpecific",
-                              "required": [],
                               "title": "pathType",
                               "type": "string"
                             }
@@ -110,7 +100,6 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "paths",
                     "type": "array"
                   }
@@ -121,7 +110,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "hosts",
           "type": "array"
         },
@@ -129,7 +117,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "tls",
           "type": "array"
         }
@@ -141,7 +128,6 @@
     "jwtSecret": {
       "default": "my-secret-jwt-key",
       "description": "JWT Key to be used to encrypt JWT tokens for authentication",
-      "required": [],
       "title": "jwtSecret",
       "type": "string"
     },
@@ -151,13 +137,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -173,7 +157,6 @@
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -204,25 +187,21 @@
           "properties": {
             "database": {
               "default": "jellystat",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "password": {
               "default": "jellystat",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "postgresPassword": {
               "default": "jellystat",
-              "required": [],
               "title": "postgresPassword",
               "type": "string"
             },
             "username": {
               "default": "jellystat",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -233,7 +212,6 @@
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -241,7 +219,6 @@
           "properties": {
             "repository": {
               "default": "bitnamilegacy/postgresql",
-              "required": [],
               "title": "repository",
               "type": "string"
             }
@@ -256,14 +233,12 @@
               "properties": {
                 "enabled": {
                   "default": false,
-                  "required": [],
                   "title": "enabled",
                   "type": "boolean"
                 },
                 "size": {
                   "default": "1Gi",
                   "description": "storageClass: \"\"",
-                  "required": [],
                   "title": "size",
                   "type": "string"
                 }
@@ -293,13 +268,11 @@
           "properties": {
             "path": {
               "default": "/",
-              "required": [],
               "title": "path",
               "type": "string"
             },
             "port": {
               "default": "http",
-              "required": [],
               "title": "port",
               "type": "string"
             }
@@ -316,7 +289,6 @@
     "replicaCount": {
       "default": 1,
       "description": "Number of jellystat replicas.",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -335,13 +307,11 @@
       "properties": {
         "port": {
           "default": 3000,
-          "required": [],
           "title": "port",
           "type": "integer"
         },
         "type": {
           "default": "ClusterIP",
-          "required": [],
           "title": "type",
           "type": "string"
         }
@@ -361,21 +331,18 @@
         "automount": {
           "default": false,
           "description": "Automatically mount a ServiceAccount's API credentials?",
-          "required": [],
           "title": "automount",
           "type": "boolean"
         },
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -388,7 +355,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     },
@@ -397,7 +363,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "volumeMounts",
       "type": "array"
     },
@@ -406,7 +371,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "volumes",
       "type": "array"
     }

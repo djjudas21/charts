@@ -7,14 +7,12 @@
         "JWT_SECRET": {
           "default": "ChangeMe",
           "description": "The secret used to sign the JWT token. It is important that you change it to something else",
-          "required": [],
           "title": "JWT_SECRET",
           "type": "string"
         },
         "TZ": {
           "default": "UTC",
           "description": "Application Timezone",
-          "required": [],
           "title": "TZ",
           "type": "string"
         }
@@ -34,21 +32,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "alfhou/hammond",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -64,7 +59,6 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -85,13 +79,11 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "mountPath": {
               "default": "/assets",
-              "required": [],
               "title": "mountPath",
               "type": "string"
             }
@@ -104,13 +96,11 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "mountPath": {
               "default": "/config",
-              "required": [],
               "title": "mountPath",
               "type": "string"
             }
@@ -135,7 +125,6 @@
                   "properties": {
                     "port": {
                       "default": 3000,
-                      "required": [],
                       "title": "port",
                       "type": "integer"
                     }

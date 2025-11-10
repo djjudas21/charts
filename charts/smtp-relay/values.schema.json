@@ -8,7 +8,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -23,21 +22,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "djjudas21/smtp-relay",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -50,7 +46,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -59,14 +54,12 @@
         "enabled": {
           "default": false,
           "description": "Enable metrics sidecar",
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
         "port": {
           "default": 9154,
           "description": "Metrics port",
-          "required": [],
           "title": "port",
           "type": "integer"
         },
@@ -75,7 +68,6 @@
             "enabled": {
               "default": false,
               "description": "Enable Prometheus rules for Prometheus Operator",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -89,7 +81,6 @@
             "enabled": {
               "default": false,
               "description": "Enable Service Monitor for Prometheus Operator",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -105,7 +96,6 @@
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -118,28 +108,24 @@
       "properties": {
         "accessMode": {
           "default": "ReadWriteOnce",
-          "required": [],
           "title": "accessMode",
           "type": "string"
         },
         "enabled": {
           "default": false,
           "description": "Enable mail queue persistence",
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
         "size": {
           "default": "1Gi",
           "description": "The storage space that should be claimed from the persistent volume",
-          "required": [],
           "title": "size",
           "type": "string"
         },
         "storageClass": {
           "default": "",
           "description": "If undefined (the default) the default StorageClass is used",
-          "required": [],
           "title": "storageClass",
           "type": "string"
         }
@@ -165,31 +151,26 @@
           "properties": {
             "enabled": {
               "default": true,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "failureThreshold": {
               "default": 3,
-              "required": [],
               "title": "failureThreshold",
               "type": "integer"
             },
             "initialDelaySeconds": {
               "default": 0,
-              "required": [],
               "title": "initialDelaySeconds",
               "type": "integer"
             },
             "periodSeconds": {
               "default": 10,
-              "required": [],
               "title": "periodSeconds",
               "type": "integer"
             },
             "timeoutSeconds": {
               "default": 1,
-              "required": [],
               "title": "timeoutSeconds",
               "type": "integer"
             }
@@ -202,31 +183,26 @@
           "properties": {
             "enabled": {
               "default": true,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "failureThreshold": {
               "default": 3,
-              "required": [],
               "title": "failureThreshold",
               "type": "integer"
             },
             "initialDelaySeconds": {
               "default": 0,
-              "required": [],
               "title": "initialDelaySeconds",
               "type": "integer"
             },
             "periodSeconds": {
               "default": 10,
-              "required": [],
               "title": "periodSeconds",
               "type": "integer"
             },
             "timeoutSeconds": {
               "default": 1,
-              "required": [],
               "title": "timeoutSeconds",
               "type": "integer"
             }
@@ -243,7 +219,6 @@
     "replicaCount": {
       "default": 1,
       "description": "Number of replicas",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -264,7 +239,6 @@
         "create": {
           "default": true,
           "description": "Create the secret containing the smtp-relay password",
-          "required": [],
           "title": "create",
           "type": "boolean"
         }
@@ -288,19 +262,16 @@
         },
         "loadBalancerIP": {
           "default": "",
-          "required": [],
           "title": "loadBalancerIP",
           "type": "string"
         },
         "port": {
           "default": 25,
-          "required": [],
           "title": "port",
           "type": "integer"
         },
         "type": {
           "default": "ClusterIP",
-          "required": [],
           "title": "type",
           "type": "string"
         }
@@ -320,14 +291,12 @@
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -341,14 +310,12 @@
         "host": {
           "default": "",
           "description": "Hostname of upstream SMTP server",
-          "required": [],
           "title": "host",
           "type": "string"
         },
         "myhostname": {
           "default": "",
           "description": "Hostname of THIS relay SMTP server",
-          "required": [],
           "title": "myhostname",
           "type": "string"
         },
@@ -357,43 +324,36 @@
           "items": {
             "anyOf": [
               {
-                "required": [],
                 "type": "string"
               },
               {
-                "required": [],
                 "type": "string"
               }
             ],
             "required": []
           },
-          "required": [],
           "title": "mynetworks",
           "type": "array"
         },
         "password": {
           "default": "",
           "description": "Password for upstream SMTP server",
-          "required": [],
           "title": "password",
           "type": "string"
         },
         "tls_security_level": {
           "default": "",
-          "required": [],
           "title": "tls_security_level",
           "type": "string"
         },
         "tls_wrappermode": {
           "default": "no",
-          "required": [],
           "title": "tls_wrappermode",
           "type": "string"
         },
         "username": {
           "default": "",
           "description": "Username for upstream SMTP server",
-          "required": [],
           "title": "username",
           "type": "string"
         }
@@ -406,7 +366,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     }

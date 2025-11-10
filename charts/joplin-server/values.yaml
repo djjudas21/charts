@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=values.schema.json
 #
 # This chart inherits from a common library chart. You can check the default values/options here:
 # https://github.com/bjw-s/helm-charts/blob/4d09009bf809b2ce3c06225f61cf229e40d2c08a/charts/library/common/values.yaml

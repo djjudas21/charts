@@ -8,7 +8,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -22,20 +21,17 @@
       "properties": {
         "pullPolicy": {
           "default": "IfNotPresent",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "linuxserver/smokeping",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "Overrides the image tag whose default is the chart appVersion.",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -48,7 +44,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -61,13 +56,11 @@
         },
         "className": {
           "default": "",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -79,7 +72,6 @@
                 "properties": {
                   "host": {
                     "default": "chart-example.local",
-                    "required": [],
                     "title": "host",
                     "type": "string"
                   },
@@ -90,13 +82,11 @@
                           "properties": {
                             "path": {
                               "default": "/",
-                              "required": [],
                               "title": "path",
                               "type": "string"
                             },
                             "pathType": {
                               "default": "ImplementationSpecific",
-                              "required": [],
                               "title": "pathType",
                               "type": "string"
                             }
@@ -107,7 +97,6 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "paths",
                     "type": "array"
                   }
@@ -118,7 +107,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "hosts",
           "type": "array"
         },
@@ -126,7 +114,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "tls",
           "type": "array"
         }
@@ -137,7 +124,6 @@
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -150,31 +136,26 @@
       "properties": {
         "accessMode": {
           "default": "ReadWriteOnce",
-          "required": [],
           "title": "accessMode",
           "type": "string"
         },
         "enabled": {
           "default": true,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
         "mountPath": {
           "default": "/data/",
-          "required": [],
           "title": "mountPath",
           "type": "string"
         },
         "size": {
           "default": "5Gi",
-          "required": [],
           "title": "size",
           "type": "string"
         },
         "storageClass": {
           "default": "",
-          "required": [],
           "title": "storageClass",
           "type": "string"
         }
@@ -205,31 +186,26 @@
           "properties": {
             "enabled": {
               "default": true,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "failureThreshold": {
               "default": 3,
-              "required": [],
               "title": "failureThreshold",
               "type": "integer"
             },
             "initialDelaySeconds": {
               "default": 0,
-              "required": [],
               "title": "initialDelaySeconds",
               "type": "integer"
             },
             "periodSeconds": {
               "default": 10,
-              "required": [],
               "title": "periodSeconds",
               "type": "integer"
             },
             "timeoutSeconds": {
               "default": 1,
-              "required": [],
               "title": "timeoutSeconds",
               "type": "integer"
             }
@@ -242,31 +218,26 @@
           "properties": {
             "enabled": {
               "default": true,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "failureThreshold": {
               "default": 3,
-              "required": [],
               "title": "failureThreshold",
               "type": "integer"
             },
             "initialDelaySeconds": {
               "default": 0,
-              "required": [],
               "title": "initialDelaySeconds",
               "type": "integer"
             },
             "periodSeconds": {
               "default": 10,
-              "required": [],
               "title": "periodSeconds",
               "type": "integer"
             },
             "timeoutSeconds": {
               "default": 1,
-              "required": [],
               "title": "timeoutSeconds",
               "type": "integer"
             }
@@ -294,13 +265,11 @@
       "properties": {
         "port": {
           "default": 80,
-          "required": [],
           "title": "port",
           "type": "integer"
         },
         "type": {
           "default": "ClusterIP",
-          "required": [],
           "title": "type",
           "type": "string"
         }
@@ -320,21 +289,18 @@
         "automount": {
           "default": false,
           "description": "Automatically mount a ServiceAccount's API credentials?",
-          "required": [],
           "title": "automount",
           "type": "boolean"
         },
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.\nIf not set and create is true, a name is generated using the fullname template",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -347,7 +313,6 @@
       "properties": {
         "contact": {
           "default": "admin@linuxserver.io",
-          "required": [],
           "title": "contact",
           "type": "string"
         },
@@ -356,14 +321,12 @@
             "pings": {
               "default": 20,
               "description": "How many pings to send for each test",
-              "required": [],
               "title": "pings",
               "type": "integer"
             },
             "step": {
               "default": 300,
               "description": "How many seconds between tests",
-              "required": [],
               "title": "step",
               "type": "integer"
             }
@@ -376,59 +339,50 @@
           "properties": {
             "AuthPass": {
               "default": "",
-              "required": [],
               "title": "AuthPass",
               "type": "string"
             },
             "AuthUser": {
               "default": "",
-              "required": [],
               "title": "AuthUser",
               "type": "string"
             },
             "UseSTARTTLS": {
               "default": "yes",
-              "required": [],
               "title": "UseSTARTTLS",
               "type": "string"
             },
             "from": {
               "default": "smokealert@company.xy",
-              "required": [],
               "title": "from",
               "type": "string"
             },
             "hostname": {
               "default": "",
               "description": "The full hostname",
-              "required": [],
               "title": "hostname",
               "type": "string"
             },
             "mailhub": {
               "default": "smtp.gmail.com:587",
               "description": "The place where the mail goes. The actual machine name is required - no\nMX records are consulted. Commonly mailhosts are named mail.domain.com",
-              "required": [],
               "title": "mailhub",
               "type": "string"
             },
             "rewriteDomain": {
               "default": "",
               "description": "Where will the mail seem to come from?",
-              "required": [],
               "title": "rewriteDomain",
               "type": "string"
             },
             "root": {
               "default": "",
               "description": "The person who gets all mail for userids \u003c 1000. Make this empty to disable rewriting.",
-              "required": [],
               "title": "root",
               "type": "string"
             },
             "to": {
               "default": "alertee@address.somewhere",
-              "required": [],
               "title": "to",
               "type": "string"
             }
@@ -439,7 +393,6 @@
         },
         "owner": {
           "default": "LinuxServer.io",
-          "required": [],
           "title": "owner",
           "type": "string"
         },
@@ -455,25 +408,21 @@
                           "properties": {
                             "host": {
                               "default": "192.168.0.1",
-                              "required": [],
                               "title": "host",
                               "type": "string"
                             },
                             "menu": {
                               "default": "Router",
-                              "required": [],
                               "title": "menu",
                               "type": "string"
                             },
                             "name": {
                               "default": "Router",
-                              "required": [],
                               "title": "name",
                               "type": "string"
                             },
                             "title": {
                               "default": "Router",
-                              "required": [],
                               "title": "title",
                               "type": "string"
                             }
@@ -484,25 +433,21 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "hosts",
                     "type": "array"
                   },
                   "menu": {
                     "default": "Internal Devices",
-                    "required": [],
                     "title": "menu",
                     "type": "string"
                   },
                   "name": {
                     "default": "Internet",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   },
                   "title": {
                     "default": "Internal Devices",
-                    "required": [],
                     "title": "title",
                     "type": "string"
                   }
@@ -519,25 +464,21 @@
                           "properties": {
                             "host": {
                               "default": "google.com",
-                              "required": [],
                               "title": "host",
                               "type": "string"
                             },
                             "menu": {
                               "default": "Google",
-                              "required": [],
                               "title": "menu",
                               "type": "string"
                             },
                             "name": {
                               "default": "GoogleSearch",
-                              "required": [],
                               "title": "name",
                               "type": "string"
                             },
                             "title": {
                               "default": "google.com",
-                              "required": [],
                               "title": "title",
                               "type": "string"
                             }
@@ -548,25 +489,21 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "hosts",
                     "type": "array"
                   },
                   "menu": {
                     "default": "Internet Sites",
-                    "required": [],
                     "title": "menu",
                     "type": "string"
                   },
                   "name": {
                     "default": "InternetSites",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   },
                   "title": {
                     "default": "Internet Sites",
-                    "required": [],
                     "title": "title",
                     "type": "string"
                   }
@@ -583,25 +520,21 @@
                           "properties": {
                             "host": {
                               "default": "8.8.8.8",
-                              "required": [],
                               "title": "host",
                               "type": "string"
                             },
                             "menu": {
                               "default": "Google DNS 1",
-                              "required": [],
                               "title": "menu",
                               "type": "string"
                             },
                             "name": {
                               "default": "GoogleDNS1",
-                              "required": [],
                               "title": "name",
                               "type": "string"
                             },
                             "title": {
                               "default": "Google DNS 8.8.8.8",
-                              "required": [],
                               "title": "title",
                               "type": "string"
                             }
@@ -613,25 +546,21 @@
                           "properties": {
                             "host": {
                               "default": "8.8.4.4",
-                              "required": [],
                               "title": "host",
                               "type": "string"
                             },
                             "menu": {
                               "default": "Google DNS 2",
-                              "required": [],
                               "title": "menu",
                               "type": "string"
                             },
                             "name": {
                               "default": "GoogleDNS2",
-                              "required": [],
                               "title": "name",
                               "type": "string"
                             },
                             "title": {
                               "default": "Google DNS 8.8.4.4",
-                              "required": [],
                               "title": "title",
                               "type": "string"
                             }
@@ -643,25 +572,21 @@
                           "properties": {
                             "host": {
                               "default": "1.1.1.1",
-                              "required": [],
                               "title": "host",
                               "type": "string"
                             },
                             "menu": {
                               "default": "Cloudflare DNS 1",
-                              "required": [],
                               "title": "menu",
                               "type": "string"
                             },
                             "name": {
                               "default": "CloudflareDNS1",
-                              "required": [],
                               "title": "name",
                               "type": "string"
                             },
                             "title": {
                               "default": "Cloudflare DNS 1.1.1.1",
-                              "required": [],
                               "title": "title",
                               "type": "string"
                             }
@@ -673,25 +598,21 @@
                           "properties": {
                             "host": {
                               "default": "1.0.0.1",
-                              "required": [],
                               "title": "host",
                               "type": "string"
                             },
                             "menu": {
                               "default": "Cloudflare DNS 2",
-                              "required": [],
                               "title": "menu",
                               "type": "string"
                             },
                             "name": {
                               "default": "CloudflareDNS2",
-                              "required": [],
                               "title": "name",
                               "type": "string"
                             },
                             "title": {
                               "default": "Cloudflare DNS 1.0.0.1",
-                              "required": [],
                               "title": "title",
                               "type": "string"
                             }
@@ -702,31 +623,26 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "hosts",
                     "type": "array"
                   },
                   "menu": {
                     "default": "DNS Probes",
-                    "required": [],
                     "title": "menu",
                     "type": "string"
                   },
                   "name": {
                     "default": "DNSProbes",
-                    "required": [],
                     "title": "name",
                     "type": "string"
                   },
                   "probe": {
                     "default": "DNS",
-                    "required": [],
                     "title": "probe",
                     "type": "string"
                   },
                   "title": {
                     "default": "DNS Probes",
-                    "required": [],
                     "title": "title",
                     "type": "string"
                   }
@@ -737,7 +653,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "targets",
           "type": "array"
         }
@@ -750,7 +665,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     }

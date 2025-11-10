@@ -8,7 +8,6 @@
     },
     "fullnameOverride": {
       "default": "",
-      "required": [],
       "title": "fullnameOverride",
       "type": "string"
     },
@@ -18,19 +17,16 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "imagePullSecrets",
           "type": "array"
         },
         "imageRegistry": {
           "default": "",
-          "required": [],
           "title": "imageRegistry",
           "type": "string"
         },
         "storageClass": {
           "default": "",
-          "required": [],
           "title": "storageClass",
           "type": "string"
         }
@@ -44,21 +40,18 @@
         "pullPolicy": {
           "default": "IfNotPresent",
           "description": "image pull policy",
-          "required": [],
           "title": "pullPolicy",
           "type": "string"
         },
         "repository": {
           "default": "owncloud/server",
           "description": "image repository",
-          "required": [],
           "title": "repository",
           "type": "string"
         },
         "tag": {
           "default": "",
           "description": "image tag",
-          "required": [],
           "title": "tag",
           "type": "string"
         }
@@ -71,7 +64,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "imagePullSecrets",
       "type": "array"
     },
@@ -82,13 +74,11 @@
           "properties": {
             "nginx.ingress.kubernetes.io/proxy-body-size": {
               "default": "0",
-              "required": [],
               "title": "nginx.ingress.kubernetes.io/proxy-body-size",
               "type": "string"
             },
             "nginx.ingress.kubernetes.io/proxy-buffering": {
               "default": "off",
-              "required": [],
               "title": "nginx.ingress.kubernetes.io/proxy-buffering",
               "type": "string"
             }
@@ -99,13 +89,11 @@
         },
         "className": {
           "default": "",
-          "required": [],
           "title": "className",
           "type": "string"
         },
         "enabled": {
           "default": false,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -116,7 +104,6 @@
                 "properties": {
                   "host": {
                     "default": "chart-example.local",
-                    "required": [],
                     "title": "host",
                     "type": "string"
                   },
@@ -127,13 +114,11 @@
                           "properties": {
                             "path": {
                               "default": "/",
-                              "required": [],
                               "title": "path",
                               "type": "string"
                             },
                             "pathType": {
                               "default": "ImplementationSpecific",
-                              "required": [],
                               "title": "pathType",
                               "type": "string"
                             }
@@ -144,7 +129,6 @@
                       ],
                       "required": []
                     },
-                    "required": [],
                     "title": "paths",
                     "type": "array"
                   }
@@ -155,7 +139,6 @@
             ],
             "required": []
           },
-          "required": [],
           "title": "hosts",
           "type": "array"
         },
@@ -163,7 +146,6 @@
           "items": {
             "required": []
           },
-          "required": [],
           "title": "tls",
           "type": "array"
         }
@@ -177,7 +159,6 @@
       "properties": {
         "architecture": {
           "default": "standalone",
-          "required": [],
           "title": "architecture",
           "type": "string"
         },
@@ -185,37 +166,31 @@
           "properties": {
             "database": {
               "default": "owncloud",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "password": {
               "default": "owncloud",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "replicationPassword": {
               "default": "replication",
-              "required": [],
               "title": "replicationPassword",
               "type": "string"
             },
             "replicationUser": {
               "default": "replicator",
-              "required": [],
               "title": "replicationUser",
               "type": "string"
             },
             "rootPassword": {
               "default": "owncloud",
-              "required": [],
               "title": "rootPassword",
               "type": "string"
             },
             "username": {
               "default": "owncloud",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -226,7 +201,6 @@
         },
         "enabled": {
           "default": true,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
@@ -234,7 +208,6 @@
           "properties": {
             "repository": {
               "default": "bitnamilegacy/mariadb",
-              "required": [],
               "title": "repository",
               "type": "string"
             }
@@ -247,7 +220,6 @@
           "properties": {
             "enabled": {
               "default": false,
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
@@ -260,7 +232,6 @@
               "properties": {
                 "enabled": {
                   "default": false,
-                  "required": [],
                   "title": "enabled",
                   "type": "boolean"
                 }
@@ -282,31 +253,26 @@
                   "items": {
                     "anyOf": [
                       {
-                        "required": [],
                         "type": "string"
                       }
                     ],
                     "required": []
                   },
-                  "required": [],
                   "title": "accessModes",
                   "type": "array"
                 },
                 "enabled": {
                   "default": true,
-                  "required": [],
                   "title": "enabled",
                   "type": "boolean"
                 },
                 "size": {
                   "default": "8Gi",
-                  "required": [],
                   "title": "size",
                   "type": "string"
                 },
                 "storageClass": {
                   "default": "",
-                  "required": [],
                   "title": "storageClass",
                   "type": "string"
                 }
@@ -317,7 +283,6 @@
             },
             "priorityClassName": {
               "default": "",
-              "required": [],
               "title": "priorityClassName",
               "type": "string"
             },
@@ -338,7 +303,6 @@
     },
     "nameOverride": {
       "default": "",
-      "required": [],
       "title": "nameOverride",
       "type": "string"
     },
@@ -352,14 +316,12 @@
         "adminPassword": {
           "default": "admin",
           "description": "ownCloud admin password",
-          "required": [],
           "title": "adminPassword",
           "type": "string"
         },
         "adminUsername": {
           "default": "admin",
           "description": "ownCloud admin user",
-          "required": [],
           "title": "adminUsername",
           "type": "string"
         },
@@ -367,25 +329,21 @@
           "properties": {
             "database": {
               "default": "owncloud",
-              "required": [],
               "title": "database",
               "type": "string"
             },
             "host": {
               "default": "",
-              "required": [],
               "title": "host",
               "type": "string"
             },
             "password": {
               "default": "owncloudsecretpassword",
-              "required": [],
               "title": "password",
               "type": "string"
             },
             "username": {
               "default": "owncloud",
-              "required": [],
               "title": "username",
               "type": "string"
             }
@@ -399,21 +357,18 @@
             "domain": {
               "default": "cluster.local",
               "description": "SMTP domain",
-              "required": [],
               "title": "domain",
               "type": "string"
             },
             "fromAddress": {
               "default": "owncloud",
               "description": "SMTP sender",
-              "required": [],
               "title": "fromAddress",
               "type": "string"
             },
             "mode": {
               "default": "smtp",
               "description": "Mail mode",
-              "required": [],
               "title": "mode",
               "type": "string"
             },
@@ -422,41 +377,35 @@
                 "auth": {
                   "default": false,
                   "description": "Enable SMTP server auth",
-                  "required": [],
                   "title": "auth",
                   "type": "boolean"
                 },
                 "host": {
                   "default": "",
                   "description": "SMTP server hostname",
-                  "required": [],
                   "title": "host",
                   "type": "string"
                 },
                 "password": {
                   "default": "",
                   "description": "SMTP server password",
-                  "required": [],
                   "title": "password",
                   "type": "string"
                 },
                 "port": {
                   "default": "",
                   "description": "SMTP server port",
-                  "required": [],
                   "title": "port",
                   "type": "string"
                 },
                 "secure": {
                   "default": "",
-                  "required": [],
                   "title": "secure",
                   "type": "string"
                 },
                 "username": {
                   "default": "",
                   "description": "SMTP server user",
-                  "required": [],
                   "title": "username",
                   "type": "string"
                 }
@@ -481,31 +430,26 @@
           "items": {
             "anyOf": [
               {
-                "required": [],
                 "type": "string"
               }
             ],
             "required": []
           },
-          "required": [],
           "title": "accessModes",
           "type": "array"
         },
         "enabled": {
           "default": true,
-          "required": [],
           "title": "enabled",
           "type": "boolean"
         },
         "size": {
           "default": "8Gi",
-          "required": [],
           "title": "size",
           "type": "string"
         },
         "storageClass": {
           "default": "",
-          "required": [],
           "title": "storageClass",
           "type": "string"
         }
@@ -521,14 +465,12 @@
     },
     "priorityClassName": {
       "default": "",
-      "required": [],
       "title": "priorityClassName",
       "type": "string"
     },
     "replicaCount": {
       "default": 1,
       "description": "Number of replicas",
-      "required": [],
       "title": "replicaCount",
       "type": "integer"
     },
@@ -542,13 +484,11 @@
       "properties": {
         "port": {
           "default": 8080,
-          "required": [],
           "title": "port",
           "type": "integer"
         },
         "type": {
           "default": "ClusterIP",
-          "required": [],
           "title": "type",
           "type": "string"
         }
@@ -568,14 +508,12 @@
         "create": {
           "default": true,
           "description": "Specifies whether a service account should be created",
-          "required": [],
           "title": "create",
           "type": "boolean"
         },
         "name": {
           "default": "",
           "description": "The name of the service account to use.",
-          "required": [],
           "title": "name",
           "type": "string"
         }
@@ -588,7 +526,6 @@
       "items": {
         "required": []
       },
-      "required": [],
       "title": "tolerations",
       "type": "array"
     },
@@ -600,14 +537,12 @@
             "aclConfig": {
               "default": "# Users and permissions can be defined here\n# Example:\n# user default off\n# user default on \u003edefaultpassword ~*  \u0026* +@all \n",
               "description": "Default ACL rules (used only if auth.enabled is true)",
-              "required": [],
               "title": "aclConfig",
               "type": "string"
             },
             "enabled": {
               "default": false,
               "description": "Enable ACL-based authentication",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             }
@@ -624,48 +559,41 @@
               "items": {
                 "anyOf": [
                   {
-                    "required": [],
                     "type": "string"
                   }
                 ],
                 "required": []
               },
-              "required": [],
               "title": "accessModes",
               "type": "array"
             },
             "className": {
               "default": "",
               "description": "Name of the storage class to use",
-              "required": [],
               "title": "className",
               "type": "string"
             },
             "enabled": {
               "default": false,
               "description": "Enable persistent volume claim creation",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
             "persistentVolumeClaimName": {
               "default": "",
               "description": "Use existing PVC by name (skip dynamic provisioning if set)",
-              "required": [],
               "title": "persistentVolumeClaimName",
               "type": "string"
             },
             "requestedSize": {
               "default": "8Gi",
               "description": "Request size (e.g. 5Gi) for dynamically provisioned volume",
-              "required": [],
               "title": "requestedSize",
               "type": "string"
             },
             "volumeName": {
               "default": "valkey-data",
               "description": "Name of the volume (referenced in deployment)",
-              "required": [],
               "title": "volumeName",
               "type": "string"
             }
@@ -679,7 +607,6 @@
             "enabled": {
               "default": false,
               "description": "Enable Prometheus exporter sidecar",
-              "required": [],
               "title": "enabled",
               "type": "boolean"
             },
@@ -690,7 +617,6 @@
                   "items": {
                     "required": []
                   },
-                  "required": [],
                   "title": "extraExporterSecrets",
                   "type": "array"
                 }
@@ -707,7 +633,6 @@
         "replicaCount": {
           "default": 1,
           "description": "Number of Valkey pods to run",
-          "required": [],
           "title": "replicaCount",
           "type": "integer"
         },
@@ -720,7 +645,6 @@
         "valkeyLogLevel": {
           "default": "notice",
           "description": "Valkey logging level: debug, verbose, notice, warning",
-          "required": [],
           "title": "valkeyLogLevel",
           "type": "string"
         }

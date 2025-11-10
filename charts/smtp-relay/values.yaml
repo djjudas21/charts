@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=values.schema.json
 # Default values for smtp-relay.
 
 # -- Number of replicas
