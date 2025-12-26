@@ -7,7 +7,7 @@ data:
   {{ .Values.lldap.ldapUserDN }}.json: |-
     {
       "id": {{ .Values.lldap.ldapUserDN | quote }},
-      "password": {{ .Values.lldap.ldapUserPass | quote }},
+      "password_file": "/credentials/{{ .Values.lldap.ldapUserPassKey }}",
       "displayName": "Administrator",
       "groups": ["lldap_admin"]
     }

@@ -38,6 +38,9 @@ spec:
             - name: DO_CLEANUP
               value: "{{ .Values.bootstrap.cleanup }}"
           volumeMounts:
+            - name: credentials
+              mountPath: /credentials
+              readOnly: true
             - name: user-configs
               mountPath: /user-configs
               readOnly: true
@@ -53,6 +56,9 @@ spec:
             {{- end }}
 
       volumes:
+        - name: credentials
+          secret:
+            secretName: {{ include "lldap.credentialsSecretName" . }}
         - name: user-configs
           configMap:
             name: {{ include "lldap.fullname" . }}-users
