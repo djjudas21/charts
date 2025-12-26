@@ -72,6 +72,10 @@ spec:
                 secretKeyRef:
                   name: {{ include "lldap.credentialsSecretName" . }}
                   key: {{ .Values.lldap.ldapUserPassKey }}
+            {{- if .Values.lldap.forceLDAPUserPassReset }}
+            - name: LLDAP_FORCE_LDAP_USER_PASS_RESET
+              value: always
+            {{- end }}
             - name: LLDAP_DATABASE_URL
             {{- if .Values.postgresql.enabled }}
               value: {{ include "lldap.postgresConnectString" . | quote }}

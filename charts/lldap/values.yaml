@@ -60,6 +60,9 @@ lldap:
   # -- Name of the LDAP admin password key in the `.Values.lldap.secretName` Kubernetes secret.
   ldapUserPassKey: ldapUserPass
 
+  # -- Reset the LDAP admin password to ldapUserPass[Key] every time the server starts.
+  forceLDAPUserPassReset: false
+
   # -- Seed to generate the server private key. This can be any random string, the recommendation
   # is that it's at least 12 characters long.
   keySeed: REPLACE_WITH_RANDOM
