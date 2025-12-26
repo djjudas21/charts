@@ -60,8 +60,8 @@ spec:
           secret:
             secretName: {{ include "lldap.credentialsSecretName" . }}
         - name: user-configs
-          configMap:
-            name: {{ include "lldap.fullname" . }}-users
+          secret:
+            secretName: {{ include "lldap.fullname" . }}-users
         - name: group-configs
           configMap:
             name: {{ include "lldap.fullname" . }}-groups
