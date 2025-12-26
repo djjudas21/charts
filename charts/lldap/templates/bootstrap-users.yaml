@@ -16,7 +16,11 @@ data:
     {
       "id": "{{ .id }}",
       "email": "{{ .email }}",
+      {{- if (hasKey . "passwordSecret") }}
+      "password_file": "/user-secrets/{{ .passwordSecret.name }}/{{ .passwordSecret.key }}",
+      {{- else }}
       "password": "{{ .password }}",
+      {{- end }}
       "displayName": "{{ .displayName }}",
       "firstName": "{{ .firstName }}",
       "lastName": "{{ .lastName }}",
