@@ -1,0 +1,23 @@
+{{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.badgesSection" . }}
+
+{{ template "chart.description" . }}
+
+> [!WARNING]
+> This chart now uses the [MariaDB Operator](https://github.com/mariadb-operator/mariadb-operator) (which must be installed separately) to provision a MariaDB instance.
+> Your values **will** need to be configured based on the new default values in the chart.
+> Bitnami MariaDB will be **deleted upon upgrade**, so make sure you have exported your DomainMOD config, ready to re-import after upgrade!
+
+{{ template "chart.homepageLine" . }}
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}
+
+{{ template "helm-docs.versionFooter" . }}

@@ -1,8 +1,13 @@
 # domainmod
 
-![Version: 0.5.4](https://img.shields.io/badge/Version-0.5.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.23.0](https://img.shields.io/badge/AppVersion-4.23.0-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.23.0](https://img.shields.io/badge/AppVersion-4.23.0-informational?style=flat-square)
 
 DomainMOD is a self-hosted open source application used to manage your domains and other Internet assets in a central location
+
+> [!WARNING]
+> This chart now uses the [MariaDB Operator](https://github.com/mariadb-operator/mariadb-operator) (which must be installed separately) to provision a MariaDB instance.
+> Your values **will** need to be configured based on the new default values in the chart.
+> Bitnami MariaDB will be **deleted upon upgrade**, so make sure you have exported your DomainMOD config, ready to re-import after upgrade!
 
 **Homepage:** <https://github.com/djjudas21/charts/tree/master/charts/domainmod>
 
@@ -18,12 +23,6 @@ DomainMOD is a self-hosted open source application used to manage your domains a
 * <https://domainmod.org/>
 * <https://hub.docker.com/r/domainmod/domainmod>
 
-## Requirements
-
-| Repository | Name | Version |
-|------------|------|---------|
-| https://charts.bitnami.com/bitnami | mariadb | ~20 |
-
 ## Values
 
 | Key | Type | Default | Description |
@@ -32,14 +31,12 @@ DomainMOD is a self-hosted open source application used to manage your domains a
 | deploymentAnnotations | object | `{}` |  |
 | deploymentLabels | object | `{}` |  |
 | env | object | See below | environment variables |
-| env.DOMAINMOD_DATABASE | string | `"domainmod"` | The name of the database. Set this to whatever you want, but it should match the database name in your database container. |
-| env.DOMAINMOD_DATABASE_HOST | string | `"domainmod-mariadb"` | The database hostname that DomainMOD should connect to. This needs to be the same name as the datbase container. |
-| env.DOMAINMOD_PASSWORD | string | `"domainmod"` | The password for DOMAINMOD_USER. Set this to whatever you want, but it should match the database password in your database container. |
-| env.DOMAINMOD_USER | string | `"domainmod"` | The name of the database user. Set this to whatever you want, but it should match the database user in your database container. |
+| env.DOMAINMOD_DATABASE | string | `""` | The name of the database. You do not need to configure this if you are using the MariaDB Operator integration. |
+| env.DOMAINMOD_DATABASE_HOST | string | `""` | The database hostname that DomainMOD should connect to. You do not need to configure this if you are using the MariaDB Operator integration. |
+| env.DOMAINMOD_PASSWORD | string | `""` | The password for DOMAINMOD_USER. You do not need to configure this if you are using the MariaDB Operator integration. |
+| env.DOMAINMOD_USER | string | `""` | The name of the database user. You do not need to configure this if you are using the MariaDB Operator integration. |
 | env.DOMAINMOD_WEB_ROOT | string | `nil` | Set this if you plan on running DomainMOD in a subdirectory, otherwise leave it blank. |
 | env.TZ | string | `"UTC"` | Container timezone |
-| externalMariadb | object | `{"auth":{"database":"domainmod","host":"","password":"","port":3306,"username":""},"enabled":false}` | Enable and configure external mariadb database |
-| externalMariadb.auth | object | `{"database":"domainmod","host":"","password":"","port":3306,"username":""}` | Name of the secret key containing the database URI uriKey: |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"domainmod/domainmod"` | image repository |
@@ -48,11 +45,16 @@ DomainMOD is a self-hosted open source application used to manage your domains a
 | ingress | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | livenessProbe.httpGet.path | string | `"/"` |  |
 | livenessProbe.httpGet.port | string | `"http"` |  |
-| mariadb | object | https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml | Enable and configure mariadb database subchart under this key.    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb) |
-| mariadb.auth.database | string | `"domainmod"` | Database name |
-| mariadb.auth.password | string | `"domainmod"` | Database password |
-| mariadb.auth.rootPassword | string | `"domainmodadminpw"` | Database root password |
-| mariadb.auth.username | string | `"domainmod"` | Database user |
+| mariadbOperator | object | `{"auth":{"database":"domainmod","password":"domainmod","rootPassword":"domainmodadminpw","username":"domainmod"},"enabled":false,"persistence":{"size":"1Gi","storageClass":""},"resources":{}}` | Enable integration with MariaDB Operator This uses the MariaDB Operator (which must be installed separately) to provision a MariaDB instance. |
+| mariadbOperator.auth.database | string | `"domainmod"` | Database name to create |
+| mariadbOperator.auth.password | string | `"domainmod"` | Database password to create |
+| mariadbOperator.auth.rootPassword | string | `"domainmodadminpw"` | Database root password to create |
+| mariadbOperator.auth.username | string | `"domainmod"` | Database user to create |
+| mariadbOperator.enabled | bool | `false` | Enable integration with MariaDB Operator |
+| mariadbOperator.persistence | object | `{"size":"1Gi","storageClass":""}` | Persistence settings for MariaDB instance |
+| mariadbOperator.persistence.size | string | `"1Gi"` | Size of volume to provision for MariaDB instance |
+| mariadbOperator.persistence.storageClass | string | `""` | Storage class to use to provision volume for MariaDB instance |
+| mariadbOperator.resources | object | `{}` | Resources for MariaDB instance |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |

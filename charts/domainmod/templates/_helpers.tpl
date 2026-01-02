@@ -67,19 +67,3 @@ Create the name of the credentials secret
 {{- define "domainmod.credentialsSecretName" -}}
 {{ .Values.domainmod.secretName | default (printf "%s-credentials" (include "domainmod.fullname" .)) }}
 {{- end }}
-
-{{/*
-Build database connection strings as templates
-*/}}
-{{- define "domainmod.postgresConnectString" -}}
-postgres://{{- .Values.postgresql.auth.username -}}:{{- .Values.postgresql.auth.password -}}@{{- include "domainmod.fullname" . -}}-postgresql/{{- .Values.postgresql.auth.database -}}
-{{- end }}
-{{- define "domainmod.externalPostgresConnectString" -}}
-postgres://{{- .Values.externalPostgresql.auth.username -}}:{{- .Values.externalPostgresql.auth.password -}}@{{- .Values.externalPostgresql.auth.host -}}:{{- .Values.externalPostgresql.auth.port -}}/{{- .Values.externalPostgresql.auth.database -}}
-{{- end }}
-{{- define "domainmod.mariadbConnectString" -}}
-mysql://{{- .Values.mariadb.auth.username -}}:{{- .Values.mariadb.auth.password -}}@{{- include "domainmod.fullname" . -}}-mariadb/{{- .Values.mariadb.auth.database -}}
-{{- end }}
-{{- define "domainmod.externalMariadbConnectString" -}}
-mysql://{{- .Values.externalMariadb.auth.username -}}:{{- .Values.externalMariadb.auth.password -}}@{{- .Values.externalMariadb.auth.host -}}:{{- .Values.externalMariadb.auth.port -}}/{{- .Values.externalMariadb.auth.database -}}
-{{- end }}
