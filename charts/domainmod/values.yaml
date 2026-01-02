@@ -23,14 +23,14 @@ env:
   TZ: UTC
   # -- Set this if you plan on running DomainMOD in a subdirectory, otherwise leave it blank.
   DOMAINMOD_WEB_ROOT:
-  # -- The database hostname that DomainMOD should connect to. This needs to be the same name as the datbase container.
-  DOMAINMOD_DATABASE_HOST: domainmod-mariadb
-  # -- The name of the database. Set this to whatever you want, but it should match the database name in your database container.
-  DOMAINMOD_DATABASE: domainmod
-  # -- The name of the database user. Set this to whatever you want, but it should match the database user in your database container.
-  DOMAINMOD_USER: domainmod
-  # -- The password for DOMAINMOD_USER. Set this to whatever you want, but it should match the database password in your database container.
-  DOMAINMOD_PASSWORD: domainmod
+  # -- The database hostname that DomainMOD should connect to. You do not need to configure this if you are using the MariaDB Operator integration.
+  DOMAINMOD_DATABASE_HOST: ""
+  # -- The name of the database. You do not need to configure this if you are using the MariaDB Operator integration.
+  DOMAINMOD_DATABASE: ""
+  # -- The name of the database user. You do not need to configure this if you are using the MariaDB Operator integration.
+  DOMAINMOD_USER: ""
+  # -- The password for DOMAINMOD_USER. You do not need to configure this if you are using the MariaDB Operator integration.
+  DOMAINMOD_PASSWORD: ""
 
 serviceAccount:
   # -- Specifies whether a service account should be created
@@ -106,40 +106,26 @@ tolerations: []
 
 affinity: {}
 
-# -- Enable and configure mariadb database subchart under this key.
-#    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
-# @default -- https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
-mariadb:
+# -- Enable integration with MariaDB Operator
+# This uses the MariaDB Operator (which must be installed
+# separately) to provision a MariaDB instance.
+mariadbOperator:
+  # -- Enable integration with MariaDB Operator
   enabled: false
-  image:
-    repository: bitnamilegacy/mariadb
-  architecture: standalone
   auth:
-    # -- Database name
+    # -- Database name to create
     database: domainmod
-    # -- Database user
+    # -- Database user to create
     username: domainmod
-    # -- Database password
+    # -- Database password to create
     password: domainmod
-    # -- Database root password
+    # -- Database root password to create
     rootPassword: domainmodadminpw
-  primary:
-    resources: {}
-    persistence:
-      enabled: false
-      size: 1Gi
-      # storageClass: ""
-
-# -- Enable and configure external mariadb database
-externalMariadb:
-  enabled: false
-  # -- Name of the Kubernetes secret containing the database URI
-  # fromSecret:
-  # -- Name of the secret key containing the database URI
-  # uriKey:
-  auth:
-    host: ""
-    port: 3306
-    username: ""
-    password: ""
-    database: domainmod
+  # -- Resources for MariaDB instance
+  resources: {}
+  # -- Persistence settings for MariaDB instance
+  persistence:
+    # -- Size of volume to provision for MariaDB instance
+    size: 1Gi
+    # -- Storage class to use to provision volume for MariaDB instance
+    storageClass: ""

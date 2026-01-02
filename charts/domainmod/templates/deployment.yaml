@@ -44,6 +44,19 @@ spec:
           env:
             - name: DOMAINMOD_WEB_ROOT
               value: {{ .Values.env.DOMAINMOD_WEB_ROOT }}
+{{- if .Values.mariadbOperator.enabled }}
+            - name: DOMAINMOD_DATABASE_HOST
+              value: {{ include "domainmod.fullname" . }}-mariadb
+            - name: DOMAINMOD_DATABASE
+              value: {{ include "domainmod.fullname" . }}
+            - name: DOMAINMOD_USER
+              value: {{ .Values.mariadbOperator.auth.username }}
+            - name: DOMAINMOD_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "domainmod.fullname" . }}-mariadb-user
+                  key: password
+{{- else }}
             - name: DOMAINMOD_DATABASE_HOST
               value: {{ .Values.env.DOMAINMOD_DATABASE_HOST }}
             - name: DOMAINMOD_DATABASE
@@ -52,6 +65,7 @@ spec:
               value: {{ .Values.env.DOMAINMOD_USER }}
             - name: DOMAINMOD_PASSWORD
               value: {{ .Values.env.DOMAINMOD_PASSWORD }}
+{{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}

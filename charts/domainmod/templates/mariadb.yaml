@@ -1,0 +1,33 @@
+{{- if .Values.mariadbOperator.enabled }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "domainmod.fullname" . }}-mariadb-root
+data:
+  root-password: {{ .Values.mariadbOperator.auth.rootPassword | b64enc }}
+---
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: MariaDB
+metadata:
+  name: {{ include "domainmod.fullname" . }}-mariadb
+spec:
+  rootPasswordSecretKeyRef:
+    name: {{ include "domainmod.fullname" . }}-mariadb-root
+    key: root-password
+  storage:
+    size: {{ .Values.mariadbOperator.persistence.size }}
+    storageClassName: {{ .Values.mariadbOperator.persistence.storageClass }}
+  replicas: 1
+  updateStrategy:
+    autoUpdateDataPlane: true
+  service:
+    type: ClusterIP
+  primaryService:
+    type: ClusterIP
+  secondaryService:
+    type: ClusterIP
+  resources:
+    {{- toYaml .Values.resources | nindent 4 }}
+  metrics:
+    enabled: true
+{{- end }}
