@@ -55,6 +55,9 @@ strategy: {}
 nodeSelector:
   kubernetes.io/os: linux
 
+# -- Pod priority class
+priorityClassName: ""
+
 # expects input structure as per specification
 # -- Affinity for pod assignment (https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#affinity-v1-core)
 affinity: {}
