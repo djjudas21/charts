@@ -476,6 +476,12 @@
       "title": "podSecurityContext",
       "type": "object"
     },
+    "priorityClassName": {
+      "default": "",
+      "description": "Pod priority class",
+      "title": "priorityClassName",
+      "type": "string"
+    },
     "probes": {
       "description": "Health probes for the pod (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)",
       "properties": {

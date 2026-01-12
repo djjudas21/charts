@@ -18,7 +18,7 @@
   ](LICENSE)
   <br/>
   ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
-  ![Version: 4.0.2](https://img.shields.io/badge/Version-4.0.2-informational?style=flat-square)
+  ![Version: 4.0.3](https://img.shields.io/badge/Version-4.0.3-informational?style=flat-square)
   ![AppVersion: 10.11.5](https://img.shields.io/badge/AppVersion-10.11.5-informational?style=flat-square)
 
 </div>
@@ -135,6 +135,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `nodeSelector` | Node labels for pod assignment | `{"kubernetes.io/os":"linux"}` |
 | `podAnnotations` | Additional annotations to apply to the pod. | `{}` |
 | `podLabels` | Additional labels to be added to pods. | `{}` |
+| `priorityClassName` | Pod priority class | `""` |
 | `resources.jellyfin.limits` | The resources limits for the container | `{"cpu":"2","memory":"6Gi"}` |
 | `resources.jellyfin.requests` | The requested resources for the container | `{"cpu":"500m","memory":"512Mi"}` |
 | `strategy` | Set up update strategy for jellyfin installation. Set to `Recreate` if you use persistent volume    that cannot be mounted by more than one pods to make sure the pods is destroyed first.    ([kubernetes.io/docs](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy)) | `{}` |
