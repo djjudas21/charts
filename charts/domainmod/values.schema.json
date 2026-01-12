@@ -20,26 +20,26 @@
       "description": "environment variables",
       "properties": {
         "DOMAINMOD_DATABASE": {
-          "default": "domainmod",
-          "description": "The name of the database. Set this to whatever you want, but it should match the database name in your database container.",
+          "default": "",
+          "description": "The name of the database. You do not need to configure this if you are using the MariaDB Operator integration.",
           "title": "DOMAINMOD_DATABASE",
           "type": "string"
         },
         "DOMAINMOD_DATABASE_HOST": {
-          "default": "domainmod-mariadb",
-          "description": "The database hostname that DomainMOD should connect to. This needs to be the same name as the datbase container.",
+          "default": "",
+          "description": "The database hostname that DomainMOD should connect to. You do not need to configure this if you are using the MariaDB Operator integration.",
           "title": "DOMAINMOD_DATABASE_HOST",
           "type": "string"
         },
         "DOMAINMOD_PASSWORD": {
-          "default": "domainmod",
-          "description": "The password for DOMAINMOD_USER. Set this to whatever you want, but it should match the database password in your database container.",
+          "default": "",
+          "description": "The password for DOMAINMOD_USER. You do not need to configure this if you are using the MariaDB Operator integration.",
           "title": "DOMAINMOD_PASSWORD",
           "type": "string"
         },
         "DOMAINMOD_USER": {
-          "default": "domainmod",
-          "description": "The name of the database user. Set this to whatever you want, but it should match the database user in your database container.",
+          "default": "",
+          "description": "The name of the database user. You do not need to configure this if you are using the MariaDB Operator integration.",
           "title": "DOMAINMOD_USER",
           "type": "string"
         },
@@ -58,52 +58,6 @@
       },
       "required": [],
       "title": "env",
-      "type": "object"
-    },
-    "externalMariadb": {
-      "description": "Enable and configure external mariadb database",
-      "properties": {
-        "auth": {
-          "description": "Name of the Kubernetes secret containing the database URI\nfromSecret:\nName of the secret key containing the database URI\nuriKey:",
-          "properties": {
-            "database": {
-              "default": "domainmod",
-              "title": "database",
-              "type": "string"
-            },
-            "host": {
-              "default": "",
-              "title": "host",
-              "type": "string"
-            },
-            "password": {
-              "default": "",
-              "title": "password",
-              "type": "string"
-            },
-            "port": {
-              "default": 3306,
-              "title": "port",
-              "type": "integer"
-            },
-            "username": {
-              "default": "",
-              "title": "username",
-              "type": "string"
-            }
-          },
-          "required": [],
-          "title": "auth",
-          "type": "object"
-        },
-        "enabled": {
-          "default": false,
-          "title": "enabled",
-          "type": "boolean"
-        }
-      },
-      "required": [],
-      "title": "externalMariadb",
       "type": "object"
     },
     "fullnameOverride": {
@@ -249,37 +203,32 @@
       "title": "livenessProbe",
       "type": "object"
     },
-    "mariadb": {
-      "description": "Enable and configure mariadb database subchart under this key.\n   For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)",
+    "mariadbOperator": {
+      "description": "Enable integration with MariaDB Operator\nThis uses the MariaDB Operator (which must be installed\nseparately) to provision a MariaDB instance.",
       "properties": {
-        "architecture": {
-          "default": "standalone",
-          "title": "architecture",
-          "type": "string"
-        },
         "auth": {
           "properties": {
             "database": {
               "default": "domainmod",
-              "description": "Database name",
+              "description": "Database name to create",
               "title": "database",
               "type": "string"
             },
             "password": {
               "default": "domainmod",
-              "description": "Database password",
+              "description": "Database password to create",
               "title": "password",
               "type": "string"
             },
             "rootPassword": {
               "default": "domainmodadminpw",
-              "description": "Database root password",
+              "description": "Database root password to create",
               "title": "rootPassword",
               "type": "string"
             },
             "username": {
               "default": "domainmod",
-              "description": "Database user",
+              "description": "Database user to create",
               "title": "username",
               "type": "string"
             }
@@ -290,53 +239,39 @@
         },
         "enabled": {
           "default": false,
+          "description": "Enable integration with MariaDB Operator",
           "title": "enabled",
           "type": "boolean"
         },
-        "image": {
+        "persistence": {
+          "description": "Persistence settings for MariaDB instance",
           "properties": {
-            "repository": {
-              "default": "bitnamilegacy/mariadb",
-              "title": "repository",
+            "size": {
+              "default": "1Gi",
+              "description": "Size of volume to provision for MariaDB instance",
+              "title": "size",
+              "type": "string"
+            },
+            "storageClass": {
+              "default": "",
+              "description": "Storage class to use to provision volume for MariaDB instance",
+              "title": "storageClass",
               "type": "string"
             }
           },
           "required": [],
-          "title": "image",
+          "title": "persistence",
           "type": "object"
         },
-        "primary": {
-          "properties": {
-            "persistence": {
-              "properties": {
-                "enabled": {
-                  "default": false,
-                  "title": "enabled",
-                  "type": "boolean"
-                },
-                "size": {
-                  "default": "1Gi",
-                  "title": "size",
-                  "type": "string"
-                }
-              },
-              "required": [],
-              "title": "persistence",
-              "type": "object"
-            },
-            "resources": {
-              "required": [],
-              "title": "resources",
-              "type": "object"
-            }
-          },
+        "resources": {
+          "description": "Resources for MariaDB instance",
           "required": [],
-          "title": "primary",
+          "title": "resources",
           "type": "object"
         }
       },
       "required": [],
-      "title": "mariadb",
+      "title": "mariadbOperator",
       "type": "object"
     },
     "nameOverride": {
