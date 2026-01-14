@@ -133,18 +133,11 @@ readinessProbe:
     path: /
     port: http
 
-# Additional volumes on the output Deployment definition.
-volumes: []
-  # - name: foo
-  #   secret:
-  #     secretName: mysecret
-  #     optional: false
-
-# Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-  # - name: foo
-  #   mountPath: "/etc/foo"
-  #   readOnly: true
+persistence:
+  enabled: false
+  storageClass:
+  size: 1Gi
+  accessMode: ReadWriteOnce
 
 nodeSelector: {}
 
