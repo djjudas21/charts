@@ -141,6 +141,7 @@ persistence:
   storageClass:
   size: 1Gi
   accessMode: ReadWriteOnce
+  path: /var/lib/spoolman
 
 nodeSelector: {}
 

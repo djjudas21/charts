@@ -40,6 +40,8 @@ spec:
           env:
             - name: SPOOLMAN_PORT
               value: {{ .Values.service.port  | quote }}
+            - name:  SPOOLMAN_DIR_DATA
+              value: {{ .Values.persistence.path }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
@@ -60,7 +62,7 @@ spec:
           {{- if .Values.persistence.enabled }}
           volumeMounts:
             - name: data
-              mountPath: /home/app/.local/share/spoolman
+              mountPath: {{ .Values.persistence.path }}
           {{- end }}
       {{- if .Values.persistence.enabled }}
       volumes:
