@@ -42,6 +42,10 @@ spec:
               value: {{ .Values.service.port  | quote }}
             - name:  SPOOLMAN_DIR_DATA
               value: {{ .Values.persistence.path }}
+{{- if .Values.metrics.enabled }}
+            - name: SPOOLMAN_METRICS_ENABLED
+              value: "true"
+{{- end }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http

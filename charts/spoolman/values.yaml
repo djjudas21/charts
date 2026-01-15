@@ -148,3 +148,12 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+metrics:
+  # -- Enable Spoolman metrics endpoint
+  enabled: false
+  serviceMonitor:
+    # -- Enable scraping via the Prometheus Operator
+    enabled: true
+    # -- Scraping interval
+    interval: 60s

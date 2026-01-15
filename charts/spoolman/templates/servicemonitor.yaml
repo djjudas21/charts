@@ -1,0 +1,17 @@
+{{- if .Values.metrics.enabled }}
+{{- if .Values.metrics.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "spoolman.fullname" . }}
+  labels:
+    {{- include "spoolman.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "spoolman.labels" . | nindent 6 }}
+  endpoints:
+  - port: http
+    interval: {{ .Values.metrics.serviceMonitor.interval }}
+{{- end }}
+{{- end }}
