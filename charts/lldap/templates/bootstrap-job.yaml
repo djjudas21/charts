@@ -1,4 +1,11 @@
 {{- if .Values.bootstrap.enabled }}
+{{- $secretVolumes := list }}
+{{- range .Values.bootstrap.users }}
+  {{- if (hasKey . "passwordSecret") }}
+    {{- $secretVolumes = append $secretVolumes .passwordSecret.name }}
+  {{- end }}
+{{- end }}
+{{- $secretVolumes = $secretVolumes | sortAlpha | uniq }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -31,18 +38,38 @@ spec:
             - name: DO_CLEANUP
               value: "{{ .Values.bootstrap.cleanup }}"
           volumeMounts:
+            - name: credentials
+              mountPath: /credentials
+              readOnly: true
             - name: user-configs
               mountPath: /user-configs
               readOnly: true
             - name: group-configs
               mountPath: /group-configs
               readOnly: true
+            {{- if $secretVolumes }}
+            {{- range $secretVolumes }}
+            - name: user-secret-{{.}}
+              mountPath: /user-secrets/{{.}}
+              readOnly: true
+            {{- end }}
+            {{- end }}
 
       volumes:
+        - name: credentials
+          secret:
+            secretName: {{ include "lldap.credentialsSecretName" . }}
         - name: user-configs
-          configMap:
-            name: {{ include "lldap.fullname" . }}-users
+          secret:
+            secretName: {{ include "lldap.fullname" . }}-users
         - name: group-configs
           configMap:
             name: {{ include "lldap.fullname" . }}-groups
+        {{- if $secretVolumes }}
+        {{- range $secretVolumes }}
+        - name: user-secret-{{.}}
+          secret:
+            secretName: {{.}}
+        {{- end }}
+        {{- end }}
 {{- end }}
