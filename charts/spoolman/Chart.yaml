@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "1.16.0"
+appVersion: "0.22.1"
 description: Keep track of your inventory of 3D-printer filament spools.
 name: spoolman
 version: 0.1.0

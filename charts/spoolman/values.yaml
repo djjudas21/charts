@@ -7,7 +7,7 @@ replicaCount: 1
 
   # -- image repository
 image:
-  repository: ghcr.io/donkie/spoolman:edge
+  repository: ghcr.io/donkie/spoolman
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # -- image tag
