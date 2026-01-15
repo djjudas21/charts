@@ -11298,6 +11298,34 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/smtp-relay-0.3.1/smtp-relay-0.3.1.tgz
     version: 0.3.1
+  spoolman:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 0.22.1
+    created: "2026-01-15T22:05:07.732562817Z"
+    description: Keep track of your inventory of 3D-printer filament spools.
+    digest: d3ce9a8876b9ac10081a8049e06c167b28f47695958ada9a8288c05f37fc5f2d
+    home: https://github.com/djjudas21/charts/tree/master/charts/spoolman
+    icon: hhttps://raw.githubusercontent.com/Donkie/Spoolman/refs/heads/master/client/icons/spoolman.svg
+    keywords:
+    - database
+    - service
+    - inventory
+    - 3dprinting
+    - filament
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: spoolman
+    sources:
+    - https://github.com/Donkie/Spoolman/tree/master
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/spoolman-0.1.0/spoolman-0.1.0.tgz
+    version: 0.1.0
   uptime-kuma:
   - annotations:
       artifacthub.io/changes: |-
@@ -12697,4 +12725,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-01-12T13:31:22.266205047Z"
+generated: "2026-01-15T22:05:07.733093724Z"
