@@ -1,13 +1,14 @@
 {{- if .Values.bootstrap.enabled }}
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
+type: Opaque
 metadata:
   name: {{ include "lldap.fullname" . }}-users
-data:
+stringData:
   {{ .Values.lldap.ldapUserDN }}.json: |-
     {
       "id": {{ .Values.lldap.ldapUserDN | quote }},
-      "password": {{ .Values.lldap.ldapUserPass | quote }},
+      "password_file": "/credentials/{{ .Values.lldap.ldapUserPassKey }}",
       "displayName": "Administrator",
       "groups": ["lldap_admin"]
     }
@@ -16,7 +17,11 @@ data:
     {
       "id": "{{ .id }}",
       "email": "{{ .email }}",
+      {{- if (hasKey . "passwordSecret") }}
+      "password_file": "/user-secrets/{{ .passwordSecret.name }}/{{ .passwordSecret.key }}",
+      {{- else }}
       "password": "{{ .password }}",
+      {{- end }}
       "displayName": "{{ .displayName }}",
       "firstName": "{{ .firstName }}",
       "lastName": "{{ .lastName }}",
