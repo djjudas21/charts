@@ -1,6 +1,6 @@
 # lldap
 
-![Version: 0.6.2](https://img.shields.io/badge/Version-0.6.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.2](https://img.shields.io/badge/AppVersion-v0.6.2-informational?style=flat-square)
+![Version: 0.6.3](https://img.shields.io/badge/Version-0.6.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.2](https://img.shields.io/badge/AppVersion-v0.6.2-informational?style=flat-square)
 
 Light LDAP implementation
 
@@ -49,6 +49,7 @@ Light LDAP implementation
 | lldap.baseDN | string | `"dc=example,dc=com"` | Base DN for LDAP. This is usually your domain name, and is used as a namespace for your users. The choice is arbitrary, but will be needed to configure the LDAP integration with other services. The sample value is for "example.com", but you can extend it with as many "dc" as you want, and you don't actually need to own the domain name. |
 | lldap.extraVolumeMounts | list | `[]` |  |
 | lldap.extraVolumes | list | `[]` | - define extra volumes and mounts for the ldap |
+| lldap.forceLDAPUserPassReset | bool | `false` | Reset the LDAP admin password to ldapUserPass[Key] every time the server starts. |
 | lldap.gid | int | `1000` |  |
 | lldap.httpHost | string | `"0.0.0.0"` | HTTP API host. To enable IPv6 listening, change to `::` |
 | lldap.jwtSecret | string | `"REPLACE_WITH_RANDOM"` | Random secret for JWT signature. This secret should be random, and should be shared with application servers that need to consume the JWTs. Changing this secret will invalidate all user sessions and require them to re-login. You can generate it with (on linux): LC_ALL=C tr -dc 'A-Za-z0-9!#%&'\''()*+,-./:;<=>?@[\]^_{|}~' </dev/urandom | head -c 32; echo '' |
