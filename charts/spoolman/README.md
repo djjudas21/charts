@@ -1,6 +1,6 @@
 # spoolman
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.22.1](https://img.shields.io/badge/AppVersion-0.22.1-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.22.1](https://img.shields.io/badge/AppVersion-0.22.1-informational?style=flat-square)
 
 Keep track of your inventory of 3D-printer filament spools.
 
@@ -38,7 +38,7 @@ Keep track of your inventory of 3D-printer filament spools.
 | persistence.enabled | bool | `false` |  |
 | persistence.path | string | `"/var/lib/spoolman"` |  |
 | persistence.size | string | `"1Gi"` |  |
-| persistence.storageClass | string | `nil` |  |
+| persistence.storageClass | string | `""` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |

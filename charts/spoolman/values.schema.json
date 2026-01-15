@@ -326,7 +326,7 @@
         "storageClass": {
           "default": "",
           "title": "storageClass",
-          "type": "null"
+          "type": "string"
         }
       },
       "required": [],

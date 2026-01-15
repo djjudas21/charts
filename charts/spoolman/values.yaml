@@ -139,7 +139,7 @@ readinessProbe:
 
 persistence:
   enabled: false
-  storageClass:
+  storageClass: ""
   size: 1Gi
   accessMode: ReadWriteOnce
   path: /var/lib/spoolman

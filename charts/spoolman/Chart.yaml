@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "0.22.1"
 description: Keep track of your inventory of 3D-printer filament spools.
 name: spoolman
-version: 0.1.0
+version: 0.1.1
 type: application
 keywords:
   - database
@@ -10,7 +10,6 @@ keywords:
   - inventory
   - 3dprinting
   - filament
-
 home: https://github.com/djjudas21/charts/tree/master/charts/spoolman
 icon: hhttps://raw.githubusercontent.com/Donkie/Spoolman/refs/heads/master/client/icons/spoolman.svg
 sources:
