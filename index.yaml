@@ -5939,6 +5939,44 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Improve secret handling
+    apiVersion: v2
+    appVersion: v0.6.2
+    created: "2026-01-15T22:14:33.856532354Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: c2c1cbd11c82068e578b3032bc7d17bccddc26141bc1ba9f7b19f2c71d370118
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.6.3/lldap-0.6.3.tgz
+    version: 0.6.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Switch to bitnamilegacy image as a stopgap
     apiVersion: v2
     appVersion: v0.6.2
@@ -12725,4 +12763,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-01-15T22:05:07.733093724Z"
+generated: "2026-01-15T22:14:33.857105508Z"
