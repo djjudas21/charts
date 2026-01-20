@@ -3595,6 +3595,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Jellyfin v10.11.6
+    apiVersion: v2
+    appVersion: 10.11.6
+    created: "2026-01-20T15:43:40.934022548Z"
+    description: Your media, your server, your way
+    digest: b4af5c6543a76a327bf2561b5a1febf08862566d31f39f1a3db62e20e6322577
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-4.0.4/jellyfin-4.0.4.tgz
+    version: 4.0.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Add support for pod priority class
     apiVersion: v2
     appVersion: 10.11.5
@@ -12790,4 +12818,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-01-15T22:35:42.054085671Z"
+generated: "2026-01-20T15:43:40.934766532Z"
