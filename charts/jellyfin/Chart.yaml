@@ -2,8 +2,8 @@ apiVersion: v2
 type: application
 name: jellyfin
 description: Your media, your server, your way
-version: 4.0.3
-appVersion: 10.11.5
+version: 4.0.4
+appVersion: 10.11.6
 kubeVersion: '>=1.20.0-0'
 home: https://jellyfin.org/
 icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
@@ -22,4 +22,4 @@ dependencies: []
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Add support for pod priority class
+      description: Update to Jellyfin v10.11.6
