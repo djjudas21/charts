@@ -80,6 +80,16 @@ spec:
                 configMapKeyRef:
                   name: {{ include "smtp-relay.fullname" . }}
                   key: smtp-relay-tls-security-level
+            - name: SMTP_USE_TLS
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "smtp-relay.fullname" . }}
+                  key: smtp-use-tls
+            - name: SMTP_MESSAGE_SIZE_LIMIT
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "smtp-relay.fullname" . }}
+                  key: smtp-message-size-limit
             - name: SMTP_RELAY_PASSWORD
               valueFrom:
                 secretKeyRef:

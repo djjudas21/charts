@@ -11,3 +11,5 @@ data:
   smtp-relay-mynetworks: {{ join "," .Values.smtp.mynetworks }}
   smtp-relay-tls-wrappermode: {{ .Values.smtp.tls_wrappermode | quote }}
   smtp-relay-tls-security-level: {{ .Values.smtp.tls_security_level | quote }}
+  smtp-use-tls: {{ .Values.smtp.use_tls | quote }}
+  smtp-message-size-limit: {{ .Values.smtp.message_size_limit | quote }}

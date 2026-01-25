@@ -313,6 +313,12 @@
           "title": "host",
           "type": "string"
         },
+        "message_size_limit": {
+          "default": "10240000",
+          "description": "Size limit of messages",
+          "title": "message_size_limit",
+          "type": "string"
+        },
         "myhostname": {
           "default": "",
           "description": "Hostname of THIS relay SMTP server",
@@ -343,12 +349,20 @@
         },
         "tls_security_level": {
           "default": "",
+          "description": "Default SMTP TLS security level for the Postfix SMTP client",
           "title": "tls_security_level",
           "type": "string"
         },
         "tls_wrappermode": {
           "default": "no",
+          "description": "Connect using SUBMISSIONS/SMTPS protocol instead of STARTTLS",
           "title": "tls_wrappermode",
+          "type": "string"
+        },
+        "use_tls": {
+          "default": "yes",
+          "description": "Enable TLS connection to upstream SMTP server",
+          "title": "use_tls",
           "type": "string"
         },
         "username": {

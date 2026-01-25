@@ -2,8 +2,8 @@ apiVersion: v2
 name: smtp-relay
 description: An SMTP smarthost relay for Kubernetes
 type: application
-version: 0.6.2
-appVersion: "0.10.0"
+version: 0.7.0
+appVersion: "0.11.0"
 home: https://github.com/djjudas21/charts/tree/main/charts/smtp-relay
 keywords:
   - smtp
@@ -19,4 +19,4 @@ sources:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Secrets management
+      description: Update to smtp-relay v0.11.0

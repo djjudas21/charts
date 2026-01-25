@@ -17,8 +17,14 @@ smtp:
   mynetworks:
     - 127.0.0.0/8
     - 10.0.0.0/8
+  # -- Enable TLS connection to upstream SMTP server
+  use_tls: "yes"
+  # -- Connect using SUBMISSIONS/SMTPS protocol instead of STARTTLS
   tls_wrappermode: "no"
+  # -- Default SMTP TLS security level for the Postfix SMTP client
   tls_security_level: ""
+  # -- Size limit of messages
+  message_size_limit: "10240000"
 
 image:
   # -- image repository
