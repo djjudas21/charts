@@ -11368,6 +11368,33 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Spoolman v0.23.0
+    apiVersion: v2
+    appVersion: 0.23.0
+    created: "2026-01-25T21:34:17.559474428Z"
+    description: Keep track of your inventory of 3D-printer filament spools.
+    digest: eb3cb86ab461b8130657b09637afdfef726e5d14e94b7e563264a92d18f37feb
+    home: https://github.com/djjudas21/charts/tree/master/charts/spoolman
+    icon: hhttps://raw.githubusercontent.com/Donkie/Spoolman/refs/heads/master/client/icons/spoolman.svg
+    keywords:
+    - database
+    - service
+    - inventory
+    - 3dprinting
+    - filament
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: spoolman
+    sources:
+    - https://github.com/Donkie/Spoolman/tree/master
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/spoolman-0.1.2/spoolman-0.1.2.tgz
+    version: 0.1.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Initial release
     apiVersion: v2
     appVersion: 0.22.1
@@ -12818,4 +12845,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-01-20T15:43:40.934766532Z"
+generated: "2026-01-25T21:34:17.56016429Z"
