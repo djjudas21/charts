@@ -1,8 +1,8 @@
 apiVersion: v2
-appVersion: "0.22.1"
+appVersion: "0.23.0"
 description: Keep track of your inventory of 3D-printer filament spools.
 name: spoolman
-version: 0.1.1
+version: 0.1.2
 type: application
 keywords:
   - database
@@ -20,4 +20,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Initial release
+      description: Update to Spoolman v0.23.0
