@@ -1,6 +1,6 @@
 # smtp-relay
 
-![Version: 0.6.2](https://img.shields.io/badge/Version-0.6.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.10.0](https://img.shields.io/badge/AppVersion-0.10.0-informational?style=flat-square)
+![Version: 0.7.0](https://img.shields.io/badge/Version-0.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.11.0](https://img.shields.io/badge/AppVersion-0.11.0-informational?style=flat-square)
 
 An SMTP smarthost relay for Kubernetes
 
@@ -51,11 +51,13 @@ An SMTP smarthost relay for Kubernetes
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | a name is generated using the fullname template | The name of the service account to use. |
 | smtp.host | string | `""` | Hostname of upstream SMTP server |
+| smtp.message_size_limit | string | `"10240000"` | Size limit of messages |
 | smtp.myhostname | string | `""` | Hostname of THIS relay SMTP server |
 | smtp.mynetworks | list | `["127.0.0.0/8","10.0.0.0/8"]` | Networks to permit relaying from |
 | smtp.password | string | `""` | Password for upstream SMTP server |
-| smtp.tls_security_level | string | `""` |  |
-| smtp.tls_wrappermode | string | `"no"` |  |
+| smtp.tls_security_level | string | `""` | Default SMTP TLS security level for the Postfix SMTP client |
+| smtp.tls_wrappermode | string | `"no"` | Connect using SUBMISSIONS/SMTPS protocol instead of STARTTLS |
+| smtp.use_tls | string | `"yes"` | Enable TLS connection to upstream SMTP server |
 | smtp.username | string | `""` | Username for upstream SMTP server |
 | tolerations | list | `[]` |  |
 
