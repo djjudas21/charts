@@ -63,7 +63,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: {{ include "truenas.fullname" . }}-data
+            claimName: {{ include "truecommand.fullname" . }}-data
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
