@@ -11394,6 +11394,33 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Fix icon
+    apiVersion: v2
+    appVersion: 0.23.0
+    created: "2026-01-27T22:31:52.062549385Z"
+    description: Keep track of your inventory of 3D-printer filament spools.
+    digest: 9115abfe552a1e89b07d794643c3172ea586363af4ed8244bda0c8413c619e67
+    home: https://github.com/djjudas21/charts/tree/master/charts/spoolman
+    icon: https://raw.githubusercontent.com/Donkie/Spoolman/refs/heads/master/client/icons/spoolman.svg
+    keywords:
+    - database
+    - service
+    - inventory
+    - 3dprinting
+    - filament
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: spoolman
+    sources:
+    - https://github.com/Donkie/Spoolman/tree/master
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/spoolman-0.1.3/spoolman-0.1.3.tgz
+    version: 0.1.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Spoolman v0.23.0
     apiVersion: v2
     appVersion: 0.23.0
@@ -11471,6 +11498,33 @@ entries:
     type: application
     urls:
     - https://github.com/djjudas21/charts/releases/download/spoolman-0.1.0/spoolman-0.1.0.tgz
+    version: 0.1.0
+  truecommand:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 3.2.0
+    created: "2026-01-27T22:31:52.18727766Z"
+    description: Manage TrueNAS Fleet All From One Place
+    digest: 5d630d32531cdca33466bc84e3eea9849e9ae389463a21aa3f3a760d20708446
+    home: https://github.com/djjudas21/charts/tree/master/charts/truecommand
+    icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/truecommand.png
+    keywords:
+    - truenas
+    - truecommand
+    - ixsystems
+    - nas
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: truecommand
+    sources:
+    - https://github.com/iXsystems/TrueCommand-install
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/truecommand-0.1.0/truecommand-0.1.0.tgz
     version: 0.1.0
   uptime-kuma:
   - annotations:
@@ -12871,4 +12925,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-01-25T22:06:25.05362676Z"
+generated: "2026-01-27T22:31:52.187928665Z"
