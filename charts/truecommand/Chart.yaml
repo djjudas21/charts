@@ -1,0 +1,22 @@
+apiVersion: v2
+name: truecommand
+description: Manage TrueNAS Fleet All From One Place
+version: 0.1.0
+appVersion: 3.2.0
+type: application
+keywords:
+  - truenas
+  - truecommand
+  - ixsystems
+  - nas
+home: https://github.com/djjudas21/charts/tree/master/charts/truecommand
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/truecommand.png
+sources:
+  - https://github.com/iXsystems/TrueCommand-install
+maintainers:
+  - name: djjudas21
+    email: djjudas21@users.noreply.github.com
+annotations:
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Initial release

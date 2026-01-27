@@ -1,10 +1,10 @@
-# spoolman
+# truecommand
 
-![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.23.0](https://img.shields.io/badge/AppVersion-0.23.0-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.2.0](https://img.shields.io/badge/AppVersion-3.2.0-informational?style=flat-square)
 
-Keep track of your inventory of 3D-printer filament spools.
+Manage TrueNAS Fleet All From One Place
 
-**Homepage:** <https://github.com/djjudas21/charts/tree/master/charts/spoolman>
+**Homepage:** <https://github.com/djjudas21/charts/tree/master/charts/truecommand>
 
 ## Maintainers
 
@@ -14,7 +14,7 @@ Keep track of your inventory of 3D-printer filament spools.
 
 ## Source Code
 
-* <https://github.com/Donkie/Spoolman/tree/master>
+* <https://github.com/iXsystems/TrueCommand-install>
 
 ## Values
 
@@ -23,20 +23,17 @@ Keep track of your inventory of 3D-printer filament spools.
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | httpRoute | object | `{"annotations":{},"enabled":false,"hostnames":["chart-example.local"],"parentRefs":[{"name":"gateway","sectionName":"http"}],"rules":[{"matches":[{"path":{"type":"PathPrefix","value":"/headers"}}]}]}` | Expose the service via gateway-api HTTPRoute Requires Gateway API resources and suitable controller installed within the cluster (see: https://gateway-api.sigs.k8s.io/guides/) |
-| image | object | `{"pullPolicy":"IfNotPresent","repository":"ghcr.io/donkie/spoolman","tag":""}` | image repository |
+| image | object | `{"pullPolicy":"IfNotPresent","repository":"ixsystems/truecommand","tag":""}` | image repository |
 | image.tag | string | chart.appVersion | image tag |
 | imagePullSecrets | list | `[]` |  |
 | ingress | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | livenessProbe.httpGet.path | string | `"/"` |  |
 | livenessProbe.httpGet.port | string | `"http"` |  |
-| metrics.enabled | bool | `false` | Enable Spoolman metrics endpoint |
-| metrics.serviceMonitor.enabled | bool | `true` | Enable scraping via the Prometheus Operator |
-| metrics.serviceMonitor.interval | string | `"60s"` | Scraping interval |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | persistence.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.enabled | bool | `false` |  |
-| persistence.path | string | `"/var/lib/spoolman"` |  |
+| persistence.path | string | `"/data"` |  |
 | persistence.size | string | `"1Gi"` |  |
 | persistence.storageClass | string | `""` |  |
 | podAnnotations | object | `{}` |  |
