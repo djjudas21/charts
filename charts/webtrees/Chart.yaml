@@ -1,9 +1,9 @@
 ---
 apiVersion: v2
-appVersion: 2.1.25
+appVersion: 2.1.26
 description: Open-source online collaborative genealogy application
 name: webtrees
-version: 2.2.21
+version: 2.2.22
 kubeVersion: ">=1.16.0-0"
 keywords:
   - webtrees
@@ -29,4 +29,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Switch to bitnamilegacy image as a stopgap
+      description: Update to Webtrees v2.1.26
