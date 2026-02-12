@@ -30,6 +30,12 @@
           ],
           "required": [],
           "title": "logLevel"
+        },
+        "mapping": {
+          "default": "",
+          "description": "Custom graphite mappings in YAML format. See https://github.com/prometheus/graphite_exporter#metric-mapping-and-configuration",
+          "title": "mapping",
+          "type": "string"
         }
       },
       "required": [],
