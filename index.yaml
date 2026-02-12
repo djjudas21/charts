@@ -2350,6 +2350,33 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to graphite-exporter v0.16.0
+    apiVersion: v2
+    appVersion: v0.16.0
+    created: "2026-02-12T09:08:26.312902271Z"
+    description: A Prometheus exporter for metrics exported in the Graphite plaintext
+      protocol
+    digest: f681ff9188ef305fd83a9c9862cc97f43b94d07578c5643115be20ef90ff746c
+    home: https://github.com/djjudas21/charts/tree/master/charts/graphite-exporter
+    icon: https://graphiteapp.org/img/apple-touch-icon-144x144.png
+    keywords:
+    - graphite
+    - prometheus
+    - monitoring
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: graphite-exporter
+    sources:
+    - https://github.com/prometheus/graphite_exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/graphite-exporter-0.1.9/graphite-exporter-0.1.9.tgz
+    version: 0.1.9
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Fix chart URL
     apiVersion: v2
     appVersion: v0.12.3
@@ -7084,6 +7111,37 @@ entries:
           description: Update to Navidrome 0.60.2
     apiVersion: v2
     appVersion: 0.60.2
+    created: "2026-02-12T09:08:26.469320672Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 7af0b57e67cda60216335bc7fff3c762308a568514c94bc2c1f8a359d78a1359
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.8.1/navidrome-6.8.1.tgz
+    version: 6.8.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Navidrome 0.60.2
+    apiVersion: v2
+    appVersion: 0.60.2
     created: "2026-02-09T10:03:34.727938859Z"
     dependencies:
     - name: common
@@ -11494,6 +11552,33 @@ entries:
           description: Update to Spoolman v0.23.1
     apiVersion: v2
     appVersion: 0.23.1
+    created: "2026-02-12T09:08:26.652441976Z"
+    description: Keep track of your inventory of 3D-printer filament spools.
+    digest: 7a6e9f56badac4a0a2e706750c15ed445c0586a443eee6a79c3a33d4c5058761
+    home: https://github.com/djjudas21/charts/tree/master/charts/spoolman
+    icon: https://raw.githubusercontent.com/Donkie/Spoolman/refs/heads/master/client/icons/spoolman.svg
+    keywords:
+    - database
+    - service
+    - inventory
+    - 3dprinting
+    - filament
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: spoolman
+    sources:
+    - https://github.com/Donkie/Spoolman/tree/master
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/spoolman-0.1.5/spoolman-0.1.5.tgz
+    version: 0.1.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Spoolman v0.23.1
+    apiVersion: v2
+    appVersion: 0.23.1
     created: "2026-02-09T10:03:34.967793987Z"
     description: Keep track of your inventory of 3D-printer filament spools.
     digest: 5cb3ce3dbafd56122fe55521dffbac226018a38a0aa7838ae593186b5384c6ab
@@ -12240,6 +12325,41 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/vikunja-6.1.2/vikunja-6.1.2.tgz
     version: 6.1.2
   webtrees:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Webtrees v2.1.26
+    apiVersion: v2
+    appVersion: 2.1.26
+    created: "2026-02-12T09:08:26.800286118Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Open-source online collaborative genealogy application
+    digest: 37ab9725d7390564d006b11e5ff4c39ddd2c10ed845c87cd88f60143821af2b5
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    - ancestry
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-2.2.23/webtrees-2.2.23.tgz
+    version: 2.2.23
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -13084,4 +13204,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-02-09T10:03:35.172991415Z"
+generated: "2026-02-12T09:08:26.80098982Z"
