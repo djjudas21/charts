@@ -23,6 +23,7 @@ A Prometheus exporter for metrics exported in the Graphite plaintext protocol
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | graphite.logLevel | string | `"info"` | Only log messages with the given severity or above |
+| graphite.mapping | string | `""` | Custom graphite mappings in YAML format. See https://github.com/prometheus/graphite_exporter#metric-mapping-and-configuration |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"prom/graphite-exporter"` | image repository |
 | image.tag | string | chart.appVersion | image tag |
