@@ -52,7 +52,12 @@ service:
     annotations: {}
     # metallb.universe.tf/allow-shared-ip: graphite-exporter
 
-graphite: {}
+graphite:
+  # @schema
+  # enum: [debug, info, warn, error]
+  # @schema
+  # -- Only log messages with the given severity or above
+  logLevel: info
   #mapping: |-
     # Add custom graphite mappings here: https://github.com/prometheus/graphite_exporter#metric-mapping-and-configuration
 

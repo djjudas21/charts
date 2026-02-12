@@ -32,10 +32,11 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["/bin/graphite_exporter"]
+          args:
+            - "--graphite.listen-address=:{{ .Values.service.graphite.port }}"
+            - "--log.level={{ .Values.graphite.logLevel }}"
           {{- if .Values.graphite.mapping }}
-          args: ["--graphite.listen-address", ":{{ .Values.service.graphite.port }}", "--graphite.mapping-config", "/tmp/graphite_mapping.conf"]
-          {{- else }}
-          args: ["--graphite.listen-address", ":{{ .Values.service.graphite.port }}"]
+            - "--graphite.mapping-config=/tmp/graphite_mapping.conf"
           {{- end }}
           ports:
             - name: prometheus
