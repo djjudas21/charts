@@ -58,8 +58,8 @@ graphite:
   # @schema
   # -- Only log messages with the given severity or above
   logLevel: info
-  #mapping: |-
-    # Add custom graphite mappings here: https://github.com/prometheus/graphite_exporter#metric-mapping-and-configuration
+  # -- Custom graphite mappings in YAML format. See https://github.com/prometheus/graphite_exporter#metric-mapping-and-configuration
+  mapping: ""
 
 serviceMonitor:
   # -- Enable Service Monitor for Prometheus Operator
