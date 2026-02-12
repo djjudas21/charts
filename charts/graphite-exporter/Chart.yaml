@@ -2,14 +2,15 @@ apiVersion: v2
 name: graphite-exporter
 description: A Prometheus exporter for metrics exported in the Graphite plaintext protocol
 type: application
-version: 0.1.8
-appVersion: "v0.12.3"
+version: 0.1.9
+appVersion: "v0.16.0"
 home: https://github.com/djjudas21/charts/tree/master/charts/graphite-exporter
 icon: https://graphiteapp.org/img/apple-touch-icon-144x144.png
 keywords:
   - graphite
   - prometheus
   - monitoring
+  - exporter
 maintainers:
   - name: djjudas21
     email: djjudas21@users.noreply.github.com
@@ -18,4 +19,4 @@ sources:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Fix chart URL
+      description: Update to graphite-exporter v0.16.0

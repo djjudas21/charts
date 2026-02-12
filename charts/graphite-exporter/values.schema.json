@@ -18,6 +18,26 @@
       "type": "object"
     },
     "graphite": {
+      "properties": {
+        "logLevel": {
+          "default": "info",
+          "description": "Only log messages with the given severity or above",
+          "enum": [
+            "debug",
+            "info",
+            "warn",
+            "error"
+          ],
+          "required": [],
+          "title": "logLevel"
+        },
+        "mapping": {
+          "default": "",
+          "description": "Custom graphite mappings in YAML format. See https://github.com/prometheus/graphite_exporter#metric-mapping-and-configuration",
+          "title": "mapping",
+          "type": "string"
+        }
+      },
       "required": [],
       "title": "graphite",
       "type": "object"
