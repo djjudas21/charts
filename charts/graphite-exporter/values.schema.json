@@ -18,6 +18,20 @@
       "type": "object"
     },
     "graphite": {
+      "properties": {
+        "logLevel": {
+          "default": "info",
+          "description": "Only log messages with the given severity or above",
+          "enum": [
+            "debug",
+            "info",
+            "warn",
+            "error"
+          ],
+          "required": [],
+          "title": "logLevel"
+        }
+      },
       "required": [],
       "title": "graphite",
       "type": "object"
