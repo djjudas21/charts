@@ -1,6 +1,6 @@
 # graphite-exporter
 
-![Version: 0.1.8](https://img.shields.io/badge/Version-0.1.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.12.3](https://img.shields.io/badge/AppVersion-v0.12.3-informational?style=flat-square)
+![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.16.0](https://img.shields.io/badge/AppVersion-v0.16.0-informational?style=flat-square)
 
 A Prometheus exporter for metrics exported in the Graphite plaintext protocol
 
@@ -22,7 +22,7 @@ A Prometheus exporter for metrics exported in the Graphite plaintext protocol
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
-| graphite | object | `{}` |  |
+| graphite.logLevel | string | `"info"` | Only log messages with the given severity or above |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"prom/graphite-exporter"` | image repository |
 | image.tag | string | chart.appVersion | image tag |
