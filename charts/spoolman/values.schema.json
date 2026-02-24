@@ -125,7 +125,6 @@
       "type": "object"
     },
     "image": {
-      "description": "image repository",
       "properties": {
         "pullPolicy": {
           "default": "IfNotPresent",
@@ -440,6 +439,19 @@
       },
       "required": [],
       "title": "serviceAccount",
+      "type": "object"
+    },
+    "strategy": {
+      "properties": {
+        "type": {
+          "default": "Recreate",
+          "description": "Specifies the strategy used to replace old Pods by new ones",
+          "title": "type",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "strategy",
       "type": "object"
     },
     "tolerations": {
