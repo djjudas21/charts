@@ -6,6 +6,10 @@
 # -- Number of replicas
 replicaCount: 1
 
+strategy:
+  # -- Specifies the strategy used to replace old Pods by new ones
+  type: Recreate
+
   # -- image repository
 image:
   repository: ghcr.io/donkie/spoolman

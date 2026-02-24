@@ -1,6 +1,6 @@
 # spoolman
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.23.1](https://img.shields.io/badge/AppVersion-0.23.1-informational?style=flat-square)
+![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.23.1](https://img.shields.io/badge/AppVersion-0.23.1-informational?style=flat-square)
 
 Keep track of your inventory of 3D-printer filament spools.
 
@@ -23,7 +23,8 @@ Keep track of your inventory of 3D-printer filament spools.
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | httpRoute | object | `{"annotations":{},"enabled":false,"hostnames":["chart-example.local"],"parentRefs":[{"name":"gateway","sectionName":"http"}],"rules":[{"matches":[{"path":{"type":"PathPrefix","value":"/headers"}}]}]}` | Expose the service via gateway-api HTTPRoute Requires Gateway API resources and suitable controller installed within the cluster (see: https://gateway-api.sigs.k8s.io/guides/) |
-| image | object | `{"pullPolicy":"IfNotPresent","repository":"ghcr.io/donkie/spoolman","tag":""}` | image repository |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"ghcr.io/donkie/spoolman"` |  |
 | image.tag | string | chart.appVersion | image tag |
 | imagePullSecrets | list | `[]` |  |
 | ingress | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
@@ -52,6 +53,7 @@ Keep track of your inventory of 3D-printer filament spools.
 | serviceAccount.automount | bool | `false` | Automatically mount a ServiceAccount's API credentials? |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | a name is generated using the fullname template | The name of the service account to use. |
+| strategy.type | string | `"Recreate"` | Specifies the strategy used to replace old Pods by new ones |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
