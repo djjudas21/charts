@@ -6,6 +6,8 @@ metadata:
     {{- include "spoolman.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: {{ .Values.strategy.type }}
   selector:
     matchLabels:
       {{- include "spoolman.selectorLabels" . | nindent 6 }}
@@ -86,5 +88,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      strategy:
-        type: {{ .Values.strategy.type }}
