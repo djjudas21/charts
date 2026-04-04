@@ -20,7 +20,7 @@ maintainers:
     email: djjudas21@users.noreply.github.com
 dependencies:
   - name: common
-    version: 0.2.0
+    version: 4.6.2
     repository: http://bjw-s-labs.github.io/helm-charts/
   - name: mariadb
     version: ~18
