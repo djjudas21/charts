@@ -3622,6 +3622,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Jellyfin v10.11.7
+    apiVersion: v2
+    appVersion: 10.11.7
+    created: "2026-04-04T19:53:52.688636759Z"
+    description: Your media, your server, your way
+    digest: 0705a9fb16a3b056c3d6336404449fc91e4e62e1014e525dd6cf700ad9e56f87
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-4.0.5/jellyfin-4.0.5.tgz
+    version: 4.0.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Jellyfin v10.11.6
     apiVersion: v2
     appVersion: 10.11.6
@@ -4339,6 +4367,39 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/jellyfin-3.0.0/jellyfin-3.0.0.tgz
     version: 3.0.0
   jellystat:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jellystat v1.1.9
+    apiVersion: v2
+    appVersion: 1.1.9
+    created: "2026-04-04T19:53:52.843091238Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: cf088b5191e94cc7bd3cf7ccb218d56e421a874557d8298df7cd13ceabea6470
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.11/jellystat-0.1.11.tgz
+    version: 0.1.11
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -7105,6 +7166,37 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.2/maian-music-0.2.2.tgz
     version: 0.2.2
   navidrome:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Navidrome 0.61.0
+    apiVersion: v2
+    appVersion: 0.61.0
+    created: "2026-04-04T19:53:53.017649957Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: d07214fceef981f9828df1f0b9ca4c4eb19d2cb06ece37bf1e10c608b0510111
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.8.2/navidrome-6.8.2.tgz
+    version: 6.8.2
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -13258,4 +13350,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-02-24T11:02:58.198153454Z"
+generated: "2026-04-04T19:53:53.018650244Z"
