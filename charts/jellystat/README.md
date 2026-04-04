@@ -21,7 +21,7 @@ Jellystat is a free and open source Statistics App for Jellyfin
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | postgresql | ~15 |
+| https://charts.bitnami.com/bitnami | postgresql | ~18.5.0 |
 
 ## Values
 

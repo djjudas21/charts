@@ -20,7 +20,7 @@ maintainers:
     url: https://github.com/djjudas21
 dependencies:
   - name: postgresql
-    version: ~15
+    version: ~18.5.0
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
 annotations:

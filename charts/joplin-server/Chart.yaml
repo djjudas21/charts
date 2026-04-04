@@ -21,7 +21,7 @@ dependencies:
     repository: http://bjw-s-labs.github.io/helm-charts/
     version: 0.2.0
   - name: postgresql
-    version: ~11
+    version: ~18.5.0
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
 annotations:
