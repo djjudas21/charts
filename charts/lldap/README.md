@@ -21,7 +21,7 @@ Light LDAP implementation
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | mariadb | ~18 |
+| https://charts.bitnami.com/bitnami | mariadb | ~25.0.0 |
 | https://charts.bitnami.com/bitnami | postgresql | ~15 |
 
 ## Values

@@ -21,7 +21,7 @@ A file sharing server that puts the control and security of your own data back i
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | mariadb | ~18 |
+| https://charts.bitnami.com/bitnami | mariadb | ~25.0.0 |
 | https://valkey.io/valkey-helm/ | valkey | ~0.7 |
 
 ## Values
