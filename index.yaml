@@ -3622,6 +3622,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Jellyfin v10.11.8
+    apiVersion: v2
+    appVersion: 10.11.8
+    created: "2026-04-05T20:44:18.077150228Z"
+    description: Your media, your server, your way
+    digest: 6e8446ef25975c11f289d7e13d88db8551775a1bd07c1638a9b3c63860371c7d
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-4.0.6/jellyfin-4.0.6.tgz
+    version: 4.0.6
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to Jellyfin v10.11.7
     apiVersion: v2
     appVersion: 10.11.7
@@ -7166,6 +7194,37 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/maian-music-0.2.2/maian-music-0.2.2.tgz
     version: 0.2.2
   navidrome:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Navidrome 0.61.1
+    apiVersion: v2
+    appVersion: 0.61.1
+    created: "2026-04-05T20:44:18.192237997Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.0
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 8704ab239137a87a932d5fe7d202a448bd633ab5aaed083a26d91281587be4f6
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.8.3/navidrome-6.8.3.tgz
+    version: 6.8.3
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -13350,4 +13409,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-04-04T19:53:53.018650244Z"
+generated: "2026-04-05T20:44:18.193071342Z"
