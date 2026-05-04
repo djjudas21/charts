@@ -6149,6 +6149,44 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to lldap v0.6.3
+    apiVersion: v2
+    appVersion: v0.6.3
+    created: "2026-05-04T20:24:13.673776005Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Light LDAP implementation
+    digest: 41b5ea354dbd5c374148708c092ae23dea83df3e8b76dd42a01841c25557d6a8
+    home: https://github.com/djjudas21/charts/tree/master/charts/lldap
+    keywords:
+    - rust
+    - security
+    - ldap
+    - authentication
+    - wasm
+    - web-assembly
+    - opaque
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: lldap
+    sources:
+    - https://github.com/lldap/lldap
+    - https://hub.docker.com/r/lldap/lldap
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/lldap-0.6.4/lldap-0.6.4.tgz
+    version: 0.6.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Improve secret handling
     apiVersion: v2
     appVersion: v0.6.2
@@ -13409,4 +13447,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-04-05T20:44:18.193071342Z"
+generated: "2026-05-04T20:24:14.418212613Z"
