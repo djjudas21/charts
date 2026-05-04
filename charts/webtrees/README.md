@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| http://bjw-s-labs.github.io/helm-charts/ | common | 0.2.2 |
+| http://bjw-s-labs.github.io/helm-charts/ | common | 5.0.0 |
 | https://charts.bitnami.com/bitnami | mariadb | ~18 |
 
 ## Values
