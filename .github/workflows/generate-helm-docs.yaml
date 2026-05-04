@@ -9,7 +9,7 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.ref }}
     - name: Generate Helm documentation
-      uses: losisin/helm-docs-github-action@v1
+      uses: losisin/helm-docs-github-action@v2
       with:
         git-push: true
     - name: Install dadav/helm-schema
