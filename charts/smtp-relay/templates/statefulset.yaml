@@ -93,8 +93,8 @@ spec:
             - name: SMTP_RELAY_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "smtp-relay.fullname" . }}
-                  key: smtp-relay-password
+                  name: {{ .Values.secret.existingSecret | default (include "smtp-relay.fullname" .)}}
+                  key: password
           ports:
             - name: smtp
               containerPort: 2525

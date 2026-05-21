@@ -236,11 +236,11 @@
           "title": "annotations",
           "type": "object"
         },
-        "create": {
-          "default": true,
-          "description": "Create the secret containing the smtp-relay password",
-          "title": "create",
-          "type": "boolean"
+        "existingSecret": {
+          "default": "",
+          "description": "Use existing secret for password details (`smtp.password` will be ignored and picked up from this secret). The secret must contain the key `password`",
+          "title": "existingSecret",
+          "type": "string"
         }
       },
       "required": [],
