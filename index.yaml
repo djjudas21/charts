@@ -12627,6 +12627,38 @@ entries:
         - kind: changed
           description: Update to Webtrees v2.1.26
     apiVersion: v2
+    appVersion: 2.2.6
+    created: "2026-05-21T20:02:41.294421061Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Open-source online collaborative genealogy application
+    digest: edf5060b8a660527c00fca3ba6cc4572a9ba99619ad902337f1ffd76613541e7
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    - ancestry
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-3.0.0/webtrees-3.0.0.tgz
+    version: 3.0.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Webtrees v2.1.26
+    apiVersion: v2
     appVersion: 2.1.26
     created: "2026-02-12T09:08:26.800286118Z"
     dependencies:
@@ -13501,4 +13533,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-05-21T14:15:20.556157315Z"
+generated: "2026-05-21T20:02:41.295016044Z"
