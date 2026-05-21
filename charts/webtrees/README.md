@@ -1,8 +1,12 @@
 # webtrees
 
-![Version: 2.2.23](https://img.shields.io/badge/Version-2.2.23-informational?style=flat-square) ![AppVersion: 2.1.26](https://img.shields.io/badge/AppVersion-2.1.26-informational?style=flat-square)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![AppVersion: 2.2.6](https://img.shields.io/badge/AppVersion-2.2.6-informational?style=flat-square)
 
 Open-source online collaborative genealogy application
+
+> [!WARNING]
+> **BREAKING**
+> Version 3.x of this chart has significant changes and the values schema is incompatible. Be sure to verify your values schema against the new one in this chart and migrate your changes across.
 
 **Homepage:** <https://github.com/djjudas21/charts/tree/master/charts/webtrees>
 
@@ -23,13 +27,13 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| http://bjw-s-labs.github.io/helm-charts/ | common | 0.2.2 |
 | https://charts.bitnami.com/bitnami | mariadb | ~18 |
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| affinity | object | `{}` |  |
 | env | object | See below | environment variables. See [webtrees-docker documentation](https://github.com/NathanVaughn/webtrees-docker#environment-variables) for more details. |
 | env.BASE_URL | string | `"https://webtrees.example.com"` | Base URL of the installation, with protocol. Must be in the form `http://webtrees.example.com` |
 | env.DB_HOST | string | `"webtrees-mariadb"` | Database hostname |
@@ -42,17 +46,46 @@ Kubernetes: `>=1.16.0-0`
 | env.LANG | string | `"en-US"` | webtrees localization setting |
 | env.PRETTY_URLS | string | `"TRUE"` | Enable pretty URLs |
 | env.TZ | string | `"UTC"` | Set the container timezone |
-| env.WT_EMAIL | string | `"admin@example.com"` | Admin account email |
-| env.WT_NAME | string | `"Administrator"` | Admin account full name |
-| env.WT_PASS | string | `"adminpass"` | Admin account password |
-| env.WT_USER | string | `"admin"` | Admin account username |
+| fullnameOverride | string | `""` |  |
+| httpRoute | object | `{"annotations":{},"enabled":false,"hostnames":["chart-example.local"],"parentRefs":[{"name":"gateway","sectionName":"http"}],"rules":[{"matches":[{"path":{"type":"PathPrefix","value":"/headers"}}]}]}` | Expose the service via gateway-api HTTPRoute Requires Gateway API resources and suitable controller installed within the cluster (see: https://gateway-api.sigs.k8s.io/guides/) |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/nathanvaughn/webtrees"` | image repository |
-| image.tag | string | chart.appVersion | image tag |
-| ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
+| image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion. |
+| imagePullSecrets | list | `[]` |  |
+| ingress.annotations | object | `{}` |  |
+| ingress.className | string | `""` |  |
+| ingress.enabled | bool | `false` |  |
+| ingress.hosts[0].host | string | `"chart-example.local"` |  |
+| ingress.hosts[0].paths[0].path | string | `"/"` |  |
+| ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
+| ingress.tls | list | `[]` |  |
+| livenessProbe.httpGet.path | string | `"/"` |  |
+| livenessProbe.httpGet.port | string | `"http"` |  |
 | mariadb | object | <https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml> | Enable and configure mariadb database subchart under this key.    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb) |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` |  |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| podAnnotations | object | `{}` |  |
+| podLabels | object | `{}` |  |
+| podSecurityContext | object | `{}` |  |
+| priorityClassName | string | `""` |  |
+| readinessProbe.httpGet.path | string | `"/"` |  |
+| readinessProbe.httpGet.port | string | `"http"` |  |
+| replicaCount | int | `1` |  |
+| resources | object | `{}` |  |
+| secret.WT_EMAIL | string | `"admin@example.com"` | Admin account email |
+| secret.WT_NAME | string | `"Administrator"` | Admin account full name |
+| secret.WT_PASS | string | `"adminpass"` | Admin account password |
+| secret.WT_USER | string | `"admin"` | Admin account username |
+| secret.existingSecret | string | `""` | Use existing secret for password details. The secret must contain the keys `WT_USER`, `WT_NAME`, `WT_PASS`, `WT_EMAIL` and those keys will be ignored from this section |
+| securityContext | object | `{}` |  |
+| service.port | int | `80` |  |
+| service.type | string | `"ClusterIP"` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.automount | bool | `true` |  |
+| serviceAccount.create | bool | `true` |  |
+| serviceAccount.name | string | `""` |  |
+| tolerations | list | `[]` |  |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.14.2](https://github.com/norwoodj/helm-docs/releases/v1.14.2)
