@@ -18,8 +18,8 @@
   ](LICENSE)
   <br/>
   ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
-  ![Version: 4.0.6](https://img.shields.io/badge/Version-4.0.6-informational?style=flat-square)
-  ![AppVersion: 10.11.8](https://img.shields.io/badge/AppVersion-10.11.8-informational?style=flat-square)
+  ![Version: 4.0.7](https://img.shields.io/badge/Version-4.0.7-informational?style=flat-square)
+  ![AppVersion: 10.11.9](https://img.shields.io/badge/AppVersion-10.11.9-informational?style=flat-square)
 
 </div>
 
