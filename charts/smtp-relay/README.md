@@ -1,6 +1,6 @@
 # smtp-relay
 
-![Version: 0.7.0](https://img.shields.io/badge/Version-0.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.11.0](https://img.shields.io/badge/AppVersion-0.11.0-informational?style=flat-square)
+![Version: 0.8.0](https://img.shields.io/badge/Version-0.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.11.0](https://img.shields.io/badge/AppVersion-0.11.0-informational?style=flat-square)
 
 An SMTP smarthost relay for Kubernetes
 
@@ -44,7 +44,7 @@ An SMTP smarthost relay for Kubernetes
 | resources | object | `{}` |  |
 | secret | object | See values.yaml | Configures secret settings for the chart. |
 | secret.annotations | object | `{}` | Additional annotations for the secret |
-| secret.create | bool | `true` | Create the secret containing the smtp-relay password |
+| secret.existingSecret | string | `""` | Use existing secret for password details (`smtp.password` will be ignored and picked up from this secret). The secret must contain the key `password` |
 | securityContext | object | `{}` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
