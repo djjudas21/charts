@@ -27,7 +27,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | mariadb | ~18 |
+| https://charts.bitnami.com/bitnami | mariadb | ~26.1.0 |
 
 ## Values
 
