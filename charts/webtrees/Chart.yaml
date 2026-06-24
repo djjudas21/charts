@@ -20,7 +20,7 @@ maintainers:
     email: djjudas21@users.noreply.github.com
 dependencies:
   - name: mariadb
-    version: ~18
+    version: ~26.1.0
     repository: https://charts.bitnami.com/bitnami
     condition: mariadb.enabled
 annotations:
