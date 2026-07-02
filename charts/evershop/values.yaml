@@ -19,6 +19,27 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# -- Specify database connection details. This section is ignored if secret.existingSecret is defined.
+postgres:
+  # -- External Postgres host
+  DB_HOST: database
+  # -- External Postgres port
+  DB_PORT: 5432
+  # -- External Postgres password
+  DB_PASSWORD: postgres
+  # -- External Postgres username
+  DB_USER: postgres
+  # -- External Postgres database name
+  DB_NAME: postgres
+
+# -- Configures secret settings for the chart.
+# @default -- See values.yaml
+secret:
+  # -- Additional annotations for the secret
+  annotations: {}
+  # -- Use an existing secret for database connection details. The secret must contain the keys defined in the `postgres` section.
+  existingSecret: ""
+
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
   # Specifies whether a service account should be created.
