@@ -1,6 +1,6 @@
 # navidrome
 
-![Version: 6.8.3](https://img.shields.io/badge/Version-6.8.3-informational?style=flat-square) ![AppVersion: 0.61.1](https://img.shields.io/badge/AppVersion-0.61.1-informational?style=flat-square)
+![Version: 6.8.4](https://img.shields.io/badge/Version-6.8.4-informational?style=flat-square) ![AppVersion: 0.63.1](https://img.shields.io/badge/AppVersion-0.63.1-informational?style=flat-square)
 
 Navidrome is an open source web-based music collection server and streamer
 
