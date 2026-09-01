@@ -4,6 +4,32 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to AdventureLog 0.13.0
+    apiVersion: v2
+    appVersion: v0.13.0
+    created: "2026-09-01T13:40:34.140893204Z"
+    description: Self-hostable travel tracker and trip planner
+    digest: 1d4fd4a4bc0ba817c35265ddb6a8d1b5f1c24ce0b23a9d0e0a76d3e267f1875d
+    home: https://github.com/djjudas21/charts/tree/master/charts/adventurelog
+    icon: https://adventurelog.app/adventurelog.svg
+    keywords:
+    - travel
+    - planner
+    - adventure
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: adventurelog
+    sources:
+    - https://adventurelog.app/
+    - https://github.com/seanmorley15/AdventureLog
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/adventurelog-0.1.1/adventurelog-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to AdventureLog 0.10.0
     apiVersion: v2
     appVersion: v0.10.0
@@ -13691,4 +13717,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-07-10T12:36:20.485402349Z"
+generated: "2026-09-01T13:40:34.141827851Z"
