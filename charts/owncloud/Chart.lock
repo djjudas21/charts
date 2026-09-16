@@ -1,9 +1,9 @@
 dependencies:
 - name: mariadb
   repository: https://charts.bitnami.com/bitnami
-  version: 18.2.6
+  version: 28.0.0
 - name: valkey
   repository: https://valkey.io/valkey-helm/
-  version: 0.7.5
-digest: sha256:84263a3de841980eb561ea5c883bff223dcf725847d9c9eea1cfeae5c386f9f7
-generated: "2025-10-16T22:14:24.325171183+01:00"
+  version: 0.7.7
+digest: sha256:1867e2043f94c136eef4db589e3491a3644e64e0f52036873ca115633acbfdf7
+generated: "2026-09-16T01:25:03.854889525Z"
