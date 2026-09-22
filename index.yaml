@@ -4483,6 +4483,34 @@ entries:
           description: Drop support for Bitnami Postgresql
     apiVersion: v2
     appVersion: 1.1.12
+    created: "2026-09-22T21:27:48.616806123Z"
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: 6b3c2f4a6f7bf3012576eb1b2a282b576f5ee823c7a406f2eb6041b5e99675e9
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-1.0.1/jellystat-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Drop support for Bitnami Postgresql
+    apiVersion: v2
+    appVersion: 1.1.12
     created: "2026-09-22T19:51:27.18246983Z"
     description: Jellystat is a free and open source Statistics App for Jellyfin
     digest: 1196adcec41f3c96f79b29106e7d7ed1557babb9839d908d5338c628c4f4a798
@@ -4869,6 +4897,35 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/jellystat-0.1.1/jellystat-0.1.1.tgz
     version: 0.1.1
   joplin-server:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Drop support for Bitnami Postgresql
+    apiVersion: v2
+    appVersion: 3.7.2
+    created: "2026-09-22T21:27:48.842807765Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.2
+    description: This server allows you to sync any Joplin client
+    digest: 2ec2da14fc00364108ecf5a1c89b0301f29cd32adef20686a0f9eb8ac586ddf8
+    home: https://github.com/djjudas21/charts/tree/master/charts/joplin-server
+    icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
+    keywords:
+    - joplin
+    - notes
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: joplin-server
+    sources:
+    - https://github.com/laurent22/joplin/tree/dev/packages/server
+    - https://github.com/laurent22/joplin
+    - https://hub.docker.com/r/joplin/server
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/joplin-server-6.0.0/joplin-server-6.0.0.tgz
+    version: 6.0.0
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -13776,4 +13833,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-09-22T19:51:27.18313894Z"
+generated: "2026-09-22T21:27:48.843495264Z"
