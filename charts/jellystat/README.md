@@ -1,6 +1,6 @@
 # jellystat
 
-![Version: 0.1.12](https://img.shields.io/badge/Version-0.1.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.11](https://img.shields.io/badge/AppVersion-1.1.11-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.12](https://img.shields.io/badge/AppVersion-1.1.12-informational?style=flat-square)
 
 Jellystat is a free and open source Statistics App for Jellyfin
 
@@ -16,12 +16,6 @@ Jellystat is a free and open source Statistics App for Jellyfin
 
 * <https://hub.docker.com/r/cyfershepard/jellystat>
 * <https://github.com/djjudas21/charts/tree/main/charts/jellystat>
-
-## Requirements
-
-| Repository | Name | Version |
-|------------|------|---------|
-| https://charts.bitnami.com/bitnami | postgresql | ~15 |
 
 ## Values
 
@@ -42,7 +36,12 @@ Jellystat is a free and open source Statistics App for Jellyfin
 | podAnnotations | object | `{}` |  |
 | podLabels | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
-| postgresql | object | https://github.com/bitnami/charts/blob/master/bitnami/postgresql/values.yaml | Enable and configure postgresql database subchart under this key.    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) |
+| postgresql | object | `{"database":"jellystat","existingSecret":"","host":"joplin-postgresql","password":"jellystat","port":"5432","username":"jellystat"}` | Configure postgresql database connection under this key. You must provide your own postgres database. We recommend using CNPG. |
+| postgresql.database | string | `"jellystat"` | Postgres DB name |
+| postgresql.existingSecret | string | `""` | Name of an existing secret that contains the above keys. If defined, the above keys are ignored. |
+| postgresql.password | string | `"jellystat"` | Postgres DB password |
+| postgresql.port | string | `"5432"` | Postgres DB port |
+| postgresql.username | string | `"jellystat"` | Postgres DB Username |
 | readinessProbe.httpGet.path | string | `"/"` |  |
 | readinessProbe.httpGet.port | string | `"http"` |  |
 | replicaCount | int | `1` | Number of jellystat replicas. |
