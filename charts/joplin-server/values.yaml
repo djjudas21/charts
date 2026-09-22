@@ -48,17 +48,3 @@ ingress:
   # @default -- See values.yaml
   main:
     enabled: false
-
-# -- Enable and configure postgresql database subchart under this key.
-#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
-# @default -- https://github.com/bitnami/charts/blob/master/bitnami/postgresql/values.yaml
-postgresql:
-  enabled: false
-  image:
-    repository: bitnamilegacy/postgresql
-  postgresqlUsername: joplin
-  postgresqlPassword: joplin-pass
-  postgresqlDatabase: joplin
-  persistence:
-    enabled: false
-    # storageClass: ""
