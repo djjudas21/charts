@@ -181,81 +181,42 @@
       "type": "object"
     },
     "postgresql": {
-      "description": "Enable and configure postgresql database subchart under this key.\n   For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)",
+      "description": "Configure postgresql database connection under this key.\nYou must provide your own postgres database. We recommend using CNPG.",
       "properties": {
-        "auth": {
-          "properties": {
-            "database": {
-              "default": "jellystat",
-              "title": "database",
-              "type": "string"
-            },
-            "password": {
-              "default": "jellystat",
-              "title": "password",
-              "type": "string"
-            },
-            "postgresPassword": {
-              "default": "jellystat",
-              "title": "postgresPassword",
-              "type": "string"
-            },
-            "username": {
-              "default": "jellystat",
-              "title": "username",
-              "type": "string"
-            }
-          },
-          "required": [],
-          "title": "auth",
-          "type": "object"
+        "database": {
+          "default": "jellystat",
+          "description": "Postgres DB name",
+          "title": "database",
+          "type": "string"
         },
-        "enabled": {
-          "default": false,
-          "title": "enabled",
-          "type": "boolean"
+        "existingSecret": {
+          "default": "",
+          "description": "Name of an existing secret that contains the above keys. If defined, the above keys are ignored.",
+          "title": "existingSecret",
+          "type": "string"
         },
-        "image": {
-          "properties": {
-            "repository": {
-              "default": "bitnamilegacy/postgresql",
-              "title": "repository",
-              "type": "string"
-            }
-          },
-          "required": [],
-          "title": "image",
-          "type": "object"
+        "host": {
+          "default": "joplin-postgresql",
+          "title": "host",
+          "type": "string"
         },
-        "primary": {
-          "properties": {
-            "persistence": {
-              "properties": {
-                "enabled": {
-                  "default": false,
-                  "title": "enabled",
-                  "type": "boolean"
-                },
-                "size": {
-                  "default": "1Gi",
-                  "description": "storageClass: \"\"",
-                  "title": "size",
-                  "type": "string"
-                }
-              },
-              "required": [],
-              "title": "persistence",
-              "type": "object"
-            },
-            "resources": {
-              "required": [],
-              "title": "resources",
-              "type": "object"
-            }
-          },
-          "required": [],
-          "title": "primary",
-          "type": "object"
+        "password": {
+          "default": "jellystat",
+          "description": "Postgres DB password",
+          "title": "password",
+          "type": "string"
+        },
+        "port": {
+          "default": "5432",
+          "description": "Postgres DB port",
+          "title": "port",
+          "type": "string"
+        },
+        "username": {
+          "default": "jellystat",
+          "description": "Postgres DB Username",
+          "title": "username",
+          "type": "string"
         }
       },
       "required": [],
