@@ -114,58 +114,6 @@
       "title": "ingress",
       "type": "object"
     },
-    "postgresql": {
-      "description": "Enable and configure postgresql database subchart under this key.\n   For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)",
-      "properties": {
-        "enabled": {
-          "default": false,
-          "title": "enabled",
-          "type": "boolean"
-        },
-        "image": {
-          "properties": {
-            "repository": {
-              "default": "bitnamilegacy/postgresql",
-              "title": "repository",
-              "type": "string"
-            }
-          },
-          "required": [],
-          "title": "image",
-          "type": "object"
-        },
-        "persistence": {
-          "properties": {
-            "enabled": {
-              "default": false,
-              "title": "enabled",
-              "type": "boolean"
-            }
-          },
-          "required": [],
-          "title": "persistence",
-          "type": "object"
-        },
-        "postgresqlDatabase": {
-          "default": "joplin",
-          "title": "postgresqlDatabase",
-          "type": "string"
-        },
-        "postgresqlPassword": {
-          "default": "joplin-pass",
-          "title": "postgresqlPassword",
-          "type": "string"
-        },
-        "postgresqlUsername": {
-          "default": "joplin",
-          "title": "postgresqlUsername",
-          "type": "string"
-        }
-      },
-      "required": [],
-      "title": "postgresql",
-      "type": "object"
-    },
     "service": {
       "description": "Configures service settings for the chart.",
       "properties": {
