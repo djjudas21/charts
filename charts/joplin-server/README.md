@@ -1,6 +1,6 @@
 # joplin-server
 
-![Version: 5.5.8](https://img.shields.io/badge/Version-5.5.8-informational?style=flat-square) ![AppVersion: 2.14.2-beta](https://img.shields.io/badge/AppVersion-2.14.2--beta-informational?style=flat-square)
+![Version: 6.0.0](https://img.shields.io/badge/Version-6.0.0-informational?style=flat-square) ![AppVersion: 3.7.2](https://img.shields.io/badge/AppVersion-3.7.2-informational?style=flat-square)
 
 This server allows you to sync any Joplin client
 
@@ -23,7 +23,6 @@ This server allows you to sync any Joplin client
 | Repository | Name | Version |
 |------------|------|---------|
 | http://bjw-s-labs.github.io/helm-charts/ | common | 0.2.2 |
-| https://charts.bitnami.com/bitnami | postgresql | ~11 |
 
 ## Values
 
@@ -43,7 +42,6 @@ This server allows you to sync any Joplin client
 | image.repository | string | `"joplin/server"` | image repository |
 | image.tag | string | chart.appVersion | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
-| postgresql | object | https://github.com/bitnami/charts/blob/master/bitnami/postgresql/values.yaml | Enable and configure postgresql database subchart under this key.    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 ----------------------------------------------
