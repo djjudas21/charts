@@ -35,14 +35,38 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+          {{ if .Values.postgresql.existingSecret }}
             - name: POSTGRES_USER
-              value: {{ .Values.postgresql.auth.username }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.postgresql.existingSecret }}
+                  key: username
             - name: POSTGRES_PASSWORD
-              value: {{ .Values.postgresql.auth.password }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.postgresql.existingSecret }}
+                  key: password
             - name: POSTGRES_IP
-              value: {{ include "jellystat.fullname" . }}-postgresql
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.postgresql.existingSecret }}
+                  key: host
             - name: POSTGRES_PORT
-              value: "5432"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.postgresql.existingSecret }}
+                  key: port
+                  optional: true
+          {{- else }}
+            - name: POSTGRES_USER
+              value: {{ .Values.postgresql.username }}
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.postgresql.password }}
+            - name: POSTGRES_IP
+              value: {{ .Values.postgresql.host }}
+            - name: POSTGRES_PORT
+              value: {{ .Values.postgresql.port | quote }}
+          {{- end }}
             - name: JWT_SECRET
               value: {{ .Values.jwtSecret }}
           ports:
