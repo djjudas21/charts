@@ -3,6 +3,7 @@ type: application
 name: jellyfin
 description: Your media, your server, your way
 version: 4.1.0
+# renovate: datasource=github-releases depName=jellyfin/jellyfin
 appVersion: "12.2"
 kubeVersion: '>=1.20.0-0'
 home: https://jellyfin.org/

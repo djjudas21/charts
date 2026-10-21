@@ -1,5 +1,6 @@
 ---
 apiVersion: v2
+# renovate: datasource=github-releases depName=deluan/navidrome
 appVersion: 0.64.2
 description: Navidrome is an open source web-based music collection server and streamer
 name: navidrome

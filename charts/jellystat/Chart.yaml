@@ -3,6 +3,7 @@ type: application
 name: jellystat
 description: Jellystat is a free and open source Statistics App for Jellyfin
 version: 1.0.1
+# renovate: datasource=github-releases depName=CyferShepard/Jellystat
 appVersion: "1.1.12"
 home: https://github.com/CyferShepard/Jellystat
 icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png

@@ -4,6 +4,7 @@ description: A file sharing server that puts the control and security of your ow
 type: application
   
 version: 0.3.24
+# renovate: datasource=github-releases depName=owncloud/core
 appVersion: "10.16.6"
 
 dependencies:
@@ -30,6 +31,7 @@ maintainers:
 sources:
   - https://hub.docker.com/r/owncloud/server
   - https://owncloud.org/
+  - https://github.com/owncloud/core
 annotations:
   category: Infrastructure
   artifacthub.io/changes: |-
