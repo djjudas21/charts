@@ -41,5 +41,7 @@
         "executionMode": "branch"
       }
     }
-  ]
+  ],
+  "allowPostUpgradeCommandTemplating": true,
+  "allowedPostUpgradeCommands":        ["^.*"]
 }
