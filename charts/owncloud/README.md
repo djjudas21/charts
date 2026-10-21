@@ -16,6 +16,7 @@ A file sharing server that puts the control and security of your own data back i
 
 * <https://hub.docker.com/r/owncloud/server>
 * <https://owncloud.org/>
+* <https://github.com/owncloud/core>
 
 ## Requirements
 
