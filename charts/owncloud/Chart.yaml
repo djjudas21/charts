@@ -3,9 +3,9 @@ name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
   
-version: 0.3.24
+version: 0.3.26
 # renovate: datasource=github-releases depName=owncloud/core
-appVersion: "10.16.6"
+appVersion: "10.16.6-20261022"
 
 dependencies:
 - name: mariadb
@@ -36,4 +36,4 @@ annotations:
   category: Infrastructure
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update to ownCloud v10.16.6
+      description: Update to ownCloud v10.16.6-20261022 to patch PHP vulnerabilities
