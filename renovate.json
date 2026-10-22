@@ -24,9 +24,7 @@
         {
           "name": "Bump Helm chart version",
           "filePatterns": ["{{packageFileDir}}/Chart.yaml"],
-          "matchStrings": [
-            "version:\\s*[\"']?(?<version>[^\"'\\s]+)[\"']?"
-          ],
+          "matchStrings": ["version:\\s(?<version>[^\\s]+)"],
           "bumpType": "patch"
         }
       ]
