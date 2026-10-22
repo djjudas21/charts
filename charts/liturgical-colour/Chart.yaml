@@ -23,7 +23,7 @@ version: 99.99.99
 # It is recommended to use it with quotes.
 
 # renovate: datasource=github-releases depName=djjudas21/liturgical-colour-app
-appVersion: "0.7.2"
+appVersion: "1.2.0"
 keywords:
   - liturgical
   - calendar
