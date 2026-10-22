@@ -9352,6 +9352,45 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to ownCloud v10.16.6-20261022 to patch PHP vulnerabilities
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.16.6-20261022
+    created: "2026-10-22T08:12:31.361225182Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: valkey
+      repository: https://valkey.io/valkey-helm/
+      version: ~0.7
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: 1263789869efdb04aebfdf5d56f1d94897873c4784787ae071c6ee5a491ba4b1
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.25/owncloud-0.3.25.tgz
+    version: 0.3.25
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update to ownCloud v10.16.6
       category: Infrastructure
     apiVersion: v2
@@ -13931,4 +13970,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-10-21T19:38:44.97356914Z"
+generated: "2026-10-22T08:12:31.361902867Z"
