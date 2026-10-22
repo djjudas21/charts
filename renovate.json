@@ -19,7 +19,7 @@
     {
       "description": "Bump Helm chart patch version when appVersion changes",
       "matchManagers": ["custom.regex"],
-      "matchFileNames": ["apps/**/Chart.yaml"],
+      "matchFileNames": ["charts/**/Chart.yaml"],
       "bumpVersions": [
         {
           "name": "Bump Helm chart version",
