@@ -7,6 +7,32 @@ entries:
           description: Update to AdventureLog 0.13.0
     apiVersion: v2
     appVersion: v0.13.0
+    created: "2026-10-22T19:47:18.068575977Z"
+    description: Self-hostable travel tracker and trip planner
+    digest: 12b126a365c1c71b616b4000af6ae5b9341ef2d36010cddf0b11043f3f23237e
+    home: https://github.com/djjudas21/charts/tree/master/charts/adventurelog
+    icon: https://adventurelog.app/adventurelog.svg
+    keywords:
+    - travel
+    - planner
+    - adventure
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: adventurelog
+    sources:
+    - https://adventurelog.app/
+    - https://github.com/seanmorley15/AdventureLog
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/adventurelog-0.1.2/adventurelog-0.1.2.tgz
+    version: 0.1.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to AdventureLog 0.13.0
+    apiVersion: v2
+    appVersion: v0.13.0
     created: "2026-09-01T13:40:34.140893204Z"
     description: Self-hostable travel tracker and trip planner
     digest: 1d4fd4a4bc0ba817c35265ddb6a8d1b5f1c24ce0b23a9d0e0a76d3e267f1875d
@@ -82,6 +108,35 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/alertify-0.1.0/alertify-0.1.0.tgz
     version: 0.1.0
   alertmanager-ntfy:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fixed RBAC
+    apiVersion: v2
+    appVersion: 1.0.1
+    created: "2026-10-22T19:47:18.277463119Z"
+    description: Service that forwards Prometheus Alertmanager notifications to ntfy.sh
+    digest: 30dd288e4ecf953944ae24105b046d89c79302e8ecb55a5a089dcf00d6386360
+    home: https://github.com/alexbakker/alertmanager-ntfy
+    icon: https://ntfy.sh/_next/static/media/logo.077f6a13.svg
+    keywords:
+    - prometheus
+    - alertmanager
+    - ntfy
+    - notification
+    - alert
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: alertmanager-ntfy
+    sources:
+    - https://github.com/djjudas21/charts/tree/main/charts/alertmanager-ntfy
+    - https://github.com/alexbakker/alertmanager-ntfy
+    - https://ghcr.io/alexbakker/alertmanager-ntfy
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/alertmanager-ntfy-0.1.3/alertmanager-ntfy-0.1.3.tgz
+    version: 0.1.3
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -711,6 +766,32 @@ entries:
           description: Switch to use MariaDB Operator to deploy MariaDB
     apiVersion: v2
     appVersion: 4.23.0
+    created: "2026-10-22T19:47:18.761003643Z"
+    description: DomainMOD is a self-hosted open source application used to manage
+      your domains and other Internet assets in a central location
+    digest: 75e534e7d234d5970a1933b9a16185fc3f23d31530e6257c8670de2c30d602e1
+    home: https://github.com/djjudas21/charts/tree/master/charts/domainmod
+    icon: https://domainmod.org/images/logo_share_fb.png
+    keywords:
+    - domainmod
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: domainmod
+    sources:
+    - https://github.com/domainmod/domainmod
+    - https://domainmod.org/
+    - https://hub.docker.com/r/domainmod/domainmod
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/domainmod-1.0.1/domainmod-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Switch to use MariaDB Operator to deploy MariaDB
+    apiVersion: v2
+    appVersion: 4.23.0
     created: "2026-01-02T15:29:12.454190349Z"
     description: DomainMOD is a self-hosted open source application used to manage
       your domains and other Internet assets in a central location
@@ -794,6 +875,34 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/domainmod-0.5.3/domainmod-0.5.3.tgz
     version: 0.5.3
   ecowitt-exporter:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Add location to temperature probes
+    apiVersion: v2
+    appVersion: 2.2.0
+    created: "2026-10-22T19:47:19.025266102Z"
+    description: A Prometheus exporter for Ecowitt weather stations
+    digest: c2bee95e4482ad4fce2b230e5b249555f11e61cd94f3fa2395ca4f9997a9fb2c
+    home: https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: ecowitt-exporter
+    sources:
+    - https://github.com/djjudas21/ecowitt-exporter
+    - https://hub.docker.com/r/djjudas21/ecowitt-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/ecowitt-exporter-2.2.3/ecowitt-exporter-2.2.3.tgz
+    version: 2.2.3
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -3651,6 +3760,34 @@ entries:
           description: Update to Jellyfin v12.2
     apiVersion: v2
     appVersion: "12.2"
+    created: "2026-10-22T19:47:19.187494511Z"
+    description: Your media, your server, your way
+    digest: 62c39be462fd81693d8c5a7159596b41cbd7ec1616a5d826f842241e23207287
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg
+    keywords:
+    - jellyfin
+    - media-server
+    - plex
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    - https://github.com/djjudas21/charts/tree/main/charts/jellyfin
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellyfin-4.1.1/jellyfin-4.1.1.tgz
+    version: 4.1.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jellyfin v12.2
+    apiVersion: v2
+    appVersion: "12.2"
     created: "2026-10-21T19:38:44.972817636Z"
     description: Your media, your server, your way
     digest: 6f47be3f7849b2d9546fefdf364c40b7983655fbd11d9026b2723753d4ea60d1
@@ -4511,6 +4648,34 @@ entries:
           description: Drop support for Bitnami Postgresql
     apiVersion: v2
     appVersion: 1.1.12
+    created: "2026-10-22T19:47:19.368871075Z"
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: 9cf223ebca87b7d1f21ff1b95d2c61b856e67d55725812d92dceaf694c7dbd0b
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-1.0.2/jellystat-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Drop support for Bitnami Postgresql
+    apiVersion: v2
+    appVersion: 1.1.12
     created: "2026-09-22T21:27:48.616806123Z"
     description: Jellystat is a free and open source Statistics App for Jellyfin
     digest: 6b3c2f4a6f7bf3012576eb1b2a282b576f5ee823c7a406f2eb6041b5e99675e9
@@ -5318,6 +5483,54 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/joplin-server-5.4.0/joplin-server-5.4.0.tgz
     version: 5.4.0
   jump:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Jump v1.4.1
+      artifacthub.io/screenshots: |
+        - title: Tag selection
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagselection.png
+        - title: Tag page
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-tagpage.png
+        - title: Search
+          url: https://raw.githubusercontent.com/daledavies/jump/main/screenshots/screenshot-search.png
+    apiVersion: v2
+    appVersion: v1.4.1
+    created: "2026-10-22T19:47:19.552470497Z"
+    description: Jump is a self-hosted startpage and real-time status page for your
+      server designed to be simple, stylish, fast and secure.
+    digest: d8c3afb21d11c109baafaef2850b77f13beec361b60ecb53bb22bf97f1e58455
+    home: https://github.com/djjudas21/charts/tree/master/charts/jump
+    icon: https://raw.githubusercontent.com/daledavies/jump/main/jumpapp/assets/images/favicon/icon.png
+    keywords:
+    - javascript
+    - docker
+    - php
+    - weather
+    - links
+    - dashboard
+    - home
+    - unsplash
+    - directory
+    - selfhosted
+    - homepage
+    - portal
+    - self-hosted
+    - startpage
+    - start
+    - status-page
+    - selfhosted-apps
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: jump
+    sources:
+    - https://github.com/daledavies/jump
+    - https://hub.docker.com/r/daledavies/jump
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jump-0.1.8/jump-0.1.8.tgz
+    version: 0.1.8
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -7466,6 +7679,37 @@ entries:
           description: Update to Navidrome 0.64.2
     apiVersion: v2
     appVersion: 0.64.2
+    created: "2026-10-22T19:47:20.058673159Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.2
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 912932a49b1967b963b5e21b4f38634715efd52813ac683f6e34692834966c69
+    home: https://github.com/djjudas21/charts/tree/master/charts/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/master/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/navidrome-6.8.7/navidrome-6.8.7.tgz
+    version: 6.8.7
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Navidrome 0.64.2
+    apiVersion: v2
+    appVersion: 0.64.2
     created: "2026-09-30T20:08:56.019607232Z"
     dependencies:
     - name: common
@@ -9349,6 +9593,46 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/openssh-server-0.1.0/openssh-server-0.1.0.tgz
     version: 0.1.0
   owncloud:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to ownCloud v10.16.6-20261022 to patch PHP vulnerabilities
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 10.16.6-20261022
+    created: "2026-10-22T19:47:20.289945266Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    - name: valkey
+      repository: https://valkey.io/valkey-helm/
+      version: ~0.7
+    description: A file sharing server that puts the control and security of your
+      own data back into your hands.
+    digest: db56abc2ede4b2353eec9b7000998bd19219f4a538656558333440f2758499bf
+    home: https://github.com/djjudas21/owncloud-helm
+    icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
+    keywords:
+    - owncloud
+    - storage
+    - http
+    - web
+    - php
+    - dav
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: owncloud
+    sources:
+    - https://hub.docker.com/r/owncloud/server
+    - https://owncloud.org/
+    - https://github.com/owncloud/core
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/owncloud-0.3.26/owncloud-0.3.26.tgz
+    version: 0.3.26
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -13065,6 +13349,38 @@ entries:
           description: Update to Webtrees v2.1.26
     apiVersion: v2
     appVersion: 2.2.6
+    created: "2026-10-22T19:47:20.737062862Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: ~18
+    description: Open-source online collaborative genealogy application
+    digest: 27c5df278e46ac50c2aff2906e91d180af8ebb70c6378ab538ada40b94e33d73
+    home: https://github.com/djjudas21/charts/tree/master/charts/webtrees
+    icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+    keywords:
+    - webtrees
+    - genealogy
+    - family-tree
+    - ancestry
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: webtrees
+    sources:
+    - https://github.com/fisharebest/webtrees
+    - https://github.com/NathanVaughn/webtrees-docker
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/webtrees-3.0.1/webtrees-3.0.1.tgz
+    version: 3.0.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update to Webtrees v2.1.26
+    apiVersion: v2
+    appVersion: 2.2.6
     created: "2026-05-21T20:02:41.294421061Z"
     dependencies:
     - condition: mariadb.enabled
@@ -13848,6 +14164,38 @@ entries:
           description: Initial release
     apiVersion: v2
     appVersion: 4.2.0-beta.3
+    created: "2026-10-22T19:47:21.01215137Z"
+    description: Wizarr is an advanced user invitation and management system for Jellyfin,
+      Plex, Emby etc.
+    digest: 95b092410d54e570352b35b622d6d04e3ddee3f24066ad179d81e3ef509d1430
+    home: https://github.com/wizarrrr/wizarr
+    icon: https://raw.githubusercontent.com/Wizarrrr/wizarr/master/apps/wizarr-frontend/src/assets/img/wizard.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    - jellyseerr
+    - overseerr
+    - ombi
+    - invite
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: wizarr
+    sources:
+    - https://github.com/wizarrrr/wizarr/pkgs/container/wizarr
+    - https://github.com/djjudas21/charts/tree/main/charts/wizarr
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.6/wizarr-0.1.6.tgz
+    version: 0.1.6
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial release
+    apiVersion: v2
+    appVersion: 4.2.0-beta.3
     created: "2025-11-10T10:46:36.905167923Z"
     description: Wizarr is an advanced user invitation and management system for Jellyfin,
       Plex, Emby etc.
@@ -13970,4 +14318,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-10-22T08:12:31.361902867Z"
+generated: "2026-10-22T19:47:21.013059585Z"
