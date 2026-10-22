@@ -1,9 +1,10 @@
 ---
 apiVersion: v2
+# renovate: datasource=github-releases depName=NathanVaughn/webtrees-docker
 appVersion: 2.2.6
 description: Open-source online collaborative genealogy application
 name: webtrees
-version: 3.0.0
+version: 3.0.1
 kubeVersion: ">=1.16.0-0"
 keywords:
   - webtrees

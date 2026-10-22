@@ -1,6 +1,6 @@
 # owncloud
 
-![Version: 0.3.25](https://img.shields.io/badge/Version-0.3.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.16.6-20261022](https://img.shields.io/badge/AppVersion-10.16.6--20261022-informational?style=flat-square)
+![Version: 0.3.26](https://img.shields.io/badge/Version-0.3.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.16.6-20261022](https://img.shields.io/badge/AppVersion-10.16.6--20261022-informational?style=flat-square)
 
 A file sharing server that puts the control and security of your own data back into your hands.
 
@@ -16,6 +16,7 @@ A file sharing server that puts the control and security of your own data back i
 
 * <https://hub.docker.com/r/owncloud/server>
 * <https://owncloud.org/>
+* <https://github.com/owncloud/core>
 
 ## Requirements
 

@@ -21,6 +21,8 @@ version: 99.99.99
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
+
+# renovate: datasource=github-releases depName=djjudas21/liturgical-colour-app
 appVersion: "0.7.2"
 keywords:
   - liturgical
