@@ -4704,6 +4704,34 @@ entries:
           description: Drop support for Bitnami Postgresql
     apiVersion: v2
     appVersion: 1.1.12
+    created: "2026-10-23T20:23:25.000974254Z"
+    description: Jellystat is a free and open source Statistics App for Jellyfin
+    digest: 6a09e086741060d7e5231263b1cecde63795e3685281870d31bf866c4490eca0
+    home: https://github.com/CyferShepard/Jellystat
+    icon: https://raw.githubusercontent.com/CyferShepard/Jellystat/main/public/icon-b-192.png
+    keywords:
+    - jellyfin
+    - media-server
+    - stats
+    - statistics
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+      url: https://github.com/djjudas21
+    name: jellystat
+    sources:
+    - https://hub.docker.com/r/cyfershepard/jellystat
+    - https://github.com/djjudas21/charts/tree/main/charts/jellystat
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/jellystat-1.0.3/jellystat-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Drop support for Bitnami Postgresql
+    apiVersion: v2
+    appVersion: 1.1.12
     created: "2026-10-22T19:47:19.368871075Z"
     description: Jellystat is a free and open source Statistics App for Jellyfin
     digest: 9cf223ebca87b7d1f21ff1b95d2c61b856e67d55725812d92dceaf694c7dbd0b
@@ -14374,4 +14402,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-10-23T06:16:39.529256275Z"
+generated: "2026-10-23T20:23:25.00152248Z"
