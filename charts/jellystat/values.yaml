@@ -45,6 +45,17 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+extraEnv: []
+  # - name: TZ
+  #   value: America/New_York
+  # - name: JS_GEOLITE_ACCOUNT_ID
+  #   value: "optional-geolite-account-id"
+  # - name: JS_GEOLITE_LICENSE_KEY
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: geolite-license
+  #       key: license-key
+
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
 service:
