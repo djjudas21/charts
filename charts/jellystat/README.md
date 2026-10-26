@@ -1,6 +1,6 @@
 # jellystat
 
-![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.12](https://img.shields.io/badge/AppVersion-1.1.12-informational?style=flat-square)
+![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.12](https://img.shields.io/badge/AppVersion-1.1.12-informational?style=flat-square)
 
 Jellystat is a free and open source Statistics App for Jellyfin
 
@@ -22,6 +22,7 @@ Jellystat is a free and open source Statistics App for Jellyfin
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| extraEnv | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"cyfershepard/jellystat"` | image repository |
