@@ -6,6 +6,13 @@
       "title": "affinity",
       "type": "object"
     },
+    "extraEnv": {
+      "items": {
+        "required": []
+      },
+      "title": "extraEnv",
+      "type": "array"
+    },
     "fullnameOverride": {
       "default": "",
       "title": "fullnameOverride",
