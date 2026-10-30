@@ -5233,6 +5233,35 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update to Joplin server v3.7.3
+    apiVersion: v2
+    appVersion: 3.7.3
+    created: "2026-10-30T22:11:44.77733279Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 0.2.2
+    description: This server allows you to sync any Joplin client
+    digest: 10b9e82dbb64e480f3e5a40cc9ac336b79d3f8941a430192c89854800a12e4cd
+    home: https://github.com/djjudas21/charts/tree/master/charts/joplin-server
+    icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
+    keywords:
+    - joplin
+    - notes
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: joplin-server
+    sources:
+    - https://github.com/laurent22/joplin/tree/dev/packages/server
+    - https://github.com/laurent22/joplin
+    - https://hub.docker.com/r/joplin/server
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/joplin-server-6.0.1/joplin-server-6.0.1.tgz
+    version: 6.0.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Drop support for Bitnami Postgresql
     apiVersion: v2
     appVersion: 3.7.2
@@ -14458,4 +14487,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-10-29T17:51:12.266206534Z"
+generated: "2026-10-30T22:11:44.778241601Z"
