@@ -1,9 +1,9 @@
 ---
 apiVersion: v2
-appVersion: 3.7.2
+appVersion: 3.7.3
 description: This server allows you to sync any Joplin client
 name: joplin-server
-version: 6.0.0
+version: 6.0.1
 keywords:
   - joplin
   - notes
@@ -23,4 +23,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Drop support for Bitnami Postgresql
+      description: Update to Joplin server v3.7.3
