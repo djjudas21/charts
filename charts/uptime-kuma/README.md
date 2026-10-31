@@ -8,12 +8,6 @@ A fancy self-hosted monitoring tool for your websites and applications
 
 **Homepage:** <https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma>
 
-## Maintainers
-
-| Name | Email | Url |
-| ---- | ------ | --- |
-| djjudas21 | <djjudas21@users.noreply.github.com> |  |
-
 ## Source Code
 
 * <https://github.com/louislam/uptime-kuma>

@@ -8,12 +8,6 @@ Keep track of your inventory of 3D-printer filament spools.
 
 **Homepage:** <https://github.com/djjudas21/charts/tree/master/charts/spoolman>
 
-## Maintainers
-
-| Name | Email | Url |
-| ---- | ------ | --- |
-| djjudas21 | <djjudas21@users.noreply.github.com> |  |
-
 ## Source Code
 
 * <https://github.com/Donkie/Spoolman/tree/master>
