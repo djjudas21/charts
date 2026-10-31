@@ -15,9 +15,7 @@ home: https://github.com/djjudas21/charts/tree/master/charts/spoolman
 icon: https://raw.githubusercontent.com/Donkie/Spoolman/refs/heads/master/client/icons/spoolman.svg
 sources:
   - https://github.com/Donkie/Spoolman/tree/master
-maintainers:
-  - name: djjudas21
-    email: djjudas21@users.noreply.github.com
+maintainers: []
 annotations:
   artifacthub.io/changes: |-
     - kind: deprecated

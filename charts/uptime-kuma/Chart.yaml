@@ -15,9 +15,7 @@ home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-ku
 icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
 sources:
   - https://github.com/louislam/uptime-kuma
-maintainers:
-  - name: djjudas21
-    email: djjudas21@users.noreply.github.com
+maintainers: []
 dependencies:
   - name: common
     repository: http://bjw-s-labs.github.io/helm-charts/
