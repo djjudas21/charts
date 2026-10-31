@@ -2,7 +2,8 @@ apiVersion: v2
 appVersion: "0.24.0"
 description: Keep track of your inventory of 3D-printer filament spools.
 name: spoolman
-version: 0.1.8
+version: 99.99.99
+deprecated: true
 type: application
 keywords:
   - database
@@ -14,10 +15,8 @@ home: https://github.com/djjudas21/charts/tree/master/charts/spoolman
 icon: https://raw.githubusercontent.com/Donkie/Spoolman/refs/heads/master/client/icons/spoolman.svg
 sources:
   - https://github.com/Donkie/Spoolman/tree/master
-maintainers:
-  - name: djjudas21
-    email: djjudas21@users.noreply.github.com
+maintainers: []
 annotations:
   artifacthub.io/changes: |-
-    - kind: changed
-      description: Update Spoolman to v0.24.0
+    - kind: deprecated
+      description: "Deprecated because there are better charts out there"

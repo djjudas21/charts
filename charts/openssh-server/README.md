@@ -1,6 +1,8 @@
 # openssh-server
 
-![Version: 0.1.14](https://img.shields.io/badge/Version-0.1.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 9.7_p1-r4-ls171](https://img.shields.io/badge/AppVersion-9.7_p1--r4--ls171-informational?style=flat-square)
+> **:exclamation: This Helm Chart is deprecated!**
+
+![Version: 99.99.99](https://img.shields.io/badge/Version-99.99.99-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 9.7_p1-r4-ls171](https://img.shields.io/badge/AppVersion-9.7_p1--r4--ls171-informational?style=flat-square)
 
 Sandboxed environment that allows ssh access without giving keys to the entire server
 
