@@ -1,6 +1,8 @@
 # uptime-kuma
 
-![Version: 1.5.18](https://img.shields.io/badge/Version-1.5.18-informational?style=flat-square) ![AppVersion: 1.23.12](https://img.shields.io/badge/AppVersion-1.23.12-informational?style=flat-square)
+> **:exclamation: This Helm Chart is deprecated!**
+
+![Version: 99.99.99](https://img.shields.io/badge/Version-99.99.99-informational?style=flat-square) ![AppVersion: 1.23.12](https://img.shields.io/badge/AppVersion-1.23.12-informational?style=flat-square)
 
 A fancy self-hosted monitoring tool for your websites and applications
 
