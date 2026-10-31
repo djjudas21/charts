@@ -9371,6 +9371,35 @@ entries:
   openssh-server:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: deprecated
+          description: "Deprecated due to lack of maintenance"
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 9.7_p1-r4-ls171
+    created: "2026-10-31T22:00:05.679064182Z"
+    deprecated: true
+    description: Sandboxed environment that allows ssh access without giving keys
+      to the entire server
+    digest: f92d2f1a635bab5f4142fb33ecef0c73a4ba67a56fcec8d5bb00b613b3495442
+    home: https://github.com/djjudas21/charts
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-icon.png
+    keywords:
+    - ssh
+    - openssh
+    - bastion
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: openssh-server
+    sources:
+    - https://hub.docker.com/r/linuxserver/openssh-server
+    - https://github.com/linuxserver/docker-openssh-server
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/openssh-server-99.99.99/openssh-server-99.99.99.tgz
+    version: 99.99.99
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: changed
           description: Update OpenSSH image
       category: Infrastructure
@@ -12654,6 +12683,31 @@ entries:
   spoolman:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: deprecated
+          description: "Deprecated because there are better charts out there"
+    apiVersion: v2
+    appVersion: 0.24.0
+    created: "2026-10-31T22:00:05.838395855Z"
+    deprecated: true
+    description: Keep track of your inventory of 3D-printer filament spools.
+    digest: 6cd20e8f6a42610525f4b27c933378579b34c7b5d5da18943f451eddf4a4da5b
+    home: https://github.com/djjudas21/charts/tree/master/charts/spoolman
+    icon: https://raw.githubusercontent.com/Donkie/Spoolman/refs/heads/master/client/icons/spoolman.svg
+    keywords:
+    - database
+    - service
+    - inventory
+    - 3dprinting
+    - filament
+    name: spoolman
+    sources:
+    - https://github.com/Donkie/Spoolman/tree/master
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/spoolman-99.99.99/spoolman-99.99.99.tgz
+    version: 99.99.99
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: changed
           description: Update Spoolman to v0.24.0
     apiVersion: v2
@@ -12923,6 +12977,34 @@ entries:
     - https://github.com/djjudas21/charts/releases/download/truecommand-0.1.0/truecommand-0.1.0.tgz
     version: 0.1.0
   uptime-kuma:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: deprecated
+          description: "Deprecated because there are better charts out there"
+    apiVersion: v2
+    appVersion: 1.23.12
+    created: "2026-10-31T22:00:05.982438212Z"
+    dependencies:
+    - name: common
+      repository: http://bjw-s-labs.github.io/helm-charts/
+      version: 1.0.0
+    deprecated: true
+    description: A fancy self-hosted monitoring tool for your websites and applications
+    digest: a878e67e8b12a936a0617592bd31a36801eddfef592cf710ba2f4e89bfb47cb0
+    home: https://github.com/djjudas21/charts/tree/master/charts/incubator/uptime-kuma
+    icon: https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg
+    keywords:
+    - uptime-kuma
+    - status
+    - status-page
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/uptime-kuma-99.99.99/uptime-kuma-99.99.99.tgz
+    version: 99.99.99
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -14487,4 +14569,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-10-30T22:11:44.778241601Z"
+generated: "2026-10-31T22:00:05.983164689Z"
