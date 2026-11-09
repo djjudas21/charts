@@ -1014,6 +1014,34 @@ entries:
         - kind: changed
           description: Add location to temperature probes
     apiVersion: v2
+    appVersion: 2.4.0
+    created: "2026-11-09T21:44:03.07446892Z"
+    description: A Prometheus exporter for Ecowitt weather stations
+    digest: 2ac96de39a9d79889d4bc12e5a2e4d5d7ae60005dc4f9a824b3e55415ebc83f6
+    home: https://github.com/djjudas21/charts/tree/master/charts/ecowitt-exporter
+    icon: https://user-images.githubusercontent.com/7027842/110340181-44219c80-8029-11eb-9baf-6889de873405.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: ecowitt-exporter
+    sources:
+    - https://github.com/djjudas21/ecowitt-exporter
+    - https://hub.docker.com/r/djjudas21/ecowitt-exporter
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/ecowitt-exporter-2.2.5/ecowitt-exporter-2.2.5.tgz
+    version: 2.2.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Add location to temperature probes
+    apiVersion: v2
     appVersion: 2.3.0
     created: "2026-10-22T21:18:36.647289136Z"
     description: A Prometheus exporter for Ecowitt weather stations
@@ -14715,4 +14743,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-11-09T21:38:45.941581325Z"
+generated: "2026-11-09T21:44:03.075688917Z"
