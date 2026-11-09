@@ -3,9 +3,9 @@ name: owncloud
 description: A file sharing server that puts the control and security of your own data back into your hands.
 type: application
   
-version: 0.3.27
+version: 0.3.28
 # renovate: datasource=docker depName=owncloud/server
-appVersion: "v10.16.7"
+appVersion: "11.1.0"
 
 dependencies:
 - name: mariadb
