@@ -4,7 +4,7 @@ description: A file sharing server that puts the control and security of your ow
 type: application
   
 version: 0.3.27
-# renovate: datasource=github-releases depName=owncloud/core
+# renovate: datasource=docker depName=owncloud/server
 appVersion: "v10.16.7"
 
 dependencies:
