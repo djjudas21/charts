@@ -256,6 +256,34 @@ entries:
         - kind: changed
           description: Fixed RBAC
     apiVersion: v2
+    appVersion: 0.0.8
+    created: "2026-11-09T21:38:45.940598681Z"
+    description: Automatically label Kubernetes nodes based on their hardware
+    digest: 883e14c2c5a041ef3c3e396c191095372af2e33560d02780ff139a4974e9433c
+    home: https://github.com/djjudas21/charts/tree/master/charts/autonodelabel
+    icon: https://raw.githubusercontent.com/kubernetes/community/master/icons/png/infrastructure_components/labeled/node-128.png
+    keywords:
+    - ecowitt
+    - weather
+    - helm
+    - prometheus
+    - exporter
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: autonodelabel
+    sources:
+    - https://github.com/djjudas21/autonodelabel
+    - https://hub.docker.com/r/djjudas21/autonodelabel
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/autonodelabel-0.0.12/autonodelabel-0.0.12.tgz
+    version: 0.0.12
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Fixed RBAC
+    apiVersion: v2
     appVersion: 0.0.7
     created: "2026-10-29T17:51:12.264980876Z"
     description: Automatically label Kubernetes nodes based on their hardware
@@ -14687,4 +14715,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-11-09T21:35:42.59608608Z"
+generated: "2026-11-09T21:38:45.941581325Z"
