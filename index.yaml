@@ -793,6 +793,32 @@ entries:
         - kind: changed
           description: Switch to use MariaDB Operator to deploy MariaDB
     apiVersion: v2
+    appVersion: v4.24.01
+    created: "2026-11-09T21:02:13.555038461Z"
+    description: DomainMOD is a self-hosted open source application used to manage
+      your domains and other Internet assets in a central location
+    digest: 62bcf6fd5e2ebb099d9df6963d44c18bd3d71b4ed3b052a90e83efdbcf8ccd2e
+    home: https://github.com/djjudas21/charts/tree/master/charts/domainmod
+    icon: https://domainmod.org/images/logo_share_fb.png
+    keywords:
+    - domainmod
+    maintainers:
+    - email: djjudas21@users.noreply.github.com
+      name: djjudas21
+    name: domainmod
+    sources:
+    - https://github.com/domainmod/domainmod
+    - https://domainmod.org/
+    - https://hub.docker.com/r/domainmod/domainmod
+    type: application
+    urls:
+    - https://github.com/djjudas21/charts/releases/download/domainmod-1.0.3/domainmod-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Switch to use MariaDB Operator to deploy MariaDB
+    apiVersion: v2
     appVersion: 4.23.01
     created: "2026-11-08T21:05:54.064544576Z"
     description: DomainMOD is a self-hosted open source application used to manage
@@ -14635,4 +14661,4 @@ entries:
     urls:
     - https://github.com/djjudas21/charts/releases/download/wizarr-0.1.1/wizarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-11-08T21:05:54.065005978Z"
+generated: "2026-11-09T21:02:13.555606075Z"
