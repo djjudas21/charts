@@ -13,7 +13,7 @@ dependencies:
   version: ~18
   repository: "https://charts.bitnami.com/bitnami"
 - name: valkey
-  version: ~0.7
+  version: ~1.0.0
   repository: "https://valkey.io/valkey-helm/"
 
 home: https://github.com/djjudas21/owncloud-helm
