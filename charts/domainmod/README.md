@@ -1,6 +1,6 @@
 # domainmod
 
-![Version: 1.0.5](https://img.shields.io/badge/Version-1.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.24.02](https://img.shields.io/badge/AppVersion-4.24.02-informational?style=flat-square)
+![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.25.0](https://img.shields.io/badge/AppVersion-4.25.0-informational?style=flat-square)
 
 DomainMOD is a self-hosted open source application used to manage your domains and other Internet assets in a central location
 
