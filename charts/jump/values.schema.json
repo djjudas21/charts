@@ -586,9 +586,6 @@
                       "anyOf": [
                         {
                           "type": "string"
-                        },
-                        {
-                          "type": "string"
                         }
                       ],
                       "required": []
@@ -654,9 +651,6 @@
                   "tags": {
                     "items": {
                       "anyOf": [
-                        {
-                          "type": "string"
-                        },
                         {
                           "type": "string"
                         }
