@@ -36,7 +36,7 @@
               "type": "string"
             },
             "debug": {
-              "default": "True",
+              "default": true,
               "description": "Run in debug mode",
               "title": "debug",
               "type": "boolean"
