@@ -44,7 +44,6 @@
           "type": "string"
         },
         "DOMAINMOD_WEB_ROOT": {
-          "default": "",
           "description": "Set this if you plan on running DomainMOD in a subdirectory, otherwise leave it blank.",
           "title": "DOMAINMOD_WEB_ROOT",
           "type": "null"

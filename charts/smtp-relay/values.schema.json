@@ -331,9 +331,6 @@
             "anyOf": [
               {
                 "type": "string"
-              },
-              {
-                "type": "string"
               }
             ],
             "required": []
